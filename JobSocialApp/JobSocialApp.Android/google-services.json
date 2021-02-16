@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "192415378655",
+    "project_id": "jobsocialapp-12b52",
+    "storage_bucket": "jobsocialapp-12b52.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:192415378655:android:c2e6b58b2c5bf921020d6a",
+        "android_client_info": {
+          "package_name": "com.companyname.jobsocialapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "192415378655-k8mgqtmbjp1obgj2lrumlhv0pjuqoqa2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJVMOZumfFm9xEm28s1VQ62vRpm4DshKM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "192415378655-k8mgqtmbjp1obgj2lrumlhv0pjuqoqa2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
