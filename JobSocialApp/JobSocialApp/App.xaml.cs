@@ -1,4 +1,6 @@
-﻿using System;
+﻿using JobSocialApp.Services;
+using JobSocialApp.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,6 +13,15 @@ namespace JobSocialApp
             InitializeComponent();
 
             MainPage = new MainPage();
+            var authService = DependencyService.Resolve<IFirebaseAuthenticator>();
+            if (!authService.isSignedIn())
+            {
+                MainPage = new LoginView();
+            }
+            else
+            {
+                MainPage = new HomeView();
+            }
         }
 
         protected override void OnStart()

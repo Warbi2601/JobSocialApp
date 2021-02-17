@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JobSocialApp.Views.HomeView">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="WELCOME"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Image Source="imIn.jpg" />
+            <Button Text="Sign Out" Clicked="SignOutClicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

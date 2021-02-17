@@ -17,7 +17,7 @@ namespace JobSocialApp.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             FirebaseApp.InitializeApp(this);
-            //FirebaseAuth.Instance.CreateUserWithEmailAndPassword("dancutts90@gmail.com", "qwerty");
+            
        
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
