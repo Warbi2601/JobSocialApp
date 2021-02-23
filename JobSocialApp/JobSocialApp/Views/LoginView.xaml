@@ -2,8 +2,20 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="JobSocialApp.Views.LoginView">
-  <ContentPage.Content>
-        <StackLayout>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="AllertColour">#EF3D55</Color>
+            <Color x:Key="LightTextColour">#FFFFFF</Color>
+            <Color x:Key="DarkBackground">#2E3C4C</Color>
+            <Color x:Key="BlackBackground">#000</Color>
+        </ResourceDictionary>
+        <Style TargetType="Label" Class="LightTextColour">
+            <Setter Property="TextColor" Value="{StaticResource LightTextColour}" />
+        </Style>
+    </ContentPage.Resources>
+    
+    <!--<ContentPage.Content>-->
+        <!--<StackLayout>
             <Label Text="Login Page"
                 HorizontalOptions="CenterAndExpand" />
             <Entry Placeholder="username" x:Name="loginEmail" />
@@ -11,5 +23,23 @@
             <Button Text="Login" Clicked="SignInClicked" />
             <Button Text="Register" Clicked="RegisterClicked" />
         </StackLayout>
-    </ContentPage.Content>
+    </ContentPage.Content>-->
+
+
+
+        <StackLayout VerticalOptions="CenterAndExpand" Padding="50,0">
+            <Frame BackgroundColor="Transparent" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="300">
+                <StackLayout>
+                <Label StyleClass="LightTextColour" Text="JSA" FontSize="40" HorizontalTextAlignment="Center" TextColor="{StaticResource DarkBackground}"/>
+                <Label StyleClass="LightTextColour" Text="Please provide your email and password to login into the application." HorizontalTextAlignment="Center" TextColor="{StaticResource DarkBackground}"/>
+                <Entry x:Name="userHeight" Text="{Binding LoginEmail}" Keyboard="Email" Placeholder="Height" TextColor="{StaticResource BlackBackground}"/>
+                <Entry x:Name="userWeight" Text="{Binding LoginPassword}" IsPassword="true" Placeholder="Weight" TextColor="{StaticResource BlackBackground}"/>
+                <Button BackgroundColor="{StaticResource DarkBackground}" TextColor="White" Text="Sing In" Clicked="SignInClicked" Margin="0,20,0,0"/>
+                <Button Text="Register" Clicked="RegisterClicked" />
+            </StackLayout>
+
+
+            </Frame>
+        </StackLayout>
+      
 </ContentPage>
