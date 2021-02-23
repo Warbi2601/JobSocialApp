@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
              x:Class="JobSocialApp.Views.RegisterView">
     <ContentPage.Content>
         <StackLayout>
@@ -11,4 +12,56 @@
             <Button Text="Register" Clicked="SignUpClicked" />
         </StackLayout>
     </ContentPage.Content>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="WhiteColour">#FFFFFF</Color>
+            <Color x:Key="BlackColour">#000</Color>
+            <Color x:Key="ThemeColourLightBlue">#DCE7EF</Color>
+            <Color x:Key="ThemeColourDarkBlue">#355C7D</Color>
+            <Color x:Key="ThemeColourVeryDarkBlue">#1F3447</Color>
+            <Color x:Key="ThemeColourLightPink">#E8CAD2</Color>
+            <Color x:Key="ThemeColourDarkPink">#B34D69</Color>
+        </ResourceDictionary>
+        <Style TargetType="Label" Class="LightTextColour">
+            <Setter Property="TextColor" Value="{StaticResource WhiteColour}" />
+        </Style>
+        <Style TargetType="Label" Class="DarkTextColour">
+            <Setter Property="TextColor" Value="{StaticResource ThemeColourVeryDarkBlue}" />
+        </Style>
+        <Style TargetType="Label" Class="TitleColour">
+            <Setter Property="TextColor" Value="{StaticResource ThemeColourDarkPink}" />
+        </Style>
+    </ContentPage.Resources>
+    <StackLayout Background="White">
+        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+            <Frame HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="300" CornerRadius="10" >
+                <StackLayout>
+                    <Label StyleClass="TitleColour" Text="Register" FontSize="45" HorizontalTextAlignment="Center"/>
+                
+                    <Entry Text="{Binding RegisterFirstName}" Keyboard="Text"  Placeholder="First Name" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
+                    <Entry Text="{Binding RegisterLastName}" Keyboard="Text"  Placeholder="Last Name" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
+                    <Entry Text="{Binding RegisterLoginEmail}" Keyboard="Email" Placeholder="Email address" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
+                    <Entry Text="{Binding RegisterPassword1}" IsPassword="true" Placeholder="Password" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
+                    <Entry Text="{Binding RegisterPassword2}" IsPassword="true" Placeholder="Password" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
+                
+                    <Button BackgroundColor="{StaticResource ThemeColourDarkBlue}" TextColor="{StaticResource WhiteColour}" Text="Sing In" Clicked="SignUpClicked" Margin="0,20,0,0" CornerRadius="20"/>
+                
+                    <Label HorizontalTextAlignment="Center" Padding="0, 10">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Already have an account? " />
+                                <Span Text="Login" TextColor="{StaticResource ThemeColourDarkBlue}">
+                                    <Span.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="LoginClicked"/>
+                                    </Span.GestureRecognizers>
+                                </Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </StackLayout>
 </ContentPage>

@@ -16,11 +16,11 @@ namespace JobSocialApp
             var authService = DependencyService.Resolve<IFirebaseAuthenticator>();
             if (!authService.isSignedIn())
             {
-                MainPage = new LoginView();
+                MainPage = new NavigationPage(new LoginView());
             }
             else
             {
-                MainPage = new HomeView();
+                MainPage = new NavigationPage(new HomeView());
             }
         }
 

@@ -1,5 +1,6 @@
 ﻿using JobSocialApp.ViewModels;
 using System;
+using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using static JobSocialApp.Models.GlobalModels;
@@ -10,6 +11,7 @@ namespace JobSocialApp.Views
     public partial class LoginView : ContentPage
     {
         private LoginViewModel loginVM = null;
+        //public ICommand RegisterCommand => new Command(RegisterClicked);
 
         public LoginView()
         {
@@ -34,9 +36,11 @@ namespace JobSocialApp.Views
             }
         }
 
-        private async void RegisterClicked(object sender, EventArgs e)
+        public async void RegisterClicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new RegisterView());
+            //await Navigation.PushModalAsync(new RegisterView());
+            await Navigation.PopAsync();
+            await Navigation.PushAsync(new RegisterView());
         }
 
         private void Button_EnterApp(object sender, EventArgs e)

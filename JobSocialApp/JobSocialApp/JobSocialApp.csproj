@@ -16,6 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\ProfileView.xaml.cs">
+      <DependentUpon>ProfileView.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>

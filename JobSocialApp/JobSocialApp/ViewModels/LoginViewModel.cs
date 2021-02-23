@@ -86,6 +86,9 @@ namespace JobSocialApp.ViewModels
                 else
                 {
                     var a = await DependencyService.Get<IFirebaseAuthenticator>().LoginWithEmailAndPassword(email, password);
+                    
+                    toClient.IsSuccessful = true;
+                    
                     Application.Current.MainPage = new HomeView();
                 }
             }

@@ -1,18 +1,22 @@
 ﻿using JobSocialApp.Services;
+using JobSocialApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using static JobSocialApp.Models.GlobalModels;
 
 namespace JobSocialApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RegisterView : ContentPage
     {
+        private RegisterViewModel registerVM = null;
+
         public RegisterView()
         {
             InitializeComponent();
@@ -20,23 +24,23 @@ namespace JobSocialApp.Views
 
         private async void SignUpClicked(object sender, EventArgs e)
         {
-            // need to add validation and exception catches // crashes under certain circumstances (password less than 6)
-            try
-            {
-                var email = registerEmail.Text;
-                var password = registerPassword.Text;
-                var uid = await DependencyService.Get<IFirebaseAuthenticator>().SignUpWithEmailAndPassword(email, password);
-                if (uid != string.Empty)
-                {
-                    Application.Current.MainPage = new HomeView();
-                    await Navigation.PopAsync(); 
-                } // else something went wrong
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
+            registerVM = BindingContext as RegisterViewModel;
 
+            if (registerVM != null)
+            {
+                ToClientRegisterObject message = await registerVM.SignInProcedure();
+
+                if (message != null && !message.IsSuccessful)
+                {
+                    await DisplayAlert(message.MessageHeader, message.MessageBody, message.ButtonText);
+                }
+            }
+        }
+
+        public async void LoginClicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+            await Navigation.PushAsync(new LoginView());
         }
     }
 }

@@ -1,45 +1,57 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="false"
              x:Class="JobSocialApp.Views.LoginView">
+
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Color x:Key="AllertColour">#EF3D55</Color>
-            <Color x:Key="LightTextColour">#FFFFFF</Color>
-            <Color x:Key="DarkBackground">#2E3C4C</Color>
-            <Color x:Key="BlackBackground">#000</Color>
+            <Color x:Key="WhiteColour">#FFFFFF</Color>
+            <Color x:Key="BlackColour">#000</Color>
+            <Color x:Key="ThemeColourLightBlue">#DCE7EF</Color>
+            <Color x:Key="ThemeColourDarkBlue">#355C7D</Color>
+            <Color x:Key="ThemeColourVeryDarkBlue">#1F3447</Color>
+            <Color x:Key="ThemeColourLightPink">#E8CAD2</Color>
+            <Color x:Key="ThemeColourDarkPink">#B34D69</Color>
         </ResourceDictionary>
         <Style TargetType="Label" Class="LightTextColour">
-            <Setter Property="TextColor" Value="{StaticResource LightTextColour}" />
+            <Setter Property="TextColor" Value="{StaticResource WhiteColour}" />
+        </Style>
+        <Style TargetType="Label" Class="DarkTextColour">
+            <Setter Property="TextColor" Value="{StaticResource ThemeColourVeryDarkBlue}" />
+        </Style>
+        <Style TargetType="Label" Class="TitleColour">
+            <Setter Property="TextColor" Value="{StaticResource ThemeColourDarkPink}" />
         </Style>
     </ContentPage.Resources>
-    
-    <!--<ContentPage.Content>-->
-        <!--<StackLayout>
-            <Label Text="Login Page"
-                HorizontalOptions="CenterAndExpand" />
-            <Entry Placeholder="username" x:Name="loginEmail" />
-            <Entry Placeholder="password" x:Name="loginPassword" IsPassword="True" />
-            <Button Text="Login" Clicked="SignInClicked" />
-            <Button Text="Register" Clicked="RegisterClicked" />
-        </StackLayout>
-    </ContentPage.Content>-->
+    <StackLayout Background="White">
+        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+        <Frame HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="300" CornerRadius="10" >
+            <StackLayout>
+                <Label StyleClass="TitleColour" Text="Lunch your new career now!" FontSize="45" HorizontalTextAlignment="Center"/>
+                <Label StyleClass="DarkTextColour" Text="Please provide your email and password to login into the application." HorizontalTextAlignment="Center" Padding="20"/>
+                
+                <Entry Text="{Binding LoginEmail}" Keyboard="Email" Placeholder="Email address" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
+                <Entry Text="{Binding LoginPassword}" IsPassword="true" Placeholder="Password" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
+                
+                <Button BackgroundColor="{StaticResource ThemeColourDarkBlue}" TextColor="{StaticResource WhiteColour}" Text="Sing In" Clicked="SignInClicked" Margin="0,20,0,0" CornerRadius="20"/>
+                
+                <Label HorizontalTextAlignment="Center" Padding="0, 10">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Alternatively, " />
+                            <Span Text="Register" TextColor="{StaticResource ThemeColourDarkBlue}">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="RegisterClicked"/>
+                                </Span.GestureRecognizers>
+                            </Span>
+                            <Span Text=" a new account." />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
 
-
-
-        <StackLayout VerticalOptions="CenterAndExpand" Padding="50,0">
-            <Frame BackgroundColor="Transparent" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="300">
-                <StackLayout>
-                <Label StyleClass="LightTextColour" Text="JSA" FontSize="40" HorizontalTextAlignment="Center" TextColor="{StaticResource DarkBackground}"/>
-                <Label StyleClass="LightTextColour" Text="Please provide your email and password to login into the application." HorizontalTextAlignment="Center" TextColor="{StaticResource DarkBackground}"/>
-                <Entry x:Name="userHeight" Text="{Binding LoginEmail}" Keyboard="Email" Placeholder="Height" TextColor="{StaticResource BlackBackground}"/>
-                <Entry x:Name="userWeight" Text="{Binding LoginPassword}" IsPassword="true" Placeholder="Weight" TextColor="{StaticResource BlackBackground}"/>
-                <Button BackgroundColor="{StaticResource DarkBackground}" TextColor="White" Text="Sing In" Clicked="SignInClicked" Margin="0,20,0,0"/>
-                <Button Text="Register" Clicked="RegisterClicked" />
             </StackLayout>
-
-
             </Frame>
         </StackLayout>
-      
+    </StackLayout>
 </ContentPage>
