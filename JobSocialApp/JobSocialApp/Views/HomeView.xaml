@@ -7,11 +7,12 @@
     <ContentPage.Content>
         <StackLayout Background="White">
             <StackLayout>
-                <Label Text="WELCOME"
+                <Label Text="{Binding Title}" FontSize="36"
                     VerticalOptions="CenterAndExpand" 
                     HorizontalOptions="CenterAndExpand" />
                 <Image Source="imIn.jpg" />
                 <Button Text="Sign Out" Clicked="SignOutClicked" />
+                <Button Text="Test" Clicked="TestClicked" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

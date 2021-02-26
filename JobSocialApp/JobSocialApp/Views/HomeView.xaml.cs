@@ -13,19 +13,31 @@ namespace JobSocialApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomeView : ContentPage
     {
+        private HomeViewModel homeVM = null;
         public HomeView()
         {
             InitializeComponent();
 
             BindingContext = new HomeViewModel();
+            homeVM = BindingContext as HomeViewModel;
+
+            if (homeVM != null)
+            {
+                homeVM.setTitle();
+            }
+
         }
 
         private async void SignOutClicked(object sender, EventArgs e)
         {
             DependencyService.Get<IFirebaseAuthenticator>().signOut();
-            //Application.Current.MainPage = new LoginView();
             Routing.RegisterRoute("/main", typeof(AppShell));
             await Shell.Current.GoToAsync("////login");
+        }
+
+        private async void TestClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Test());
         }
     }
 }
