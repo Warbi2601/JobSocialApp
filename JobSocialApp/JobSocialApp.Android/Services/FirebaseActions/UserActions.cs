@@ -26,16 +26,11 @@ namespace JobSocialApp.Droid.Services.FirebaseActions
 
         public async Task<string> AddUser(User user)
         {
-            try
-            {
-                //DocumentReference docRef = FirebaseFirestore.Instance.Collection(collectionName).Document(user._id);
-                var bb = user.ConvertToHashMap();
-                await FirebaseFirestore.Instance.Collection(collectionName).Add(bb);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-            }
+            DocumentReference docRef = FirebaseFirestore.Instance.Collection(collectionName).Document(user._id);
+
+            var bb = user.ConvertToHashMap();
+            var aaa = await docRef.Set(bb);
+            var qwerty = 1;
 
             return "";
         }
