@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using JobSocialApp.Services.FirebaseActions;
 using JobSocialApp.Services;
 using JobSocialApp.Views;
 using Xamarin.Forms;
@@ -53,7 +54,7 @@ namespace JobSocialApp.ViewModels
                 OnPropertyChange();
             }
         }
-        
+
         public String RegisterEmail
         {
             get => registerEmail;
@@ -63,7 +64,7 @@ namespace JobSocialApp.ViewModels
                 OnPropertyChange();
             }
         }
-        
+
         public String RegisterPassword1
         {
             get => registerPassword1;
@@ -87,7 +88,7 @@ namespace JobSocialApp.ViewModels
         #endregion
 
         #region Functions
-        
+
         public async Task<ToClientRegisterObject> SignInProcedure()
         {
             ToClientRegisterObject toClient = new ToClientRegisterObject();
@@ -102,6 +103,14 @@ namespace JobSocialApp.ViewModels
 
                 if (uid != string.Empty)
                 {
+                    var a = await DependencyService.Get<UserInterface>().AddUser(new Models.User
+                    {
+                        _id = uid,
+                        firstName = RegisterFirstName,
+                        lastName = RegisterLastName,
+                        email = RegisterEmail,
+                    });
+
                     Routing.RegisterRoute("/main", typeof(AppShell));
                     await Shell.Current.GoToAsync("////home");
                     //Application.Current.MainPage = new HomeView();
@@ -110,6 +119,7 @@ namespace JobSocialApp.ViewModels
             }
             catch (Exception ex)
             {
+                // Add validation for if the email is already in use
                 Console.WriteLine(ex);
             }
 
