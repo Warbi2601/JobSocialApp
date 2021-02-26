@@ -44,5 +44,11 @@ namespace JobSocialApp
             Shell.Current.FlyoutIsPresented = false;
             await Shell.Current.GoToAsync("///login");
         }
+
+        private async void EditProfileClicked(object sender, EventArgs e)
+        {
+            Shell.Current.FlyoutIsPresented = false;
+            await Navigation.PushAsync(new EditProfileView());
+        }
     }
 }

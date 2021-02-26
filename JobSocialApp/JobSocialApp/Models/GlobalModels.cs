@@ -17,5 +17,13 @@ namespace JobSocialApp.Models
         public class ToClientLoginObject : ToClientLogRegBaseObject { }
 
         public class ToClientRegisterObject : ToClientLogRegBaseObject { }
+        //public class ToClientEditedProfileDetails
+        //{
+        //    public String FirstName { get; set; }
+        //    public String SecondName { get; set; }
+        //    public String Email { get; set; }
+        //    public String Position { get; set; }
+        //    public String ProfilePicture { get; set; }
+        //}
     }
 }

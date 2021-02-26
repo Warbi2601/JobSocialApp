@@ -5,16 +5,6 @@
              x:Class="JobSocialApp.Views.RegisterView"
              Shell.NavBarIsVisible="false"
              Shell.PresentationMode="ModalAnimated">
-    
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Register Page"
-                HorizontalOptions="CenterAndExpand" />
-            <Entry Placeholder="username" x:Name="registerEmail" />
-            <Entry Placeholder="password" x:Name="registerPassword" IsPassword="True" />
-            <Button Text="Register" Clicked="SignUpClicked" />
-        </StackLayout>
-    </ContentPage.Content>
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -36,6 +26,7 @@
             <Setter Property="TextColor" Value="{StaticResource ThemeColourDarkPink}" />
         </Style>
     </ContentPage.Resources>
+
     <StackLayout Background="White">
         <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
             <Frame HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="300" CornerRadius="10" BorderColor="Transparent" >
