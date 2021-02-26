@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:views="clr-namespace:JobSocialApp.Views"
              x:Class="JobSocialApp.AppShell">
-    
+
     <Shell.Resources>
         <ResourceDictionary>
             <Color x:Key="ThemeColour">#EF3D55</Color>
@@ -22,25 +22,27 @@
         </ResourceDictionary>
     </Shell.Resources>
 
+    <MenuItem Text="Settings" Icon="settings" Clicked="ShowSettingsView"/>
+
+    <MenuItem Text="Sign Out" Icon="exit" Clicked="SignOutClicked" />
+
     <FlyoutItem Route="main">
-        <Tab Route="home" Title="Home">
+        <Tab Route="home" Title="Home" Icon="home">
             <ShellContent ContentTemplate="{DataTemplate views:HomeView}"/>
         </Tab>
-        <Tab Title="Profile">
+        <Tab Route="jobs" Title="Jobs" Icon="search">
+            <ShellContent ContentTemplate="{DataTemplate views:SearchView}" />
+        </Tab>
+        <Tab Route="profile" Title="Profile" Icon="profile">
             <ShellContent ContentTemplate="{DataTemplate views:ProfileView}"/>
         </Tab>
+        <!--<Tab Route="settings" Title="Settings" Icon="settings" IsVisible="False">
+            <ShellContent ContentTemplate="{DataTemplate views:SettingsView}"/>
+        </Tab>-->
     </FlyoutItem>
 
     <ShellContent Route="login" ContentTemplate="{DataTemplate views:LoginView}" />
     <ShellContent Route="register" ContentTemplate="{DataTemplate views:RegisterView}" />
+    <ShellContent Route="addJob" ContentTemplate="{DataTemplate views:AddNewJobView}" />
+    <!--<ShellContent Route="settings" ContentTemplate="{DataTemplate views:SettingsView}" />-->
 </Shell>
-
-<!--xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-xmlns:design="http://xamarin.com/schemas/2014/forms/design"
-xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-mc:Ignorable="design"
-x:Class="Oxy.AppShell"
-FlyoutBehavior="Disabled"
-Shell.NavBarIsVisible="false"
-Shell.PresentationMode="ModalAnimated"
-NavigationPage.HasNavigationBar="false">-->

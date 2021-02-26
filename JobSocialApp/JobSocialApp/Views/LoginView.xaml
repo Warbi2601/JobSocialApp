@@ -2,9 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              NavigationPage.HasNavigationBar="false"
-             x:Class="JobSocialApp.Views.LoginView"
              Shell.NavBarIsVisible="false"
-             Shell.PresentationMode="ModalAnimated">
+             x:Class="JobSocialApp.Views.LoginView">
+             <!--Shell.PresentationMode="ModalAnimated"-->
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -26,6 +26,7 @@
             <Setter Property="TextColor" Value="{StaticResource ThemeColourDarkPink}" />
         </Style>
     </ContentPage.Resources>
+    
     <StackLayout Background="White">
         <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
         <Frame HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="300" CornerRadius="10" BorderColor="Transparent" >
@@ -41,13 +42,11 @@
                 <Label HorizontalTextAlignment="Center" Padding="0, 10">
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span Text="Alternatively, " />
-                            <Span Text="Register" TextColor="{StaticResource ThemeColourDarkBlue}">
+                            <Span Text="Alternatively Register a new account." TextColor="{StaticResource ThemeColourDarkBlue}">
                                 <Span.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="RegisterClicked"/>
                                 </Span.GestureRecognizers>
                             </Span>
-                            <Span Text=" a new account." />
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>

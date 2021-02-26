@@ -1,24 +1,20 @@
-﻿using JobSocialApp.Services;
-using System;
-using Xamarin.Forms;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using JobSocialApp.ViewModels;
 
 namespace JobSocialApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class HomeView : ContentPage
+    public partial class SearchView : ContentPage
     {
-        public HomeView()
+        public SearchView()
         {
             InitializeComponent();
-
-            BindingContext = new HomeViewModel();
         }
-
     }
 }

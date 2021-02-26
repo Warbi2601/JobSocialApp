@@ -17,10 +17,11 @@ namespace JobSocialApp.Views
             InitializeComponent();
         }
 
-        private void SignOutClicked(object sender, EventArgs e)
+        private async void AddNewJobClicked(object sender, EventArgs e)
         {
-            DependencyService.Get<IFirebaseAuthenticator>().signOut();
-            Application.Current.MainPage = new LoginView();
+            //Routing.RegisterRoute("/main", typeof(AppShell));
+            //await Shell.Current.GoToAsync("////addJob");
+            await Navigation.PushAsync(new AddNewJobView());
         }
     }
 }
