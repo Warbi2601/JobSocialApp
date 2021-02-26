@@ -38,7 +38,7 @@
     </ContentPage.Resources>
     <StackLayout Background="White">
         <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
-            <Frame HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="300" CornerRadius="10" >
+            <Frame HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="300" CornerRadius="10" BorderColor="Transparent" >
                 <StackLayout>
                     <Label StyleClass="TitleColour" Text="Register" FontSize="45" HorizontalTextAlignment="Center"/>
                 

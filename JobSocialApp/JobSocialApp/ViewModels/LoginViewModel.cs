@@ -88,8 +88,9 @@ namespace JobSocialApp.ViewModels
                     var a = await DependencyService.Get<IFirebaseAuthenticator>().LoginWithEmailAndPassword(email, password);
                     
                     toClient.IsSuccessful = true;
-                    
-                    Application.Current.MainPage = new HomeView();
+
+                    Routing.RegisterRoute("/main", typeof(AppShell));
+                    await Shell.Current.GoToAsync("////home");
                 }
             }
             catch (Exception ex)
