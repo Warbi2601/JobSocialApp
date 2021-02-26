@@ -17,6 +17,7 @@ using Xamarin.Forms;
 using Android.Gms.Extensions;
 using Java.Util;
 using Newtonsoft.Json;
+using GoogleGson;
 
 [assembly: Dependency(typeof(UserActions))]
 namespace JobSocialApp.Droid.Services.FirebaseActions
@@ -25,23 +26,29 @@ namespace JobSocialApp.Droid.Services.FirebaseActions
     {
         private readonly string collectionName = "users";
 
-        public async Task<string> AddUser(User user)
+        public async Task<User> AddUser(User user)
         {
             await FirebaseFirestore.Instance.Collection(collectionName).Document(user._id).Set(user.ConvertToHashMap());
             DocumentSnapshot newUser = (DocumentSnapshot)await FirebaseFirestore.Instance.Collection(collectionName).Document(user._id).Get();
             
             if(!newUser.Exists())
             {
-                //there has been an error
+                //there has been an error adding it, return something here
             }
 
-            //var aaa = newUser.GetData(new DocumentSnapshot.ServerTimestampBehavior())
+            return FirebaseDocumentToObject<User>(newUser);
+        }
 
-            //var a = JsonConvert.SerializeObject(newUser);
+        public T FirebaseDocumentToObject<T>(DocumentSnapshot snapshot)
+        {
+            //Get the fields for the document
+            var properties = snapshot.GetData(DocumentSnapshot.ServerTimestampBehavior.Estimate);
 
-            //var bb = JsonConvert.DeserializeObject<User>(a);
-
-            return "";
+            //Serialize it to Json and then back to our C# class
+            Gson gson = new Gson();
+            var serialized = gson.ToJson((Java.Lang.Object)properties);
+            var deserialized = JsonConvert.DeserializeObject<T>(serialized);
+            return deserialized;
         }
     }
 }

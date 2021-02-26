@@ -8,6 +8,6 @@ namespace JobSocialApp.Services.FirebaseActions
 {
     public interface UserInterface
     {
-        public Task<string> AddUser(User user);
+        public Task<User> AddUser(User user);
     }
 }
