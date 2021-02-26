@@ -39,8 +39,11 @@ namespace JobSocialApp.Views
         public async void RegisterClicked(object sender, EventArgs e)
         {
             //await Navigation.PushModalAsync(new RegisterView());
-            await Navigation.PopAsync();
-            await Navigation.PushAsync(new RegisterView());
+            Routing.RegisterRoute("/main", typeof(AppShell));
+            await Shell.Current.GoToAsync("////register");
+
+            //await Navigation.PopAsync();
+            //await Navigation.PushAsync(new RegisterView());
         }
 
         private void Button_EnterApp(object sender, EventArgs e)

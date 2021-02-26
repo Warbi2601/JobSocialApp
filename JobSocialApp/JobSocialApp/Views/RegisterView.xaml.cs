@@ -39,8 +39,8 @@ namespace JobSocialApp.Views
 
         public async void LoginClicked(object sender, EventArgs e)
         {
-            await Navigation.PopAsync();
-            await Navigation.PushAsync(new LoginView());
+            Routing.RegisterRoute("/main", typeof(AppShell));
+            await Shell.Current.GoToAsync("////login");
         }
     }
 }

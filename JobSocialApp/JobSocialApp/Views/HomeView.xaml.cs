@@ -17,10 +17,12 @@ namespace JobSocialApp.Views
             InitializeComponent();
         }
 
-        private void SignOutClicked(object sender, EventArgs e)
+        private async void SignOutClicked(object sender, EventArgs e)
         {
             DependencyService.Get<IFirebaseAuthenticator>().signOut();
-            Application.Current.MainPage = new LoginView();
+            //Application.Current.MainPage = new LoginView();
+
+            await Shell.Current.GoToAsync("////login");
         }
     }
 }

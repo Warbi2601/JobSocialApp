@@ -5,12 +5,14 @@
              x:Class="JobSocialApp.Views.HomeView">
     
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="WELCOME"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Image Source="imIn.jpg" />
-            <Button Text="Sign Out" Clicked="SignOutClicked" />
+        <StackLayout Background="White">
+            <StackLayout>
+                <Label Text="WELCOME"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" />
+                <Image Source="imIn.jpg" />
+                <Button Text="Sign Out" Clicked="SignOutClicked" />
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

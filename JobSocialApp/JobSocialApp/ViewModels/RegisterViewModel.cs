@@ -102,7 +102,9 @@ namespace JobSocialApp.ViewModels
 
                 if (uid != string.Empty)
                 {
-                    Application.Current.MainPage = new HomeView();
+                    Routing.RegisterRoute("/main", typeof(AppShell));
+                    await Shell.Current.GoToAsync("////home");
+                    //Application.Current.MainPage = new HomeView();
                     //await Navigation.PopAsync();
                 } // else something went wrong
             }
