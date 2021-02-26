@@ -91,7 +91,7 @@ namespace JobSocialApp.ViewModels
 
         public async Task<ToClientRegisterObject> SignInProcedure()
         {
-            ToClientRegisterObject toClient = new ToClientRegisterObject();
+            //ToClientRegisterObject toClient = new ToClientRegisterObject();
 
             // need to add validation and exception catches // crashes under certain circumstances (password less than 6)
             // need to check if password 1 matches password 2
@@ -111,11 +111,11 @@ namespace JobSocialApp.ViewModels
                         email = RegisterEmail,
                     };
 
-                    var a = DependencyService.Get<UserInterface>();
-                    var b = a.AddUser(user);
+                    var newUser = await DependencyService.Get<UserInterface>().AddUser(user);
 
                     Routing.RegisterRoute("/main", typeof(AppShell));
                     await Shell.Current.GoToAsync("////home");
+                    
                     //Application.Current.MainPage = new HomeView();
                     //await Navigation.PopAsync();
                 } // else something went wrong
@@ -126,7 +126,8 @@ namespace JobSocialApp.ViewModels
                 Console.WriteLine(ex);
             }
 
-            return toClient;
+            return null;
+            //return toClient;
         }
 
 
