@@ -20,6 +20,8 @@ namespace JobSocialApp.Views
         public RegisterView()
         {
             InitializeComponent();
+
+            BindingContext = new RegisterViewModel();
         }
 
         private async void SignUpClicked(object sender, EventArgs e)
