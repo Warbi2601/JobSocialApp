@@ -16,7 +16,7 @@ namespace JobSocialApp.Models
 
         public string email { get; set; }
 
-        public Company company { get; set; }
+        public Company? company { get; set; }
         //string Password          { get; set; }
         //string profilePicture { get; set; }
 
@@ -27,7 +27,7 @@ namespace JobSocialApp.Models
             map.Put("firstName", firstName);
             map.Put("lastName", lastName);
             map.Put("email", email);
-            map.Put("company", company.ConvertToHashMap());
+            if(company != null) map.Put("company", company.ConvertToHashMap());
 
             return map;
         }

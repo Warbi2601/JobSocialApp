@@ -44,7 +44,7 @@
                 
                     <Entry Text="{Binding RegisterFirstName}" Keyboard="Text"  Placeholder="First Name" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
                     <Entry Text="{Binding RegisterLastName}" Keyboard="Text"  Placeholder="Last Name" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
-                    <Entry Text="{Binding RegisterLoginEmail}" Keyboard="Email" Placeholder="Email address" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
+                    <Entry Text="{Binding RegisterEmail}" Keyboard="Email" Placeholder="Email address" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
                     <Entry Text="{Binding RegisterPassword1}" IsPassword="true" Placeholder="Password" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
                     <Entry Text="{Binding RegisterPassword2}" IsPassword="true" Placeholder="Password" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
                 

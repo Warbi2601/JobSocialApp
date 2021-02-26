@@ -103,13 +103,16 @@ namespace JobSocialApp.ViewModels
 
                 if (uid != string.Empty)
                 {
-                    var a = await DependencyService.Get<UserInterface>().AddUser(new Models.User
+                    Models.User user = new Models.User
                     {
                         _id = uid,
                         firstName = RegisterFirstName,
                         lastName = RegisterLastName,
                         email = RegisterEmail,
-                    });
+                    };
+
+                    var a = DependencyService.Get<UserInterface>();
+                    var b = a.AddUser(user);
 
                     Routing.RegisterRoute("/main", typeof(AppShell));
                     await Shell.Current.GoToAsync("////home");
