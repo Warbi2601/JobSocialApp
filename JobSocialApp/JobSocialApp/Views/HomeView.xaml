@@ -1,18 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             
+             NavigationPage.HasNavigationBar="false"
+             Shell.NavBarIsVisible="false"
              x:Class="JobSocialApp.Views.HomeView">
-    <!--NavigationPage.HasNavigationBar="false"-->
+    
+    <!--<ContentPage.Resources>
+        <ResourceDictionary Source="local:StylingResourceDictionary.xaml" />
+    </ContentPage.Resources>-->
+    
     <ContentPage.Content>
-        <StackLayout Background="White">
+        <ScrollView Background="White">
             <StackLayout>
                 <Label Text="WELCOME"
                     VerticalOptions="CenterAndExpand" 
                     HorizontalOptions="CenterAndExpand" />
                 <Image Source="imIn.jpg" />
-                <Button Text="Sign Out" Clicked="SignOutClicked" />
             </StackLayout>
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

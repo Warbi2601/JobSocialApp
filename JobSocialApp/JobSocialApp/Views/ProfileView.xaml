@@ -7,6 +7,7 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Profile" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+            <Button Text="Add New Job" Clicked="AddNewJobClicked" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

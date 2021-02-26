@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JobSocialApp.Views.AddNewJobView">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="WhiteColour">#FFFFFF</Color>
+            <Color x:Key="BlackColour">#000</Color>
+            <Color x:Key="ThemeColourLightBlue">#DCE7EF</Color>
+            <Color x:Key="ThemeColourDarkBlue">#355C7D</Color>
+            <Color x:Key="ThemeColourVeryDarkBlue">#1F3447</Color>
+            <Color x:Key="ThemeColourLightPink">#E8CAD2</Color>
+            <Color x:Key="ThemeColourDarkPink">#B34D69</Color>
+            <Color x:Key="PositiveBtn">#5CB85C</Color>
+            <Color x:Key="NegativeBtn">#D9534F</Color>
+            <Color x:Key="NeutralBtn">#5BC0DE</Color>
+        </ResourceDictionary>
+        <Style TargetType="Button" Class="ButtonStyles">
+            <Setter Property="CornerRadius" Value="20" />
+            <Setter Property="WidthRequest" Value="150" />
+            <Setter Property="TextColor" Value="{StaticResource WhiteColour}" />
+            <Setter Property="Margin" Value="0,20" />
+        </Style>
+        <Style TargetType="Label" Class="TitleColour">
+            <Setter Property="TextColor" Value="{StaticResource ThemeColourDarkPink}" />
+            <Setter Property="Margin" Value="0,0,0,20" />
+        </Style>
+    </ContentPage.Resources>
+    
+    
+    <ContentPage.Content>
+        <ScrollView Background="White">
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Frame HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="300" BorderColor="Transparent" >
+                    <StackLayout>
+                        <Label StyleClass="TitleColour" Text="Create a new opportunity" FontSize="45"/>
+
+                        <Label Text="JobTitle"/>
+                        <Entry TextColor="{StaticResource BlackColour}" Text="{Binding JobTitle}"/>
+                        
+                        <Label Text="Salary" />
+                        <Entry TextColor="{StaticResource BlackColour}" Text="{Binding Salary}" Keyboard="Numeric"/>
+
+                        <Label Text="Location"/>
+                        <Entry TextColor="{StaticResource BlackColour}" Text="{Binding Location}"/>
+
+                        <Label Text="Description"/>
+                        <Editor TextColor="{StaticResource BlackColour}" HeightRequest="150" Text="{Binding Description}"/> 
+                    </StackLayout>
+                </Frame>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Button StyleClass="ButtonStyles" Text="Cancel" Clicked="CancelAndGoBack" BackgroundColor="{StaticResource NegativeBtn}"/>
+                    <Button StyleClass="ButtonStyles" Text="Send" Clicked="CreateNewJob" BackgroundColor="{StaticResource PositiveBtn}"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
