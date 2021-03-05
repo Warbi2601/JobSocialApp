@@ -8,6 +8,6 @@ namespace JobSocialApp.Services.FirebaseActions
 {
     public interface JobInterface
     {
-        public void AddJob(Job job);
+        public Task<string> AddJob(Job job);
     }
 }

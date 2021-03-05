@@ -212,7 +212,7 @@ namespace JobSocialApp.ViewModels
 
                     var newUser = await DependencyService.Get<UserInterface>().AddUser(user);
 
-                    Context.currentUser = newUser;
+                    AppContext.currentUser = newUser;
 
                     Routing.RegisterRoute("/main", typeof(AppShell));
                     await Shell.Current.GoToAsync("////home");

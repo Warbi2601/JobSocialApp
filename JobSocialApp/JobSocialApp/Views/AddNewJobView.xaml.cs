@@ -26,7 +26,9 @@ namespace JobSocialApp.Views
 
         private void CreateNewJob(object sender, EventArgs e)
         {
-            if(newJobVM != null)
+            newJobVM = BindingContext as AddNewJobViewModel;
+
+            if (newJobVM != null)
             {
                 newJobVM.CreateNewJobAsync();
             }

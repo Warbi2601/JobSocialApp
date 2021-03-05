@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using JobSocialApp.Models;
 using JobSocialApp.Services;
+using JobSocialApp.Services.FirebaseActions;
 using JobSocialApp.Views;
 using Xamarin.Forms;
 using static JobSocialApp.Models.GlobalModels;
@@ -180,7 +181,11 @@ namespace JobSocialApp.ViewModels
                 else
                 {
                     var a = await DependencyService.Get<IFirebaseAuthenticator>().LoginWithEmailAndPassword(email, password);
-                    
+
+                    var newUser = await DependencyService.Get<UserInterface>().GetUser(a);
+
+                    AppContext.currentUser = newUser;
+
                     //check isCompany
 
                     toClient.IsSuccessful = true;

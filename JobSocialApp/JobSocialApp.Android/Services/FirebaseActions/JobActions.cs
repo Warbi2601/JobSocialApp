@@ -13,11 +13,12 @@ namespace JobSocialApp.Droid.Services.FirebaseActions
 {
     public class JobActions : JobSocialApp.Services.FirebaseActions.JobInterface
     {
-        //private readonly string collectionName = "jobs"; ???
+        private readonly string collectionName = "jobs";
 
-        public async void AddJob(Job job)
+        public async Task<string> AddJob(Job job)
         {
-            //await FirebaseFirestore.Instance.Collection("users").Document(user._id).Set(user.ConvertToHashMap());
+            await FirebaseFirestore.Instance.Collection(collectionName).Document().Set(job.ConvertToHashMap());
+            return "";
             //DocumentSnapshot newUser = (DocumentSnapshot)await FirebaseFirestore.Instance.Collection(collectionName).Document(user._id).Get();
 
             //if (!newUser.Exists())

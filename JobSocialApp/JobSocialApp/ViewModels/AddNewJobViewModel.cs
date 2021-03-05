@@ -8,6 +8,7 @@ using JobSocialApp.Models;
 using JobSocialApp.Views;
 using Xamarin.Forms;
 using static JobSocialApp.Models.GlobalModels;
+using JobSocialApp.Services.FirebaseActions;
 
 namespace JobSocialApp.ViewModels
 {
@@ -155,6 +156,8 @@ namespace JobSocialApp.ViewModels
         {
             try
             {
+                var user = AppContext.currentUser;
+
                 Job job = new Job
                 {
                     //_id = uid, ???
@@ -162,7 +165,8 @@ namespace JobSocialApp.ViewModels
                     salary = Salary,
                     location = Location,
                     description = Description,
-                };
+                    companyID = user.company._id
+            };
 
                 await DependencyService.Get<JobInterface>().AddJob(job);
 

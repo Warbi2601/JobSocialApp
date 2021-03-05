@@ -25,7 +25,23 @@ namespace JobSocialApp.Droid.Services.FirebaseActions
                 //there has been an error adding it, return something here
             }
 
-            return Utility.FirebaseDocumentToObject<User>(newUser);
+            //newUser.Get()
+
+            var userObj = Utility.FirebaseDocumentToObject<User>(newUser);
+            return userObj;
         }
+
+        public async Task<User> GetUser(string uid)
+        {
+            DocumentSnapshot user = (DocumentSnapshot)await FirebaseFirestore.Instance.Collection(collectionName).Document(uid).Get();
+
+            if (!user.Exists())
+            {
+                //there has been an error getting it, return something here
+            }
+
+            return Utility.FirebaseDocumentToObject<User>(user);
+        }
+        
     }
 }

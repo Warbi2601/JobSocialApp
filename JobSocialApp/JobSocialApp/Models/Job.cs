@@ -17,6 +17,8 @@ namespace JobSocialApp.Models
 
         public string description { get; set; }
 
+        public string companyID { get; set; }
+
         public HashMap ConvertToHashMap()
         {
             HashMap map = new HashMap();
@@ -25,6 +27,7 @@ namespace JobSocialApp.Models
             map.Put("salary", salary);
             map.Put("location", location);
             map.Put("description", description);
+            map.Put("companyID", companyID);
 
             return map;
         }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace JobSocialApp
 {
-    public static class Context
+    public static class AppContext
     {
         public static User currentUser; 
     }
