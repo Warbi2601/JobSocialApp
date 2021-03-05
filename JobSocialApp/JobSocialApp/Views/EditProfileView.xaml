@@ -1,40 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:app="clr-namespace:JobSocialApp"
              x:Class="JobSocialApp.Views.EditProfileView">
-    
+
+
     <ContentPage.Resources>
-        <ResourceDictionary>
-            <Color x:Key="WhiteColour">#FFFFFF</Color>
-            <Color x:Key="BlackColour">#000</Color>
-            <Color x:Key="ThemeColourLightBlue">#DCE7EF</Color>
-            <Color x:Key="ThemeColourDarkBlue">#355C7D</Color>
-            <Color x:Key="ThemeColourVeryDarkBlue">#1F3447</Color>
-            <Color x:Key="ThemeColourLightPink">#E8CAD2</Color>
-            <Color x:Key="ThemeColourDarkPink">#B34D69</Color>
-        </ResourceDictionary>
-        <Style TargetType="Label" Class="LightTextColour">
-            <Setter Property="TextColor" Value="{StaticResource WhiteColour}" />
-        </Style>
-        <Style TargetType="Label" Class="DarkTextColour">
-            <Setter Property="TextColor" Value="{StaticResource ThemeColourVeryDarkBlue}" />
-        </Style>
-        <Style TargetType="Label" Class="TitleColour">
-            <Setter Property="TextColor" Value="{StaticResource ThemeColourDarkPink}" />
-        </Style>
+        <ResourceDictionary MergedWith="app:StylingResourceDictionary" />
     </ContentPage.Resources>
 
     <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
         <StackLayout Orientation="Vertical">
+            <!--<StackLayout Background="White">
+                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">-->
+            <Frame HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="300" CornerRadius="10" BorderColor="Transparent" >
+                <StackLayout>
+                    <Entry Text="{Binding FirstName}" Keyboard="Text"  Placeholder="First Name" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
+                    <Entry Text="{Binding LastName}" Keyboard="Text"  Placeholder="Last Name" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
+                    <Entry Text="{Binding Email}" Keyboard="Email" Placeholder="Email address" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
+                    <Entry Text="{Binding Position}" Placeholder="Password" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
+                    <Entry Text="{Binding ProfilePicture}" Placeholder="Password" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
 
-            <Entry Text="{Binding FirstName}" Keyboard="Text"  Placeholder="First Name" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
-            <Entry Text="{Binding LastName}" Keyboard="Text"  Placeholder="Last Name" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
-            <Entry Text="{Binding Email}" Keyboard="Email" Placeholder="Email address" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
-            <Entry Text="{Binding Position}" Placeholder="Password" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
-            <Entry Text="{Binding ProfilePicture}" Placeholder="Password" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
-
-            <Button Text="{Binding UpdateDetailsBtnText}" Clicked="UpdateDetails" />
-
+                    <Button Text="{Binding UpdateDetailsBtnText}" Clicked="UpdateDetails" StyleClass="NeutralButtonStyles" />
+                </StackLayout>
+            </Frame>
         </StackLayout>
     </ScrollView>
 </ContentPage>

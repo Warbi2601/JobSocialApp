@@ -1,26 +1,54 @@
-﻿<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
-    <!--<DataTemplate x:Key="PersonDataTemplate">
-        <ViewCell>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="0.5*" />
-                    <ColumnDefinition Width="0.2*" />
-                    <ColumnDefinition Width="0.3*" />
-                </Grid.ColumnDefinitions>
-                <Label Text="TT"
-                       TextColor="{StaticResource NormalTextColor}"
-                       FontAttributes="Bold" />
-                <Label Grid.Column="1"
-                       Text="2"
-                       TextColor="{StaticResource NormalTextColor}" />
-                <Label Grid.Column="2"
-                       Text="Sheffield"
-                       TextColor="{StaticResource NormalTextColor}"
-                       HorizontalTextAlignment="End" />
-            </Grid>
-        </ViewCell>
-    </DataTemplate>-->
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    x:Class="JobSocialApp.StylingResourceDictionary">
 
-    <Color x:Key="TestColour">#f23</Color>
+    
+    <Color x:Key="WhiteColour">#FFFFFF</Color>
+    <Color x:Key="BlackColour">#000</Color>
+    <Color x:Key="ThemeColourLightBlue">#DCE7EF</Color>
+    <Color x:Key="ThemeColourDarkBlue">#355C7D</Color>
+    <Color x:Key="ThemeColourVeryDarkBlue">#1F3447</Color>
+    <Color x:Key="ThemeColourLightPink">#E8CAD2</Color>
+    <Color x:Key="ThemeColourDarkPink">#B34D69</Color>
+    <Color x:Key="PositiveBtn">#5CB85C</Color>
+    <Color x:Key="NegativeBtn">#D9534F</Color>
+    <Color x:Key="NeutralBtn">#5BC0DE</Color>
+    
+    <Style TargetType="Label" Class="LightTextColour">
+        <Setter Property="TextColor" Value="{StaticResource WhiteColour}" />
+    </Style>
+    <Style TargetType="Label" Class="DarkTextColour">
+        <Setter Property="TextColor" Value="{StaticResource ThemeColourVeryDarkBlue}" />
+    </Style>
+    <Style TargetType="Label" Class="TitleColour">
+        <Setter Property="TextColor" Value="{StaticResource ThemeColourDarkPink}" />
+    </Style>
+
+    <Style TargetType="Button" Class="PositiveButtonStyles">
+        <Setter Property="CornerRadius" Value="20" />
+        <Setter Property="WidthRequest" Value="150" />
+        <Setter Property="TextColor" Value="{StaticResource WhiteColour}" />
+        <Setter Property="BackgroundColor" Value="{StaticResource PositiveBtn}" />
+        <Setter Property="Margin" Value="0,20" />
+    </Style>
+    <Style TargetType="Button" Class="NegativeButtonStyles">
+        <Setter Property="CornerRadius" Value="20" />
+        <Setter Property="WidthRequest" Value="150" />
+        <Setter Property="TextColor" Value="{StaticResource WhiteColour}" />
+        <Setter Property="BackgroundColor" Value="{StaticResource NegativeBtn}" />
+        <Setter Property="Margin" Value="0,20" />
+    </Style>
+    <Style TargetType="Button" Class="NeutralButtonStyles">
+        <Setter Property="CornerRadius" Value="20" />
+        <Setter Property="WidthRequest" Value="150" />
+        <Setter Property="TextColor" Value="{StaticResource WhiteColour}" />
+        <Setter Property="BackgroundColor" Value="{StaticResource NeutralBtn}" />
+        <Setter Property="Margin" Value="0,20" />
+    </Style>
+    <Style TargetType="Label" Class="TitleColour">
+        <Setter Property="TextColor" Value="{StaticResource ThemeColourDarkPink}" />
+        <Setter Property="Margin" Value="0,0,0,20" />
+    </Style>
+
 </ResourceDictionary>

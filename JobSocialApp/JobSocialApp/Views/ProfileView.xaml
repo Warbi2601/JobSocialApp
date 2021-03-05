@@ -2,29 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              NavigationPage.HasNavigationBar="false"
+             xmlns:app="clr-namespace:JobSocialApp"
              x:Class="JobSocialApp.Views.ProfileView">
-    
+
     <ContentPage.Resources>
-        <ResourceDictionary>
-            <Color x:Key="WhiteColour">#FFFFFF</Color>
-            <Color x:Key="BlackColour">#000</Color>
-            <Color x:Key="ThemeColourLightBlue">#DCE7EF</Color>
-            <Color x:Key="ThemeColourDarkBlue">#355C7D</Color>
-            <Color x:Key="ThemeColourVeryDarkBlue">#1F3447</Color>
-            <Color x:Key="ThemeColourLightPink">#E8CAD2</Color>
-            <Color x:Key="ThemeColourDarkPink">#B34D69</Color>
-        </ResourceDictionary>
-        <Style TargetType="Label" Class="LightTextColour">
-            <Setter Property="TextColor" Value="{StaticResource WhiteColour}" />
-        </Style>
-        <Style TargetType="Label" Class="DarkTextColour">
-            <Setter Property="TextColor" Value="{StaticResource ThemeColourVeryDarkBlue}" />
-        </Style>
-        <Style TargetType="Label" Class="TitleColour">
-            <Setter Property="TextColor" Value="{StaticResource ThemeColourDarkPink}" />
-        </Style>
+        <ResourceDictionary MergedWith="app:StylingResourceDictionary" />
     </ContentPage.Resources>
-    
+
     <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
         <StackLayout Orientation="Vertical">
             <Frame x:Name="Picture" CornerRadius="100" HorizontalOptions="Center" WidthRequest="130" HeightRequest="130" VerticalOptions="Center" BorderColor="{StaticResource ThemeColourVeryDarkBlue}" BackgroundColor="{StaticResource ThemeColourDarkBlue}" Padding="8" Margin="20">
