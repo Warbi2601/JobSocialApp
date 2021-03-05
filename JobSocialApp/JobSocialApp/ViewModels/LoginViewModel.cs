@@ -26,6 +26,15 @@ namespace JobSocialApp.ViewModels
         private String loginEmail = "";
         private String loginPassword = "";
         private String title = "";
+
+        // Elements - for language
+        private String pageTitleLbl = "Find new job opportunities!";
+        private String loginInstructionsLbl = "Please provide your email and password to login into the application.";
+        private String emailLbl = "Email";
+        private String passwordLbl = "Password";
+        private String singInBtn = "Sing In";
+        private String createNewAccountLbl = "Alternatively Register a new account.";
+
         #endregion
 
 
@@ -46,6 +55,9 @@ namespace JobSocialApp.ViewModels
                 OnPropertyChange();
             }
         }
+        #endregion
+
+        #region Public variables
 
         public String LoginEmail
         {
@@ -66,11 +78,76 @@ namespace JobSocialApp.ViewModels
                 OnPropertyChange();
             }
         }
+        #endregion
+
+        #region Public elements - for language
+
+        public String PageTitleLbl
+        {
+            get => pageTitleLbl;
+            set
+            {
+                pageTitleLbl = value;
+                OnPropertyChange();
+            }
+        }
+
+        public String LoginInstructionsLbl
+        {
+            get => loginInstructionsLbl;
+            set
+            {
+                loginInstructionsLbl = value;
+                OnPropertyChange();
+            }
+        }
+
+        public String EmailLbl
+        {
+            get => emailLbl;
+            set
+            {
+                emailLbl = value;
+                OnPropertyChange();
+            }
+        }
+
+        public String PasswordLbl
+        {
+            get => passwordLbl;
+            set
+            {
+                passwordLbl = value;
+                OnPropertyChange();
+            }
+        }
+
+        public String SingInBtn
+        {
+            get => singInBtn;
+            set
+            {
+                singInBtn = value;
+                OnPropertyChange();
+            }
+        }
+        
+        public String CreateNewAccountLbl
+        {
+            get => createNewAccountLbl;
+            set
+            {
+                createNewAccountLbl = value;
+                OnPropertyChange();
+            }
+        }
+
+        #endregion
 
         #endregion
 
         #region Functions
-        
+
         public async Task<ToClientLoginObject> SignInProcedure()
         {
             ToClientLoginObject toClient = new ToClientLoginObject();

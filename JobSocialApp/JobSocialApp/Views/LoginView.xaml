@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              NavigationPage.HasNavigationBar="false"
@@ -15,18 +15,19 @@
         <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
         <Frame HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="300" CornerRadius="10" BorderColor="Transparent" >
             <StackLayout>
-                <Label StyleClass="TitleColour" Text="{Binding Title}" FontSize="45" HorizontalTextAlignment="Center"/>
-                <Label StyleClass="DarkTextColour" Text="Please provide your email and password to login into the application." HorizontalTextAlignment="Center" Padding="20"/>
-                
-                <Entry Text="{Binding LoginEmail}" Keyboard="Email" Placeholder="Email address" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
-                <Entry Text="{Binding LoginPassword}" IsPassword="true" Placeholder="Password" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
-                
-                <Button BackgroundColor="{StaticResource ThemeColourDarkBlue}" TextColor="{StaticResource WhiteColour}" Text="Sing In" Clicked="SignInClicked" Margin="0,20,0,0" CornerRadius="20"/>
+                <Label StyleClass="LargeTitleLabel" Text="{Binding PageTitleLbl}"/>
+                <Label StyleClass="DarkTextColour" Text="{Binding LoginInstructionsLbl}" HorizontalTextAlignment="Center" Padding="20"/>
+                    <Label Text="{Binding EmailLbl}"/>
+                    <Entry Text="{Binding LoginEmail}" Keyboard="Email" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
+                    <Label Text="{Binding PasswordLbl}"/>
+                    <Entry Text="{Binding LoginPassword}" IsPassword="true" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
+
+                    <Button BackgroundColor="{StaticResource ThemeColourDarkBlue}" TextColor="{StaticResource WhiteColour}" Text="{Binding SingInBtn}" Clicked="SignInClicked" Margin="0,20,0,0" CornerRadius="20"/>
                 
                 <Label HorizontalTextAlignment="Center" Padding="0, 10">
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span Text="Alternatively Register a new account." TextColor="{StaticResource ThemeColourDarkBlue}">
+                            <Span Text="{Binding CreateNewAccountLbl}" TextColor="{StaticResource ThemeColourDarkBlue}">
                                 <Span.GestureRecognizers>
                                     <TapGestureRecognizer Tapped="RegisterClicked"/>
                                 </Span.GestureRecognizers>

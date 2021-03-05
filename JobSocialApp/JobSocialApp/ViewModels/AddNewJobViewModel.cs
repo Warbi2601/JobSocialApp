@@ -27,9 +27,20 @@ namespace JobSocialApp.ViewModels
         private String location = "";
         private String description = "";
 
+        // Elements - for language
+        private String jobTitlePlaceHolder = "Job Title";
+        private String salaryPlaceHolder = "Salary";
+        private String locationPlaceHolder = "Location";
+        private String descriptionPlaceHolder = "Job Description";
+        
+        private String cancelBtn = "Cancel";
+        private String sendBtn = "Send";
+
         #endregion
 
         #region Public members
+
+        #region Public variables
         public String JobTitle
         {
             get => jobTitle;
@@ -69,6 +80,71 @@ namespace JobSocialApp.ViewModels
                 OnPropertyChange();
             }
         }
+        #endregion
+
+        #region Public elements - for language
+
+        public String JobTitlePlaceHolder
+        {
+            get => jobTitlePlaceHolder;
+            set
+            {
+                jobTitlePlaceHolder = value;
+                OnPropertyChange();
+            }
+        }
+
+        public String SalaryPlaceHolder
+        {
+            get => salaryPlaceHolder;
+            set
+            {
+                salaryPlaceHolder = value;
+                OnPropertyChange();
+            }
+        }
+
+        public String LocationPlaceHolder
+        {
+            get => locationPlaceHolder;
+            set
+            {
+                locationPlaceHolder = value;
+                OnPropertyChange();
+            }
+        }
+
+        public String DescriptionPlaceHolder
+        {
+            get => descriptionPlaceHolder;
+            set
+            {
+                descriptionPlaceHolder = value;
+                OnPropertyChange();
+            }
+        }
+        
+        public String CancelBtn
+        {
+            get => cancelBtn;
+            set
+            {
+                cancelBtn = value;
+                OnPropertyChange();
+            }
+        }
+        
+        public String SendBtn
+        {
+            get => sendBtn;
+            set
+            {
+                sendBtn = value;
+                OnPropertyChange();
+            }
+        }
+
+        #endregion
 
         #endregion
 

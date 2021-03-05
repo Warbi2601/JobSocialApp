@@ -22,6 +22,7 @@
         </ResourceDictionary>
     </Shell.Resources>
 
+    <MenuItem Text="Add new job" Icon="plus" Clicked="AddNewJobClicked" />
     <MenuItem Text="Edit details" Icon="edit" Clicked="EditProfileClicked" />
     <MenuItem Text="Settings" Icon="settings" Clicked="ShowSettingsView"/>
     <MenuItem Text="Sign Out" Icon="exit" Clicked="SignOutClicked" />

@@ -32,9 +32,22 @@ namespace JobSocialApp.ViewModels
 
         private DateTime registerdateOfBirth = DateTime.Now;
 
+        // Elements - for language
+        private String pageTitleLbl = "Lunch your new career now!";
+        private String fNameLbl = "First Name";
+        private String sNameLbl = "Last Name";
+        private String emailLbl = "Email address";
+        private String passwordLbl = "Password";
+        private String rePasswordLbl = "Re-Password";
+        private String registerBtn = "Register";
+        private String loginLbl = "Already have an account? Login";
+
         #endregion
 
         #region Public members
+
+        #region Public variables
+
         public String RegisterFirstName
         {
             get => registerFirstName;
@@ -84,6 +97,92 @@ namespace JobSocialApp.ViewModels
                 OnPropertyChange();
             }
         }
+
+        #endregion
+
+        #region Public elements - for language
+
+        public String PageTitleLbl
+        {
+            get => pageTitleLbl;
+            set
+            {
+                pageTitleLbl = value;
+                OnPropertyChange();
+            }
+        }
+
+        public String FNameLbl
+        {
+            get => fNameLbl;
+            set
+            {
+                fNameLbl = value;
+                OnPropertyChange();
+            }
+        }
+
+        public String SNameLbl
+        {
+            get => sNameLbl;
+            set
+            {
+                sNameLbl = value;
+                OnPropertyChange();
+            }
+        }
+
+        public String EmailLbl
+        {
+            get => emailLbl;
+            set
+            {
+                emailLbl = value;
+                OnPropertyChange();
+            }
+        }
+
+        public String PasswordLbl
+        {
+            get => passwordLbl;
+            set
+            {
+                passwordLbl = value;
+                OnPropertyChange();
+            }
+        }
+        
+        public String RePasswordLbl
+        {
+            get => rePasswordLbl;
+            set
+            {
+                rePasswordLbl = value;
+                OnPropertyChange();
+            }
+        }
+
+        public String RegisterBtn
+        {
+            get => registerBtn;
+            set
+            {
+                registerBtn = value;
+                OnPropertyChange();
+            }
+        }
+
+        public String LoginLbl
+        {
+            get => loginLbl;
+            set
+            {
+                loginLbl = value;
+                OnPropertyChange();
+            }
+        }
+
+        #endregion
 
         #endregion
 

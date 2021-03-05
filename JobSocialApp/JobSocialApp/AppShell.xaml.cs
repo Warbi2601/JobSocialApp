@@ -50,5 +50,11 @@ namespace JobSocialApp
             Shell.Current.FlyoutIsPresented = false;
             await Navigation.PushAsync(new EditProfileView());
         }
+
+        private async void AddNewJobClicked(object sender, EventArgs e)
+        {
+            Shell.Current.FlyoutIsPresented = false;
+            await Navigation.PushAsync(new AddNewJobView());
+        }
     }
 }

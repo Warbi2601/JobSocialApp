@@ -14,24 +14,21 @@
             <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                 <Frame HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="300" BorderColor="Transparent" >
                     <StackLayout>
-                        <Label StyleClass="TitleColour" Text="Create a new opportunity" FontSize="45"/>
+                        <Label StyleClass="LargeTitleLabel" Text="Create a new opportunity"/>
 
-                        <Label Text="JobTitle"/>
+                        <Label Text="{Binding JobTitlePlaceHolder}"/>
                         <Entry TextColor="{StaticResource BlackColour}" Text="{Binding JobTitle}"/>
-                        
-                        <Label Text="Salary" />
+                        <Label Text="{Binding SalaryPlaceHolder}" />
                         <Entry TextColor="{StaticResource BlackColour}" Text="{Binding Salary}" Keyboard="Numeric"/>
-
-                        <Label Text="Location"/>
+                        <Label Text="{Binding LocationPlaceHolder}"/>
                         <Entry TextColor="{StaticResource BlackColour}" Text="{Binding Location}"/>
-
-                        <Label Text="Description"/>
+                        <Label Text="{Binding DescriptionPlaceHolder}"/>
                         <Editor TextColor="{StaticResource BlackColour}" HeightRequest="150" Text="{Binding Description}"/> 
                     </StackLayout>
                 </Frame>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                    <Button StyleClass="NegativeButtonStyles" Text="Cancel" Clicked="CancelAndGoBack" />
-                    <Button StyleClass="PositiveButtonStyles" Text="Send" Clicked="CreateNewJob" />
+                    <Button StyleClass="NegativeButtonStyles" Text="{Binding CancelBtn}" Clicked="CancelAndGoBack" />
+                    <Button StyleClass="PositiveButtonStyles" Text="{Binding SendBtn}" Clicked="CreateNewJob" />
                 </StackLayout>
             </StackLayout>
         </ScrollView>

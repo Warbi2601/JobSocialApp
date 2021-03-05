@@ -10,7 +10,7 @@
     </ContentPage.Resources>
 
     <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
-        <StackLayout Orientation="Vertical">
+        <StackLayout Orientation="Vertical" Margin="10">
             <Frame x:Name="Picture" CornerRadius="100" HorizontalOptions="Center" WidthRequest="130" HeightRequest="130" VerticalOptions="Center" BorderColor="{StaticResource ThemeColourVeryDarkBlue}" BackgroundColor="{StaticResource ThemeColourDarkBlue}" Padding="8" Margin="20">
                 <Frame x:Name="Border" CornerRadius="100" HorizontalOptions="Center" Padding="-3" WidthRequest="150" HeightRequest="150" >
                     <Image Source="profile.jpg"/>
@@ -23,12 +23,24 @@
             <StackLayout Orientation="Vertical" WidthRequest="190" HeightRequest="150" Margin="10" HorizontalOptions="Start" VerticalOptions="End">
                 <Label StyleClass="HeaderText" Text="TOTAL POINTS" Margin="12,-10,0,0" TextColor="{StaticResource ThemeColourDarkBlue}" FontSize="16"/>
             </StackLayout>
-            <!--<Frame StyleClass="BackgroundColour" VerticalOptions="FillAndExpand" Margin="0,-45,0,-20" CornerRadius="20">
-            </Frame>-->
-            
-            <Label Text="Profile" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
-            <Button Text="Add New Job" Clicked="AddNewJobClicked" />
+            <Grid BackgroundColor="Gray">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="100" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
+                <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Source="document.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                <Label Grid.Column="1" Grid.Row="0" FontAttributes="Bold" HorizontalOptions="Start" Text="Number:" VerticalOptions="Center"/>
+                <Label Grid.Column="1" Grid.Row="1" FontAttributes="Bold" HorizontalOptions="Start" Text="Number:" VerticalOptions="Center"/>
+                <Label Grid.Column="1" Grid.Row="2" FontAttributes="Bold" HorizontalOptions="Start" Text="Number:" VerticalOptions="Center"/>
+                <Button Grid.Column="2" Grid.Row="1" ></Button>
+            </Grid>
         </StackLayout>
     </ScrollView>
     

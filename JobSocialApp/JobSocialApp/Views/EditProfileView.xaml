@@ -15,11 +15,16 @@
                 <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">-->
             <Frame HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="300" CornerRadius="10" BorderColor="Transparent" >
                 <StackLayout>
-                    <Entry Text="{Binding FirstName}" Keyboard="Text"  Placeholder="First Name" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
-                    <Entry Text="{Binding LastName}" Keyboard="Text"  Placeholder="Last Name" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
-                    <Entry Text="{Binding Email}" Keyboard="Email" Placeholder="Email address" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
-                    <Entry Text="{Binding Position}" Placeholder="Password" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
-                    <Entry Text="{Binding ProfilePicture}" Placeholder="Password" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
+                    <Label StyleClass="MediumTitleLabel" Text="{Binding PageTitleLbl}"/>
+                    <Label Text="{Binding FNamePlaceHolder}"/>
+                    <Entry Text="{Binding FirstName}" Keyboard="Text" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
+                    <Label Text="{Binding SNamePlaceHolder}"/>
+                    <Entry Text="{Binding LastName}" Keyboard="Text" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
+                    <Label Text="{Binding EmailPlaceHolder}"/>
+                    <Entry Text="{Binding Email}" Keyboard="Email" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
+                    <Label Text="{Binding PositionPlaceHolder}"/>
+                    <Entry Text="{Binding Position}" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
+                    <!--<Entry Text="{Binding ProfilePicture}" Placeholder="{Binding PasswordPlaceHolder}" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>-->
 
                     <Button Text="{Binding UpdateDetailsBtnText}" Clicked="UpdateDetails" StyleClass="NeutralButtonStyles" />
                 </StackLayout>
