@@ -144,8 +144,6 @@ namespace JobSocialApp.ViewModels
 
         #endregion
 
-        #endregion
-
         #region Functions
 
         public async Task<ToClientLoginObject> SignInProcedure()
