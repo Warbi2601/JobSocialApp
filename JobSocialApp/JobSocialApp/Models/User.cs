@@ -18,7 +18,7 @@ namespace JobSocialApp.Models
 
         public string email { get; set; }
 
-        public Company? company { get; set; }
+        public Company company { get; set; }
         //string profilePicture { get; set; }
 
     }
