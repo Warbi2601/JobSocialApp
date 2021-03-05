@@ -11,7 +11,6 @@ namespace JobSocialApp.Views
     public partial class LoginView : ContentPage
     {
         private LoginViewModel loginVM = null;
-        //public ICommand RegisterCommand => new Command(RegisterClicked);
 
         public LoginView()
         {

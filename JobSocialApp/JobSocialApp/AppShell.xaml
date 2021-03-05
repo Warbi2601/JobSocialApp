@@ -22,8 +22,8 @@
         </ResourceDictionary>
     </Shell.Resources>
 
+    <MenuItem Text="Edit details" Icon="edit" Clicked="EditProfileClicked" />
     <MenuItem Text="Settings" Icon="settings" Clicked="ShowSettingsView"/>
-
     <MenuItem Text="Sign Out" Icon="exit" Clicked="SignOutClicked" />
 
     <FlyoutItem Route="main">

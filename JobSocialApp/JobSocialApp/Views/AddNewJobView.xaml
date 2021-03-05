@@ -1,33 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:app="clr-namespace:JobSocialApp"
              x:Class="JobSocialApp.Views.AddNewJobView">
 
+
     <ContentPage.Resources>
-        <ResourceDictionary>
-            <Color x:Key="WhiteColour">#FFFFFF</Color>
-            <Color x:Key="BlackColour">#000</Color>
-            <Color x:Key="ThemeColourLightBlue">#DCE7EF</Color>
-            <Color x:Key="ThemeColourDarkBlue">#355C7D</Color>
-            <Color x:Key="ThemeColourVeryDarkBlue">#1F3447</Color>
-            <Color x:Key="ThemeColourLightPink">#E8CAD2</Color>
-            <Color x:Key="ThemeColourDarkPink">#B34D69</Color>
-            <Color x:Key="PositiveBtn">#5CB85C</Color>
-            <Color x:Key="NegativeBtn">#D9534F</Color>
-            <Color x:Key="NeutralBtn">#5BC0DE</Color>
-        </ResourceDictionary>
-        <Style TargetType="Button" Class="ButtonStyles">
-            <Setter Property="CornerRadius" Value="20" />
-            <Setter Property="WidthRequest" Value="150" />
-            <Setter Property="TextColor" Value="{StaticResource WhiteColour}" />
-            <Setter Property="Margin" Value="0,20" />
-        </Style>
-        <Style TargetType="Label" Class="TitleColour">
-            <Setter Property="TextColor" Value="{StaticResource ThemeColourDarkPink}" />
-            <Setter Property="Margin" Value="0,0,0,20" />
-        </Style>
+        <ResourceDictionary MergedWith="app:StylingResourceDictionary" />
     </ContentPage.Resources>
-    
     
     <ContentPage.Content>
         <ScrollView Background="White">
@@ -50,8 +30,8 @@
                     </StackLayout>
                 </Frame>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                    <Button StyleClass="ButtonStyles" Text="Cancel" Clicked="CancelAndGoBack" BackgroundColor="{StaticResource NegativeBtn}"/>
-                    <Button StyleClass="ButtonStyles" Text="Send" Clicked="CreateNewJob" BackgroundColor="{StaticResource PositiveBtn}"/>
+                    <Button StyleClass="NegativeButtonStyles" Text="Cancel" Clicked="CancelAndGoBack" />
+                    <Button StyleClass="PositiveButtonStyles" Text="Send" Clicked="CreateNewJob" />
                 </StackLayout>
             </StackLayout>
         </ScrollView>
