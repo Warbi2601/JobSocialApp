@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using JobSocialApp.Services.FirebaseActions;
 using JobSocialApp.Services;
 using JobSocialApp.Views;
 using Xamarin.Forms;
@@ -53,7 +54,7 @@ namespace JobSocialApp.ViewModels
                 OnPropertyChange();
             }
         }
-        
+
         public String RegisterEmail
         {
             get => registerEmail;
@@ -63,7 +64,7 @@ namespace JobSocialApp.ViewModels
                 OnPropertyChange();
             }
         }
-        
+
         public String RegisterPassword1
         {
             get => registerPassword1;
@@ -87,10 +88,10 @@ namespace JobSocialApp.ViewModels
         #endregion
 
         #region Functions
-        
+
         public async Task<ToClientRegisterObject> SignInProcedure()
         {
-            ToClientRegisterObject toClient = new ToClientRegisterObject();
+            //ToClientRegisterObject toClient = new ToClientRegisterObject();
 
             // need to add validation and exception catches // crashes under certain circumstances (password less than 6)
             // need to check if password 1 matches password 2
@@ -102,18 +103,31 @@ namespace JobSocialApp.ViewModels
 
                 if (uid != string.Empty)
                 {
+                    Models.User user = new Models.User
+                    {
+                        _id = uid,
+                        firstName = RegisterFirstName,
+                        lastName = RegisterLastName,
+                        email = RegisterEmail,
+                    };
+
+                    var newUser = await DependencyService.Get<UserInterface>().AddUser(user);
+
                     Routing.RegisterRoute("/main", typeof(AppShell));
                     await Shell.Current.GoToAsync("////home");
+                    
                     //Application.Current.MainPage = new HomeView();
                     //await Navigation.PopAsync();
                 } // else something went wrong
             }
             catch (Exception ex)
             {
+                // Add validation for if the email is already in use
                 Console.WriteLine(ex);
             }
 
-            return toClient;
+            return null;
+            //return toClient;
         }
 
 
