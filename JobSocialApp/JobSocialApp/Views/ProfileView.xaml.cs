@@ -22,8 +22,19 @@ namespace JobSocialApp.Views
             BindingContext = new ProfileViewModel();
 
             //profileVM = BindingContext as ProfileViewModel;
-
             //profileVM.PopulateViewWithJobs();
+            //profileVM.PopulateJobs();
+        }
+
+        protected override async void OnAppearing()
+        {
+            profileVM = BindingContext as ProfileViewModel;
+
+            if (profileVM != null)
+            {
+                await profileVM.PopulateJobs();
+                await profileVM.PopulateUser();
+            }
         }
 
         private async void AddNewElementClicked(object sender, EventArgs e)

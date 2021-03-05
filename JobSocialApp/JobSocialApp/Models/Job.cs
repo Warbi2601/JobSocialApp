@@ -10,10 +10,10 @@ namespace JobSocialApp.Models
     public class Job
     {
         [Id]
-        public string Id { get; set; }
         public string _id { get; set; }
 
         public string jobTitle { get; set; }
+
         public string salary { get; set; }
 
         public string location { get; set; }

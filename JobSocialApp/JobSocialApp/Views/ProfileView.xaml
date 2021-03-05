@@ -22,8 +22,8 @@
                 </Frame>
             </Frame>
 
-            <Label StyleClass="DarkTextColour" Text="Test Name" TextColor="{StaticResource ThemeColourDarkBlue}" FontSize="30" HorizontalOptions="Center" Margin="0,-5,0,0"/>
-            <Label StyleClass="DarkTextColour" Text="Job Title/Education" TextColor="{StaticResource ThemeColourDarkBlue}" FontSize="13" HorizontalOptions="Center" Margin="0,-5,0,0"/>
+            <Label StyleClass="DarkTextColour" Text="{Binding FullName}" TextColor="{StaticResource ThemeColourDarkBlue}" FontSize="30" HorizontalOptions="Center" Margin="0,-5,0,0"/>
+            <Label StyleClass="DarkTextColour" Text="{Binding JobTitle}" TextColor="{StaticResource ThemeColourDarkBlue}" FontSize="13" HorizontalOptions="Center" Margin="0,-5,0,0"/>
 
             <!--<StackLayout Orientation="Vertical" WidthRequest="190" HeightRequest="150" Margin="10" HorizontalOptions="Start" VerticalOptions="End">
                 <Label StyleClass="HeaderText" Text="TOTAL POINTS" Margin="12,-10,0,0" TextColor="{StaticResource ThemeColourDarkBlue}" FontSize="16"/>
@@ -45,9 +45,11 @@
                                 </Grid.ColumnDefinitions>
 
                                 <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Source="document.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-                                <Label Grid.Column="1" Grid.Row="0" FontAttributes="Bold" HorizontalOptions="Start" Text="{Binding Title}" VerticalOptions="Center"/>
-                                <Label Grid.Column="1" Grid.Row="1" FontAttributes="Bold" HorizontalOptions="Start" Text="{Binding Description}" VerticalOptions="Center"/>
-                                <Label Grid.Column="1" Grid.Row="2" FontAttributes="Bold" HorizontalOptions="Start" Text="{Binding ClosingDate}" VerticalOptions="Center"/>
+                                <Label Grid.Column="1" Grid.Row="0" FontAttributes="Bold" HorizontalOptions="Start" Text="{Binding jobTitle}" VerticalOptions="Center"/>
+                                <Label Grid.Column="1" Grid.Row="1" FontAttributes="Bold" HorizontalOptions="Start" Text="{Binding description}" VerticalOptions="Center"/>
+                                <Label Grid.Column="1" Grid.Row="2" FontAttributes="Bold" HorizontalOptions="Start" Text="{Binding salary}" VerticalOptions="Center"/>
+                                <Label Grid.Column="1" Grid.Row="3" FontAttributes="Bold" HorizontalOptions="Start" Text="{Binding location}" VerticalOptions="Center"/>
+                                <!--<Label Grid.Column="1" Grid.Row="2" FontAttributes="Bold" HorizontalOptions="Start" Text="{Binding ClosingDate}" VerticalOptions="Center"/>-->
                                 <!--<Button Grid.Column="1" Grid.Row="1" Text="Visit"></Button>-->
                             </Grid>
                         </ViewCell>

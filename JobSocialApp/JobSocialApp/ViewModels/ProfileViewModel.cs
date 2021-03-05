@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using JobSocialApp.Models;
 using JobSocialApp.Services;
+using JobSocialApp.Services.FirebaseActions;
 using JobSocialApp.Views;
 using Xamarin.Forms;
 using static JobSocialApp.Models.GlobalModels;
@@ -16,7 +17,6 @@ namespace JobSocialApp.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public ObservableCollection<JobTest> Jobs { get; set; }
 
         private void OnPropertyChange([CallerMemberName] String propertyName = "")
         {
@@ -26,11 +26,11 @@ namespace JobSocialApp.ViewModels
 
         #region Local variables
 
-        private String firstName = "";
-        private String lastName = "";
+        private String fullName = "";
         private String email = "";
         private String position = "";
         private String profilePicture = "";
+        private String jobTitle = "";
 
         private String updateDetailsBtnText = "Update details";
 
@@ -42,27 +42,51 @@ namespace JobSocialApp.ViewModels
         private String positionPlaceHolder = "Current Position";
         private String passwordPlaceHolder = "Password";
 
+        private ObservableCollection<Job> jobs = new ObservableCollection<Job>();
+        private User user = new User();
+
         #endregion
 
         #region Public members
 
         #region Public variables
-        public String FirstName
+
+        public ObservableCollection<Job> Jobs
         {
-            get => firstName;
+            get => jobs;
             set
             {
-                firstName = value;
+                jobs = value;
                 OnPropertyChange();
             }
         }
 
-        public String LastName
+        public String JobTitle
         {
-            get => lastName;
+            get => jobTitle;
             set
             {
-                lastName = value;
+                jobTitle = value;
+                OnPropertyChange();
+            }
+        }
+
+        public User User
+        {
+            get => user;
+            set
+            {
+                user = value;
+                OnPropertyChange();
+            }
+        }
+
+        public String FullName
+        {
+            get => fullName;
+            set
+            {
+                fullName = value;
                 OnPropertyChange();
             }
         }
@@ -179,23 +203,22 @@ namespace JobSocialApp.ViewModels
 
         public ProfileViewModel()
         {
-            Jobs = new ObservableCollection<JobTest>
-            {
-                new JobTest
-                {
-                    Title = "First job title",
-                    Description = "Descripotionsdasidnsa asda sd a daawwda ",
-                    Salary = "20000",
-                    ClosingDate = "20/10/2021"
-                },
-                new JobTest
-                {
-                    Title = "Second job title",
-                    Description = "De scripot ionsdasidnsa asda sd a daawwda ",
-                    Salary = "50000",
-                    ClosingDate = "28/10/2021"
-                }
-            };
+            Jobs = new ObservableCollection<Job>();
+        }
+
+        public async Task PopulateJobs()
+        {
+            JobActions crud = new JobActions();
+            Jobs = await crud.GetAllJobs();
+        }
+        
+        public async Task PopulateUser()
+        {
+            AppContext context = new AppContext();
+            User = await context.GetCurrentUser();
+            FullName = string.Format("{0} {1}", User.firstName, User.lastName);
+            Email = User.email;
+            JobTitle = User.jobTitle;
         }
 
         #endregion

@@ -24,6 +24,8 @@ namespace JobSocialApp.ViewModels
 
         #region Local variables
 
+        private INotificationManager notificationManager;
+
         private String jobTitle = "";
         private String salary = "";
         private String location = "";
@@ -152,6 +154,11 @@ namespace JobSocialApp.ViewModels
 
         #region Functions
 
+        public AddNewJobViewModel()
+        {
+            notificationManager = DependencyService.Get<INotificationManager>();
+        }
+
         public async Task CreateNewJobAsync()
         {
             try
@@ -170,6 +177,8 @@ namespace JobSocialApp.ViewModels
 
                 JobActions crud = new JobActions();
                 Job newJob = await crud.AddJob(job);
+
+                notificationManager.SendNotification("Job Successfully Posted", string.Format("{0} - {1} - {2}", job.jobTitle, job.location, job.salary));
 
                 //needs some routing here
                 //Routing.RegisterRoute("/main", typeof(AppShell));
