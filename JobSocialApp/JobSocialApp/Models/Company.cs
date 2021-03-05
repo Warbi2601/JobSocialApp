@@ -19,6 +19,8 @@ namespace JobSocialApp.Models
 
         public string website { get; set; }
 
+        public List<Job> jobs { get; set; }
+
         public HashMap ConvertToHashMap()
         {
             HashMap map = new HashMap();
@@ -28,6 +30,7 @@ namespace JobSocialApp.Models
             map.Put("phone", phone);
             map.Put("email", email);
             map.Put("website", website);
+            map.Put("jobs", jobs);
 
             return map;
         }

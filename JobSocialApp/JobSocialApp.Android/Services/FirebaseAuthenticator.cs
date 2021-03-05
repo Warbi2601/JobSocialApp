@@ -26,6 +26,11 @@ namespace JobSocialApp.Droid.Services
             return FirebaseAuth.Instance.CurrentUser != null;
         }
 
+        public string GetCurrentUserUID()
+        {
+            return FirebaseAuth.Instance.CurrentUser.Uid;
+        }
+
         public void signOut()
         {
             FirebaseAuth.Instance.SignOut();

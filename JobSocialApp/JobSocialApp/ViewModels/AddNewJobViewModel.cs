@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using JobSocialApp.Services;
+using JobSocialApp.Models;
 using JobSocialApp.Views;
 using Xamarin.Forms;
 using static JobSocialApp.Models.GlobalModels;
@@ -152,7 +153,27 @@ namespace JobSocialApp.ViewModels
 
         public async void CreateNewJobAsync()
         {
-            // create a new object and populate it with :JobTitle, Salary, Location, Description
+            try
+            {
+                Job job = new Job
+                {
+                    //_id = uid, ???
+                    jobTitle = JobTitle,
+                    salary = Salary,
+                    location = Location,
+                    description = Description,
+                };
+
+                await DependencyService.Get<JobInterface>().AddJob(job);
+
+                //needs some routing here
+                //Routing.RegisterRoute("/main", typeof(AppShell));
+                //await Shell.Current.GoToAsync("////home");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
         #endregion

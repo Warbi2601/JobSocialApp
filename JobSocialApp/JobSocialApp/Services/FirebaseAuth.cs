@@ -10,6 +10,7 @@ namespace JobSocialApp.Services
         Task<string> LoginWithEmailAndPassword(string email, string password);
         Task<string> SignUpWithEmailAndPassword(string email, string password);
         bool isSignedIn();
+        public string GetCurrentUserUID();
 
         void signOut();
     }
