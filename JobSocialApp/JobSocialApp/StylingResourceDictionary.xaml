@@ -21,8 +21,17 @@
     <Style TargetType="Label" Class="DarkTextColour">
         <Setter Property="TextColor" Value="{StaticResource ThemeColourVeryDarkBlue}" />
     </Style>
-    <Style TargetType="Label" Class="TitleColour">
+
+    <Style TargetType="Label" Class="LargeTitleLabel">
         <Setter Property="TextColor" Value="{StaticResource ThemeColourDarkPink}" />
+        <Setter Property="Margin" Value="0,0,0,20" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="45" />
+    </Style>
+
+    <Style TargetType="Label" Class="MediumTitleLabel">
+        <Setter Property="TextColor" Value="{StaticResource ThemeColourVeryDarkBlue}" />
+        <Setter Property="FontSize" Value="25" />
     </Style>
 
     <Style TargetType="Button" Class="PositiveButtonStyles">
@@ -46,9 +55,6 @@
         <Setter Property="BackgroundColor" Value="{StaticResource NeutralBtn}" />
         <Setter Property="Margin" Value="0,20" />
     </Style>
-    <Style TargetType="Label" Class="TitleColour">
-        <Setter Property="TextColor" Value="{StaticResource ThemeColourDarkPink}" />
-        <Setter Property="Margin" Value="0,0,0,20" />
-    </Style>
+
 
 </ResourceDictionary>

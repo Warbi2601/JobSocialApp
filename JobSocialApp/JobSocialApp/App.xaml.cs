@@ -10,6 +10,7 @@ namespace JobSocialApp
     {
         public App()
         {
+            Device.SetFlags(new string[] { "SwipeView_Experimental", "Shapes_Experimental", "AppTheme_Experimental", "CarouselView_Experimental", "Brush_Experimental", "Shell_UWP_Experimental", "RadioButton_Experimental", "" });
             InitializeComponent(); 
             
             MainPage = new AppShell();

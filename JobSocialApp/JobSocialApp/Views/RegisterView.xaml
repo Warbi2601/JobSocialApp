@@ -15,20 +15,24 @@
         <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
             <Frame HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="300" CornerRadius="10" BorderColor="Transparent" >
                 <StackLayout>
-                    <Label StyleClass="TitleColour" Text="Register" FontSize="45" HorizontalTextAlignment="Center"/>
-                
-                    <Entry Text="{Binding RegisterFirstName}" Keyboard="Text"  Placeholder="First Name" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
-                    <Entry Text="{Binding RegisterLastName}" Keyboard="Text"  Placeholder="Last Name" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
-                    <Entry Text="{Binding RegisterEmail}" Keyboard="Email" Placeholder="Email address" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
-                    <Entry Text="{Binding RegisterPassword1}" IsPassword="true" Placeholder="Password" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
-                    <Entry Text="{Binding RegisterPassword2}" IsPassword="true" Placeholder="Password" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
-                
-                    <Button BackgroundColor="{StaticResource ThemeColourDarkBlue}" TextColor="{StaticResource WhiteColour}" Text="Register" Clicked="SignUpClicked" Margin="0,20,0,0" CornerRadius="20"/>
+                    <Label StyleClass="LargeTitleLabel" Text="{Binding PageTitleLbl}"/>
+                    <Label Text="{Binding FNameLbl}"/>
+                    <Entry Text="{Binding RegisterFirstName}" Keyboard="Text" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
+                    <Label Text="{Binding SNameLbl}"/>
+                    <Entry Text="{Binding RegisterLastName}" Keyboard="Text" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
+                    <Label Text="{Binding EmailLbl}"/>
+                    <Entry Text="{Binding RegisterEmail}" Keyboard="Email" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
+                    <Label Text="{Binding PasswordLbl}"/>
+                    <Entry Text="{Binding RegisterPassword1}" IsPassword="true" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
+                    <Label Text="{Binding RePasswordLbl}"/>
+                    <Entry Text="{Binding RegisterPassword2}" IsPassword="true" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
+
+                    <Button BackgroundColor="{StaticResource ThemeColourDarkBlue}" TextColor="{StaticResource WhiteColour}" Text="{Binding RegisterBtn}" Clicked="SignUpClicked" Margin="0,20,0,0" CornerRadius="20"/>
                 
                     <Label HorizontalTextAlignment="Center" Padding="0, 10">
                         <Label.FormattedText>
                             <FormattedString>
-                                <Span Text="Already have an account? Login" TextColor="{StaticResource ThemeColourDarkBlue}">
+                                <Span Text="{Binding LoginLbl}" TextColor="{StaticResource ThemeColourDarkBlue}">
                                     <Span.GestureRecognizers>
                                         <TapGestureRecognizer Tapped="LoginClicked"/>
                                     </Span.GestureRecognizers>
