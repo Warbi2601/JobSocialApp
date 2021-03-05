@@ -96,9 +96,7 @@
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\FirebaseActions\JobActions.cs" />
     <Compile Include="Services\Notifications\AndroidNotificationManager.cs" />
-    <Compile Include="Services\FirebaseActions\UserActions.cs" />
     <Compile Include="Services\FirebaseAuthenticator.cs" />
     <Compile Include="Services\Notifications\AlarmHandler.cs" />
     <Compile Include="Util\Utility.cs" />
@@ -178,7 +176,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties XamarinHotReloadUnhandledDeviceExceptionJobSocialAppAndroidHideInfoBar="True" TriggeredFromHotReload="False" />
+      <UserProperties TriggeredFromHotReload="False" XamarinHotReloadUnhandledDeviceExceptionJobSocialAppAndroidHideInfoBar="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

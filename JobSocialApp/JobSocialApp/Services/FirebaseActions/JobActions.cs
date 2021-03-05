@@ -33,7 +33,6 @@ namespace JobSocialApp.Services.FirebaseActions
                 .GetAsync();
 
             var obj = document.ToObject<Job>();
-            obj._id = document.Id;
             return obj;
         }
 
