@@ -161,8 +161,10 @@ namespace JobSocialApp.ViewModels
                 }
                 else
                 {
-                    var a = await DependencyService.Get<IFirebaseAuthenticator>().LoginWithEmailAndPassword(email, password);
-                    
+                    var userId = await DependencyService.Get<IFirebaseAuthenticator>().LoginWithEmailAndPassword(email, password);
+
+                    Application.Current.Properties["id"] = userId;
+
                     toClient.IsSuccessful = true;
 
                     Routing.RegisterRoute("/main", typeof(AppShell));

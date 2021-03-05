@@ -17,11 +17,48 @@ namespace JobSocialApp.Views
             InitializeComponent();
         }
 
-        private async void AddNewJobClicked(object sender, EventArgs e)
+        private async void AddNewElementClicked(object sender, EventArgs e)
         {
-            //Routing.RegisterRoute("/main", typeof(AppShell));
-            //await Shell.Current.GoToAsync("////addJob");
-            await Navigation.PushAsync(new AddNewJobView());
+            Button myButton = new Button();
+            myButton.Text = "Push Me";
+
+            ProfileLayout.Children.Add(myButton);
         }
+
+        private Grid CreateGrid()
+        {
+            Grid toClient = new Grid();
+
+            Image companyImage = new Image();
+
+            Label jobTitle = new Label();
+            Label jobDescription = new Label();
+            Label title = new Label();
+
+            Button viewJob = new Button();
+
+            toClient.RowDefinitions.Add(new RowDefinition());
+            toClient.RowDefinitions.Add(new RowDefinition());
+            toClient.RowDefinitions.Add(new RowDefinition());
+            toClient.ColumnDefinitions.Add(new ColumnDefinition());
+            toClient.ColumnDefinitions.Add(new ColumnDefinition());
+            toClient.ColumnDefinitions.Add(new ColumnDefinition());
+
+            /*  Image - Company image */
+
+            /*  Label - Job Title */
+
+            /*  Label - Job Description */
+
+            /*  Label - Closing Date or whatever */
+
+            /*  Button - View the original job advert */
+
+            //toClient.Children.Add(label, columnIndex, rowIndex);
+
+            return toClient;
+        }
+
+
     }
 }
