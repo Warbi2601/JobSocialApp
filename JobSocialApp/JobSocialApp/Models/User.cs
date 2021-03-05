@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Java.Util;
-using JobSocialApp.Models;
-using Plugin.CloudFirestore.Attributes;
+﻿using Plugin.CloudFirestore.Attributes;
 
 namespace JobSocialApp.Models
 {

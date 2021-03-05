@@ -1,11 +1,4 @@
-﻿using Java.Util;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace JobSocialApp.Models
+﻿namespace JobSocialApp.Models
 {
     public class Company
     {

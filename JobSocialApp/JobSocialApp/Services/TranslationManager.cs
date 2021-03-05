@@ -1,15 +1,6 @@
-﻿using Android;
-using Android.Content.Res;
-using Java.Util;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Resources;
-using System.Text;
+﻿using System.Resources;
 using Xamarin.Forms;
-using System.Reflection;
-using System.Globalization;
+
 
 namespace JobSocialApp.Models
 {
