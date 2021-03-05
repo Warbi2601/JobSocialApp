@@ -1,13 +1,10 @@
-﻿using JobSocialApp.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace JobSocialApp.Services.FirebaseActions
 {
-    public interface UserInterface
+    class User
     {
-        public Task<User> AddUser(User user);
     }
 }

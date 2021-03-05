@@ -18,24 +18,7 @@ namespace JobSocialApp.Views
             InitializeComponent();
 
             BindingContext = new LoginViewModel();
-            loginVM = BindingContext as LoginViewModel;
-
-            if (loginVM != null)
-            {
-                loginVM.setTitle();
-            }
         }
-
-        private async void ChangeLangClicked(object sender, EventArgs e)
-        {
-            loginVM = BindingContext as LoginViewModel;
-
-            if (loginVM != null)
-            {
-                loginVM.setTitle();
-            }
-        }
-
 
         private async void SignInClicked(object sender, EventArgs e)
         {

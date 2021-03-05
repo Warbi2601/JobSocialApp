@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-using JobSocialApp.Models;
 using JobSocialApp.Services;
 using JobSocialApp.Views;
 using Xamarin.Forms;
@@ -14,16 +13,6 @@ namespace JobSocialApp.ViewModels
     class HomeViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-
-        public HomeViewModel()
-        {
-            MessagingCenter.Subscribe<TranslationManager>(this, "langChanged", (w) =>
-            {
-                Console.WriteLine("lang changed");
-                Title = TranslationManager.Instance.getTranslation("homeTitle");
-            });
-        }
-
 
         private void OnPropertyChange([CallerMemberName] String propertyName = "")
         {
@@ -40,32 +29,11 @@ namespace JobSocialApp.ViewModels
         private String registerPassword1 = "";
         private String registerPassword2 = "";
 
-
-        // for testing purposes
-        private String title = "";
-
         private DateTime registerdateOfBirth = DateTime.Now;
 
         #endregion
 
         #region Public members
-
-        public void setTitle()
-        {
-            Title = TranslationManager.Instance.getTranslation("homeTitle");
-        }
-
-        public String Title
-        {
-
-            get => title;
-            set
-            {
-                title = value;
-                OnPropertyChange();
-            }
-        }
-
         public String RegisterFirstName
         {
             get => registerFirstName;

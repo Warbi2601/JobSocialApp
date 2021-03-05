@@ -12,7 +12,7 @@
     <ContentPage.Content>
         <ScrollView Background="White">
             <StackLayout>
-                <Label Text="{Binding Title}" FontSize="36"
+                <Label Text="WELCOME"
                     VerticalOptions="CenterAndExpand" 
                     HorizontalOptions="CenterAndExpand" />
                 <Image Source="imIn.jpg" />
