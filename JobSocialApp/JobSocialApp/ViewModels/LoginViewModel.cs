@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using JobSocialApp.Models;
 using JobSocialApp.Services;
 using JobSocialApp.Views;
 using Xamarin.Forms;
@@ -24,6 +25,8 @@ namespace JobSocialApp.ViewModels
 
         private String loginEmail = "";
         private String loginPassword = "";
+        
+        private String title = "";
 
         // Elements - for language
         private String pageTitleLbl = "Find new job opportunities!";
@@ -61,6 +64,17 @@ namespace JobSocialApp.ViewModels
         #endregion
 
         #region Public elements - for language
+
+        public String Title
+        {
+            get => title;
+            set
+            {
+                title = value;
+                OnPropertyChange();
+            }
+        }
+
 
         public String PageTitleLbl
         {
@@ -201,6 +215,10 @@ namespace JobSocialApp.ViewModels
             }
         }
 
+        public void setTitle()
+        {
+            Title = TranslationManager.Instance.getTranslation("title");
+        }
         #endregion
     }
 }
