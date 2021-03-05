@@ -20,7 +20,7 @@ namespace JobSocialApp.ViewModels
             MessagingCenter.Subscribe<TranslationManager>(this, "langChanged", (w) =>
             {
                 Console.WriteLine("lang changed");
-                Title = TranslationManager.Instance.getTranslation("homeTitle");
+                Title = TranslationManager.Instance.getTranslation("Title");
             });
         }
 
@@ -52,7 +52,7 @@ namespace JobSocialApp.ViewModels
 
         public void setTitle()
         {
-            Title = TranslationManager.Instance.getTranslation("homeTitle");
+            Title = TranslationManager.Instance.getTranslation("Title");
         }
 
         public String Title
@@ -116,10 +116,11 @@ namespace JobSocialApp.ViewModels
             }
         }
 
+
         #endregion
 
         #region Functions
-        
+
         public async Task<ToClientRegisterObject> SignInProcedure()
         {
             ToClientRegisterObject toClient = new ToClientRegisterObject();
