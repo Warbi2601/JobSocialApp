@@ -98,6 +98,13 @@ namespace JobSocialApp.Views
             string message = $"You have now received {notificationNumber} notifications!";
             notificationManager.SendNotification(title, message, DateTime.Now.AddSeconds(10));
         }
+        private async void TestClicked(object sender, EventArgs e)
+        {
+            // need to add validation and exception catches // crashes under certain circumstances (password less than 6)
+            Console.WriteLine("button pressed");
+            TranslationManager.Instance.changeLang();
+        }
+        
 
         void ShowNotification(string title, string message)
         {

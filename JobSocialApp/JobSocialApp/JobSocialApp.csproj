@@ -26,6 +26,26 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="AppResources\English.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>English.resx</DependentUpon>
+    </Compile>
+    <Compile Update="AppResources\Polish.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Polish.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Services\languages\EN.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>en.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Services\languages\pl.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>pl.resx</DependentUpon>
+    </Compile>
     <Compile Update="Views\ProfileView.xaml.cs">
       <DependentUpon>ProfileView.xaml</DependentUpon>
     </Compile>
@@ -38,8 +58,24 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="AppResources\English.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>English.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="AppResources\Polish.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Polish.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Update="AppShell.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Services\languages\en.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>EN.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Services\languages\pl.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>pl.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="StylingResourceDictionary.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
