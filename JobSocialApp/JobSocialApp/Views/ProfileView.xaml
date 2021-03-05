@@ -3,13 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              NavigationPage.HasNavigationBar="false"
              xmlns:app="clr-namespace:JobSocialApp"
+             xmlns:local="clr-namespace:JobSocialApp.ViewModels"
              x:Class="JobSocialApp.Views.ProfileView">
 
+    <ContentPage.BindingContext>
+        <local:ProfileViewModel/>
+    </ContentPage.BindingContext>
+    
     <ContentPage.Resources>
         <ResourceDictionary MergedWith="app:StylingResourceDictionary" />
     </ContentPage.Resources>
 
-    <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Horizontal" x:Name="ProfileLayout">
         <StackLayout Orientation="Vertical" Margin="10">
             <Frame x:Name="Picture" CornerRadius="100" HorizontalOptions="Center" WidthRequest="130" HeightRequest="130" VerticalOptions="Center" BorderColor="{StaticResource ThemeColourVeryDarkBlue}" BackgroundColor="{StaticResource ThemeColourDarkBlue}" Padding="8" Margin="20">
                 <Frame x:Name="Border" CornerRadius="100" HorizontalOptions="Center" Padding="-3" WidthRequest="150" HeightRequest="150" >
@@ -20,28 +25,37 @@
             <Label StyleClass="DarkTextColour" Text="Test Name" TextColor="{StaticResource ThemeColourDarkBlue}" FontSize="30" HorizontalOptions="Center" Margin="0,-5,0,0"/>
             <Label StyleClass="DarkTextColour" Text="Job Title/Education" TextColor="{StaticResource ThemeColourDarkBlue}" FontSize="13" HorizontalOptions="Center" Margin="0,-5,0,0"/>
 
-            <StackLayout Orientation="Vertical" WidthRequest="190" HeightRequest="150" Margin="10" HorizontalOptions="Start" VerticalOptions="End">
+            <!--<StackLayout Orientation="Vertical" WidthRequest="190" HeightRequest="150" Margin="10" HorizontalOptions="Start" VerticalOptions="End">
                 <Label StyleClass="HeaderText" Text="TOTAL POINTS" Margin="12,-10,0,0" TextColor="{StaticResource ThemeColourDarkBlue}" FontSize="16"/>
-            </StackLayout>
-            <Grid BackgroundColor="Gray">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="2*" />
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="100" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
+            </StackLayout>-->
 
-                <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Source="document.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-                <Label Grid.Column="1" Grid.Row="0" FontAttributes="Bold" HorizontalOptions="Start" Text="Number:" VerticalOptions="Center"/>
-                <Label Grid.Column="1" Grid.Row="1" FontAttributes="Bold" HorizontalOptions="Start" Text="Number:" VerticalOptions="Center"/>
-                <Label Grid.Column="1" Grid.Row="2" FontAttributes="Bold" HorizontalOptions="Start" Text="Number:" VerticalOptions="Center"/>
-                <Button Grid.Column="2" Grid.Row="1" ></Button>
-            </Grid>
+            <ListView ItemsSource="{Binding Jobs}" HasUnevenRows="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid BackgroundColor="Gray">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="2*" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="50" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Source="document.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                                <Label Grid.Column="1" Grid.Row="0" FontAttributes="Bold" HorizontalOptions="Start" Text="{Binding Title}" VerticalOptions="Center"/>
+                                <Label Grid.Column="1" Grid.Row="1" FontAttributes="Bold" HorizontalOptions="Start" Text="{Binding Description}" VerticalOptions="Center"/>
+                                <Label Grid.Column="1" Grid.Row="2" FontAttributes="Bold" HorizontalOptions="Start" Text="{Binding ClosingDate}" VerticalOptions="Center"/>
+                                <!--<Button Grid.Column="1" Grid.Row="1" Text="Visit"></Button>-->
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
         </StackLayout>
-    </ScrollView>
+    </StackLayout>
     
 </ContentPage>

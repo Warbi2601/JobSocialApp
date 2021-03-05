@@ -9,6 +9,7 @@ using JobSocialApp.Services.FirebaseActions;
 using JobSocialApp.Views;
 using Xamarin.Forms;
 using static JobSocialApp.Models.GlobalModels;
+using static JobSocialApp.Models;
 
 namespace JobSocialApp.ViewModels
 {
@@ -26,6 +27,7 @@ namespace JobSocialApp.ViewModels
 
         private String loginEmail = "";
         private String loginPassword = "";
+        
         private String title = "";
 
         // Elements - for language
@@ -38,25 +40,7 @@ namespace JobSocialApp.ViewModels
 
         #endregion
 
-
-
         #region Public members
-
-        public void setTitle()
-        {
-            Title = TranslationManager.Instance.getTranslation("title");
-        }
-
-        public String Title {
-
-            get => title;
-            set
-            {
-                title = value;
-                OnPropertyChange();
-            }
-        }
-        #endregion
 
         #region Public variables
 
@@ -82,6 +66,17 @@ namespace JobSocialApp.ViewModels
         #endregion
 
         #region Public elements - for language
+
+        public String Title
+        {
+            get => title;
+            set
+            {
+                title = value;
+                OnPropertyChange();
+            }
+        }
+
 
         public String PageTitleLbl
         {
@@ -142,6 +137,8 @@ namespace JobSocialApp.ViewModels
                 OnPropertyChange();
             }
         }
+
+        #endregion
 
         #endregion
 
@@ -220,6 +217,10 @@ namespace JobSocialApp.ViewModels
             }
         }
 
+        public void setTitle()
+        {
+            Title = TranslationManager.Instance.getTranslation("title");
+        }
         #endregion
     }
 }
