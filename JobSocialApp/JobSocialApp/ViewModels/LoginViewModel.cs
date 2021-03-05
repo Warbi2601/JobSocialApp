@@ -7,6 +7,7 @@ using JobSocialApp.Services;
 using JobSocialApp.Views;
 using Xamarin.Forms;
 using static JobSocialApp.Models.GlobalModels;
+using static JobSocialApp.Models;
 
 namespace JobSocialApp.ViewModels
 {
