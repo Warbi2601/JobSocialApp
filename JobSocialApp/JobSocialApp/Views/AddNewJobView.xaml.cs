@@ -24,13 +24,23 @@ namespace JobSocialApp.Views
             Shell.SetTabBarIsVisible(this, false);
         }
 
-        private void CreateNewJob(object sender, EventArgs e)
+        private async void CreateNewJob(object sender, EventArgs e)
         {
             newJobVM = BindingContext as AddNewJobViewModel;
 
             if (newJobVM != null)
             {
-                newJobVM.CreateNewJobAsync();
+                try
+                {
+                    await newJobVM.CreateNewJobAsync();
+                    await DisplayAlert("Success", "Job successfully posted", "Ok");
+                    await Navigation.PopAsync();
+                }
+                catch(Exception ex)
+                {
+                    await DisplayAlert("Error", "Error posting the job", "Ok");
+                    Console.WriteLine(ex);
+                }
             }
         }
 

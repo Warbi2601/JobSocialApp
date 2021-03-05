@@ -2,11 +2,21 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Plugin.CloudFirestore;
+using Xamarin.Forms;
+using JobSocialApp.Services.FirebaseActions;
+using JobSocialApp.Services;
+using System.Threading.Tasks;
 
 namespace JobSocialApp
 {
-    public static class AppContext
+    public class AppContext
     {
-        public static User currentUser; 
+        public async Task<User> GetCurrentUser()
+        {
+            var uid = DependencyService.Get<IFirebaseAuthenticator>().GetCurrentUserUID();
+            UserActions crud = new UserActions();
+            return await crud.GetUser(uid);
+        }
     }
 }

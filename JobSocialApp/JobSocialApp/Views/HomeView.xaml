@@ -21,18 +21,32 @@
             </StackLayout>-->
             <StackLayout Margin="0,35,0,0"
              x:Name="stackLayout">
+
+                <Label Text="Run your test function below"
+           TextColor="Red"
+           HorizontalOptions="Center"
+           VerticalOptions="Start" />
+
+                <Button Text="Run Test()"
+            HorizontalOptions="Center"
+            VerticalOptions="Start"
+            Clicked="OnTestClick" />
+
                 <Label Text="Click the button below to create a local notification."
            TextColor="Red"
            HorizontalOptions="Center"
            VerticalOptions="Start" />
+                
                 <Button Text="Create Notification"
             HorizontalOptions="Center"
             VerticalOptions="Start"
             Clicked="OnSendClick" />
+                
                 <Label Text="Click the button below to schedule a local notification for in 10 seconds time."
            TextColor="Red"
            HorizontalOptions="Center"
            VerticalOptions="Start" />
+                
                 <Button Text="Create Notification"
             HorizontalOptions="Center"
             VerticalOptions="Start"

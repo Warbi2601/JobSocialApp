@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using JobSocialApp.Services.FirebaseActions;
 using JobSocialApp.Services;
 using JobSocialApp.Views;
+using JobSocialApp;
 using Xamarin.Forms;
 using static JobSocialApp.Models.GlobalModels;
 
@@ -210,9 +211,8 @@ namespace JobSocialApp.ViewModels
                         email = RegisterEmail,
                     };
 
-                    var newUser = await DependencyService.Get<UserInterface>().AddUser(user);
-
-                    AppContext.currentUser = newUser;
+                    UserActions crud = new UserActions();
+                    var newUser = await crud.AddUser(user);
 
                     Routing.RegisterRoute("/main", typeof(AppShell));
                     await Shell.Current.GoToAsync("////home");

@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Text;
 using Java.Util;
 using JobSocialApp.Models;
+using Plugin.CloudFirestore.Attributes;
 
 namespace JobSocialApp.Models
 {
     public class Job
     {
+        [Id]
+        public string Id { get; set; }
         public string _id { get; set; }
 
         public string jobTitle { get; set; }
@@ -17,19 +20,7 @@ namespace JobSocialApp.Models
 
         public string description { get; set; }
 
-        public string companyID { get; set; }
+        public string userID { get; set; }
 
-        public HashMap ConvertToHashMap()
-        {
-            HashMap map = new HashMap();
-
-            map.Put("jobTitle", jobTitle);
-            map.Put("salary", salary);
-            map.Put("location", location);
-            map.Put("description", description);
-            map.Put("companyID", companyID);
-
-            return map;
-        }
     }
 }

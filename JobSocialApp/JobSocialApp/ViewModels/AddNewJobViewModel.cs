@@ -34,7 +34,7 @@ namespace JobSocialApp.ViewModels
         private String salaryPlaceHolder = "Salary";
         private String locationPlaceHolder = "Location";
         private String descriptionPlaceHolder = "Job Description";
-        
+
         private String cancelBtn = "Cancel";
         private String sendBtn = "Send";
 
@@ -125,7 +125,7 @@ namespace JobSocialApp.ViewModels
                 OnPropertyChange();
             }
         }
-        
+
         public String CancelBtn
         {
             get => cancelBtn;
@@ -135,7 +135,7 @@ namespace JobSocialApp.ViewModels
                 OnPropertyChange();
             }
         }
-        
+
         public String SendBtn
         {
             get => sendBtn;
@@ -152,23 +152,24 @@ namespace JobSocialApp.ViewModels
 
         #region Functions
 
-        public async void CreateNewJobAsync()
+        public async Task CreateNewJobAsync()
         {
             try
             {
-                var user = AppContext.currentUser;
+                AppContext context = new AppContext();
+                User user = await context.GetCurrentUser();
 
                 Job job = new Job
                 {
-                    //_id = uid, ???
                     jobTitle = JobTitle,
                     salary = Salary,
                     location = Location,
                     description = Description,
-                    companyID = user.company._id
-            };
+                    userID = user._id
+                };
 
-                await DependencyService.Get<JobInterface>().AddJob(job);
+                JobActions crud = new JobActions();
+                Job newJob = await crud.AddJob(job);
 
                 //needs some routing here
                 //Routing.RegisterRoute("/main", typeof(AppShell));

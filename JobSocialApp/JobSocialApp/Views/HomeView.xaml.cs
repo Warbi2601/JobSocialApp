@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms.Xaml;
 using JobSocialApp.ViewModels;
 using JobSocialApp.Models;
+using Plugin.CloudFirestore;
 
 namespace JobSocialApp.Views
 {
@@ -47,6 +48,46 @@ namespace JobSocialApp.Views
             string title = $"Local Notification #{notificationNumber}";
             string message = $"You have now received {notificationNumber} notifications!";
             notificationManager.SendNotification(title, message);
+        }
+
+        async void OnTestClick(object sender, EventArgs e)
+        {
+            var a = await Test();
+            var b = 1;
+        }
+
+        public async Task<string> Test()
+        {
+            try
+            {
+                var a = new User
+                {
+                    firstName = "TSTFirstName",
+                    lastName = "TSTLastName",
+                    email = "qqwwwqw@qwwqw.com",
+                    company = new Company
+                    {
+                        name = "Test Company",
+                        description = "Test Description",
+                        email = "info@test.com",
+                        phone = "0161 256 2478",
+                        website = "www.google.co.uk"
+                    }
+                };
+
+                var document = await CrossCloudFirestore.Current
+                                .Instance
+                                .Collection("users")
+                                .Document("FSm8VWKzWWXyLh0FaF1U0qSJe8m1")
+                                .GetAsync();
+
+                return "";
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+                return "";
+            }
         }
 
         void OnScheduleClick(object sender, EventArgs e)
