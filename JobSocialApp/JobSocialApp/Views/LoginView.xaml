@@ -31,7 +31,7 @@
         <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
         <Frame HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="300" CornerRadius="10" BorderColor="Transparent" >
             <StackLayout>
-                <Label StyleClass="TitleColour" Text="Lunch your new career now!" FontSize="45" HorizontalTextAlignment="Center"/>
+                <Label StyleClass="TitleColour" Text="{Binding Title}" FontSize="45" HorizontalTextAlignment="Center"/>
                 <Label StyleClass="DarkTextColour" Text="Please provide your email and password to login into the application." HorizontalTextAlignment="Center" Padding="20"/>
                 
                 <Entry Text="{Binding LoginEmail}" Keyboard="Email" Placeholder="Email address" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>

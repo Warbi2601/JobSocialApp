@@ -13,11 +13,19 @@ namespace JobSocialApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomeView : ContentPage
     {
+        private HomeViewModel homeVM = null;
         public HomeView()
         {
             InitializeComponent();
 
             BindingContext = new HomeViewModel();
+            homeVM = BindingContext as HomeViewModel;
+
+            if (homeVM != null)
+            {
+                homeVM.setTitle();
+            }
+
         }
 
     }
