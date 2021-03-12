@@ -35,5 +35,14 @@ namespace JobSocialApp.Services.FirebaseActions
             var obj = document.ToObject<User>();
             return obj;
         }
+
+        public async Task UpdateUser(User user)
+        {
+            await CrossCloudFirestore.Current
+                .Instance
+                .Collection(collectionName)
+                .Document(user._id)
+                .UpdateAsync(user);
+        }
     }
 }

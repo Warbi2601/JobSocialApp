@@ -18,13 +18,14 @@
         <StackLayout Orientation="Vertical" Margin="10">
             <Frame x:Name="Picture" CornerRadius="100" HorizontalOptions="Center" WidthRequest="130" HeightRequest="130" VerticalOptions="Center" BorderColor="{StaticResource ThemeColourVeryDarkBlue}" BackgroundColor="{StaticResource ThemeColourDarkBlue}" Padding="8" Margin="20">
                 <Frame x:Name="Border" CornerRadius="100" HorizontalOptions="Center" Padding="-3" WidthRequest="150" HeightRequest="150" >
-                    <Image Source="profile.jpg"/>
+                    <Image x:Name="profileImage"  Source="{Binding ProfilePicture}"/>
                 </Frame>
             </Frame>
 
             <Label StyleClass="DarkTextColour" Text="{Binding FullName}" TextColor="{StaticResource ThemeColourDarkBlue}" FontSize="30" HorizontalOptions="Center" Margin="0,-5,0,0"/>
             <Label StyleClass="DarkTextColour" Text="{Binding JobTitle}" TextColor="{StaticResource ThemeColourDarkBlue}" FontSize="13" HorizontalOptions="Center" Margin="0,-5,0,0"/>
-
+            <Button Text="Update Image" Clicked="UpdateImageClicked" />
+            <Image x:Name="resultImage" /> 
             <!--<StackLayout Orientation="Vertical" WidthRequest="190" HeightRequest="150" Margin="10" HorizontalOptions="Start" VerticalOptions="End">
                 <Label StyleClass="HeaderText" Text="TOTAL POINTS" Margin="12,-10,0,0" TextColor="{StaticResource ThemeColourDarkBlue}" FontSize="16"/>
             </StackLayout>-->

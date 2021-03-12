@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using Firebase.Storage;
 using JobSocialApp.Models;
 using JobSocialApp.Services;
 using JobSocialApp.Services.FirebaseActions;
-using JobSocialApp.Views;
 using Xamarin.Forms;
-using static JobSocialApp.Models.GlobalModels;
 
 namespace JobSocialApp.ViewModels
 {
@@ -29,8 +27,9 @@ namespace JobSocialApp.ViewModels
         private String fullName = "";
         private String email = "";
         private String position = "";
-        private String profilePicture = "";
+        //private String profilePicture = "";
         private String jobTitle = "";
+        private ImageSource profilePicture = ImageSource.From("profile.jpg");
 
         private String updateDetailsBtnText = "Update details";
 
@@ -111,7 +110,7 @@ namespace JobSocialApp.ViewModels
             }
         }
 
-        public String ProfilePicture
+        public ImageSource ProfilePicture
         {
             get => profilePicture;
             set
@@ -219,6 +218,57 @@ namespace JobSocialApp.ViewModels
             FullName = string.Format("{0} {1}", User.firstName, User.lastName);
             Email = User.email;
             JobTitle = User.jobTitle;
+        }
+
+        public async Task GetProfilePicture()
+        {
+            if (User.hasProfilePic)
+            {
+                try
+                {
+                    var uri = await new FirebaseStorage("jobsocialapp-12b52.appspot.com").Child(User._id + ".jpg").GetDownloadUrlAsync();
+                    ProfilePicture = ImageSource.FromUri(new Uri(uri));
+                } catch(Exception e)
+                {
+                    Console.WriteLine("Error retreving profile picture from Firebase Storage: " + e);
+                }
+            } else
+            {
+                ProfilePicture = ImageSource.FromFile("profile.png");
+            }
+        }
+
+        public async void captureProfilePicture()
+        {
+            try
+            {
+                var fileStream = await MediaManager.Instance.captureImage();
+                await new FirebaseStorage("jobsocialapp-12b52.appspot.com").Child(User._id + ".jpg").PutAsync(fileStream);
+                User.hasProfilePic = true;
+                UserActions crud = new UserActions();
+                await crud.UpdateUser(user);
+                await GetProfilePicture();
+            } catch(Exception e)
+            {
+                Console.WriteLine("Error when attempting to capture profile picture to Firebase Storage: " + e);
+            }
+        }
+
+        public async void uploadProfilePicture()
+        {
+            try
+            {
+                var fileStream = await MediaManager.Instance.uploadImage();
+                await new FirebaseStorage("jobsocialapp-12b52.appspot.com").Child(User._id + ".jpg").PutAsync(fileStream);
+                User.hasProfilePic = true;
+                UserActions crud = new UserActions();
+                await crud.UpdateUser(user);
+                await GetProfilePicture();
+
+            } catch(Exception e)
+            {
+                Console.WriteLine("Error when attempting to upload profile picture to Firebase Storage: " + e);
+            }
         }
 
         #endregion
