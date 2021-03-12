@@ -22,6 +22,8 @@
                         <Entry TextColor="{StaticResource BlackColour}" Text="{Binding Salary}" Keyboard="Numeric"/>
                         <Label Text="{Binding LocationPlaceHolder}"/>
                         <Entry TextColor="{StaticResource BlackColour}" Text="{Binding Location}"/>
+                        <Label Text="{Binding PostcodePlaceholder}"/>
+                        <Entry TextColor="{StaticResource BlackColour}" Text="{Binding Postcode}"/>
                         <Label Text="{Binding DescriptionPlaceHolder}"/>
                         <Editor TextColor="{StaticResource BlackColour}" HeightRequest="150" Text="{Binding Description}"/> 
                     </StackLayout>

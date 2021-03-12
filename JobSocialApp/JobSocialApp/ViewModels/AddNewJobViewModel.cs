@@ -9,6 +9,7 @@ using JobSocialApp.Views;
 using Xamarin.Forms;
 using static JobSocialApp.Models.GlobalModels;
 using JobSocialApp.Services.FirebaseActions;
+using JobSocialApp.Services.GeoLocation;
 
 namespace JobSocialApp.ViewModels
 {
@@ -30,12 +31,14 @@ namespace JobSocialApp.ViewModels
         private String salary = "";
         private String location = "";
         private String description = "";
+        private String postcode = "";
 
         // Elements - for language
         private String jobTitlePlaceHolder = "Job Title";
         private String salaryPlaceHolder = "Salary";
         private String locationPlaceHolder = "Location";
         private String descriptionPlaceHolder = "Job Description";
+        private String postcodePlaceHolder = "Postcode";
 
         private String cancelBtn = "Cancel";
         private String sendBtn = "Send";
@@ -84,6 +87,16 @@ namespace JobSocialApp.ViewModels
                 OnPropertyChange();
             }
         }
+
+        public String Postcode
+        {
+            get => postcode;
+            set
+            {
+                postcode = value;
+                OnPropertyChange();
+            }
+        }
         #endregion
 
         #region Public elements - for language
@@ -128,6 +141,16 @@ namespace JobSocialApp.ViewModels
             }
         }
 
+        public String PostcodePlaceholder
+        {
+            get => postcodePlaceHolder;
+            set
+            {
+                postcodePlaceHolder = value;
+                OnPropertyChange();
+            }
+        }
+
         public String CancelBtn
         {
             get => cancelBtn;
@@ -166,19 +189,35 @@ namespace JobSocialApp.ViewModels
                 AppContext context = new AppContext();
                 User user = await context.GetCurrentUser();
 
+                var res = GeoLocationManager.QueryPostcode(Postcode);
+                
+                if(res == null)
+                {
+                    // alert that postcode isnt valid
+                    //await DisplayAlert
+                }
+
+                var latitude = res.Latitude;
+                var longitude = res.Longitude;
+                var formattedPostcode = res.Postcode; //get nicely formatted postcode
+
                 Job job = new Job
                 {
                     jobTitle = JobTitle,
                     salary = Salary,
                     location = Location,
+                    postCode = formattedPostcode,
+                    longitude = longitude,
+                    latitude = latitude,
                     description = Description,
                     userID = user._id
                 };
 
+
                 JobActions crud = new JobActions();
                 Job newJob = await crud.AddJob(job);
 
-                notificationManager.SendNotification("Job Successfully Posted", string.Format("{0} - {1} - {2}", job.jobTitle, job.location, job.salary));
+                notificationManager.SendNotification("Job Successfully Posted", string.Format("{0} - {1} ({2}) - {3}", job.jobTitle, job.location, job.postCode, job.salary));
 
                 //needs some routing here
                 //Routing.RegisterRoute("/main", typeof(AppShell));

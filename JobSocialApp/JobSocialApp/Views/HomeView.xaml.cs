@@ -9,6 +9,8 @@ using Xamarin.Forms.Xaml;
 using JobSocialApp.ViewModels;
 using JobSocialApp.Models;
 using Plugin.CloudFirestore;
+using JobSocialApp.Services.GeoLocation;
+using Plugin.Geolocator.Abstractions;
 
 namespace JobSocialApp.Views
 {
@@ -56,37 +58,16 @@ namespace JobSocialApp.Views
             var b = 1;
         }
 
-        public async Task<string> Test()
+        public async Task<Position> Test()
         {
             try
             {
-                var a = new User
-                {
-                    firstName = "TSTFirstName",
-                    lastName = "TSTLastName",
-                    email = "qqwwwqw@qwwqw.com",
-                    company = new Company
-                    {
-                        name = "Test Company",
-                        description = "Test Description",
-                        email = "info@test.com",
-                        phone = "0161 256 2478",
-                        website = "www.google.co.uk"
-                    }
-                };
-
-                var document = await CrossCloudFirestore.Current
-                                .Instance
-                                .Collection("users")
-                                .Document("FSm8VWKzWWXyLh0FaF1U0qSJe8m1")
-                                .GetAsync();
-
-                return "";
+                return await GeoLocationManager.GetCurrentPosition();
             }
             catch(Exception e)
             {
                 Console.WriteLine(e);
-                return "";
+                return null;
             }
         }
 

@@ -12,6 +12,7 @@ using Android.Content;
 using JobSocialApp.Droid.Services;
 using JobSocialApp.Services;
 using Xamarin.Forms;
+using Plugin.CurrentActivity;
 
 namespace JobSocialApp.Droid
 {
@@ -21,8 +22,8 @@ namespace JobSocialApp.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             FirebaseApp.InitializeApp(this);
-            
-       
+            CrossCurrentActivity.Current.Init(this, savedInstanceState);
+
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
@@ -38,6 +39,7 @@ namespace JobSocialApp.Droid
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            Plugin.Permissions.PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
