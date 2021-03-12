@@ -22,7 +22,7 @@
         </ResourceDictionary>
     </Shell.Resources>
 
-    <MenuItem Text="Add new job" Icon="plus" Clicked="AddNewJobClicked" />
+    <MenuItem Text="Jobs Hub" Icon="job" Clicked="VisitJobsHubClicked" />
     <MenuItem Text="Edit details" Icon="edit" Clicked="EditProfileClicked" />
     <MenuItem Text="Settings" Icon="settings" Clicked="ShowSettingsView"/>
     <MenuItem Text="Sign Out" Icon="exit" Clicked="SignOutClicked" />
@@ -44,6 +44,6 @@
 
     <ShellContent Route="login" ContentTemplate="{DataTemplate views:LoginView}" />
     <ShellContent Route="register" ContentTemplate="{DataTemplate views:RegisterView}" />
-    <ShellContent Route="addJob" ContentTemplate="{DataTemplate views:AddNewJobView}" />
+    <ShellContent Route="jobsHub" ContentTemplate="{DataTemplate views:JobsHubView}" />
     <!--<ShellContent Route="settings" ContentTemplate="{DataTemplate views:SettingsView}" />-->
 </Shell>

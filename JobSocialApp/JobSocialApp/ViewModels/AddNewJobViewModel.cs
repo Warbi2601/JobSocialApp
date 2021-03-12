@@ -37,8 +37,7 @@ namespace JobSocialApp.ViewModels
         private String locationPlaceHolder = "Location";
         private String descriptionPlaceHolder = "Job Description";
 
-        private String cancelBtn = "Cancel";
-        private String sendBtn = "Send";
+        private String sendBtn = "Submit";
 
         #endregion
 
@@ -124,16 +123,6 @@ namespace JobSocialApp.ViewModels
             set
             {
                 descriptionPlaceHolder = value;
-                OnPropertyChange();
-            }
-        }
-
-        public String CancelBtn
-        {
-            get => cancelBtn;
-            set
-            {
-                cancelBtn = value;
                 OnPropertyChange();
             }
         }
