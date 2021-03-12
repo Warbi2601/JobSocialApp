@@ -71,8 +71,11 @@ namespace JobSocialApp.Views
             }
         }
 
-        void OnScheduleClick(object sender, EventArgs e)
+        async void OnScheduleClick(object sender, EventArgs e)
         {
+            /*DependencyService.Get<IFirebaseAuthenticator>().signOut();
+            Shell.Current.FlyoutIsPresented = false;
+            await Shell.Current.GoToAsync("///login");*/
             //This one is an example of sending a notification with a delay, uses intents so might be worth trying to get in?
             notificationNumber++;
             string title = $"Local Notification #{notificationNumber}";

@@ -16,6 +16,8 @@ namespace JobSocialApp.Models
         public string jobTitle { get; set; }
 
         public Company company { get; set; }
+
+        public bool hasProfilePic { get; set; }
         //string profilePicture { get; set; }
 
     }

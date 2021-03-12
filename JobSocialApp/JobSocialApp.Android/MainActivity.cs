@@ -13,12 +13,15 @@ using JobSocialApp.Droid.Services;
 using JobSocialApp.Services;
 using Xamarin.Forms;
 using Plugin.CurrentActivity;
+using Plugin.Media;
 
 namespace JobSocialApp.Droid
 {
     [Activity(Label = "JobSocialApp", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize )]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
+        Xamarin.Forms.Button addImage;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             FirebaseApp.InitializeApp(this);
@@ -58,5 +61,6 @@ namespace JobSocialApp.Droid
                 DependencyService.Get<INotificationManager>().ReceiveNotification(title, message);
             }
         }
+
     }
 }

@@ -1,10 +1,5 @@
-﻿using JobSocialApp.Services;
-using System;
+﻿using System;
 using Xamarin.Forms;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms.Xaml;
 using JobSocialApp.ViewModels;
 
@@ -20,7 +15,6 @@ namespace JobSocialApp.Views
             InitializeComponent();
 
             BindingContext = new ProfileViewModel();
-
             //profileVM = BindingContext as ProfileViewModel;
             //profileVM.PopulateViewWithJobs();
             //profileVM.PopulateJobs();
@@ -34,6 +28,7 @@ namespace JobSocialApp.Views
             {
                 await profileVM.PopulateJobs();
                 await profileVM.PopulateUser();
+                await profileVM.GetProfilePicture();
             }
         }
 
@@ -123,6 +118,56 @@ namespace JobSocialApp.Views
             return toClient;
         }
 
+        /*async private void GetProfileImage()
+        {
+            var uri = await new FirebaseStorage("jobsocialapp-12b52.appspot.com").Child("test.jpg").GetDownloadUrlAsync();
+            if(uri == null)
+            {
+                /// use default image
+            } else
+            {
+                resultImage.Source = ImageSource.FromUri(new Uri(uri));
+            }
 
+        }*/
+
+
+        private async void UpdateImageClicked(object sender, EventArgs e)
+        {
+            if (profileVM != null)
+            {
+                var action = await DisplayActionSheet("Change Profile Picture", "Cancel", null, "Upload", "Camera");
+                switch (action)
+                {
+                    case "Upload":
+                        profileVM.uploadProfilePicture();
+                        break;
+                    case "Camera":
+                        profileVM.captureProfilePicture();
+                        break;
+                    default:
+                        break;
+                }
+            } else
+            {
+
+            }
+            /*await CrossMedia.Current.Initialize();
+            var file = await CrossMedia.Current.PickPhotoAsync(new Plugin.Media.Abstractions.PickMediaOptions { 
+                PhotoSize = Plugin.Media.Abstractions.PhotoSize.MaxWidthHeight,
+                MaxWidthHeight = 500
+            });
+
+            if(file == null)
+            {
+
+            } else
+            {
+                var fileStream = file.GetStream();
+                await new FirebaseStorage("jobsocialapp-12b52.appspot.com").Child("test.jpg").PutAsync(fileStream);
+                GetProfileImage();
+            }*/
+           
+        }
     }
 }
