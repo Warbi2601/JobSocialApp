@@ -146,10 +146,15 @@ namespace JobSocialApp.ViewModels
             //Get current location
             var location = await GeoLocationManager.GetCurrentPosition();
 
-            double milesAway;
-            if(!double.TryParse(MilesAway, out milesAway))
+            double milesAway = 0;
+            
+            //check if the user has inputted anything for miles away, if they have parse it
+            if (!string.IsNullOrEmpty(MilesAway))
             {
-                //@todo an alert here to say miles away not a valid number?
+                if (!double.TryParse(MilesAway, out milesAway))
+                {
+                    //@todo an alert here to say miles away not a valid number?
+                }
             }
 
             if (location == null)
@@ -163,7 +168,7 @@ namespace JobSocialApp.ViewModels
             //filter so we only pull back jobs in that radius and that match the keyword if there is one
             Jobs = new ObservableCollection<Job>(
                 jobs.Where(x =>
-                GeoLocationManager.GetDistanceInMiles(location.Longitude, location.Latitude, x.longitude, x.latitude) <= milesAway
+                (milesAway == 0 || GeoLocationManager.GetDistanceInMiles(location.Longitude, location.Latitude, x.longitude, x.latitude) <= milesAway)
                 && (string.IsNullOrEmpty(Keyword) || x.jobTitle.Contains(Keyword) || x.description.Contains(Keyword) || x.location.Contains(Keyword) || x.postCode.Contains(Keyword))
                 ));
         }

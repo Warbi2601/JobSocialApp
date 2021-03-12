@@ -49,14 +49,15 @@ namespace JobSocialApp.Services.FirebaseActions
             return jobsCollection;
         }
 
-        //public async Task UpdateJob(Job job)
-        //{
-        //    await CrossCloudFirestore.Current
-        //                   .Instance
-        //                   .Collection(collectionName)
-        //                   .Document(job._id)
-        //                   .UpdateAsync(new { Value = 10 });
-        //}
+        public async Task UpdateJob(Job job)
+        {
+            await CrossCloudFirestore.Current
+                           .Instance
+                           .Collection(collectionName)
+                           .Document(job._id)
+                           .UpdateAsync(job);
+            //.UpdateAsync(new { Value = 10 });
+        }
 
         public async Task DeleteJob(string uid)
         {
