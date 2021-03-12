@@ -29,7 +29,6 @@
                     </StackLayout>
                 </Frame>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                    <Button StyleClass="NegativeButtonStyles" Text="{Binding CancelBtn}" Clicked="CancelAndGoBack" />
                     <Button StyleClass="PositiveButtonStyles" Text="{Binding SendBtn}" Clicked="CreateNewJob" />
                 </StackLayout>
             </StackLayout>

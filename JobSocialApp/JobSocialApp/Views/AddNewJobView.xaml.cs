@@ -43,11 +43,5 @@ namespace JobSocialApp.Views
                 }
             }
         }
-
-        private async void CancelAndGoBack(object sender, EventArgs e)
-        {
-            await Navigation.PopAsync();
-        }
-
     }
 }
