@@ -15,7 +15,7 @@
     </ContentPage.Resources>
 
     <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical" x:Name="ProfileLayout">
-        <Grid Margin="10">  
+        <Grid Margin="10">
             <StackLayout Grid.Row="0">
                 <Frame x:Name="Picture" CornerRadius="100" HorizontalOptions="Center" WidthRequest="130" HeightRequest="130" VerticalOptions="Center" BorderColor="{StaticResource ThemeColourVeryDarkBlue}" BackgroundColor="{StaticResource ThemeColourDarkBlue}" Padding="8" Margin="20">
                     <Frame x:Name="Border" CornerRadius="100" HorizontalOptions="Center" Padding="-3" WidthRequest="150" HeightRequest="150" >
@@ -23,42 +23,43 @@
                     </Frame>
                 </Frame>
 
-            <Label StyleClass="DarkTextColour" Text="{Binding FullName}" TextColor="{StaticResource ThemeColourDarkBlue}" FontSize="30" HorizontalOptions="Center" Margin="0,-5,0,0"/>
-            <Label StyleClass="DarkTextColour" Text="{Binding JobTitle}" TextColor="{StaticResource ThemeColourDarkBlue}" FontSize="13" HorizontalOptions="Center" Margin="0,-5,0,0"/>
-            <Button Text="Update Image" Clicked="UpdateImageClicked" />
-            <Image x:Name="resultImage" /> 
-            <!--<StackLayout Orientation="Vertical" WidthRequest="190" HeightRequest="150" Margin="10" HorizontalOptions="Start" VerticalOptions="End">
+                <Label StyleClass="DarkTextColour" Text="{Binding FullName}" TextColor="{StaticResource ThemeColourDarkBlue}" FontSize="30" HorizontalOptions="Center" Margin="0,-5,0,0"/>
+                <Label StyleClass="DarkTextColour" Text="{Binding JobTitle}" TextColor="{StaticResource ThemeColourDarkBlue}" FontSize="13" HorizontalOptions="Center" Margin="0,-5,0,0"/>
+                <Button Text="Update Image" Clicked="UpdateImageClicked" />
+                <Image x:Name="resultImage" />
+                <!--<StackLayout Orientation="Vertical" WidthRequest="190" HeightRequest="150" Margin="10" HorizontalOptions="Start" VerticalOptions="End">
                 <Label StyleClass="HeaderText" Text="TOTAL POINTS" Margin="12,-10,0,0" TextColor="{StaticResource ThemeColourDarkBlue}" FontSize="16"/>
             </StackLayout>-->
 
-            <ListView Grid.Row="1" ItemsSource="{Binding Jobs}" HasUnevenRows="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid Padding="10" RowSpacing="2" ColumnSpacing="2">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="20*" />
-                                    <RowDefinition Height="20*" />
-                                    <RowDefinition Height="15*" />
-                                    <RowDefinition Height="15*" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="25*" />
-                                    <ColumnDefinition Width="75*" />
-                                </Grid.ColumnDefinitions>
+                <ListView Grid.Row="1" ItemsSource="{Binding Jobs}" HasUnevenRows="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Padding="10" RowSpacing="2" ColumnSpacing="2">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="20*" />
+                                        <RowDefinition Height="20*" />
+                                        <RowDefinition Height="15*" />
+                                        <RowDefinition Height="15*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="25*" />
+                                        <ColumnDefinition Width="75*" />
+                                    </Grid.ColumnDefinitions>
 
-                                <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" Source="document.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-                                <Label Grid.Column="1" Grid.Row="0" StyleClass="GridLabelTitle" Text="{Binding jobTitle}"/>
-                                <Label Grid.Column="1" Grid.Row="1" StyleClass="GridLabelDescription" Text="{Binding description}"/>
-                                <Label Grid.Column="1" Grid.Row="2" StyleClass="GridLabelSalary" Text="{Binding salary, StringFormat='Salary: £{0:F0}'}"/>
-                                <Label Grid.Column="1" Grid.Row="3" StyleClass="GridLabelLocation" Text="{Binding location, StringFormat='Location: {0:F0}'}"/>
-                                <!--<Label Grid.Column="1" Grid.Row="2" FontAttributes="Bold" HorizontalOptions="Start" Text="{Binding ClosingDate}" VerticalOptions="Center"/>-->
-                                <!--<Button Grid.Column="1" Grid.Row="1" Text="Visit"></Button>-->
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                                    <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" Source="document.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                                    <Label Grid.Column="1" Grid.Row="0" StyleClass="GridLabelTitle" Text="{Binding jobTitle}"/>
+                                    <Label Grid.Column="1" Grid.Row="1" StyleClass="GridLabelDescription" Text="{Binding description}"/>
+                                    <Label Grid.Column="1" Grid.Row="2" StyleClass="GridLabelSalary" Text="{Binding salary, StringFormat='Salary: £{0:F0}'}"/>
+                                    <Label Grid.Column="1" Grid.Row="3" StyleClass="GridLabelLocation" Text="{Binding location, StringFormat='Location: {0:F0}'}"/>
+                                    <!--<Label Grid.Column="1" Grid.Row="2" FontAttributes="Bold" HorizontalOptions="Start" Text="{Binding ClosingDate}" VerticalOptions="Center"/>-->
+                                    <!--<Button Grid.Column="1" Grid.Row="1" Text="Visit"></Button>-->
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
         </Grid>
     </StackLayout>
     
