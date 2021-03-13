@@ -12,7 +12,7 @@
     <ContentPage.Content>
         <ScrollView Background="White">
             <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-                <Frame HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="300" BorderColor="Transparent" >
+                <Frame StyleClass="DefaultFrame">
                     <StackLayout>
                         <Label StyleClass="LargeTitleLabel" Text="Create a new opportunity"/>
 

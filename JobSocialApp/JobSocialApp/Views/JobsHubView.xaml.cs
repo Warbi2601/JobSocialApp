@@ -1,128 +1,55 @@
-﻿using JobSocialApp.Services;
-using System;
+﻿using System;
 using Xamarin.Forms;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms.Xaml;
 using JobSocialApp.ViewModels;
+using JobSocialApp.Models;
 
 namespace JobSocialApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class JobsHubView : ContentPage
     {
-        private JobsHubViewModel profileVM = null;
+        private JobsHubViewModel jobsHubVM = null;
 
         public JobsHubView()
         {
             InitializeComponent();
 
             BindingContext = new JobsHubViewModel();
+            jobsHubVM = BindingContext as JobsHubViewModel;
 
-            //profileVM = BindingContext as ProfileViewModel;
-            //profileVM.PopulateViewWithJobs();
-            //profileVM.PopulateJobs();
+            Shell.SetTabBarIsVisible(this, false);
         }
 
         protected override async void OnAppearing()
         {
-            profileVM = BindingContext as JobsHubViewModel;
+            jobsHubVM = BindingContext as JobsHubViewModel;
 
-            if (profileVM != null)
+            if (jobsHubVM != null)
             {
-                await profileVM.PopulateJobs();
-                await profileVM.PopulateUser();
+                await jobsHubVM.PopulateJobs();
             }
         }
 
-        private async void AddNewElementClicked(object sender, EventArgs e)
+        private async void CreateNewJob(object sender, EventArgs e)
         {
-            //profileVM = BindingContext as ProfileViewModel;
-
-            //if (profileVM != null)
-            //{
-            //    profileVM.PopulateViewWithJobs();
-            //}
-            //CurrentApplications.ItemsSource({ Test: "asas"})
-
-            //CurrentApplications.ItemTemplate = new DataTemplate(() =>
-            //{
-            //    BoxView boxView = new BoxView();
-            //    return new ViewCell
-            //    {
-            //        View = new StackLayout
-            //        {
-            //            Padding = new Thickness(0, 5),
-            //            Orientation = StackOrientation.Horizontal,
-            //            Children =
-            //            {
-            //                boxView,
-            //                new StackLayout
-            //                {
-            //                    VerticalOptions = LayoutOptions.Center,
-            //                    Spacing = 0,
-            //                    Children =
-            //                    {
-            //                        CreateGrid()
-            //                    }
-            //                }
-            //            }
-            //        }
-            //    };
-            //});
-
-            //CurrentApplications.Children.Add(CreateGrid());
+            await Navigation.PushAsync(new AddNewJobView());
         }
 
-        private Grid CreateGrid()
+        private async void ViewSelectedJobClicked(object sender, ItemTappedEventArgs e)
         {
-            Grid toClient = new Grid();
-            Image companyImage = new Image();
-            Label jobTitle = new Label();
-            Label jobDescription = new Label();
-            Label closingDate = new Label();
-            Button viewJob = new Button();
+            var selectedJobData = e.Item as Job;
+            // It is a profile view so only apply option should be visible
+            Boolean isEditable = true;
 
-            /*  Grid - Single grid panel */
-
-            toClient.RowDefinitions.Add(new RowDefinition());
-            toClient.RowDefinitions.Add(new RowDefinition());
-            toClient.RowDefinitions.Add(new RowDefinition());
-            toClient.ColumnDefinitions.Add(new ColumnDefinition());
-            toClient.ColumnDefinitions.Add(new ColumnDefinition());
-            toClient.ColumnDefinitions.Add(new ColumnDefinition());
-
-
-            /*  Image - Company image */
-            companyImage.Source = "document.png";
-            companyImage.HorizontalOptions = LayoutOptions.CenterAndExpand;
-            companyImage.VerticalOptions = LayoutOptions.CenterAndExpand;
-
-            /*  Label - Job Title */
-            jobTitle.Text = "Title test";
-
-            /*  Label - Job Description */
-            jobDescription.Text = "Test description";
-
-            /*  Label - Closing Date or whatever */
-            closingDate.Text = "20/20/20";
-
-            /*  Button - View the original job advert */
-            viewJob.Text = "View Job";
-
-            Grid.SetRowSpan(companyImage, 3);
-            
-            toClient.Children.Add(companyImage, 0, 0);
-            toClient.Children.Add(jobTitle, 1, 0);
-            toClient.Children.Add(jobDescription, 1, 1);
-            toClient.Children.Add(closingDate, 1, 2);
-            toClient.Children.Add(viewJob, 2, 1);
-
-            return toClient;
+            try
+            {
+                await Navigation.PushAsync(new JobPreviewView(selectedJobData, isEditable));
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
-
-
     }
 }

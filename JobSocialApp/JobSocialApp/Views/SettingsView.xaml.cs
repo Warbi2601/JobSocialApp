@@ -16,6 +16,8 @@ namespace JobSocialApp.Views
 
             BindingContext = new SettingsViewModel();
             settingsVM = BindingContext as SettingsViewModel;
+
+            Shell.SetTabBarIsVisible(this, false);
         }
 
         private void RadioLanguageButton_Clicked(object sender, EventArgs e)

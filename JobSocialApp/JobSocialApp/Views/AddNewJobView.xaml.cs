@@ -20,6 +20,7 @@ namespace JobSocialApp.Views
             InitializeComponent();
 
             BindingContext = new AddNewJobViewModel();
+            newJobVM = BindingContext as AddNewJobViewModel;
 
             Shell.SetTabBarIsVisible(this, false);
         }
