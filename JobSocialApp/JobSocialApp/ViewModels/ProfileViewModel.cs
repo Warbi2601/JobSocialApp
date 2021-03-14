@@ -29,7 +29,7 @@ namespace JobSocialApp.ViewModels
         private String position = "";
         //private String profilePicture = "";
         private String jobTitle = "";
-        private ImageSource profilePicture = ImageSource.From("profile.jpg");
+        private ImageSource profilePicture = ImageSource.FromFile("profile.jpg");
 
         private String updateDetailsBtnText = "Update details";
 
