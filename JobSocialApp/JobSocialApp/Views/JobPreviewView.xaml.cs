@@ -26,13 +26,13 @@ namespace JobSocialApp.Views
             Shell.SetTabBarIsVisible(this, false);
         }
 
-        protected override async void OnAppearing()
+        protected override void OnAppearing()
         {
             jobPreviewVM = BindingContext as JobPreviewViewModel;
 
             if (jobPreviewVM != null)
             {
-                await jobPreviewVM.PopulateJobVMData(jobObj);
+                jobPreviewVM.PopulateJobVMData(jobObj);
             }
         }
 
@@ -46,6 +46,16 @@ namespace JobSocialApp.Views
             else
             {
                 ApplyBtn.IsVisible = true;
+            }
+        }
+
+        private async void AddComment_Clicked(object sender, EventArgs e)
+        {
+            jobPreviewVM = BindingContext as JobPreviewViewModel;
+
+            if (jobPreviewVM != null)
+            {
+                await jobPreviewVM.AddComment();
             }
         }
     }
