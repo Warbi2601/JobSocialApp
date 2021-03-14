@@ -56,6 +56,39 @@
         <Setter Property="Margin" Value="0,20" />
     </Style>
 
+    <Style TargetType="Button" Class="FormRemoveButton">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="HorizontalOptions" Value="Start"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="CornerRadius" Value="50" />
+        <Setter Property="BackgroundColor" Value="{StaticResource NegativeBtn}"/>
+    </Style>
+    
+    <Style TargetType="Button" Class="FormEditButton">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="HorizontalOptions" Value="Start"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="CornerRadius" Value="50" />
+        <Setter Property="BackgroundColor" Value="{StaticResource NeutralBtn}"/>
+    </Style>
+
+    <!--Frames-->
+    
+    <Style TargetType="Frame" Class="DefaultFrame">
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="WidthRequest" Value="300" />
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="BorderColor" Value="Transparent" />
+    </Style>    
+    
+    <Style TargetType="Frame" Class="NarrowFrame">
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="BorderColor" Value="Transparent" />
+        <Setter Property="Margin" Value="10" />
+        <Setter Property="Padding" Value="10" />
+    </Style>
+
     <!--Grid items options-->
     
     <Style TargetType="Label" Class="GridLabelTitle">
@@ -81,6 +114,12 @@
         <Setter Property="HorizontalOptions" Value="Start"/>
         <Setter Property="VerticalOptions" Value="Center"/>
     </Style>
+    <Style TargetType="Label" Class="GridDescriptionLabel">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="HorizontalOptions" Value="Start"/>
+    </Style>
+
+
 
 
 </ResourceDictionary>

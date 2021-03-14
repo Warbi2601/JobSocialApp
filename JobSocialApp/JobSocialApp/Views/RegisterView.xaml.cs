@@ -16,6 +16,7 @@ namespace JobSocialApp.Views
             InitializeComponent();
 
             BindingContext = new RegisterViewModel();
+            registerVM = BindingContext as RegisterViewModel;
         }
 
         private async void SignUpClicked(object sender, EventArgs e)

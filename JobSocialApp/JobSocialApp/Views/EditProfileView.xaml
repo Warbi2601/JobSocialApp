@@ -13,7 +13,7 @@
         <StackLayout Orientation="Vertical">
             <!--<StackLayout Background="White">
                 <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">-->
-            <Frame HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="300" CornerRadius="10" BorderColor="Transparent" >
+            <Frame StyleClass="DefaultFrame">
                 <StackLayout>
                     <Label StyleClass="MediumTitleLabel" Text="{Binding PageTitleLbl}"/>
                     <Label Text="{Binding FNamePlaceHolder}"/>

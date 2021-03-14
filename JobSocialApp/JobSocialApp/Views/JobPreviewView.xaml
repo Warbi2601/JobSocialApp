@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:app="clr-namespace:JobSocialApp"
+             x:Class="JobSocialApp.Views.JobPreviewView">
+
+
+    <ContentPage.Resources>
+        <ResourceDictionary MergedWith="app:StylingResourceDictionary" />
+    </ContentPage.Resources>
+
+    <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+        <StackLayout Orientation="Vertical">
+            <Frame StyleClass="NarrowFrame">
+                <StackLayout x:Name="LayoutContainer">
+                    <Grid Padding="10" RowSpacing="2" ColumnSpacing="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20*" />
+                            <RowDefinition Height="20*" />
+                            <RowDefinition Height="20*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="25*" />
+                            <ColumnDefinition Width="75*" />
+                        </Grid.ColumnDefinitions>
+                    
+                        <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" Source="document.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                        <Label Grid.Column="1" Grid.Row="0" StyleClass="GridLabelTitle" Text="{Binding JobTitle}"/>
+                        <Label Grid.Column="1" Grid.Row="1" StyleClass="GridLabelSalary" Text="{Binding Salary, StringFormat='Salary: £{0:F0}'}"/>
+                        <Label Grid.Column="1" Grid.Row="2" StyleClass="GridLabelLocation" Text="{Binding Location, StringFormat='Location: {0:F0}'}"/>
+                    </Grid>
+                    <Label StyleClass="GridDescriptionLabel" Text="{Binding Description}"/>
+                    <Button StyleClass="PositiveButtonStyles" IsVisible="false" x:Name="ApplyBtn" Text="Apply"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Button StyleClass="FormEditButton" IsVisible="false" x:Name="EditBtn" Text="Edit"/>
+                        <Button StyleClass="FormRemoveButton" IsVisible="false" x:Name="DeleteBtn" Text="Delete"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

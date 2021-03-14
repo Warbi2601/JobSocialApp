@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using JobSocialApp.Services;
 using JobSocialApp.Models;
-using JobSocialApp.Views;
 using Xamarin.Forms;
-using static JobSocialApp.Models.GlobalModels;
 using JobSocialApp.Services.FirebaseActions;
 using JobSocialApp.Services.GeoLocation;
 

@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using JobSocialApp.Models;
-using JobSocialApp.Services;
 using JobSocialApp.Services.FirebaseActions;
-using JobSocialApp.Views;
-using Xamarin.Forms;
-using static JobSocialApp.Models.GlobalModels;
 
 namespace JobSocialApp.ViewModels
 {
@@ -26,31 +21,19 @@ namespace JobSocialApp.ViewModels
 
         #region Local variables
 
-        private String fullName = "";
-        private String email = "";
-        private String position = "";
-        private String profilePicture = "";
-        private String jobTitle = "";
-
         private String updateDetailsBtnText = "Update details";
 
         // Elements - for language
-        private String pageTitleLbl = "Edit personal details";
-        private String fNamePlaceHolder = "First Name";
-        private String sNamePlaceHolder = "Last Name";
-        private String emailPlaceHolder = "Email Address";
-        private String positionPlaceHolder = "Current Position";
-        private String passwordPlaceHolder = "Password";
+        private String listTitleLbl = "Jobs created by you";
+        private String addNewJobBtn = "Add new job";
 
         private ObservableCollection<Job> jobs = new ObservableCollection<Job>();
-        private User user = new User();
 
         #endregion
 
         #region Public members
 
         #region Public variables
-
         public ObservableCollection<Job> Jobs
         {
             get => jobs;
@@ -61,139 +44,30 @@ namespace JobSocialApp.ViewModels
             }
         }
 
-        public String JobTitle
-        {
-            get => jobTitle;
-            set
-            {
-                jobTitle = value;
-                OnPropertyChange();
-            }
-        }
-
-        public User User
-        {
-            get => user;
-            set
-            {
-                user = value;
-                OnPropertyChange();
-            }
-        }
-
-        public String FullName
-        {
-            get => fullName;
-            set
-            {
-                fullName = value;
-                OnPropertyChange();
-            }
-        }
-        
-        public String Email
-        {
-            get => email;
-            set
-            {
-                email = value;
-                OnPropertyChange();
-            }
-        }
-        
-        public String Position
-        {
-            get => position;
-            set
-            {
-                position = value;
-                OnPropertyChange();
-            }
-        }
-
-        public String ProfilePicture
-        {
-            get => profilePicture;
-            set
-            {
-                profilePicture = value;
-                OnPropertyChange();
-            }
-        }
-
-        public String UpdateDetailsBtnText
-        {
-            get => updateDetailsBtnText;
-            set
-            {
-                updateDetailsBtnText = value;
-                OnPropertyChange();
-            }
-        }
-
         #endregion
 
         #region Public elements - for language
 
-        public String PageTitleLbl
+        public String ListTitleLbl
         {
-            get => pageTitleLbl;
+            get => listTitleLbl;
             set
             {
-                pageTitleLbl = value;
+                listTitleLbl = value;
                 OnPropertyChange();
             }
         }
         
-        public String FNamePlaceHolder
+        public String AddNewJobBtn
         {
-            get => fNamePlaceHolder;
+            get => addNewJobBtn;
             set
             {
-                fNamePlaceHolder = value;
-                OnPropertyChange();
-            }
-        }
-
-        public String SNamePlaceHolder
-        {
-            get => sNamePlaceHolder;
-            set
-            {
-                sNamePlaceHolder = value;
-                OnPropertyChange();
-            }
-        }
-
-        public String EmailPlaceHolder
-        {
-            get => emailPlaceHolder;
-            set
-            {
-                emailPlaceHolder = value;
-                OnPropertyChange();
-            }
-        }
-
-        public String PositionPlaceHolder
-        {
-            get => positionPlaceHolder;
-            set
-            {
-                positionPlaceHolder = value;
+                addNewJobBtn = value;
                 OnPropertyChange();
             }
         }
         
-        public String PasswordPlaceHolder
-        {
-            get => passwordPlaceHolder;
-            set
-            {
-                passwordPlaceHolder = value;
-                OnPropertyChange();
-            }
-        }
 
         #endregion
 
@@ -212,15 +86,6 @@ namespace JobSocialApp.ViewModels
             Jobs = await crud.GetAllJobs();
         }
         
-        public async Task PopulateUser()
-        {
-            AppContext context = new AppContext();
-            User = await context.GetCurrentUser();
-            FullName = string.Format("{0} {1}", User.firstName, User.lastName);
-            Email = User.email;
-            JobTitle = User.jobTitle;
-        }
-
         #endregion
     }
 }

@@ -21,6 +21,9 @@ namespace JobSocialApp.Views
             InitializeComponent();
 
             BindingContext = new EditProfileViewModel();
+            editProfileVM = BindingContext as EditProfileViewModel;
+
+            Shell.SetTabBarIsVisible(this, false);
         }
 
         private void LoadUserDetails()
