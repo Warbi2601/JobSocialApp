@@ -120,6 +120,27 @@
   <data name="Another" xml:space="preserve">
     <value>Another</value>
   </data>
+  <data name="CreateNewOpp" xml:space="preserve">
+    <value>Create a new opportunity</value>
+  </data>
+  <data name="JobDescriptionPlaceHolder" xml:space="preserve">
+    <value>Job Descritpion</value>
+  </data>
+  <data name="JobTitlePlaceHolder" xml:space="preserve">
+    <value>Job Title</value>
+  </data>
+  <data name="LocationPlaceHolder" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="PostcodePlaceHolder" xml:space="preserve">
+    <value>Postcode</value>
+  </data>
+  <data name="SalaryPlaceHolder" xml:space="preserve">
+    <value>Salary</value>
+  </data>
+  <data name="SubmitButtonText" xml:space="preserve">
+    <value>Submit</value>
+  </data>
   <data name="Title" xml:space="preserve">
     <value>Welcome</value>
   </data>

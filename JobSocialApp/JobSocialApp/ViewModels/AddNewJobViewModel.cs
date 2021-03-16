@@ -31,13 +31,14 @@ namespace JobSocialApp.ViewModels
         private String postcode = "";
 
         // Elements - for language
-        private String jobTitlePlaceHolder = "Job Title";
-        private String salaryPlaceHolder = "Salary";
-        private String locationPlaceHolder = "Location";
-        private String descriptionPlaceHolder = "Job Description";
-        private String postcodePlaceHolder = "Postcode";
+        private String viewHeading = TranslationManager.Instance.getTranslation("CreateNewOpp");
+        private String jobTitlePlaceHolder = TranslationManager.Instance.getTranslation("JobTitlePlaceHolder");
+        private String salaryPlaceHolder = TranslationManager.Instance.getTranslation("SalaryPlaceHolder");
+        private String locationPlaceHolder = TranslationManager.Instance.getTranslation("LocationPlaceHolder");
+        private String descriptionPlaceHolder = TranslationManager.Instance.getTranslation("JobDescriptionPlaceHolder");
+        private String postcodePlaceHolder = TranslationManager.Instance.getTranslation("PostcodePlaceHolder");
 
-        private String sendBtn = "Submit";
+        private String sendBtn = TranslationManager.Instance.getTranslation("SubmitButtonText");
 
         #endregion
 
@@ -96,6 +97,16 @@ namespace JobSocialApp.ViewModels
         #endregion
 
         #region Public elements - for language
+
+        public String ViewHeading
+        {
+            get => viewHeading;
+            set
+            {
+                viewHeading = value;
+                OnPropertyChange();
+            }
+        }
 
         public String JobTitlePlaceHolder
         {
@@ -165,6 +176,16 @@ namespace JobSocialApp.ViewModels
 
         public AddNewJobViewModel()
         {
+            MessagingCenter.Subscribe<TranslationManager>(this, "langChanged", (w) =>
+            {
+                Console.WriteLine("lang changed");
+                viewHeading = TranslationManager.Instance.getTranslation("CreateNewOpp");
+                jobTitlePlaceHolder = TranslationManager.Instance.getTranslation("JobTitlePlaceHolder");
+                salaryPlaceHolder = TranslationManager.Instance.getTranslation("SalaryPlaceHolder");
+                locationPlaceHolder = TranslationManager.Instance.getTranslation("LocationPlaceHolder");
+                descriptionPlaceHolder = TranslationManager.Instance.getTranslation("JobDescriptionPlaceHolder");
+                postcodePlaceHolder = TranslationManager.Instance.getTranslation("PostcodePlaceHolder");
+            });
             notificationManager = DependencyService.Get<INotificationManager>();
         }
 

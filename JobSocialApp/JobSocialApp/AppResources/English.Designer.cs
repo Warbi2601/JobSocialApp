@@ -70,6 +70,69 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create a new opportunity.
+        /// </summary>
+        public static string CreateNewOpp {
+            get {
+                return ResourceManager.GetString("CreateNewOpp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Job Descritpion.
+        /// </summary>
+        public static string JobDescriptionPlaceHolder {
+            get {
+                return ResourceManager.GetString("JobDescriptionPlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Job Title.
+        /// </summary>
+        public static string JobTitlePlaceHolder {
+            get {
+                return ResourceManager.GetString("JobTitlePlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Location.
+        /// </summary>
+        public static string LocationPlaceHolder {
+            get {
+                return ResourceManager.GetString("LocationPlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Postcode.
+        /// </summary>
+        public static string PostcodePlaceHolder {
+            get {
+                return ResourceManager.GetString("PostcodePlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Salary.
+        /// </summary>
+        public static string SalaryPlaceHolder {
+            get {
+                return ResourceManager.GetString("SalaryPlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submit.
+        /// </summary>
+        public static string SubmitButtonText {
+            get {
+                return ResourceManager.GetString("SubmitButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Welcome.
         /// </summary>
         public static string Title {

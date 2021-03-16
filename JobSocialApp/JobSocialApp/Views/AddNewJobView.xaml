@@ -14,7 +14,7 @@
             <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                 <Frame StyleClass="DefaultFrame">
                     <StackLayout>
-                        <Label StyleClass="LargeTitleLabel" Text="Create a new opportunity"/>
+                        <Label StyleClass="LargeTitleLabel" Text="{Binding ViewHeading}"/>
 
                         <Label Text="{Binding JobTitlePlaceHolder}"/>
                         <Entry TextColor="{StaticResource BlackColour}" Text="{Binding JobTitle}"/>
