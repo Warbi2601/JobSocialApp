@@ -32,8 +32,8 @@
                     <Label StyleClass="GridDescriptionLabel" Text="{Binding Description}"/>
                     <Button StyleClass="PositiveButtonStyles" IsVisible="false" x:Name="ApplyBtn" Text="Apply"/>
                     <StackLayout Orientation="Horizontal">
-                        <Button StyleClass="FormEditButton" IsVisible="false" x:Name="EditBtn" Text="Edit"/>
-                        <Button StyleClass="FormRemoveButton" IsVisible="false" x:Name="DeleteBtn" Text="Delete"/>
+                        <Button StyleClass="FormEditButton" IsVisible="false" x:Name="EditBtn" Text="{Binding EditButtonText}"/>
+                        <Button StyleClass="FormRemoveButton" IsVisible="false" x:Name="DeleteBtn" Text="{Binding DeleteButtonText}"/>
                     </StackLayout>
                 </StackLayout>
             </Frame>

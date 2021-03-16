@@ -120,6 +120,12 @@
   <data name="CreateNewOpp" xml:space="preserve">
     <value>Create a new opportunity</value>
   </data>
+  <data name="DeleteButtonText" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="EditButtonText" xml:space="preserve">
+    <value>Edit</value>
+  </data>
   <data name="EditProfileTitle" xml:space="preserve">
     <value>Edit personal details</value>
   </data>

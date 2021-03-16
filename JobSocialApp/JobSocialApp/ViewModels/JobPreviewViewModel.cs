@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using JobSocialApp.Models;
 using JobSocialApp.Services.FirebaseActions;
+using Xamarin.Forms;
 
 namespace JobSocialApp.ViewModels
 {
@@ -12,6 +13,15 @@ namespace JobSocialApp.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public JobPreviewViewModel()
+        {
+            MessagingCenter.Subscribe<TranslationManager>(this, "langChanged", (w) =>
+            {
+                Console.WriteLine("lang changed");
+                editButtonText = TranslationManager.Instance.getTranslation("EditButtonText");
+                deleteButtonText = TranslationManager.Instance.getTranslation("DeleteButtonText");
+            });
+        }
 
         private void OnPropertyChange([CallerMemberName] String propertyName = "")
         {
@@ -19,7 +29,6 @@ namespace JobSocialApp.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         
-        public JobPreviewViewModel() { }
 
         #region Local variables
 
@@ -28,7 +37,8 @@ namespace JobSocialApp.ViewModels
         private String location = "";
         private String description = "";
         private String id = "";
-
+        private String editButtonText = TranslationManager.Instance.getTranslation("EditButtonText");
+        private String deleteButtonText = TranslationManager.Instance.getTranslation("DeleteButtonText");
         #endregion
 
         #region Public members
@@ -81,6 +91,26 @@ namespace JobSocialApp.ViewModels
             set
             {
                 id = value;
+                OnPropertyChange();
+            }
+        }
+
+        public String EditButtonText
+        {
+            get => editButtonText;
+            set
+            {
+                editButtonText = value;
+                OnPropertyChange();
+            }
+        }
+
+        public String DeleteButtonText
+        {
+            get => deleteButtonText;
+            set
+            {
+                deleteButtonText = value;
                 OnPropertyChange();
             }
         }
