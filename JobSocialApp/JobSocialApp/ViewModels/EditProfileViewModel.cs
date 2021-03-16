@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using JobSocialApp.Models;
 using JobSocialApp.Services;
 using JobSocialApp.Views;
 using Xamarin.Forms;
@@ -13,6 +14,21 @@ namespace JobSocialApp.ViewModels
     class EditProfileViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public EditProfileViewModel()
+        {
+            MessagingCenter.Subscribe<TranslationManager>(this, "langChanged", (w) =>
+            {
+                Console.WriteLine("lang changed");
+                updateDetailsBtnText = TranslationManager.Instance.getTranslation("UpdateDetailsButton");
+                pageTitleLbl = TranslationManager.Instance.getTranslation("EditProfileTitle");
+                fNamePlaceHolder = TranslationManager.Instance.getTranslation("FirstNamePlaceholder");
+                sNamePlaceHolder = TranslationManager.Instance.getTranslation("LastNamePlaceholder");
+                emailPlaceHolder = TranslationManager.Instance.getTranslation("EmailPlaceholder");
+                positionPlaceHolder = TranslationManager.Instance.getTranslation("PositionPlaceholder");
+                passwordPlaceHolder = TranslationManager.Instance.getTranslation("PasswordPlaceholder");
+            });
+        }
 
         private void OnPropertyChange([CallerMemberName] String propertyName = "")
         {
@@ -28,15 +44,15 @@ namespace JobSocialApp.ViewModels
         private String position = "";
         private String profilePicture = "";
 
-        private String updateDetailsBtnText = "Update details";
+        private String updateDetailsBtnText = TranslationManager.Instance.getTranslation("UpdateDetailsButton");
 
         // Elements - for language
-        private String pageTitleLbl = "Edit personal details";
-        private String fNamePlaceHolder = "First Name";
-        private String sNamePlaceHolder = "Last Name";
-        private String emailPlaceHolder = "Email Address";
-        private String positionPlaceHolder = "Current Position";
-        private String passwordPlaceHolder = "Password";
+        private String pageTitleLbl = TranslationManager.Instance.getTranslation("EditProfileTitle");
+        private String fNamePlaceHolder = TranslationManager.Instance.getTranslation("FirstNamePlaceholder");
+        private String sNamePlaceHolder = TranslationManager.Instance.getTranslation("LastNamePlaceholder");
+        private String emailPlaceHolder = TranslationManager.Instance.getTranslation("EmailPlaceholder");
+        private String positionPlaceHolder = TranslationManager.Instance.getTranslation("PositionPlaceholder");
+        private String passwordPlaceHolder = TranslationManager.Instance.getTranslation("PasswordPlaceholder");
 
         #endregion
 
