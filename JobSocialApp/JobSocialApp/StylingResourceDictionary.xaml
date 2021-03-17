@@ -73,7 +73,6 @@
     </Style>
 
     <Style TargetType="Button" Class="SendMsgButton">
-        <Setter Property="CornerRadius" Value="50*" />
         <Setter Property="WidthRequest" Value="50*" />
         <Setter Property="HeightRequest" Value="50*" />
         <Setter Property="TextColor" Value="{StaticResource WhiteColour}" />

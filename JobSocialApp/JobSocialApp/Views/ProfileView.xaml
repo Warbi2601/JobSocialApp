@@ -29,7 +29,7 @@
                     </Frame>
                         
                 </Frame>
-                    <Button Padding="30" HeightRequest="60" WidthRequest="60" ImageSource="edit" StyleClass="SendMsgButton" Clicked="UpdateImageClicked" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="1,1,-1,-1" />
+                    <Button Padding="30" HeightRequest="60" WidthRequest="60" ImageSource="editWhite" StyleClass="SendMsgButton" Clicked="UpdateImageClicked" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="1,1,-1,-1" />
                 
                 
                 </AbsoluteLayout>
