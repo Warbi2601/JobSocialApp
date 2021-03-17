@@ -9,34 +9,77 @@
         <ResourceDictionary MergedWith="app:StylingResourceDictionary" />
     </ContentPage.Resources>
 
-    <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+    <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical">
         <StackLayout Orientation="Vertical">
             <Frame StyleClass="NarrowFrame">
-                <StackLayout x:Name="LayoutContainer">
-                    <Grid Padding="10" RowSpacing="2" ColumnSpacing="2">
+                <StackLayout>
+                    <Grid VerticalOptions="StartAndExpand" Padding="10" RowSpacing="2" ColumnSpacing="2">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="20*" />
-                            <RowDefinition Height="20*" />
-                            <RowDefinition Height="20*" />
+                            <RowDefinition Height="25" />
+                            <RowDefinition Height="25" />
+                            <RowDefinition Height="25" />
+                            <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="25*" />
                             <ColumnDefinition Width="75*" />
                         </Grid.ColumnDefinitions>
                     
-                        <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" Source="document.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                        <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Source="document.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
                         <Label Grid.Column="1" Grid.Row="0" StyleClass="GridLabelTitle" Text="{Binding JobTitle}"/>
                         <Label Grid.Column="1" Grid.Row="1" StyleClass="GridLabelSalary" Text="{Binding Salary, StringFormat='Salary: £{0:F0}'}"/>
                         <Label Grid.Column="1" Grid.Row="2" StyleClass="GridLabelLocation" Text="{Binding Location, StringFormat='Location: {0:F0}'}"/>
+                        <Label Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" StyleClass="GridDescriptionLabel" Text="{Binding Description}"/>
                     </Grid>
-                    <Label StyleClass="GridDescriptionLabel" Text="{Binding Description}"/>
+
+                    <!--<Label StyleClass="GridDescriptionLabel" Text="{Binding Description}" LineBreakMode="WordWrap" MaxLines="8"/>-->
+
+                    
+                    
                     <Button StyleClass="PositiveButtonStyles" IsVisible="false" x:Name="ApplyBtn" Text="Apply"/>
                     <StackLayout Orientation="Horizontal">
                         <Button StyleClass="FormEditButton" IsVisible="false" x:Name="EditBtn" Text="{Binding EditButtonText}"/>
                         <Button StyleClass="FormRemoveButton" IsVisible="false" x:Name="DeleteBtn" Text="{Binding DeleteButtonText}"/>
                     </StackLayout>
+
+
+                    <!--comment this StackLayout out to fix the top of the screen-->
+                        <!--<Frame StyleClass="DefaultFrame">-->
+                            <StackLayout Orientation="Horizontal">
+                            <Editor HorizontalOptions="FillAndExpand" Placeholder="{Binding CommentsPlaceHolder}" TextColor="{StaticResource BlackColour}" HeightRequest="50" Text="{Binding NewComment}"/>
+                            <Button WidthRequest="25" HeightRequest="25" StyleClass="SendMsgButton" ImageSource="send2" Clicked="AddComment_Clicked" />
+                            </StackLayout>
+                        <!--</Frame>-->
+                        <!--<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        </StackLayout>-->
+
                 </StackLayout>
             </Frame>
+
+            <Label Text="Comments" StyleClass="MediumTitleLabel" Margin="10, 0" />
+
+            <ListView ItemsSource="{Binding Comments}" HasUnevenRows="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid Padding="10" RowSpacing="2" ColumnSpacing="2">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="25" />
+                                                <RowDefinition Height="25" />
+                                                <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100*" />
+                                        </Grid.ColumnDefinitions>
+
+                                            <Label Grid.Column="0" Grid.Row="0" StyleClass="GridLabelTitle" Text="{Binding username}"/>
+                                            <Label Grid.Column="0" Grid.Row="1" Text="{Binding time}"/>
+                                            <Label Grid.Column="0" Grid.Row="2" Text="{Binding content}"/>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
         </StackLayout>
     </ScrollView>
 </ContentPage>

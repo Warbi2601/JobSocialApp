@@ -1,5 +1,6 @@
 ﻿using Plugin.CloudFirestore.Attributes;
 using JobSocialApp.Services.GeoLocation;
+using System.Collections.Generic;
 
 namespace JobSocialApp.Models
 {
@@ -23,6 +24,8 @@ namespace JobSocialApp.Models
         public double latitude { get; set; }
 
         public string userID { get; set; }
+
+        public List<Comment> comments { get; set; }
 
     }
 }

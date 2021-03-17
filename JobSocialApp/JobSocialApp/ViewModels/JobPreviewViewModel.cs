@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using JobSocialApp.Models;
@@ -39,11 +41,28 @@ namespace JobSocialApp.ViewModels
         private String id = "";
         private String editButtonText = TranslationManager.Instance.getTranslation("EditButtonText");
         private String deleteButtonText = TranslationManager.Instance.getTranslation("DeleteButtonText");
+
+        private List<Comment> comments { get; set; }
+
+        private String newComment = "";
+        private String addCommentBtn = "Add Comment";
+        private String commentsPlaceHolder = "Add a comment";
+
         #endregion
 
         #region Public members
 
         #region Public variables
+
+        public List<Comment> Comments
+        {
+            get => comments;
+            set
+            {
+                comments = value;
+                OnPropertyChange();
+            }
+        }
 
         public String JobTitle
         {
@@ -103,6 +122,16 @@ namespace JobSocialApp.ViewModels
                 editButtonText = value;
                 OnPropertyChange();
             }
+        } 
+
+        public String NewComment
+        {
+            get => newComment;
+            set
+            {
+                newComment = value;
+                OnPropertyChange();
+            }
         }
 
         public String DeleteButtonText
@@ -111,23 +140,73 @@ namespace JobSocialApp.ViewModels
             set
             {
                 deleteButtonText = value;
+                                OnPropertyChange();
+            }
+        }
+        
+        public String AddCommentBtn
+        {
+            get => addCommentBtn;
+            set
+            {
+                addCommentBtn = value;
                 OnPropertyChange();
             }
         }
 
+        public String CommentsPlaceHolder
+        {
+            get => commentsPlaceHolder;
+            set
+            {
+                commentsPlaceHolder = value;
+                OnPropertyChange();
+            }
+        }
+        
         #endregion
 
         #endregion
 
         #region Functions
 
-        public async Task PopulateJobVMData(Job jobObj)
+        public void PopulateJobVMData(Job jobObj)
         {
+            Comments = jobObj.comments.OrderByDescending(x => x.time).ToList();
             JobTitle = jobObj.jobTitle;
             Salary = jobObj.salary;
             Location = jobObj.location;
             Description = jobObj.description;
             Id = jobObj._id;
+        }
+
+        public async Task AddComment()
+        {
+            if(string.IsNullOrEmpty(NewComment))
+            {
+                //return alert here
+            }
+
+            AppContext context = new AppContext();
+            var currentUser = await context.GetCurrentUser();
+
+            JobActions crud = new JobActions();
+
+            var job = await crud.GetJob(Id);
+
+            if (job.comments == null) job.comments = new List<Comment>();
+            job.comments.Add(new Comment
+            {
+                content = NewComment,
+                time = DateTime.Now,
+                username = string.Format("{0} {1}", currentUser.firstName, currentUser.lastName)
+            });
+
+            await crud.UpdateJob(job);
+
+            //refresh comments and reset new comment field
+            NewComment = "";
+            Comments = job.comments.OrderByDescending(x => x.time).ToList();
         }
 
         #endregion

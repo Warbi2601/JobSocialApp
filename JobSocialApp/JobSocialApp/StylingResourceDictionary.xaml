@@ -72,6 +72,15 @@
         <Setter Property="BackgroundColor" Value="{StaticResource NeutralBtn}"/>
     </Style>
 
+    <Style TargetType="Button" Class="SendMsgButton">
+        <Setter Property="WidthRequest" Value="50*" />
+        <Setter Property="HeightRequest" Value="50*" />
+        <Setter Property="TextColor" Value="{StaticResource WhiteColour}" />
+        <Setter Property="BackgroundColor" Value="{StaticResource NeutralBtn}" />
+        <Setter Property="CornerRadius" Value="50" />
+        <!--<Setter Property="Margin" Value="0,20" />-->
+    </Style>
+
     <!--Frames-->
     
     <Style TargetType="Frame" Class="DefaultFrame">
