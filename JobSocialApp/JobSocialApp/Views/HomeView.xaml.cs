@@ -54,8 +54,8 @@ namespace JobSocialApp.Views
 
         async void OnTestClick(object sender, EventArgs e)
         {
-            var a = await Test();
-            var b = 1;
+            Shell.Current.FlyoutIsPresented = false;
+            await Navigation.PushAsync(new ChatView());
         }
 
         public async Task<Position> Test()
@@ -82,11 +82,12 @@ namespace JobSocialApp.Views
             string message = $"You have now received {notificationNumber} notifications!";
             notificationManager.SendNotification(title, message, DateTime.Now.AddSeconds(10));
         }
-        private async void TestClicked(object sender, EventArgs e)
+        private void OnTestClicked(object sender, EventArgs e)
         {
+            Console.WriteLine("Test clicked");
             // need to add validation and exception catches // crashes under certain circumstances (password less than 6)
-            Console.WriteLine("button pressed");
-            TranslationManager.Instance.changeLang();
+            /*Console.WriteLine("button pressed");
+            TranslationManager.Instance.changeLang();*/
         }
         
 

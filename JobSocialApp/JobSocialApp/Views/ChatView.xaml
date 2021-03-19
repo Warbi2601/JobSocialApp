@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JobSocialApp.Views.ChatView">
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical">
+            <ListView x:Name="messageView" ItemsSource="{Binding Messages}">
+            </ListView>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

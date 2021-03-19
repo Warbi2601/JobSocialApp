@@ -11,7 +11,6 @@ namespace JobSocialApp.Services.FirebaseActions
     {
         private readonly string collectionName = "users";
 
-
         public async Task<User> AddUser(User user)
         {
             var newUser = await CrossCloudFirestore.Current
