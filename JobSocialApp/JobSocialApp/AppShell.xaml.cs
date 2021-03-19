@@ -23,12 +23,15 @@ namespace JobSocialApp
 
             var authService = DependencyService.Resolve<IFirebaseAuthenticator>();
 
-            if (!authService.isSignedIn())
+            var isSignedIn = authService.isSignedIn();
+
+            if (!isSignedIn)
             {
                 Task.Run(async () => await Shell.Current.GoToAsync("///login"));
             }
             else
             {
+                var uid = authService.GetCurrentUserUID();
                 Task.Run(async () => await Shell.Current.GoToAsync("///home"));
             }
         }
