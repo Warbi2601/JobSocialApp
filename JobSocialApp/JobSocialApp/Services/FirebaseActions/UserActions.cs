@@ -9,7 +9,7 @@ namespace JobSocialApp.Services.FirebaseActions
 {
     public class UserActions
     {
-        private readonly string collectionName = "users";
+        private readonly string collectionName = "chats";
 
         public async Task<User> AddUser(User user)
         {

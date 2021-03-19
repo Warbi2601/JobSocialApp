@@ -1,4 +1,5 @@
-﻿using JobSocialApp.Services.FirebaseActions;
+﻿using JobSocialApp.Models;
+using JobSocialApp.Services.FirebaseActions;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,7 +13,7 @@ namespace JobSocialApp.ViewModels
     public class ChatViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        MessagesActions crud = new MessagesActions();
+        ChatActions crud = new ChatActions();
 
         private void OnPropertyChange([CallerMemberName] String propertyName = "")
         {
@@ -22,11 +23,11 @@ namespace JobSocialApp.ViewModels
 
         public ChatViewModel() {
             loadChat();
-        }
+        }    
 
         private async void loadChat()
         {            
-            var messages = await crud.GetMessages("88dH0sxr5h8lIp7Swo9d");
+            var messages = await crud.GetMessages("ZlHXyJeYpqEfbFW9bnuu");
 
             foreach(var item in messages)
             {
@@ -35,8 +36,10 @@ namespace JobSocialApp.ViewModels
 
         }
 
-        ObservableCollection<string> messages = new ObservableCollection<string>();
-        public ObservableCollection<string> Messages 
+        #region Public variables
+
+        ObservableCollection<Message> messages = new ObservableCollection<Message>();
+        public ObservableCollection<Message> Messages 
         { 
             get => crud.Messages;
             set
@@ -46,6 +49,32 @@ namespace JobSocialApp.ViewModels
             }
         }
 
+        private string sendMessageText;
+        public string SendMessageText
+        {
+            get => sendMessageText;
+            set
+            {
+                sendMessageText = value;
+                OnPropertyChange();
+            }
+        }
 
+        #endregion
+
+        #region Public functions
+
+        public async void sendMessage()
+        {
+            var newMessage = new Message();
+
+            newMessage.by = "user1";
+            newMessage.message = SendMessageText;
+            Messages.Add(newMessage);
+
+            await crud.UpdateChatNewMessage("ZlHXyJeYpqEfbFW9bnuu", newMessage);
+        }
+
+        #endregion
     }
 }

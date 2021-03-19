@@ -15,11 +15,23 @@ namespace JobSocialApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ChatView : ContentPage
     {
+        private ChatViewModel chatVM = null;
+
         public ChatView()
         {
             InitializeComponent();
 
             BindingContext = new ChatViewModel();
+            chatVM = BindingContext as ChatViewModel;
+        }
+
+        private void SendClicked(object sender, EventArgs e)
+        {
+            if(chatVM != null)
+            {
+                chatVM.sendMessage();
+            }
+                
         }
     }
 }

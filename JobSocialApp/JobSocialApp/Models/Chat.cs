@@ -4,18 +4,16 @@ using System.Text;
 
 namespace JobSocialApp.Models
 {
-    public class Messages
+    public class Chat
     {
+        public Chat() { }
+
         public string user1 { get; set; }
 
         public string user2 { get; set; }
 
-        public List<string> messages { get; set; }
+        //public List<string> messages { get; set; }
 
-        public void addMessage(string message)
-        {
-            messages.Add(message);
-        }
-
+        public List<Message> messages { get; set; }
     }
 }

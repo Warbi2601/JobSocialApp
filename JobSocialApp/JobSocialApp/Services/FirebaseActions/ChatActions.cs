@@ -4,6 +4,7 @@ using Plugin.CloudFirestore.Reactive;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -11,9 +12,10 @@ using System.Threading.Tasks;
 
 namespace JobSocialApp.Services.FirebaseActions
 {
-    class MessagesActions : INotifyPropertyChanged
+    class ChatActions : INotifyPropertyChanged
     {
-        private readonly string collectionName = "messages";
+        private readonly string collectionName = "chats";
+        private Chat chat;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -23,7 +25,7 @@ namespace JobSocialApp.Services.FirebaseActions
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public MessagesActions()
+        public ChatActions()
         {
             CrossCloudFirestore.Current
                    .Instance
@@ -32,17 +34,17 @@ namespace JobSocialApp.Services.FirebaseActions
                    .Subscribe(documentChange =>
                    {
                        var document = documentChange.Document;
-                       var chat = document.ToObject<Messages>();
+                       chat = document.ToObject<Chat>();
                        Messages.Clear();
-                       for(int i = 0; i < chat.messages.Count; i++)
+                       foreach(var message in chat.messages)
                        {
-                           Messages.Add(chat.messages[i]);
+                           Messages.Add(message);
                        }
                    });
         }
 
-        ObservableCollection<string> messages = new ObservableCollection<string>();
-        public ObservableCollection<string> Messages
+        ObservableCollection<Message> messages = new ObservableCollection<Message>();
+        public ObservableCollection<Message> Messages
         {
             get => messages;
             set
@@ -52,7 +54,7 @@ namespace JobSocialApp.Services.FirebaseActions
             }
         }
 
-        public async Task<List<string>> GetMessages(string uid)
+        public async Task<List<Message>> GetMessages(string uid)
         {
             // dispose?     
             var document = await CrossCloudFirestore.Current
@@ -61,8 +63,20 @@ namespace JobSocialApp.Services.FirebaseActions
                  .Document(uid)
                  .GetAsync();
 
-            var chat = document.ToObject<Messages>();
+            chat = document.ToObject<Chat>();
             return chat.messages;
+
+
+        }
+
+        public async Task UpdateChatNewMessage(string uid, Message message)
+        {
+            chat.messages.Add(message);
+            await CrossCloudFirestore.Current
+                .Instance
+                .Collection(collectionName)
+                .Document(uid)
+                .UpdateAsync(chat);
         }
 
     }
