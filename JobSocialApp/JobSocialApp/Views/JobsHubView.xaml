@@ -29,19 +29,19 @@
                         <ViewCell>
                             <Grid Padding="10" RowSpacing="2" ColumnSpacing="2">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="20*" />
-                                    <RowDefinition Height="20*" />
-                                    <RowDefinition Height="20*" />
-                                    <RowDefinition Height="20*" />
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="*" />
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="85*" />
                                     <ColumnDefinition Width="15*" />
                                 </Grid.ColumnDefinitions>
                                 <Label Grid.Column="0" Grid.Row="0" StyleClass="GridLabelTitle" Text="{Binding jobTitle}"/>
-                                <Label Grid.Column="0" Grid.Row="1" StyleClass="GridLabelDescription" Text="{Binding description}"/>
-                                <Label Grid.Column="0" Grid.Row="2" StyleClass="GridLabelSalary" Text="{Binding salary, StringFormat='Salary: £{0:F0}'}"/>
-                                <Label Grid.Column="0" Grid.Row="3" StyleClass="GridLabelLocation" Text="{Binding location, StringFormat='Location: {0:F0}'}"/>
+                                <Label Grid.Column="0" Grid.Row="1" StyleClass="GridLabelSalary" Text="{Binding salary, StringFormat='Salary: £{0:F0}'}"/>
+                                <Label Grid.Column="0" Grid.Row="2" StyleClass="GridLabelLocation" Text="{Binding location, StringFormat='Location: {0:F0}'}"/>
+                                <Label Grid.Column="0" Grid.Row="3" StyleClass="GridLabelDescription" MaxLines="4" Text="{Binding description}"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

@@ -38,17 +38,17 @@
                     
                     <Button StyleClass="PositiveButtonStyles" IsVisible="false" x:Name="ApplyBtn" Text="Apply"/>
                     <StackLayout Orientation="Horizontal">
-                        <Button StyleClass="FormEditButton" IsVisible="false" x:Name="EditBtn" Text="{Binding EditButtonText}"/>
-                        <Button StyleClass="FormRemoveButton" IsVisible="false" x:Name="DeleteBtn" Text="{Binding DeleteButtonText}"/>
+                        <Button StyleClass="NeutralButtonStyles" IsVisible="false" x:Name="EditBtn" Text="{Binding EditButtonText}" Clicked="EditCurentJob"/>
+                        <Button StyleClass="NegativeButtonStyles" IsVisible="false" x:Name="DeleteBtn" Text="{Binding DeleteButtonText}" Clicked="DeleteCurentJob"/>
                     </StackLayout>
 
 
                     <!--comment this StackLayout out to fix the top of the screen-->
                         <!--<Frame StyleClass="DefaultFrame">-->
-                            <StackLayout Orientation="Horizontal">
-                            <Editor HorizontalOptions="FillAndExpand" Placeholder="{Binding CommentsPlaceHolder}" TextColor="{StaticResource BlackColour}" HeightRequest="50" Text="{Binding NewComment}"/>
-                            <Button WidthRequest="25" HeightRequest="25" StyleClass="SendMsgButton" ImageSource="send2" Clicked="AddComment_Clicked" />
-                            </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Editor HorizontalOptions="FillAndExpand" Placeholder="{Binding CommentsPlaceHolder}" TextColor="{StaticResource BlackColour}" HeightRequest="50" Text="{Binding NewComment}"/>
+                        <Button WidthRequest="25" HeightRequest="25" StyleClass="SendMsgButton" ImageSource="send2" Clicked="AddComment_Clicked" />
+                    </StackLayout>
                         <!--</Frame>-->
                         <!--<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                         </StackLayout>-->

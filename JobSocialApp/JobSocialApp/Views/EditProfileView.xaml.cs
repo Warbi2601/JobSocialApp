@@ -1,13 +1,7 @@
-﻿using JobSocialApp.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using static JobSocialApp.Models.GlobalModels;
+using JobSocialApp.ViewModels;
 
 namespace JobSocialApp.Views
 {
@@ -26,15 +20,15 @@ namespace JobSocialApp.Views
             Shell.SetTabBarIsVisible(this, false);
         }
 
-        private void LoadUserDetails()
-        {
-            editProfileVM = BindingContext as EditProfileViewModel;
 
+        protected override async void OnAppearing()
+        {
             if (editProfileVM != null)
             {
-                editProfileVM.LoadUserDetails();
+                await editProfileVM.LoadUserDetails();
             }
         }
+
 
         private void UpdateDetails(object sender, EventArgs e)
         {

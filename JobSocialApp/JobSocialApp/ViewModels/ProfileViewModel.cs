@@ -25,6 +25,8 @@ namespace JobSocialApp.ViewModels
         #region Local variables
 
         private String fullName = "";
+        private String firstName = "";
+        private String lastName = "";
         private String email = "";
         private String position = "";
         //private String profilePicture = "";
@@ -86,6 +88,24 @@ namespace JobSocialApp.ViewModels
             set
             {
                 fullName = value;
+                OnPropertyChange();
+            }
+        }
+        public String FirstName
+        {
+            get => firstName;
+            set
+            {
+                firstName = value;
+                OnPropertyChange();
+            }
+        }
+        public String LastName
+        {
+            get => lastName;
+            set
+            {
+                lastName = value;
                 OnPropertyChange();
             }
         }
@@ -216,6 +236,8 @@ namespace JobSocialApp.ViewModels
             AppContext context = new AppContext();
             User = await context.GetCurrentUser();
             FullName = string.Format("{0} {1}", User.firstName, User.lastName);
+            FirstName = User.firstName;
+            LastName = User.lastName;
             Email = User.email;
             JobTitle = User.jobTitle;
         }

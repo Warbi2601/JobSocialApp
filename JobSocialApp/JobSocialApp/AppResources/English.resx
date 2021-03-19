@@ -129,6 +129,9 @@
   <data name="EditButtonText" xml:space="preserve">
     <value>Edit</value>
   </data>
+  <data name="EditJob" xml:space="preserve">
+    <value>Edit job post</value>
+  </data>
   <data name="EditProfileTitle" xml:space="preserve">
     <value>Edit personal details</value>
   </data>

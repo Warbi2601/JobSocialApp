@@ -39,6 +39,7 @@ namespace JobSocialApp.ViewModels
         private String location = "";
         private String description = "";
         private String id = "";
+        private String postCode = "";
         private String editButtonText = TranslationManager.Instance.getTranslation("EditButtonText");
         private String deleteButtonText = TranslationManager.Instance.getTranslation("DeleteButtonText");
 
@@ -163,6 +164,16 @@ namespace JobSocialApp.ViewModels
                 OnPropertyChange();
             }
         }
+
+        public String PostCode
+        {
+            get => postCode;
+            set
+            {
+                postCode = value;
+                OnPropertyChange();
+            }
+        }
         
         #endregion
 
@@ -172,17 +183,22 @@ namespace JobSocialApp.ViewModels
 
         public void PopulateJobVMData(Job jobObj)
         {
-            Comments = jobObj.comments.OrderByDescending(x => x.time).ToList();
+            if (jobObj.comments != null)
+            {
+                Comments = jobObj.comments.OrderByDescending(x => x.time).ToList();
+            }
+
             JobTitle = jobObj.jobTitle;
             Salary = jobObj.salary;
             Location = jobObj.location;
             Description = jobObj.description;
             Id = jobObj._id;
+            PostCode = jobObj.postCode;
         }
 
         public async Task AddComment()
         {
-            if(string.IsNullOrEmpty(NewComment))
+            if (string.IsNullOrEmpty(NewComment))
             {
                 //return alert here
             }
@@ -207,6 +223,21 @@ namespace JobSocialApp.ViewModels
             //refresh comments and reset new comment field
             NewComment = "";
             Comments = job.comments.OrderByDescending(x => x.time).ToList();
+        }
+
+        public async Task DeleteJob()
+        {
+            try
+            {
+                JobActions crud = new JobActions();
+                await crud.DeleteJob(Id);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
 
         #endregion
