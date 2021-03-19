@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="facebook_app_name">JobSocialApp</string>
+  <string name="facebook_app_id">774128040194837</string>
+  <string name="fb_login_protocol_scheme">fb774128040194837</string>
+</resources>

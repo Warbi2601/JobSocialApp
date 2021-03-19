@@ -11,6 +11,9 @@ using JobSocialApp.Models;
 using Plugin.CloudFirestore;
 using JobSocialApp.Services.GeoLocation;
 using Plugin.Geolocator.Abstractions;
+using Plugin.FacebookClient;
+using System.IO;
+using System.Net;
 
 namespace JobSocialApp.Views
 {
@@ -58,17 +61,62 @@ namespace JobSocialApp.Views
             var b = 1;
         }
 
-        public async Task<Position> Test()
+        public async Task<string> Test()
         {
             try
             {
-                return await GeoLocationManager.GetCurrentPosition();
+
+
+
+                //var aa = ImageSource.FromFile("profile.jpg");
+                //aa.
+
+                //aa.
+
+                //var img = File.ReadAllBytes("profile.jpg");
+                //var img = File.ReadAllBytes("D:/Pictures/BookingBuddy/ShopFront1.jpg");
+                //var img = ImageSource.FromFile("profile.jpg");
+                //var imgToPass = await ConvertStreamtoByteAsync(img);
+
+
+                //    FacebookSharePhoto photo = new FacebookSharePhoto("Hello Test 1", imgToPass);
+                //FacebookSharePhoto photo2 = new FacebookSharePhoto("Hello Test 2", imgToPass);
+                //FacebookSharePhoto[] photos = new FacebookSharePhoto[] { photo, photo2 };
+                //FacebookSharePhotoContent photoContent = new FacebookSharePhotoContent(photos);
+                //var ret = await CrossFacebookClient.Current.ShareAsync(photoContent);
+
+                //CrossFacebookClient.Current.ShareAsync(new FacebookShareContent("", "", "Test Share", "test", null))
+
+                return "";
             }
             catch(Exception e)
             {
                 Console.WriteLine(e);
                 return null;
             }
+        }
+
+        private async Task<byte[]> ConvertStreamtoByteAsync(ImageSource imageSource)
+        {
+            try
+            {
+                byte[] buffer = new byte[16 * 1024];
+
+                if (imageSource is FileImageSource)
+                {
+                    FileImageSource objFileImageSource = (FileImageSource)imageSource;
+                    string strFileName = objFileImageSource.File;
+
+                    var webClient = new WebClient();
+                    buffer = await webClient.DownloadDataTaskAsync(new Uri(strFileName));
+                    return buffer;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return null;
         }
 
         async void OnScheduleClick(object sender, EventArgs e)

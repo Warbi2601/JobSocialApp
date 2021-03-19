@@ -14,6 +14,9 @@ using JobSocialApp.Services;
 using Xamarin.Forms;
 using Plugin.CurrentActivity;
 using Plugin.Media;
+using Java.Security;
+using Xamarin.Facebook;
+using Plugin.FacebookClient;
 
 namespace JobSocialApp.Droid
 {
@@ -27,16 +30,42 @@ namespace JobSocialApp.Droid
             FirebaseApp.InitializeApp(this);
             CrossCurrentActivity.Current.Init(this, savedInstanceState);
 
+            //FacebookSdk.ApplicationId = "774128040194837";
+            //FacebookSdk.SdkInitialize(ApplicationContext);
+
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);
+
+            FacebookClientManager.Initialize(this);
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
 
             CreateNotificationFromIntent(Intent);
+
+            //needed for facebook key
+            //try
+            //{
+            //    PackageInfo info = Android.App.Application.Context.PackageManager.GetPackageInfo(Android.App.Application.Context.PackageName, PackageInfoFlags.Signatures);
+            //    foreach (var signature in info.Signatures)
+            //    {
+            //        MessageDigest md = MessageDigest.GetInstance("SHA");
+            //        md.Update(signature.ToByteArray());
+
+            //        System.Diagnostics.Debug.WriteLine(Convert.ToBase64String(md.Digest()));
+            //    }
+            //}
+            //catch (NoSuchAlgorithmException e)
+            //{
+            //    System.Diagnostics.Debug.WriteLine(e);
+            //}
+            //catch (Exception e)
+            //{
+            //    System.Diagnostics.Debug.WriteLine(e);
+            //}
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
@@ -60,6 +89,12 @@ namespace JobSocialApp.Droid
                 string message = intent.GetStringExtra(AndroidNotificationManager.MessageKey);
                 DependencyService.Get<INotificationManager>().ReceiveNotification(title, message);
             }
+        }
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent intent)
+        {
+            base.OnActivityResult(requestCode, resultCode, intent);
+            FacebookClientManager.OnActivityResult(requestCode, resultCode, intent);
         }
 
     }

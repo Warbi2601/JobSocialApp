@@ -33,7 +33,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
-    <AotAssemblies>true</AotAssemblies>
+    <AotAssemblies>false</AotAssemblies>
     <EnableLLVM>false</EnableLLVM>
     <AndroidEnableProfiledAot>true</AndroidEnableProfiledAot>
     <BundleAssemblies>false</BundleAssemblies>
@@ -65,6 +65,9 @@
     </PackageReference>
     <PackageReference Include="GoogleGson">
       <Version>2.8.5</Version>
+    </PackageReference>
+    <PackageReference Include="Plugin.FacebookClient">
+      <Version>2.2.1</Version>
     </PackageReference>
     <PackageReference Include="Xam.Plugin.Geolocator">
       <Version>4.5.0.6</Version>
@@ -195,10 +198,22 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\send2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\strings.xml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\values.xml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties TriggeredFromHotReload="False" XamarinHotReloadUnhandledDeviceExceptionJobSocialAppAndroidHideInfoBar="True" />
+      <UserProperties XamarinHotReloadUnhandledDeviceExceptionJobSocialAppAndroidHideInfoBar="True" TriggeredFromHotReload="False" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

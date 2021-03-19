@@ -25,7 +25,9 @@
                         <Label Text="{Binding PostcodePlaceholder}"/>
                         <Entry TextColor="{StaticResource BlackColour}" Text="{Binding Postcode}"/>
                         <Label Text="{Binding DescriptionPlaceHolder}"/>
-                        <Editor TextColor="{StaticResource BlackColour}" HeightRequest="150" Text="{Binding Description}"/> 
+                        <Editor TextColor="{StaticResource BlackColour}" HeightRequest="150" Text="{Binding Description}"/>
+                        <Label Text="{Binding postToFacebookPlaceHolder}"/>
+                        <CheckBox HeightRequest="150" IsChecked="{Binding PostToFB}"/>
                     </StackLayout>
                 </Frame>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
