@@ -55,7 +55,7 @@ namespace JobSocialApp.Views
 
             if (jobPreviewVM != null)
             {
-                await jobPreviewVM.AddComment();
+                //await jobPreviewVM.AddComment();
             }
         }
 
@@ -91,7 +91,24 @@ namespace JobSocialApp.Views
 
             if (jobPreviewVM != null)
             {
-                await jobPreviewVM.DeleteJob();
+                try
+                {
+                    var result = await DisplayAlert("Alert", "Do you realy want to delete the post.", "Yes", "No");
+
+                    if (result)
+                    {
+                        await jobPreviewVM.DeleteJob();
+                        await Navigation.PopAsync();
+                        await Navigation.PushAsync(new JobsHubView());
+                        await DisplayAlert("Success", "Job successfully deleted.", "Ok");
+                    }
+
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
             }
         }
     }

@@ -21,13 +21,13 @@ namespace JobSocialApp.Views
         }
 
 
-        //protected override async void OnAppearing()
-        //{
-        //    if (editProfileVM != null)
-        //    {
-        //        await editProfileVM.LoadUserDetails();
-        //    }
-        //}
+        protected override async void OnAppearing()
+        {
+            if (editProfileVM != null)
+            {
+                await editProfileVM.LoadUserDetails();
+            }
+        }
 
 
         private void UpdateDetails(object sender, EventArgs e)

@@ -198,7 +198,7 @@ namespace JobSocialApp.ViewModels
 
         public async Task AddComment()
         {
-            if(string.IsNullOrEmpty(NewComment))
+            if (string.IsNullOrEmpty(NewComment))
             {
                 //return alert here
             }
@@ -227,8 +227,17 @@ namespace JobSocialApp.ViewModels
 
         public async Task DeleteJob()
         {
-            JobActions crud = new JobActions();
-            await crud.DeleteJob(Id);
+            try
+            {
+                JobActions crud = new JobActions();
+                await crud.DeleteJob(Id);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
 
         #endregion
