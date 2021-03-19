@@ -39,7 +39,7 @@ namespace JobSocialApp.ViewModels
         private String locationPlaceHolder = TranslationManager.Instance.getTranslation("LocationPlaceHolder");
         private String descriptionPlaceHolder = TranslationManager.Instance.getTranslation("JobDescriptionPlaceHolder");
         private String postcodePlaceHolder = TranslationManager.Instance.getTranslation("PostcodePlaceHolder");
-        private String postToFBPlaceHolder = TranslationManager.Instance.getTranslation("PostcodePlaceHolder");
+        private String postToFBPlaceHolder = TranslationManager.Instance.getTranslation("PostToFBPlaceHolder");
 
         private String sendBtn = TranslationManager.Instance.getTranslation("SubmitButtonText");
 
@@ -172,6 +172,16 @@ namespace JobSocialApp.ViewModels
             }
         }
 
+        public String PostToFBPlaceHolder
+        {
+            get => postToFBPlaceHolder;
+            set
+            {
+                postToFBPlaceHolder = value;
+                OnPropertyChange();
+            }
+        }
+
         public String SendBtn
         {
             get => sendBtn;
@@ -203,7 +213,7 @@ namespace JobSocialApp.ViewModels
             notificationManager = DependencyService.Get<INotificationManager>();
         }
 
-        public async Task CreateNewJobAsync()
+        public async Task<Job> CreateNewJobAsync()
         {
             try
             {
@@ -238,25 +248,31 @@ namespace JobSocialApp.ViewModels
                 JobActions crud = new JobActions();
                 Job newJob = await crud.AddJob(job);
 
-                if (PostToFB)
-                {
-                    await CrossFacebookClient.Current.LoginAsync(new string[] { "email" });
-
-                    string quote = string.Format("{0} - £{1} - {2}, {3}", job.jobTitle, job.salary, job.location, job.postCode);
-
-                    FacebookShareLinkContent linkContent = new FacebookShareLinkContent(quote, new Uri("https://play.google.com/store"));
-                    var ret = await CrossFacebookClient.Current.ShareAsync(linkContent);
-                }
-
                 notificationManager.SendNotification("Job Successfully Posted", string.Format("{0} - {1} ({2}) - {3}", job.jobTitle, job.location, job.postCode, job.salary));
 
                 //needs some routing here
                 //Routing.RegisterRoute("/main", typeof(AppShell));
                 //await Shell.Current.GoToAsync("////home");
+
+                return newJob;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
+                return null;
+            }
+        }
+
+        public async Task PostJobToFacebook(Job job)
+        {
+            if (PostToFB)
+            {
+                await CrossFacebookClient.Current.LoginAsync(new string[] { "email" });
+
+                string quote = string.Format("{0} - £{1} - {2}, {3}", job.jobTitle, job.salary, job.location, job.postCode);
+
+                FacebookShareLinkContent linkContent = new FacebookShareLinkContent(quote, new Uri("https://play.google.com/store"));
+                var ret = await CrossFacebookClient.Current.ShareAsync(linkContent);
             }
         }
 
