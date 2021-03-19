@@ -66,13 +66,14 @@ namespace JobSocialApp.ViewModels
 
         public async void sendMessage()
         {
-            var newMessage = new Message();
-
-            newMessage.by = "user1";
-            newMessage.message = SendMessageText;
-            Messages.Add(newMessage);
-
-            await crud.UpdateChatNewMessage("ZlHXyJeYpqEfbFW9bnuu", newMessage);
+            if (!String.IsNullOrEmpty(SendMessageText)) 
+            {
+                var newMessage = new Message();
+                newMessage.by = "user1"; // should be the current user id
+                newMessage.message = SendMessageText;
+                Messages.Add(newMessage);
+                await crud.UpdateChatNewMessage("ZlHXyJeYpqEfbFW9bnuu", newMessage);
+            }
         }
 
         #endregion
