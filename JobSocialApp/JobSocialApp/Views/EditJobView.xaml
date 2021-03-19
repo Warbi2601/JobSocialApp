@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:app="clr-namespace:JobSocialApp"
+             xmlns:local="clr-namespace:JobSocialApp.ViewModels"
+             x:Class="JobSocialApp.Views.EditJobView">
+
+
+    <ContentPage.Resources>
+        <ResourceDictionary MergedWith="app:StylingResourceDictionary" />
+    </ContentPage.Resources>
+
+    <ContentPage.BindingContext>
+        <local:EditJobViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <ScrollView Background="White">
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Frame StyleClass="DefaultFrame">
+                    <StackLayout>
+                        <Label StyleClass="MediumTitleLabel" Text="{Binding ViewHeading}"/>
+
+                        <Label Text="{Binding JobTitlePlaceHolder}"/>
+                        <Entry TextColor="{StaticResource BlackColour}" Text="{Binding JobTitle}"/>
+                        <Label Text="{Binding SalaryPlaceHolder}" />
+                        <Entry TextColor="{StaticResource BlackColour}" Text="{Binding Salary}" Keyboard="Numeric"/>
+                        <Label Text="{Binding LocationPlaceHolder}"/>
+                        <Entry TextColor="{StaticResource BlackColour}" Text="{Binding Location}"/>
+                        <Label Text="{Binding PostcodePlaceholder}"/>
+                        <Entry TextColor="{StaticResource BlackColour}" Text="{Binding PostCode}"/>
+                        <Label Text="{Binding DescriptionPlaceHolder}"/>
+                        <Editor TextColor="{StaticResource BlackColour}" HeightRequest="150" Text="{Binding Description}"/>
+                        <Button StyleClass="NeutralButtonStyles" Text="{Binding UpdateBtn}" Clicked="UpdateJobAsync" />
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

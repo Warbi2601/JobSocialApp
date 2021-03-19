@@ -15,21 +15,6 @@ namespace JobSocialApp.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public EditProfileViewModel()
-        {
-            MessagingCenter.Subscribe<TranslationManager>(this, "langChanged", (w) =>
-            {
-                Console.WriteLine("lang changed");
-                updateDetailsBtnText = TranslationManager.Instance.getTranslation("UpdateDetailsButton");
-                pageTitleLbl = TranslationManager.Instance.getTranslation("EditProfileTitle");
-                fNamePlaceHolder = TranslationManager.Instance.getTranslation("FirstNamePlaceholder");
-                sNamePlaceHolder = TranslationManager.Instance.getTranslation("LastNamePlaceholder");
-                emailPlaceHolder = TranslationManager.Instance.getTranslation("EmailPlaceholder");
-                positionPlaceHolder = TranslationManager.Instance.getTranslation("PositionPlaceholder");
-                passwordPlaceHolder = TranslationManager.Instance.getTranslation("PasswordPlaceholder");
-            });
-        }
-
         private void OnPropertyChange([CallerMemberName] String propertyName = "")
         {
             // Check if not null
@@ -38,11 +23,14 @@ namespace JobSocialApp.ViewModels
 
         #region Local variables
 
+        private INotificationManager notificationManager;
+
         private String firstName = "";
         private String lastName = "";
         private String email = "";
         private String position = "";
         private String profilePicture = "";
+        private User user = null;
 
         private String updateDetailsBtnText = TranslationManager.Instance.getTranslation("UpdateDetailsButton");
 
@@ -119,6 +107,16 @@ namespace JobSocialApp.ViewModels
             }
         }
 
+        public User User
+        {
+            get => user;
+            set
+            {
+                user = value;
+                OnPropertyChange();
+            }
+        }
+
         #endregion
 
         #region Public elements - for language
@@ -189,14 +187,36 @@ namespace JobSocialApp.ViewModels
 
         #region Functions
 
+        public EditProfileViewModel()
+        {
+            MessagingCenter.Subscribe<TranslationManager>(this, "langChanged", (w) =>
+            {
+                Console.WriteLine("lang changed");
+                updateDetailsBtnText = TranslationManager.Instance.getTranslation("UpdateDetailsButton");
+                pageTitleLbl = TranslationManager.Instance.getTranslation("EditProfileTitle");
+                fNamePlaceHolder = TranslationManager.Instance.getTranslation("FirstNamePlaceholder");
+                sNamePlaceHolder = TranslationManager.Instance.getTranslation("LastNamePlaceholder");
+                emailPlaceHolder = TranslationManager.Instance.getTranslation("EmailPlaceholder");
+                positionPlaceHolder = TranslationManager.Instance.getTranslation("PositionPlaceholder");
+                passwordPlaceHolder = TranslationManager.Instance.getTranslation("PasswordPlaceholder");
+            });
+
+            notificationManager = DependencyService.Get<INotificationManager>();
+        }
+
         public async void UpdateUserDetails()
         {
             // update observables with new values
         }
-        
-        public async void LoadUserDetails()
+
+        public async Task LoadUserDetails()
         {
-            // load details from the app or db and update the observables
+            AppContext context = new AppContext();
+            User = await context.GetCurrentUser();
+            FirstName = User.firstName;
+            LastName = User.lastName;
+            Email = User.email;
+            Position = User.jobTitle;
         }
 
         #endregion

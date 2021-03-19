@@ -97,6 +97,15 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit job post.
+        /// </summary>
+        public static string EditJob {
+            get {
+                return ResourceManager.GetString("EditJob", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit personal details.
         /// </summary>
         public static string EditProfileTitle {

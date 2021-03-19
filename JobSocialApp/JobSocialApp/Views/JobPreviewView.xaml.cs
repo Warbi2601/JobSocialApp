@@ -58,5 +58,41 @@ namespace JobSocialApp.Views
                 await jobPreviewVM.AddComment();
             }
         }
+
+        private async void EditCurentJob(object sender, EventArgs e)
+        {
+            if(jobPreviewVM != null)
+            {
+                Job jobData = new Job()
+                {
+                    _id = jobPreviewVM.Id,
+                    jobTitle = jobPreviewVM.JobTitle,
+                    description = jobPreviewVM.Description,
+                    location = jobPreviewVM.Location,
+                    salary = jobPreviewVM.Salary,
+                    postCode = jobPreviewVM.PostCode
+                };
+
+                try
+                {
+                    await Navigation.PushAsync(new EditJobView(jobData));
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+
+        }
+
+        private async void DeleteCurentJob(object sender, EventArgs e)
+        {
+            jobPreviewVM = BindingContext as JobPreviewViewModel;
+
+            if (jobPreviewVM != null)
+            {
+                await jobPreviewVM.DeleteJob();
+            }
+        }
     }
 }
