@@ -196,6 +196,15 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Post to Facebook?.
+        /// </summary>
+        public static string PostToFBPlaceHolder {
+            get {
+                return ResourceManager.GetString("PostToFBPlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Salary.
         /// </summary>
         public static string SalaryPlaceHolder {

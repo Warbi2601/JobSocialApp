@@ -33,11 +33,16 @@ namespace JobSocialApp.Views
             {
                 try
                 {
-                    await newJobVM.CreateNewJobAsync();
-                    await DisplayAlert("Success", "Job successfully posted", "Ok");
-                    await Navigation.PopAsync();
+                    var newJob = await newJobVM.CreateNewJobAsync();
+
+                    if (newJob != null)
+                    {
+                        await DisplayAlert("Success", "Job successfully posted", "Ok");
+                        await Navigation.PopAsync();
+                        await newJobVM.PostJobToFacebook(newJob);
+                    }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     await DisplayAlert("Error", "Error posting the job", "Ok");
                     Console.WriteLine(ex);

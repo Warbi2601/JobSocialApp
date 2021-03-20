@@ -26,6 +26,8 @@
                         <Entry TextColor="{DynamicResource DynamicPrimaryTextColor}" Text="{Binding Postcode}"/>
                         <Label Text="{Binding DescriptionPlaceHolder}"/>
                         <Editor TextColor="{DynamicResource DynamicPrimaryTextColor}" HeightRequest="150" Text="{Binding Description}"/> 
+                        <Label Text="{Binding postToFacebookPlaceHolder}"/>
+                        <CheckBox HeightRequest="150" IsChecked="{Binding PostToFB}"/>
                     </StackLayout>
                 </Frame>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">

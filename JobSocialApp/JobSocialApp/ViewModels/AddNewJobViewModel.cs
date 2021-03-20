@@ -7,6 +7,7 @@ using JobSocialApp.Models;
 using Xamarin.Forms;
 using JobSocialApp.Services.FirebaseActions;
 using JobSocialApp.Services.GeoLocation;
+using Plugin.FacebookClient;
 
 namespace JobSocialApp.ViewModels
 {
@@ -29,6 +30,7 @@ namespace JobSocialApp.ViewModels
         private String location = "";
         private String description = "";
         private String postcode = "";
+        private bool postToFB = false;
 
         // Elements - for language
         private String viewHeading = TranslationManager.Instance.getTranslation("CreateNewOpp");
@@ -37,6 +39,7 @@ namespace JobSocialApp.ViewModels
         private String locationPlaceHolder = TranslationManager.Instance.getTranslation("LocationPlaceHolder");
         private String descriptionPlaceHolder = TranslationManager.Instance.getTranslation("JobDescriptionPlaceHolder");
         private String postcodePlaceHolder = TranslationManager.Instance.getTranslation("PostcodePlaceHolder");
+        private String postToFBPlaceHolder = TranslationManager.Instance.getTranslation("PostToFBPlaceHolder");
 
         private String sendBtn = TranslationManager.Instance.getTranslation("SubmitButtonText");
 
@@ -94,6 +97,17 @@ namespace JobSocialApp.ViewModels
                 OnPropertyChange();
             }
         }
+
+        public bool PostToFB
+        {
+            get => postToFB;
+            set
+            {
+                postToFB = value;
+                OnPropertyChange();
+            }
+        }
+
         #endregion
 
         #region Public elements - for language
@@ -158,6 +172,16 @@ namespace JobSocialApp.ViewModels
             }
         }
 
+        public String PostToFBPlaceHolder
+        {
+            get => postToFBPlaceHolder;
+            set
+            {
+                postToFBPlaceHolder = value;
+                OnPropertyChange();
+            }
+        }
+
         public String SendBtn
         {
             get => sendBtn;
@@ -189,7 +213,7 @@ namespace JobSocialApp.ViewModels
             notificationManager = DependencyService.Get<INotificationManager>();
         }
 
-        public async Task CreateNewJobAsync()
+        public async Task<Job> CreateNewJobAsync()
         {
             try
             {
@@ -197,8 +221,8 @@ namespace JobSocialApp.ViewModels
                 User user = await context.GetCurrentUser();
 
                 var res = GeoLocationManager.QueryPostcode(Postcode);
-                
-                if(res == null)
+
+                if (res == null)
                 {
                     // alert that postcode isnt valid
                     //await DisplayAlert
@@ -229,10 +253,26 @@ namespace JobSocialApp.ViewModels
                 //needs some routing here
                 //Routing.RegisterRoute("/main", typeof(AppShell));
                 //await Shell.Current.GoToAsync("////home");
+
+                return newJob;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
+                return null;
+            }
+        }
+
+        public async Task PostJobToFacebook(Job job)
+        {
+            if (PostToFB)
+            {
+                await CrossFacebookClient.Current.LoginAsync(new string[] { "email" });
+
+                string quote = string.Format("{0} - £{1} - {2}, {3}", job.jobTitle, job.salary, job.location, job.postCode);
+
+                FacebookShareLinkContent linkContent = new FacebookShareLinkContent(quote, new Uri("https://play.google.com/store"));
+                var ret = await CrossFacebookClient.Current.ShareAsync(linkContent);
             }
         }
 
