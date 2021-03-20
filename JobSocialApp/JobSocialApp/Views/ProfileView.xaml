@@ -13,27 +13,29 @@
     <ContentPage.Resources>
         <ResourceDictionary MergedWith="app:StylingResourceDictionary" />
     </ContentPage.Resources>
+    
+    
 
-    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical" x:Name="ProfileLayout">
+    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical" x:Name="ProfileLayout" BackgroundColor="{DynamicResource DynamicPrimaryBackColour}">
         <Grid>
             <StackLayout Grid.Row="0">
                 <AbsoluteLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                     <!--<Image Source="{Binding ProfilePicture}}"  Aspect="AspectFill" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1"/>-->
                     <!--<Label Text="Update Image" FontSize="15" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0,1,-1,-1" />-->
 
-                    <Frame x:Name="Picture" CornerRadius="100" HorizontalOptions="Center" WidthRequest="130" HeightRequest="130" VerticalOptions="Center" BorderColor="{StaticResource ThemeColourVeryDarkBlue}" BackgroundColor="{StaticResource ThemeColourDarkBlue}" Padding="8" Margin="20">
+                    <Frame x:Name="Picture" CornerRadius="100" HorizontalOptions="Center" WidthRequest="130" HeightRequest="130" VerticalOptions="Center" BorderColor="{DynamicResource DynamicThemeBorderColour}" BackgroundColor="{DynamicResource DynamicPrimaryBackColour}" Padding="8" Margin="20">
                         <Frame x:Name="Border" CornerRadius="100" HorizontalOptions="Center" Padding="-3" WidthRequest="150" HeightRequest="150" >
                             <Image x:Name="profileImage" Source="{Binding ProfilePicture}" Aspect="AspectFill" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1"/>
                         </Frame>
                     </Frame>
-                    <Button Padding="30" HeightRequest="60" WidthRequest="60" ImageSource="editWhite" StyleClass="SendMsgButton" Clicked="UpdateImageClicked" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="1,1,-1,-1" />
+                    <Button BackgroundColor="{DynamicResource DynamicPrimaryBtnNeutralBackColour}" ImageSource="editWhite" StyleClass="EditPictureButton" Clicked="UpdateImageClicked" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="1,1,-1,-1" />
                 </AbsoluteLayout>
             </StackLayout>
 
             <StackLayout Grid.Row="1">
 
-                <Label StyleClass="DarkTextColour" Text="{Binding FullName}" TextColor="{StaticResource ThemeColourDarkBlue}" FontSize="30" HorizontalOptions="Center" Margin="0,-25,0,0"/>
-                <Label StyleClass="DarkTextColour" Text="{Binding JobTitle}" TextColor="{StaticResource ThemeColourDarkBlue}" FontSize="13" HorizontalOptions="Center" Margin="0,-5,0,0"/>
+                <Label StyleClass="DarkTextColour" Text="{Binding FullName}" TextColor="{DynamicResource DynamicThemeTextColour}" FontSize="30" HorizontalOptions="Center" Margin="0,-25,0,0"/>
+                <Label StyleClass="DarkTextColour" Text="{Binding JobTitle}" TextColor="{DynamicResource DynamicThemeTextColour}" FontSize="13" HorizontalOptions="Center" Margin="0,-5,0,0"/>
 
                 <Image x:Name="resultImage" />
                 <!--<StackLayout Orientation="Vertical" WidthRequest="190" HeightRequest="150" Margin="10" HorizontalOptions="Start" VerticalOptions="End">
@@ -57,10 +59,10 @@
                                 </Grid.ColumnDefinitions>
 
                                     <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" Source="document.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-                                    <Label Grid.Column="1" Grid.Row="0" StyleClass="GridLabelTitle" Text="{Binding jobTitle}"/>
-                                    <Label Grid.Column="1" Grid.Row="1" StyleClass="GridLabelSalary" Text="{Binding salary, StringFormat='Salary: £{0:F0}'}"/>
-                                    <Label Grid.Column="1" Grid.Row="2" StyleClass="GridLabelLocation" Text="{Binding location, StringFormat='Location: {0:F0}'}"/>
-                                    <Label Grid.Column="1" Grid.Row="3" StyleClass="GridLabelDescription" MaxLines="4" Text="{Binding description}"/>
+                                    <Label Grid.Column="1" Grid.Row="0" StyleClass="GridLabelTitle" Text="{Binding jobTitle}" TextColor="{DynamicResource DynamicThemeDarkPinkColour}"/>
+                                    <Label Grid.Column="1" Grid.Row="1" StyleClass="GridLabelSalary" Text="{Binding salary, StringFormat='Salary: £{0:F0}'}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
+                                    <Label Grid.Column="1" Grid.Row="2" StyleClass="GridLabelLocation" Text="{Binding location, StringFormat='Location: {0:F0}'}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
+                                    <Label Grid.Column="1" Grid.Row="3" StyleClass="GridLabelDescription" MaxLines="4" Text="{Binding description}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
                                     <!--<Label Grid.Column="1" Grid.Row="2" FontAttributes="Bold" HorizontalOptions="Start" Text="{Binding ClosingDate}" VerticalOptions="Center"/>-->
                                     <!--<Button Grid.Column="1" Grid.Row="1" Text="Visit"></Button>-->
                                 </Grid>

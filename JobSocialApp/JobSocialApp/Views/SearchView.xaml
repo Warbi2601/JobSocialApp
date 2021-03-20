@@ -14,19 +14,19 @@
         <ResourceDictionary MergedWith="app:StylingResourceDictionary" />
     </ContentPage.Resources>
 
-    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Horizontal" x:Name="ProfileLayout">
+    <StackLayout BackgroundColor="{DynamicResource DynamicPrimaryBackColour}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Horizontal" x:Name="ProfileLayout">
         <StackLayout Orientation="Vertical" Margin="10">
 
-            <Frame HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="300" BorderColor="Transparent" >
+            <Frame BackgroundColor="{DynamicResource DynamicPrimaryBackColour}" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="300" BorderColor="Transparent" >
                 <StackLayout>
-                    <Label Text="{Binding KeywordPlaceHolder}"/>
-                    <Entry TextColor="{StaticResource BlackColour}" Text="{Binding Keyword}"/>
-                    <Label Text="{Binding MilesAwayPlaceHolder}" />
-                    <Entry TextColor="{StaticResource BlackColour}" Text="{Binding MilesAway}" Keyboard="Numeric"/>
+                    <Label Text="{Binding KeywordPlaceHolder}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
+                    <Entry TextColor="{DynamicResource DynamicInputTextColour}" Text="{Binding Keyword}"/>
+                    <Label Text="{Binding MilesAwayPlaceHolder}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
+                    <Entry TextColor="{DynamicResource DynamicInputTextColour}" Text="{Binding MilesAway}" Keyboard="Numeric"/>
                 </StackLayout>
             </Frame>
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                <Button StyleClass="PositiveButtonStyles" Text="{Binding SearchText}" Clicked="SearchJobs_Clicked" />
+                <Button StyleClass="ButtonStyle" BackgroundColor="{DynamicResource DynamicPrimaryBtnNeutralBackColour}" TextColor="{DynamicResource DynamicPrimaryBtnTextColor}" Text="{Binding SearchText}" Clicked="SearchJobs_Clicked" />
             </StackLayout>
 
             <ListView Grid.Row="1" ItemsSource="{Binding Jobs}" ItemTapped="ViewSelectedJobClicked" HasUnevenRows="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">

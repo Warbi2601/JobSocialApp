@@ -11,7 +11,7 @@
     </ContentPage.Resources>
 
     <ContentPage.Content>
-        <ScrollView Background="White">
+        <ScrollView BackgroundColor="{DynamicResource DynamicPrimaryBackColour}">
 
             <!--<StackLayout>
                 <Label Text="{Binding Title}" FontSize="36"
@@ -46,7 +46,7 @@
            TextColor="Red"
            HorizontalOptions="Center"
            VerticalOptions="Start" />
-                
+
                 <Button Text="Create Notification"
             HorizontalOptions="Center"
             VerticalOptions="Start"

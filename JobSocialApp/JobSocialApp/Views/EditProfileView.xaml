@@ -9,24 +9,24 @@
         <ResourceDictionary MergedWith="app:StylingResourceDictionary" />
     </ContentPage.Resources>
 
-    <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
-        <StackLayout Orientation="Vertical">
+    <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Horizontal" BackgroundColor="{DynamicResource DynamicPrimaryBackColour}" >
+        <StackLayout Orientation="Vertical" BackgroundColor="{DynamicResource DynamicPrimaryBackColour}">
             <!--<StackLayout Background="White">
                 <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">-->
-            <Frame StyleClass="DefaultFrame">
+        <Frame StyleClass="DefaultFrame" BackgroundColor="{DynamicResource DynamicPrimaryBackColour}">
                 <StackLayout>
-                    <Label StyleClass="MediumTitleLabel" Text="{Binding PageTitleLbl}"/>
+                    <Label StyleClass="MediumTitleLabel" Text="{Binding PageTitleLbl}" TextColor="{DynamicResource DynamicMediumHeaderTextColour}"/>
                     <Label Text="{Binding FNamePlaceHolder}"/>
-                    <Entry Text="{Binding FirstName}" Keyboard="Text" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
+                    <Entry Text="{Binding FirstName}" Keyboard="Text" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
                     <Label Text="{Binding SNamePlaceHolder}"/>
-                    <Entry Text="{Binding LastName}" Keyboard="Text" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
+                    <Entry Text="{Binding LastName}" Keyboard="Text" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
                     <Label Text="{Binding EmailPlaceHolder}"/>
-                    <Entry Text="{Binding Email}" Keyboard="Email" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
+                    <Entry Text="{Binding Email}" Keyboard="Email" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
                     <Label Text="{Binding PositionPlaceHolder}"/>
-                    <Entry Text="{Binding Position}" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
-                    <!--<Entry Text="{Binding ProfilePicture}" Placeholder="{Binding PasswordPlaceHolder}" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>-->
+                    <Entry Text="{Binding Position}" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
+                    <!--<Entry Text="{Binding ProfilePicture}" Placeholder="{Binding PasswordPlaceHolder}" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>-->
 
-                    <Button Text="{Binding UpdateDetailsBtnText}" Clicked="UpdateDetails" StyleClass="NeutralButtonStyles" />
+                    <Button TextColor="{DynamicResource DynamicPrimaryBtnTextColor}" BackgroundColor="{DynamicResource DynamicPrimaryBtnNeutralBackColour}" Text="{Binding UpdateDetailsBtnText}" Clicked="UpdateDetails" StyleClass="ButtonStyle" />
                 </StackLayout>
             </Frame>
         </StackLayout>

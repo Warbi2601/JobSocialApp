@@ -15,23 +15,23 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <ScrollView Background="White">
-            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+        <ScrollView BackgroundColor="{DynamicResource DynamicPrimaryBackColour}">
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" BackgroundColor="{DynamicResource DynamicPrimaryBackColour}">
                 <Frame StyleClass="DefaultFrame">
                     <StackLayout>
-                        <Label StyleClass="MediumTitleLabel" Text="{Binding ViewHeading}"/>
+                        <Label StyleClass="MediumTitleLabel" Text="{Binding ViewHeading}" TextColor="{DynamicResource DynamicMediumHeaderTextColour}"/>
 
                         <Label Text="{Binding JobTitlePlaceHolder}"/>
-                        <Entry TextColor="{StaticResource BlackColour}" Text="{Binding JobTitle}"/>
+                        <Entry TextColor="{DynamicResource DynamicPrimaryTextColor}" Text="{Binding JobTitle}"/>
                         <Label Text="{Binding SalaryPlaceHolder}" />
-                        <Entry TextColor="{StaticResource BlackColour}" Text="{Binding Salary}" Keyboard="Numeric"/>
+                        <Entry TextColor="{DynamicResource DynamicPrimaryTextColor}" Text="{Binding Salary}" Keyboard="Numeric"/>
                         <Label Text="{Binding LocationPlaceHolder}"/>
-                        <Entry TextColor="{StaticResource BlackColour}" Text="{Binding Location}"/>
+                        <Entry TextColor="{DynamicResource DynamicPrimaryTextColor}" Text="{Binding Location}"/>
                         <Label Text="{Binding PostcodePlaceholder}"/>
-                        <Entry TextColor="{StaticResource BlackColour}" Text="{Binding PostCode}"/>
+                        <Entry TextColor="{DynamicResource DynamicPrimaryTextColor}" Text="{Binding PostCode}"/>
                         <Label Text="{Binding DescriptionPlaceHolder}"/>
-                        <Editor TextColor="{StaticResource BlackColour}" HeightRequest="150" Text="{Binding Description}"/>
-                        <Button StyleClass="NeutralButtonStyles" Text="{Binding UpdateBtn}" Clicked="UpdateJobAsync" />
+                        <Editor TextColor="{DynamicResource DynamicPrimaryTextColor}" HeightRequest="150" Text="{Binding Description}"/>
+                        <Button StyleClass="ButtonStyle" Text="{Binding UpdateBtn}" Clicked="UpdateJobAsync" TextColor="{DynamicResource DynamicPrimaryBtnTextColor}" BackgroundColor="{DynamicResource DynamicPrimaryBtnNeutralBackColour}" />
                     </StackLayout>
                 </Frame>
             </StackLayout>

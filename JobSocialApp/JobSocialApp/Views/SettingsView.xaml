@@ -9,13 +9,20 @@
         <ResourceDictionary MergedWith="app:StylingResourceDictionary" />
     </ContentPage.Resources>
 
-    <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Horizontal" Margin="20, 10">
-        <StackLayout Orientation="Vertical">
-            <Label StyleClass="MediumTitleLabel" Text="{Binding LanguageOptionsLbl}"/>
+    <ScrollView BackgroundColor="{DynamicResource DynamicPrimaryBackColour}">
+        <StackLayout Orientation="Vertical" BackgroundColor="{DynamicResource DynamicPrimaryBackColour}" Padding="20,30">
+            <Label StyleClass="MediumTitleLabel" Text="{Binding LanguageOptionsLbl}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
             <Label Text="{Binding ChooseLanguageLbl}"/>
             <input:RadioButtonGroupView SelectedItem="{Binding SelectedLanguage}">
-                <input:RadioButton Value="en" Clicked="RadioLanguageButton_Clicked" Text="{Binding EnglishRadio}" />
-                <input:RadioButton Value="pl" Clicked="RadioLanguageButton_Clicked" Text="{Binding PolishRadio}" />
+                <input:RadioButton Value="en" Clicked="RadioLanguageButton_Clicked" Text="{Binding EnglishRadio}" TextColor="{DynamicResource DynamicPrimaryTextColor}" />
+                <input:RadioButton Value="pl" Clicked="RadioLanguageButton_Clicked" Text="{Binding PolishRadio}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
+            </input:RadioButtonGroupView>
+
+            <Label StyleClass="MediumTitleLabel" Text="{Binding ThemeOptionsLbl}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
+            <Label Text="{Binding ChooseThemeLbl}"/>
+            <input:RadioButtonGroupView SelectedItem="{Binding SelectedTheme}">
+                <input:RadioButton Value="light" Clicked="RadioThemeButton_Clicked" Text="{Binding LightRadio}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
+                <input:RadioButton Value="dark" Clicked="RadioThemeButton_Clicked" Text="{Binding DarkRadio}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
             </input:RadioButtonGroupView>
         </StackLayout>
     </ScrollView>

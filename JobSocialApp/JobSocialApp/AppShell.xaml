@@ -1,22 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Shell xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:views="clr-namespace:JobSocialApp.Views"
-             x:Class="JobSocialApp.AppShell">
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:views="clr-namespace:JobSocialApp.Views"
+                x:Class="JobSocialApp.AppShell">
+       <!--FlyoutBackgroundColor="{DynamicResource DynamicPrimaryMenuBackColour}"-->
 
     <Shell.Resources>
         <ResourceDictionary>
-            <Color x:Key="ThemeColour">#EF3D55</Color>
-            <Color x:Key="BackgroundColour">#F5F5F5</Color>
-            <Color x:Key="ForegroundColour">#1a1251</Color>
             <Color x:Key="SelectedColour">#EF3D55</Color>
             <Color x:Key="UnselectedColour">Gray</Color>
-            <Color x:Key="TitleColour">Gray</Color>
-            <Color x:Key="TextColour">LightGray</Color>
             <Style x:Key="Style" TargetType="Element">
-                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource BackgroundColour}"/>
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{DynamicResource DynamicPrimaryMenuBackColour}"/>
                 <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource SelectedColour}"/>
                 <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource UnselectedColour}"/>
+                <Setter Property="Shell.BackgroundColor" Value="{DynamicResource DynamicPrimaryTopMenuBackColour}"/>
             </Style>
             <Style TargetType="FlyoutItem" BasedOn="{StaticResource Style}"/>
         </ResourceDictionary>

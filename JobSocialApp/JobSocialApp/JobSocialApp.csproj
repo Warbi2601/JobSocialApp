@@ -48,6 +48,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>pl.resx</DependentUpon>
     </Compile>
+    <Compile Update="StylingResourceDictionary.xaml.cs">
+      <DependentUpon>StylingResourceDictionary.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\ProfileView.xaml.cs">
       <DependentUpon>ProfileView.xaml</DependentUpon>
     </Compile>
