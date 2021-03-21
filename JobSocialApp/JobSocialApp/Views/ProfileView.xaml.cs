@@ -17,17 +17,11 @@ namespace JobSocialApp.Views
 
             BindingContext = new ProfileViewModel();
             profileVM = BindingContext as ProfileViewModel;
-
-            //profileVM.PopulateViewWithJobs();
-            //profileVM.PopulateJobs();
-            if (true)
-            {
-                MessagingCenter.Send<object, bool>(this, "HideJobsHub", false);
-            }
         }
 
         protected override async void OnAppearing()
         {
+            AppContext context = new AppContext();
             profileVM = BindingContext as ProfileViewModel;
 
             if (profileVM != null)
@@ -36,7 +30,26 @@ namespace JobSocialApp.Views
                 await profileVM.PopulateJobs();
                 await profileVM.GetProfilePicture();
             }
+
+            try
+            {
+                User user = await context.GetCurrentUser();
+
+                if (user.company != null)
+                {
+                    MessagingCenter.Send<object, bool>(this, "IsCompany", true);
+                }
+                else
+                {
+                    MessagingCenter.Send<object, bool>(this, "IsCompany", false);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
+
         private async void ViewSelectedJobClicked(object sender, ItemTappedEventArgs e)
         {
             var selectedJobData = e.Item as Job;

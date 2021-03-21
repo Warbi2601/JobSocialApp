@@ -180,6 +180,9 @@
   <data name="JobsMenuItem" xml:space="preserve">
     <value>Jobs</value>
   </data>
+  <data name="JobsSearchText" xml:space="preserve">
+    <value>Jobs Search</value>
+  </data>
   <data name="JobTitlePlaceHolder" xml:space="preserve">
     <value>Job Title</value>
   </data>

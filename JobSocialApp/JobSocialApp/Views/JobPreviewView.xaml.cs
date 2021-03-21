@@ -167,5 +167,10 @@ namespace JobSocialApp.Views
                 }
             }
         }
+
+        public async void Handle_Tapped(object sender, EventArgs e)
+        {
+            await Browser.OpenAsync(new Uri(String.Format("{0}{1}", "http://", websiteLbl.Text)), BrowserLaunchMode.SystemPreferred);
+        }
     }
 }

@@ -138,6 +138,12 @@
         <Setter Property="HorizontalOptions" Value="Start"/>
         <Setter Property="VerticalOptions" Value="Center"/>
     </Style>
+    <Style TargetType="Label" Class="GridLabelTitleNormal">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="HorizontalOptions" Value="Start"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+    </Style>
     <Style TargetType="Label" Class="GridLabelDescription">
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="HorizontalOptions" Value="Start"/>

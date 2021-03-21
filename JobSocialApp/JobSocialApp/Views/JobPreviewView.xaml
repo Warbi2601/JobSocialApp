@@ -88,7 +88,11 @@
                                 <FormattedString>
                                     <Span Text="{Binding CompanyWebsiteLabel}"/>
                                     <Span Text=" "/>
-                                    <Span TextColor="{DynamicResource DynamicPrimaryTextColor}" Text="{Binding CompanyWebsite}" FontSize="14"/>
+                                    <Span x:Name="websiteLbl" Text="{Binding CompanyWebsite}" FontSize="14" TextDecorations="Underline" TextColor="#4DB2FF">
+                                        <Span.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="Handle_Tapped" />
+                                        </Span.GestureRecognizers>
+                                    </Span>
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
@@ -97,8 +101,8 @@
                     <!--<Label StyleClass="GridDescriptionLabel" Text="{Binding Description}" LineBreakMode="WordWrap" MaxLines="8"/>-->
 
 
-                    <Button StyleClass="ButtonStyle" TextColor="{DynamicResource DynamicPrimaryBtnTextColor}" BackgroundColor="{DynamicResource DynamicPrimaryBtnNeutralBackColour}" IsEnabled="{Binding BtnApplyEnabled}" x:Name="ApplyBtn" Text="{Binding BtnApplyText}" Clicked="ApplyForJob_Clicked"/>
-                    <Button StyleClass="ButtonStyle" TextColor="{DynamicResource DynamicPrimaryBtnTextColor}" BackgroundColor="{DynamicResource DynamicPrimaryBtnNeutralBackColour}" IsVisible="false" x:Name="MessageBtn" Text="Send Message" Clicked="StartChatClicked"/>
+                    <Button Margin="-10,0" StyleClass="ButtonStyle" TextColor="{DynamicResource DynamicPrimaryBtnTextColor}" BackgroundColor="{DynamicResource DynamicPrimaryBtnNeutralBackColour}" IsEnabled="{Binding BtnApplyEnabled}" x:Name="ApplyBtn" Text="{Binding BtnApplyText}" Clicked="ApplyForJob_Clicked"/>
+                    <Button Margin="-10,0" StyleClass="ButtonStyle" TextColor="{DynamicResource DynamicPrimaryBtnTextColor}" BackgroundColor="{DynamicResource DynamicPrimaryBtnNeutralBackColour}" IsVisible="false" x:Name="MessageBtn" Text="Send Message" Clicked="StartChatClicked"/>
                     
                     <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                         <Button StyleClass="ButtonStyle" TextColor="{DynamicResource DynamicPrimaryBtnTextColor}" BackgroundColor="{DynamicResource DynamicPrimaryBtnNeutralBackColour}" IsVisible="false" x:Name="EditBtn" Text="{Binding EditButtonText}" Clicked="EditCurentJob"/>
@@ -135,7 +139,7 @@
                                     <ColumnDefinition Width="100*" />
                                 </Grid.ColumnDefinitions>
 
-                                <Label TextColor="{DynamicResource DynamicThemeDarkPinkColour}" Grid.Column="0" Grid.Row="0" StyleClass="GridLabelTitle" Text="{Binding username}"/>
+                                <Label TextColor="{DynamicResource DynamicThemeDarkPinkColour}" Grid.Column="0" Grid.Row="0" StyleClass="GridLabelTitleNormal" Text="{Binding username}"/>
                                 <Label TextColor="{DynamicResource DynamicPrimaryTextColor}" Grid.Column="0" Grid.Row="1" Text="{Binding time}"/>
                                 <Label TextColor="{DynamicResource DynamicPrimaryTextColor}" Grid.Column="0" Grid.Row="2" Text="{Binding content}"/>
                             </Grid>
