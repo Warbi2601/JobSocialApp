@@ -168,11 +168,21 @@ namespace JobSocialApp.ViewModels
             var jobs = await crud.GetAllJobs();
 
             //filter so we only pull back jobs in that radius and that match the keyword if there is one
-            Jobs = new ObservableCollection<Job>(
+            jobs = new ObservableCollection<Job>(
                 jobs.Where(x =>
                 (milesAway == 0 || GeoLocationManager.GetDistanceInMiles(location.Longitude, location.Latitude, x.longitude, x.latitude) <= milesAway)
                 && (string.IsNullOrEmpty(Keyword) || x.jobTitle.Contains(Keyword) || x.description.Contains(Keyword) || x.location.Contains(Keyword) || x.postCode.Contains(Keyword))
                 ));
+
+            //after letting the jobs load, loop through and get the distances so the user isn't waiting on the calculation
+            foreach (var job in jobs)
+            {
+                job.distanceAway = GeoLocationManager.GetDistanceInMiles(location.Longitude, location.Latitude, job.longitude, job.latitude);
+                job.distanceAwayDisplay = string.Format("{0} .mi", Math.Round(job.distanceAway, 2));
+            }
+
+            Jobs = new ObservableCollection<Job>(jobs.OrderBy(x => x.distanceAway));
+
         }
 
         //public async Task PopulateUser()
