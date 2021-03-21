@@ -31,19 +31,32 @@ namespace JobSocialApp.ViewModels
             // Check if not null
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        
 
         #region Local variables
 
         private String jobTitle = "";
+        private String salaryLabel = "Salary";
         private String salary = "";
+        private String locationLabel = "Location";
         private String location = "";
+        private String descriptionLabel = "Description";
         private String description = "";
         private String id = "";
         private String postCode = "";
         private String editButtonText = TranslationManager.Instance.getTranslation("EditButtonText");
         private String deleteButtonText = TranslationManager.Instance.getTranslation("DeleteButtonText");
         private String employerId = "";
+
+        //Company data
+        private String companyNameLabel = "Company Name";
+        private String companyName = "";
+        private String companyPhoneLabel = "Phone Number";
+        private String companyPhone = "";
+        private String companyEmailLabel = "Email Address";
+        private String companyEmail = "";
+        private String companyWebsiteLabel = "Website";
+        private String companyWebsite = "";
+
 
         private List<Comment> comments { get; set; }
 
@@ -77,6 +90,16 @@ namespace JobSocialApp.ViewModels
             }
         }
         
+        public String SalaryLabel
+        {
+            get => salaryLabel;
+            set
+            {
+                salaryLabel = value;
+                OnPropertyChange();
+            }
+        }
+        
         public String Salary
         {
             get => salary;
@@ -87,12 +110,32 @@ namespace JobSocialApp.ViewModels
             }
         }
         
+        public String LocationLabel
+        {
+            get => locationLabel;
+            set
+            {
+                locationLabel = value;
+                OnPropertyChange();
+            }
+        }
+
         public String Location
         {
             get => location;
             set
             {
                 location = value;
+                OnPropertyChange();
+            }
+        }
+        
+        public String DescriptionLabel
+        {
+            get => descriptionLabel;
+            set
+            {
+                descriptionLabel = value;
                 OnPropertyChange();
             }
         }
@@ -176,6 +219,88 @@ namespace JobSocialApp.ViewModels
                 OnPropertyChange();
             }
         }
+
+        //Company data
+
+        public String CompanyName
+        {
+            get => companyName;
+            set
+            {
+                companyName = value;
+                OnPropertyChange();
+            }
+        }
+
+        public String CompanyPhone
+        {
+            get => companyPhone;
+            set
+            {
+                companyPhone = value;
+                OnPropertyChange();
+            }
+        }
+
+        public String CompanyEmail
+        {
+            get => companyEmail;
+            set
+            {
+                companyEmail = value;
+                OnPropertyChange();
+            }
+        }
+
+        public String CompanyWebsite
+        {
+            get => companyWebsite;
+            set
+            {
+                companyWebsite = value;
+                OnPropertyChange();
+            }
+        }
+
+        public String CompanyNameLabel
+        {
+            get => companyNameLabel;
+            set
+            {
+                companyNameLabel = value;
+                OnPropertyChange();
+            }
+        }
+        
+        public String CompanyPhoneLabel
+        {
+            get => companyPhoneLabel;
+            set
+            {
+                companyPhoneLabel = value;
+                OnPropertyChange();
+            }
+        }
+        
+        public String CompanyEmailLabel
+        {
+            get => companyEmailLabel;
+            set
+            {
+                companyEmailLabel = value;
+                OnPropertyChange();
+            }
+        }
+
+        public String CompanyWebsiteLabel
+        {
+            get => companyWebsiteLabel;
+            set
+            {
+                companyWebsiteLabel = value;
+                OnPropertyChange();
+            }
+        }
         
         #endregion
 
@@ -183,11 +308,41 @@ namespace JobSocialApp.ViewModels
 
         #region Functions
 
-        public void PopulateJobVMData(Job jobObj)
+        private async Task<Company> GetCompanyData(String userId)
         {
+            Company companyObj = null;
+            UserActions crud = new UserActions();
+            try
+            {
+                User user = await crud.GetUser(userId);
+                if (user != null)
+                {
+                    companyObj = user.company;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return companyObj;
+        }
+
+        public async void PopulateJobVMData(Job jobObj)
+        {
+            Company companyData = await GetCompanyData(jobObj.userID);
+
             if (jobObj.comments != null)
             {
                 Comments = jobObj.comments.OrderByDescending(x => x.time).ToList();
+            }
+
+            if(companyData != null)
+            {
+                CompanyName = companyData.name;
+                CompanyPhone = companyData.phone;
+                CompanyEmail = companyData.email;
+                CompanyWebsite = companyData.website;
             }
 
             JobTitle = jobObj.jobTitle;

@@ -53,7 +53,7 @@
                         <ViewCell>
                             <Grid Padding="10" RowSpacing="2" ColumnSpacing="2">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="25" />
+                                    <RowDefinition Height="35" />
                                     <RowDefinition Height="25" />
                                     <RowDefinition Height="25" />
                                     <RowDefinition Height="*" />

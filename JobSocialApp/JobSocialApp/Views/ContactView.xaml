@@ -2,8 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="JobSocialApp.Views.ContactView">
+    
     <ContentPage.Content>
-        <Grid RowSpacing="0" ColumnSpacing="0">
+        <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="{DynamicResource DynamicPrimaryBackColour}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
@@ -20,24 +21,38 @@
                         <ViewCell>
                             <Grid Padding="10" RowSpacing="2" ColumnSpacing="2">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="50" />
-                                    <RowDefinition Height="50" />
+                                    <RowDefinition Height="65" />
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="25*" />
                                     <ColumnDefinition Width="75*" />
                                 </Grid.ColumnDefinitions>
-                                <Frame CornerRadius="100" 
-                                    HeightRequest="100"
-                                    WidthRequest="100"
+
+                                    <!--<Frame CornerRadius="50" 
+                                    HeightRequest="50"
+                                    WidthRequest="50"
                                     HorizontalOptions="Center"
                                     Padding="0"
                                     IsClippedToBounds="True"
-                                    Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
-                                    <Image Source="{Binding profilePicture}" WidthRequest="100" HeightRequest="100"/>
+                                    Grid.Column="0" Grid.Row="0">
+                                    <Image Source="{Binding profilePicture}" WidthRequest="50" HeightRequest="50"/>
+                                    </Frame>-->
+
+                                <Frame x:Name="Picture" CornerRadius="50" HorizontalOptions="Center" WidthRequest="55" HeightRequest="55" VerticalOptions="Center" BorderColor="{DynamicResource DynamicThemeBorderColour}" BackgroundColor="{DynamicResource DynamicMediumHeaderTextColour}" Padding="4">
+                                    <Frame x:Name="Border" CornerRadius="50" HorizontalOptions="Center" Padding="-3" WidthRequest="60" HeightRequest="60" >
+                                        <Image x:Name="profileImage" Source="{Binding profilePicture}" Aspect="AspectFill" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1"/>
+                                    </Frame>
                                 </Frame>
-                                <Label Text="{Binding firstName}" Grid.Column="1"  Grid.Row="0" VerticalOptions="CenterAndExpand" LineBreakMode="TailTruncation" FontSize="24"/>
-                                <Label Text="{Binding lastName}" Grid.Column="1"  Grid.Row="1" VerticalOptions="CenterAndExpand" LineBreakMode="TailTruncation" FontSize="24"/>
+
+                                <Label TextColor="{DynamicResource DynamicThemeTextColour}" Grid.Column="1" StyleClass="LargeLabel" VerticalOptions="CenterAndExpand" LineBreakMode="TailTruncation">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding firstName}"/>
+                                            <Span Text=" "/>
+                                            <Span Text="{Binding lastName}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

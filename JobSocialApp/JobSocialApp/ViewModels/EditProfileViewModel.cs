@@ -214,17 +214,13 @@ namespace JobSocialApp.ViewModels
 
                 if (user != null)
                 {
-                    User updateUser = new User
-                    {
-                        _id = user._id,
-                        firstName = FirstName,
-                        lastName = LastName,
-                        email = Email,
-                        jobTitle = Position
-                    };
+                    user.firstName = FirstName;
+                    user.lastName = LastName;
+                    user.email = Email;
+                    user.jobTitle = Position;
 
                     UserActions crud = new UserActions();
-                    await crud.UpdateUser(updateUser);
+                    await crud.UpdateUser(user);
 
                     Routing.RegisterRoute("/main", typeof(AppShell));
                     await Shell.Current.GoToAsync("////profile");

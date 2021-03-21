@@ -30,7 +30,7 @@
                         <Label Text="{Binding PostcodePlaceholder}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
                         <app:RoundedEntry TextColor="{DynamicResource DynamicPrimaryTextColor}" Text="{Binding PostCode}"/>
                         <Label Text="{Binding DescriptionPlaceHolder}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
-                        <app:RoundedEntry TextColor="{DynamicResource DynamicPrimaryTextColor}" HeightRequest="150" Text="{Binding Description}"/>
+                        <Editor TextColor="{DynamicResource DynamicPrimaryTextColor}" HeightRequest="150" Text="{Binding Description}"/>
                         <Button StyleClass="ButtonStyle" Text="{Binding UpdateBtn}" Clicked="UpdateJobAsync" TextColor="{DynamicResource DynamicPrimaryBtnTextColor}" BackgroundColor="{DynamicResource DynamicPrimaryBtnNeutralBackColour}" />
                     </StackLayout>
                 </Frame>

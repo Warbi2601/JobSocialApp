@@ -46,39 +46,39 @@
 
     
     
-    <Color x:Key="DarkThemeColourLightBlue">#DCE7EF</Color>
+    <!--<Color x:Key="DarkThemeColourLightBlue">#DCE7EF</Color>
     <Color x:Key="DarkThemeColourDarkBlue">#355C7D</Color>
     <Color x:Key="DarkThemeColourVeryDarkBlue">#1F3447</Color>
     <Color x:Key="DarkThemeColourLightPink">#E8CAD2</Color>
     <Color x:Key="DarkThemeColourDarkPink">#B34D69</Color>
     <Color x:Key="DarkPositiveBtn">#5CB85C</Color>
     <Color x:Key="DarkNegativeBtn">#D9534F</Color>
-    <Color x:Key="DarkNeutralBtn">#5BC0DE</Color>
-    <Color x:Key="DarkAccent">#5BC0DE</Color>
-    <Color x:Key="DarkElevation2dp">#5CB85C</Color>
+    <Color x:Key="DarkNeutralBtn">#5BC0DE</Color>-->
 
- 
-    
-    
 
-    <Style TargetType="Label" Class="LightTextColour">
-        <!--<Setter Property="TextColor" Value="{StaticResource WhiteColour}" />-->
-    </Style>
-    <Style TargetType="Label" Class="DarkTextColour">
-        <!--<Setter Property="TextColor" Value="{StaticResource ThemeColourVeryDarkBlue}" />-->
-    </Style>
+
+
+    <!--Labels-->
 
     <Style TargetType="Label" Class="LargeTitleLabel">
-        <!--<Setter Property="TextColor" Value="{StaticResource ThemeColourDarkPink}" />-->
         <Setter Property="Margin" Value="0,0,0,20" />
         <Setter Property="HorizontalTextAlignment" Value="Center" />
         <Setter Property="FontSize" Value="45" />
     </Style>
 
     <Style TargetType="Label" Class="MediumTitleLabel">
-        <!--<Setter Property="TextColor" Value="{StaticResource ThemeColourVeryDarkBlue}" />-->
         <Setter Property="FontSize" Value="25" />
     </Style>
+
+    <Style TargetType="Label" Class="LargeLabel">
+        <Setter Property="FontSize" Value="18" />
+    </Style>
+    
+    <Style TargetType="Label" Class="NormalLabel">
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+
+    <!--Buttons-->
 
     <Style TargetType="Button" Class="ButtonStyle">
         <Setter Property="CornerRadius" Value="12" />
@@ -91,7 +91,6 @@
         <Setter Property="HorizontalOptions" Value="Start"/>
         <Setter Property="VerticalOptions" Value="Center"/>
         <Setter Property="CornerRadius" Value="50" />
-        <!--<Setter Property="BackgroundColor" Value="{StaticResource NegativeBtn}"/>-->
     </Style>
 
     <Style TargetType="Button" Class="FormEditButton">
@@ -99,7 +98,6 @@
         <Setter Property="HorizontalOptions" Value="Start"/>
         <Setter Property="VerticalOptions" Value="Center"/>
         <Setter Property="CornerRadius" Value="50" />
-        <!--<Setter Property="BackgroundColor" Value="{StaticResource NeutralBtn}"/>-->
     </Style>
 
     <Style TargetType="Button" Class="SendMsgButton">
@@ -135,15 +133,13 @@
     <!--Grid items options-->
 
     <Style TargetType="Label" Class="GridLabelTitle">
-        <Setter Property="FontSize" Value="20"/>
-        <!--<Setter Property="TextColor" Value="{StaticResource ThemeColourDarkPink}"/>-->
+        <Setter Property="FontSize" Value="28"/>
         <Setter Property="FontAttributes" Value="Bold"/>
         <Setter Property="HorizontalOptions" Value="Start"/>
         <Setter Property="VerticalOptions" Value="Center"/>
     </Style>
     <Style TargetType="Label" Class="GridLabelDescription">
         <Setter Property="FontSize" Value="14"/>
-        <!--<Setter Property="TextColor" Value="{StaticResource ThemeColourVeryDarkBlue}" />-->
         <Setter Property="HorizontalOptions" Value="Start"/>
         <Setter Property="VerticalOptions" Value="Center"/>
     </Style>

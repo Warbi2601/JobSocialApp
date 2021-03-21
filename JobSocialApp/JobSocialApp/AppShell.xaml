@@ -19,7 +19,7 @@
         </ResourceDictionary>
     </Shell.Resources>
 
-    <MenuItem Text="Jobs Hub" IsEnabled="False" Icon="job" Clicked="VisitJobsHubClicked" />
+    <MenuItem x:Name="JobsHub" Text="Jobs Hub" Icon="job" Clicked="VisitJobsHubClicked" />
     <MenuItem Text="Edit details" Icon="edit" Clicked="EditProfileClicked" />
     <MenuItem Text="Settings" Icon="settings" Clicked="ShowSettingsView"/>
     <MenuItem Text="Sign Out" Icon="exit" Clicked="SignOutClicked" />
@@ -27,6 +27,9 @@
     <FlyoutItem Route="main">
         <Tab Route="home" Title="Home" Icon="home">
             <ShellContent ContentTemplate="{DataTemplate views:HomeView}"/>
+        </Tab>
+        <Tab Route="messages" Title="Messages" Icon="chat">
+            <ShellContent ContentTemplate="{DataTemplate views:ContactView}"/>
         </Tab>
         <Tab Route="jobs" Title="Jobs" Icon="search">
             <ShellContent ContentTemplate="{DataTemplate views:SearchView}" />
