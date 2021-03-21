@@ -167,8 +167,15 @@ namespace JobSocialApp.ViewModels
 
         public void ChangeLanguage(String selectedLanguage)
         {
-            SelectedLanguage = selectedLanguage;
-            TranslationManager.Instance.changeLang();
+            if(selectedLanguage == "en" && !TranslationManager.Instance.isEnglishSelected())
+            {
+                SelectedLanguage = selectedLanguage;
+                TranslationManager.Instance.changeLang();
+            } else if(selectedLanguage == "pl" && TranslationManager.Instance.isEnglishSelected())
+            {
+                SelectedLanguage = selectedLanguage;
+                TranslationManager.Instance.changeLang();
+            }
         }
 
         public String ChangeTheme(String selectedLanguage)
