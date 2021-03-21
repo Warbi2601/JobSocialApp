@@ -331,6 +331,15 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Messages.
+        /// </summary>
+        public static string MessagesMenuItem {
+            get {
+                return ResourceManager.GetString("MessagesMenuItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Miles Away.
         /// </summary>
         public static string MilesAwayPlaceholder {
