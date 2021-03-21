@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using JobSocialApp.Models;
 using JobSocialApp.Services.FirebaseActions;
+using JobSocialApp.Views;
 using Xamarin.Forms;
 
 namespace JobSocialApp.ViewModels
@@ -41,6 +42,7 @@ namespace JobSocialApp.ViewModels
         private String id = "";
         private String editButtonText = TranslationManager.Instance.getTranslation("EditButtonText");
         private String deleteButtonText = TranslationManager.Instance.getTranslation("DeleteButtonText");
+        private String employerId = "";
 
         private List<Comment> comments { get; set; }
 
@@ -178,6 +180,7 @@ namespace JobSocialApp.ViewModels
             Location = jobObj.location;
             Description = jobObj.description;
             Id = jobObj._id;
+            employerId = jobObj.userID;
         }
 
         public async Task AddComment()
@@ -207,6 +210,22 @@ namespace JobSocialApp.ViewModels
             //refresh comments and reset new comment field
             NewComment = "";
             Comments = job.comments.OrderByDescending(x => x.time).ToList();
+        }
+
+        public async void MessageEmployer(INavigation navigation)
+        {
+            try
+            {
+                AppContext context = new AppContext();
+                var currentUser = await context.GetCurrentUser();
+                UserActions crud = new UserActions();
+                var employer = await crud.GetUser(employerId);
+                await navigation.PushAsync(new ChatView(currentUser, employer));
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         #endregion

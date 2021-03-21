@@ -46,6 +46,7 @@ namespace JobSocialApp.Views
             else
             {
                 ApplyBtn.IsVisible = true;
+                MessageBtn.IsVisible = true;
             }
         }
 
@@ -56,6 +57,16 @@ namespace JobSocialApp.Views
             if (jobPreviewVM != null)
             {
                 await jobPreviewVM.AddComment();
+            }
+        }
+
+        private void StartChatClicked(object sender, EventArgs e)
+        {
+            jobPreviewVM = BindingContext as JobPreviewViewModel;
+
+            if (jobPreviewVM != null)
+            {
+                jobPreviewVM.MessageEmployer(Navigation);
             }
         }
     }

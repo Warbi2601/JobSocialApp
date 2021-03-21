@@ -37,6 +37,7 @@
                     
                     
                     <Button StyleClass="PositiveButtonStyles" IsVisible="false" x:Name="ApplyBtn" Text="Apply"/>
+                    <Button StyleClass="PositiveButtonStyles" IsVisible="false" x:Name="MessageBtn" Text="Send Message" Clicked="StartChatClicked"/>
                     <StackLayout Orientation="Horizontal">
                         <Button StyleClass="FormEditButton" IsVisible="false" x:Name="EditBtn" Text="{Binding EditButtonText}"/>
                         <Button StyleClass="FormRemoveButton" IsVisible="false" x:Name="DeleteBtn" Text="{Binding DeleteButtonText}"/>
