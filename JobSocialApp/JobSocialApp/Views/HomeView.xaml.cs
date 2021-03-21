@@ -58,8 +58,8 @@ namespace JobSocialApp.Views
 
         async void OnTestClick(object sender, EventArgs e)
         {
-            var a = await Test();
-            var b = 1;
+            Shell.Current.FlyoutIsPresented = false;
+            await Navigation.PushAsync(new ContactView());
         }
 
         public async Task<string> Test()
@@ -135,9 +135,10 @@ namespace JobSocialApp.Views
 
         private async void TestClicked(object sender, EventArgs e)
         {
+            Console.WriteLine("Test clicked");
             // need to add validation and exception catches // crashes under certain circumstances (password less than 6)
-            Console.WriteLine("button pressed");
-            TranslationManager.Instance.changeLang();
+            /*Console.WriteLine("button pressed");
+            TranslationManager.Instance.changeLang();*/
         }
         
 
