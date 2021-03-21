@@ -48,11 +48,23 @@ namespace JobSocialApp.ViewModels
         private string messagesText = TranslationManager.Instance.getTranslation("MessagesMenuItem");
         private string jobSearchText = TranslationManager.Instance.getTranslation("JobsSearchText");
 
+        // users jobsHubText or jobSearchText translations
+        private string jobsMenutext = "";
 
 
         #endregion
 
         #region Public members
+
+        public string JobsMenuText
+        {
+            get => jobsMenutext;
+            set
+            {
+                jobsMenutext = value;
+                OnPropertyChange();
+            }
+        }
 
         public string JobsHubText
         {
