@@ -31,24 +31,12 @@ namespace JobSocialApp
 
             Application.Current.Properties["id"] = "";
             Application.Current.MainPage = MainPage;
-
-            //MainPage = new MainPage();
-            //var authService = DependencyService.Resolve<IFirebaseAuthenticator>();
-            //if (!authService.isSignedIn())
-            //{
-            //    MainPage = new NavigationPage(new LoginView());
-            //}
-            //else
-            //{
-            //    MainPage = new NavigationPage(new HomeView());
-            //}
         }
 
         protected override void OnStart()
         {
             UpdateLastActiveUser();
-
-            // selecting translation
+            TranslationManager.Instance.setLanguage();
         }
 
 
