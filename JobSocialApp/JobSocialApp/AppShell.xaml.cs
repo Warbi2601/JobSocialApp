@@ -36,7 +36,7 @@ namespace JobSocialApp
             else
             {
                 var uid = authService.GetCurrentUserUID();
-                Task.Run(async () => await Shell.Current.GoToAsync("///home"));
+                Task.Run(async () => await Shell.Current.GoToAsync("///profile"));
             }
 
             MessagingCenter.Subscribe<object, bool>(this, "IsCompany", (sender, isCompany) => {

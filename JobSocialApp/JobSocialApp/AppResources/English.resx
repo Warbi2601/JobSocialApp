@@ -210,6 +210,9 @@
   <data name="LoginTitle" xml:space="preserve">
     <value>Find new job opportunities</value>
   </data>
+  <data name="MessagesMenuItem" xml:space="preserve">
+    <value>Messages</value>
+  </data>
   <data name="MilesAwayPlaceholder" xml:space="preserve">
     <value>Miles Away</value>
   </data>

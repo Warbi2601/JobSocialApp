@@ -204,7 +204,7 @@ namespace JobSocialApp.ViewModels
                     toClient.IsSuccessful = true;
 
                     Routing.RegisterRoute("/main", typeof(AppShell));
-                    await Shell.Current.GoToAsync("////home");
+                    await Shell.Current.GoToAsync("////profile");
                 }
             }
             catch (Exception ex)

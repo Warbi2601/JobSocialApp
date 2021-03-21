@@ -392,7 +392,7 @@ namespace JobSocialApp.ViewModels
 
                     //redirect to main app
                     Routing.RegisterRoute("/main", typeof(AppShell));
-                    await Shell.Current.GoToAsync("////home");
+                    await Shell.Current.GoToAsync("////profile");
 
                     //Application.Current.MainPage = new HomeView();
                     //await Navigation.PopAsync();
