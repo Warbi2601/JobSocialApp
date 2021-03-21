@@ -19,7 +19,7 @@
                     <Label StyleClass="DarkTextColour" Text="{Binding LoginInstructionsLbl}" TextColor="{DynamicResource DynamicPrimaryTextColor}" HorizontalTextAlignment="Center" Padding="20"/>
                     <Label Text="{Binding EmailLbl}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
                     <app:RoundedEntry Text="{Binding LoginEmail}" Keyboard="Email" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
-                    <app:RoundedEntry Text="{Binding PasswordLbl}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
+                    <Label Text="{Binding PasswordLbl}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
                     <app:RoundedEntry Text="{Binding LoginPassword}" IsPassword="true" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
 
                     <Button BackgroundColor="{DynamicResource DynamicPrimaryBtnNeutralBackColour}" TextColor="{DynamicResource DynamicPrimaryBtnTextColor}" Text="{Binding SignInBtn}" Clicked="SignInClicked" Margin="0,20,0,0" CornerRadius="20"/>
