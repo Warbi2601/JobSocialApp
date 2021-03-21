@@ -89,6 +89,17 @@ namespace JobSocialApp.ViewModels
             }
         }
 
+        private string sendBtnText = TranslationManager.Instance.getTranslation("SendButton");
+        public string SendBtnText
+        {
+            get => sendBtnText;
+            set
+            {
+                sendBtnText = value;
+                OnPropertyChange();
+            }
+        }
+
         #endregion
 
         #region Public functions

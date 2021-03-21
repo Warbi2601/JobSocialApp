@@ -117,8 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddJobButton" xml:space="preserve">
+    <value>Add new job</value>
+  </data>
+  <data name="ChooseLanguage" xml:space="preserve">
+    <value>Choose your language</value>
+  </data>
+  <data name="ChooseTheme" xml:space="preserve">
+    <value>Choose your theme</value>
+  </data>
   <data name="CreateNewOpp" xml:space="preserve">
     <value>Utwórz nowe miejsca pracy</value>
+  </data>
+  <data name="DarkTitle" xml:space="preserve">
+    <value>Dark</value>
   </data>
   <data name="DeleteButtonText" xml:space="preserve">
     <value>Usuń</value>
@@ -126,11 +138,17 @@
   <data name="EditButtonText" xml:space="preserve">
     <value>Edytuj</value>
   </data>
+  <data name="EditJob" xml:space="preserve">
+    <value>Edit job post</value>
+  </data>
   <data name="EditProfileTitle" xml:space="preserve">
     <value>Edytuj informacje prywatne</value>
   </data>
   <data name="EmailPlaceholder" xml:space="preserve">
     <value>Adres e-mail</value>
+  </data>
+  <data name="EnglishTitle" xml:space="preserve">
+    <value>English</value>
   </data>
   <data name="FirstNamePlaceholder" xml:space="preserve">
     <value>Pierwsze imię</value>
@@ -138,17 +156,38 @@
   <data name="JobDescriptionPlaceHolder" xml:space="preserve">
     <value>Opis stanowiska</value>
   </data>
+  <data name="JobsCreatedTitle" xml:space="preserve">
+    <value>Jobs created by you</value>
+  </data>
   <data name="JobTitlePlaceHolder" xml:space="preserve">
     <value>Tytuł stanowiska</value>
+  </data>
+  <data name="LanguageOptions" xml:space="preserve">
+    <value>Language Options </value>
   </data>
   <data name="LastNamePlaceholder" xml:space="preserve">
     <value>Nazwisko</value>
   </data>
+  <data name="LightTitle" xml:space="preserve">
+    <value>Light</value>
+  </data>
   <data name="LocationPlaceHolder" xml:space="preserve">
     <value>Lokacja</value>
   </data>
+  <data name="LoginAccountInfo" xml:space="preserve">
+    <value>Already have an account? Login</value>
+  </data>
+  <data name="LoginInstruction" xml:space="preserve">
+    <value>Please provide your email and password to login into the application.</value>
+  </data>
+  <data name="LoginTitle" xml:space="preserve">
+    <value>Find new job opportunities</value>
+  </data>
   <data name="PasswordPlaceholder" xml:space="preserve">
     <value>Chasło</value>
+  </data>
+  <data name="PolishTitle" xml:space="preserve">
+    <value>Polish</value>
   </data>
   <data name="PositionPlaceholder" xml:space="preserve">
     <value>Obecna pozycja</value>
@@ -159,11 +198,38 @@
   <data name="PostToFBPlaceHolder" xml:space="preserve">
     <value>Wyślij na Facebook'a</value>
   </data>
+  <data name="ProfileTitleLabelCompany" xml:space="preserve">
+    <value>Jobs You've Posted</value>
+  </data>
+  <data name="ProfileTitleLabelUser" xml:space="preserve">
+    <value>Jobs You've Applied For</value>
+  </data>
+  <data name="RegisterAccountInfo" xml:space="preserve">
+    <value>Alternatively Register a new account.</value>
+  </data>
+  <data name="RegisterButton" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="RegisterTitle" xml:space="preserve">
+    <value>Launch your new career now!</value>
+  </data>
+  <data name="RePasswordPlaceholder" xml:space="preserve">
+    <value>Repeat Password</value>
+  </data>
   <data name="SalaryPlaceHolder" xml:space="preserve">
     <value>Wynagrodzenie</value>
   </data>
+  <data name="SendButton" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="SignInButton" xml:space="preserve">
+    <value>Sign In</value>
+  </data>
   <data name="SubmitButtonText" xml:space="preserve">
     <value>Wyślij</value>
+  </data>
+  <data name="ThemeOptionsTitle" xml:space="preserve">
+    <value>Theme options</value>
   </data>
   <data name="Title" xml:space="preserve">
     <value>Tytuł</value>

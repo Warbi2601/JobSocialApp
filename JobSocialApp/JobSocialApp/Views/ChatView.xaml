@@ -30,7 +30,7 @@
 				Placeholder="Message" 
 				/>
                 <Button 
-				Text="Send" Clicked="SendClicked"/>
+				Text="{Binding SendBtnText}" Clicked="SendClicked"/>
             </StackLayout>
         </Grid>
     </ContentPage.Content>

@@ -61,11 +61,47 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add new job.
+        /// </summary>
+        public static string AddJobButton {
+            get {
+                return ResourceManager.GetString("AddJobButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose your language.
+        /// </summary>
+        public static string ChooseLanguage {
+            get {
+                return ResourceManager.GetString("ChooseLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose your theme.
+        /// </summary>
+        public static string ChooseTheme {
+            get {
+                return ResourceManager.GetString("ChooseTheme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Utwórz nowe miejsca pracy.
         /// </summary>
         public static string CreateNewOpp {
             get {
                 return ResourceManager.GetString("CreateNewOpp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dark.
+        /// </summary>
+        public static string DarkTitle {
+            get {
+                return ResourceManager.GetString("DarkTitle", resourceCulture);
             }
         }
         
@@ -88,6 +124,15 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit job post.
+        /// </summary>
+        public static string EditJob {
+            get {
+                return ResourceManager.GetString("EditJob", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edytuj informacje prywatne.
         /// </summary>
         public static string EditProfileTitle {
@@ -102,6 +147,15 @@ namespace JobSocialApp.AppResources {
         public static string EmailPlaceholder {
             get {
                 return ResourceManager.GetString("EmailPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to English.
+        /// </summary>
+        public static string EnglishTitle {
+            get {
+                return ResourceManager.GetString("EnglishTitle", resourceCulture);
             }
         }
         
@@ -124,11 +178,29 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Jobs created by you.
+        /// </summary>
+        public static string JobsCreatedTitle {
+            get {
+                return ResourceManager.GetString("JobsCreatedTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tytuł stanowiska.
         /// </summary>
         public static string JobTitlePlaceHolder {
             get {
                 return ResourceManager.GetString("JobTitlePlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language Options .
+        /// </summary>
+        public static string LanguageOptions {
+            get {
+                return ResourceManager.GetString("LanguageOptions", resourceCulture);
             }
         }
         
@@ -142,6 +214,15 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Light.
+        /// </summary>
+        public static string LightTitle {
+            get {
+                return ResourceManager.GetString("LightTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lokacja.
         /// </summary>
         public static string LocationPlaceHolder {
@@ -151,11 +232,47 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Already have an account? Login.
+        /// </summary>
+        public static string LoginAccountInfo {
+            get {
+                return ResourceManager.GetString("LoginAccountInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please provide your email and password to login into the application..
+        /// </summary>
+        public static string LoginInstruction {
+            get {
+                return ResourceManager.GetString("LoginInstruction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Find new job opportunities.
+        /// </summary>
+        public static string LoginTitle {
+            get {
+                return ResourceManager.GetString("LoginTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Chasło.
         /// </summary>
         public static string PasswordPlaceholder {
             get {
                 return ResourceManager.GetString("PasswordPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Polish.
+        /// </summary>
+        public static string PolishTitle {
+            get {
+                return ResourceManager.GetString("PolishTitle", resourceCulture);
             }
         }
         
@@ -187,6 +304,60 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Jobs You&apos;ve Posted.
+        /// </summary>
+        public static string ProfileTitleLabelCompany {
+            get {
+                return ResourceManager.GetString("ProfileTitleLabelCompany", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jobs You&apos;ve Applied For.
+        /// </summary>
+        public static string ProfileTitleLabelUser {
+            get {
+                return ResourceManager.GetString("ProfileTitleLabelUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alternatively Register a new account..
+        /// </summary>
+        public static string RegisterAccountInfo {
+            get {
+                return ResourceManager.GetString("RegisterAccountInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Register.
+        /// </summary>
+        public static string RegisterButton {
+            get {
+                return ResourceManager.GetString("RegisterButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Launch your new career now!.
+        /// </summary>
+        public static string RegisterTitle {
+            get {
+                return ResourceManager.GetString("RegisterTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Repeat Password.
+        /// </summary>
+        public static string RePasswordPlaceholder {
+            get {
+                return ResourceManager.GetString("RePasswordPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Wynagrodzenie.
         /// </summary>
         public static string SalaryPlaceHolder {
@@ -196,11 +367,38 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Send.
+        /// </summary>
+        public static string SendButton {
+            get {
+                return ResourceManager.GetString("SendButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sign In.
+        /// </summary>
+        public static string SignInButton {
+            get {
+                return ResourceManager.GetString("SignInButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Wyślij.
         /// </summary>
         public static string SubmitButtonText {
             get {
                 return ResourceManager.GetString("SubmitButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Theme options.
+        /// </summary>
+        public static string ThemeOptionsTitle {
+            get {
+                return ResourceManager.GetString("ThemeOptionsTitle", resourceCulture);
             }
         }
         
