@@ -19,7 +19,7 @@
         </ResourceDictionary>
     </Shell.Resources>
 
-    <MenuItem Text="Jobs Hub" Icon="job" Clicked="VisitJobsHubClicked" />
+    <MenuItem Text="Jobs Hub" IsEnabled="False" Icon="job" Clicked="VisitJobsHubClicked" />
     <MenuItem Text="Edit details" Icon="edit" Clicked="EditProfileClicked" />
     <MenuItem Text="Settings" Icon="settings" Clicked="ShowSettingsView"/>
     <MenuItem Text="Sign Out" Icon="exit" Clicked="SignOutClicked" />
