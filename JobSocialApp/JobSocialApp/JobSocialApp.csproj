@@ -29,10 +29,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="AppResources\English.Designer.cs">
+    <Compile Update="AppResources\English - Copy.Designer.cs">
+      <DependentUpon>English.resx</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>English.resx</DependentUpon>
     </Compile>
     <Compile Update="AppResources\Polish.Designer.cs">
       <DesignTime>True</DesignTime>

@@ -27,5 +27,11 @@ namespace JobSocialApp.Models
 
         public List<Comment> comments { get; set; }
 
+        [Ignored]
+        public double distanceAway { get; set; }
+
+        [Ignored]
+        public string distanceAwayDisplay { get; set; }
+
     }
 }
