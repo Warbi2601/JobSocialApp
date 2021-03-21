@@ -25,10 +25,10 @@
     <MenuItem Text="{Binding SignOutText}" Icon="exit" Clicked="SignOutClicked" />
 
     <FlyoutItem Route="main">
-        <Tab Route="home" Title="{Binding HomeText}" Icon="home">
+        <!--<Tab Route="home" Title="{Binding HomeText}" Icon="home">
             <ShellContent ContentTemplate="{DataTemplate views:HomeView}"/>
-        </Tab>
-        <Tab Route="messages" Title="{Binding MessageText}" Icon="chat">
+        </Tab>-->
+        <Tab Route="messages" Title="{Binding Messages}" Icon="chat">
             <ShellContent ContentTemplate="{DataTemplate views:ContactView}"/>
         </Tab>
         <Tab Route="jobs" Title="{Binding JobsText}" Icon="search">

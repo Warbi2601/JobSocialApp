@@ -51,6 +51,7 @@ namespace JobSocialApp.ViewModels
         // users jobsHubText or jobSearchText translations
         private string jobsMenutext = "";
 
+
         #endregion
 
         #region Public members

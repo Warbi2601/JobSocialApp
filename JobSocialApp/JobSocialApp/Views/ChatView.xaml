@@ -33,6 +33,7 @@
 			    HorizontalOptions="FillAndExpand" 
 				HeightRequest="25" 
 				Placeholder="Message" 
+                    x:Name="chatBox"
 				/>
                 <Button BackgroundColor="{DynamicResource DynamicPrimaryBtnNeutralBackColour}" StyleClass="SendMsgButton" ImageSource="send2" Clicked="SendClicked" />
             </StackLayout>

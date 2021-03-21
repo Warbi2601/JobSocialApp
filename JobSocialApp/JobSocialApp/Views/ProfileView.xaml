@@ -47,7 +47,7 @@
                 <Label StyleClass="HeaderText" Text="TOTAL POINTS" Margin="12,-10,0,0" TextColor="{StaticResource ThemeColourDarkBlue}" FontSize="16"/>
             </StackLayout>-->
 
-                <Label StyleClass="LargeLabel" Text="{Binding ProfileTitleLabel}" TextColor="{DynamicResource DynamicPrimaryTextColor}" Padding="10,0,0,0" Margin="0,-10"/>
+                <Label StyleClass="LargeLabel" Text="{Binding ProfileTitleLabel}" TextColor="{DynamicResource DynamicPrimaryTextColor}" Padding="10,0,0,0" Margin="0,10"/>
 
                 <ListView ItemsSource="{Binding Jobs}" ItemTapped="ViewSelectedJobClicked" HasUnevenRows="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                     <ListView.ItemTemplate>
