@@ -180,6 +180,9 @@
   <data name="JobsMenuItem" xml:space="preserve">
     <value>Ogłoszenia</value>
   </data>
+  <data name="JobsSearchText" xml:space="preserve">
+    <value>Wyszukiwarka pracy</value>
+  </data>
   <data name="JobTitlePlaceHolder" xml:space="preserve">
     <value>Tytuł stanowiska</value>
   </data>
@@ -206,9 +209,6 @@
   </data>
   <data name="LoginTitle" xml:space="preserve">
     <value>Znajdź nową karierę</value>
-  </data>
-  <data name="MessagesMenuItem" xml:space="preserve">
-    <value>Wiadomości</value>
   </data>
   <data name="MessagesMenuItem" xml:space="preserve">
     <value>Messages</value>
