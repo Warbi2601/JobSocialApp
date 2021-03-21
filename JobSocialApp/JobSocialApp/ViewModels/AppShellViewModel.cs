@@ -26,7 +26,7 @@ namespace JobSocialApp.ViewModels
                 HomeText = TranslationManager.Instance.getTranslation("HomeMenuItem");
                 JobsText = TranslationManager.Instance.getTranslation("JobsMenuItem");
                 ProfileText = TranslationManager.Instance.getTranslation("ProfileMenuItem");
-                MessagesText = TranslationManager.Instance.getTranslation("MessagesMenuItem");
+                MessageText = TranslationManager.Instance.getTranslation("MessagesMenuItem");
             });
         }
 
