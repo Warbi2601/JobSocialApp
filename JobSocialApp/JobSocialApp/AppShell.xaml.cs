@@ -40,7 +40,7 @@ namespace JobSocialApp
                 Task.Run(async () => await Shell.Current.GoToAsync("///profile"));
             }
 
-            CheckUserIsCompany();           
+            //CheckUserIsCompany();           
 
             MessagingCenter.Subscribe<object, bool>(this, "IsCompany", (sender, isCompany) => {
                 showJobsHub = isCompany;
