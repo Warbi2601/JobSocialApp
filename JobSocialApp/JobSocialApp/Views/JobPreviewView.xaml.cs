@@ -161,7 +161,15 @@ namespace JobSocialApp.Views
             }
         }
 
-private void StartChatClicked(object sender, EventArgs e)         {             jobPreviewVM = BindingContext as JobPreviewViewModel;              if (jobPreviewVM != null)             {                 jobPreviewVM.MessageEmployer(Navigation);             }         }
+        private void StartChatClicked(object sender, EventArgs e)
+        {
+            jobPreviewVM = BindingContext as JobPreviewViewModel;
+
+            if (jobPreviewVM != null)
+            {
+                jobPreviewVM.MessageEmployer(Navigation);
+            }
+        }
 
         private async void ApplyForJob_Clicked(object sender, EventArgs e)
         {
@@ -173,7 +181,7 @@ private void StartChatClicked(object sender, EventArgs e)         {             
                 {
                     var result = await jobPreviewVM.ApplyForJob();
 
-                    if(result.Item1)
+                    if (result.Item1)
                     {
                         await DisplayAlert("Success", "Job successfully applied for.", "Ok");
                     }
@@ -187,7 +195,6 @@ private void StartChatClicked(object sender, EventArgs e)         {             
                 }
                 catch (FeatureNotSupportedException fbsEx)
                 {
-                    // 
                     await DisplayAlert("Error", "Email is not supported on this device", "Ok");
                 }
                 catch (Exception ex)
