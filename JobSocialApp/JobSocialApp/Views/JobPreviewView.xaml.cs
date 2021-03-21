@@ -13,7 +13,7 @@ namespace JobSocialApp.Views
         private JobPreviewViewModel jobPreviewVM = null;
         private Job jobObj = null;
 
-        public JobPreviewView(Job jobData, Boolean isEdited)
+        public JobPreviewView(Job jobData)
         {
             InitializeComponent();
 
@@ -22,7 +22,7 @@ namespace JobSocialApp.Views
 
             jobObj = jobData;
 
-            RenderButtons(isEdited);
+            RenderButtons();
 
             Shell.SetTabBarIsVisible(this, false);
         }
@@ -37,17 +37,29 @@ namespace JobSocialApp.Views
             }
         }
 
-        private void RenderButtons(Boolean isEdited)
+        private async void RenderButtons()
         {
-            if (isEdited)
+            jobPreviewVM = BindingContext as JobPreviewViewModel;
+
+            if (jobPreviewVM != null)
             {
-                EditBtn.IsVisible = true;
-                DeleteBtn.IsVisible = true;
-            }
-            else
-            {
-                ApplyBtn.IsVisible = true;
-                MessageBtn.IsVisible = true;
+                AppContext context = new AppContext();
+                var currentUser = await context.GetCurrentUser();
+
+                bool isCompany = currentUser.company != null;
+                bool isMyJob = jobObj.userID == currentUser._id;
+
+                if (isCompany)
+                {
+                    ApplyBtn.IsVisible = false;
+                    MessageBtn.IsVisible = false;
+
+                    if (isMyJob)
+                    {
+                        EditBtn.IsVisible = true;
+                        DeleteBtn.IsVisible = true;
+                    }
+                }
             }
         }
 

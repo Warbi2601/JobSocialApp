@@ -478,6 +478,7 @@ namespace JobSocialApp.ViewModels
 
             // disable the button so they can't apply again
             BtnApplyEnabled = false;
+            BtnApplyText = "Already Applied";
 
             return new Tuple<bool, string>(true, "");
         }

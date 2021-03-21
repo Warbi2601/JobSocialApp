@@ -1,4 +1,5 @@
 ﻿using System.Resources;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 
@@ -52,9 +53,17 @@ namespace JobSocialApp.Models
             return text;
         }
 
+        public void setLanguage()
+        {
+            var langString = Preferences.Get("lang", "en");
+            lang = langString == "en" ? Languages.English : Languages.Polish;
+        }
+
         public void changeLang()
         {
             lang = lang == Languages.English ? lang = Languages.Polish : lang = Languages.English;
+            var langString = lang == Languages.English ? "en" : "pl";
+            Preferences.Set("lang", langString);
             MessagingCenter.Send(this, "langChanged");
         }
 

@@ -53,12 +53,10 @@ namespace JobSocialApp.Views
         private async void ViewSelectedJobClicked(object sender, ItemTappedEventArgs e)
         {
             var selectedJobData = e.Item as Job;
-            // It is a profile view so only apply option should be visible
-            Boolean isEditable = false;
 
             try
             {
-                await Navigation.PushAsync(new JobPreviewView(selectedJobData, isEditable));
+                await Navigation.PushAsync(new JobPreviewView(selectedJobData));
             }
             catch (Exception)
             {

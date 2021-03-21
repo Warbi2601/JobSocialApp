@@ -1,5 +1,6 @@
 ﻿using JobSocialApp.Models;
 using JobSocialApp.Services;
+using JobSocialApp.Services.FirebaseActions;
 using JobSocialApp.Views;
 using System;
 using Xamarin.Essentials;
@@ -30,29 +31,46 @@ namespace JobSocialApp
 
             Application.Current.Properties["id"] = "";
             Application.Current.MainPage = MainPage;
-
-            //MainPage = new MainPage();
-            //var authService = DependencyService.Resolve<IFirebaseAuthenticator>();
-            //if (!authService.isSignedIn())
-            //{
-            //    MainPage = new NavigationPage(new LoginView());
-            //}
-            //else
-            //{
-            //    MainPage = new NavigationPage(new HomeView());
-            //}
         }
 
         protected override void OnStart()
         {
+            UpdateLastActiveUser();
+            TranslationManager.Instance.setLanguage();
         }
+
 
         protected override void OnSleep()
         {
+            UpdateLastActiveUser();
         }
 
         protected override void OnResume()
         {
+            UpdateLastActiveUser();
         }
+
+        private async void UpdateLastActiveUser()
+        {
+            try
+            {
+                AppContext context = new AppContext();
+                var user = await context.GetCurrentUser();
+
+                if (user != null)
+                {
+                    //update last active
+                    UserActions crud = new UserActions();
+                    user.lastActive = DateTime.Now;
+                    crud.UpdateUser(user);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lifecycle method error");
+                Console.WriteLine(ex);
+            }
+        }
+
     }
 }
