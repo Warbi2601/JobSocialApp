@@ -34,7 +34,7 @@ namespace JobSocialApp.ViewModels
         private String loginInstructionsLbl = "Please provide your email and password to login into the application.";
         private String emailLbl = "Email";
         private String passwordLbl = "Password";
-        private String singInBtn = "Sing In";
+        private String signInBtn = "Sign In";
         private String createNewAccountLbl = "Alternatively Register a new account.";
 
         #endregion
@@ -117,12 +117,12 @@ namespace JobSocialApp.ViewModels
             }
         }
 
-        public String SingInBtn
+        public String SignInBtn
         {
-            get => singInBtn;
+            get => signInBtn;
             set
             {
-                singInBtn = value;
+                signInBtn = value;
                 OnPropertyChange();
             }
         }

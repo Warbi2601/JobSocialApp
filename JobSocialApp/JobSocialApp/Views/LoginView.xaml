@@ -22,7 +22,7 @@
                     <Label Text="{Binding PasswordLbl}"/>
                     <Entry Text="{Binding LoginPassword}" IsPassword="true" HorizontalTextAlignment="Center" TextColor="{StaticResource BlackColour}"/>
 
-                    <Button BackgroundColor="{StaticResource ThemeColourDarkBlue}" TextColor="{StaticResource WhiteColour}" Text="{Binding SingInBtn}" Clicked="SignInClicked" Margin="0,20,0,0" CornerRadius="20"/>
+                    <Button BackgroundColor="{StaticResource ThemeColourDarkBlue}" TextColor="{StaticResource WhiteColour}" Text="{Binding SignInBtn}" Clicked="SignInClicked" Margin="0,20,0,0" CornerRadius="20"/>
                 
                 <Label HorizontalTextAlignment="Center" Padding="0, 10">
                     <Label.FormattedText>

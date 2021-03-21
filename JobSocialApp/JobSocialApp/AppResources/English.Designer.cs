@@ -133,7 +133,7 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Job Descritpion.
+        ///   Looks up a localized string similar to Job Description.
         /// </summary>
         public static string JobDescriptionPlaceHolder {
             get {
