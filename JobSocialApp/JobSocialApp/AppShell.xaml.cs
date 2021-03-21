@@ -44,11 +44,25 @@ namespace JobSocialApp
 
                 if (showJobsHub)
                 {
-                    JobsHub.Text = appShellVM.JobsHubText;
+                    if (String.IsNullOrEmpty(appShellVM.JobsHubText))
+                    {
+                        JobsHub.Text = "Jobs Hub";
+                    }
+                    else
+                    {
+                        JobsHub.Text = appShellVM.JobsHubText;
+                    }
                 }
                 else
                 {
-                    JobsHub.Text = appShellVM.JobSearchText;
+                    if (String.IsNullOrEmpty(appShellVM.JobSearchText))
+                    {
+                        JobsHub.Text = "Jobs Search";
+                    }
+                    else
+                    {
+                        JobsHub.Text = appShellVM.JobSearchText;
+                    }
                 }
             });
         }
