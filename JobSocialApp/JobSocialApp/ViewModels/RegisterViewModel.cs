@@ -66,6 +66,7 @@ namespace JobSocialApp.ViewModels
         private String emailLbl = TranslationManager.Instance.getTranslation("EmailPlaceholder");
         private String passwordLbl = TranslationManager.Instance.getTranslation("PasswordPlaceholder");
         private String rePasswordLbl = TranslationManager.Instance.getTranslation("RePasswordPlaceholder");
+        private String jobTitleLbl = TranslationManager.Instance.getTranslation("JobTitlePlaceholder");
         private String registerBtn = TranslationManager.Instance.getTranslation("RegisterButton");
         private String loginLbl = TranslationManager.Instance.getTranslation("LoginAccountInfo");
 
