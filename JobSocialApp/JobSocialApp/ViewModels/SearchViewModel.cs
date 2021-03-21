@@ -139,6 +139,13 @@ namespace JobSocialApp.ViewModels
         public SearchViewModel()
         {
             Jobs = new ObservableCollection<Job>();
+            MessagingCenter.Subscribe<TranslationManager>(this, "langChanged", (w) =>
+            {
+                PageTitleLbl = TranslationManager.Instance.getTranslation("SearchJobsTitle");
+                KeywordPlaceHolder = TranslationManager.Instance.getTranslation("KeywordPlaceholder");
+                MilesAwayPlaceHolder = TranslationManager.Instance.getTranslation("MilesAwayPlaceholder");
+                SearchText = TranslationManager.Instance.getTranslation("SearchButtonText");
+            });
         }
 
         public async Task SearchJobs()
