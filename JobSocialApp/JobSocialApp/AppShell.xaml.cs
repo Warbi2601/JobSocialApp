@@ -1,4 +1,5 @@
-﻿using JobSocialApp.Services;
+﻿using JobSocialApp.Models;
+using JobSocialApp.Services;
 using JobSocialApp.ViewModels;
 using JobSocialApp.Views;
 using System;
@@ -36,35 +37,38 @@ namespace JobSocialApp
             else
             {
                 var uid = authService.GetCurrentUserUID();
-                Task.Run(async () => await Shell.Current.GoToAsync("///home"));
+                Task.Run(async () => await Shell.Current.GoToAsync("///profile"));
             }
+
+            CheckUserIsCompany();           
 
             MessagingCenter.Subscribe<object, bool>(this, "IsCompany", (sender, isCompany) => {
                 showJobsHub = isCompany;
 
                 if (showJobsHub)
                 {
-                    if (String.IsNullOrEmpty(appShellVM.JobsHubText))
-                    {
-                        JobsHub.Text = "Jobs Hub";
-                    }
-                    else
-                    {
-                        JobsHub.Text = appShellVM.JobsHubText;
-                    }
+                    appShellVM.JobsMenuText = appShellVM.JobsHubText;
                 }
                 else
                 {
-                    if (String.IsNullOrEmpty(appShellVM.JobSearchText))
-                    {
-                        JobsHub.Text = "Jobs Search";
-                    }
-                    else
-                    {
-                        JobsHub.Text = appShellVM.JobSearchText;
-                    }
+                    appShellVM.JobsMenuText = appShellVM.JobSearchText;
                 }
             });
+        }
+
+        private async Task CheckUserIsCompany()
+        {
+            AppContext context = new AppContext();
+            User user = await context.GetCurrentUser();
+            showJobsHub = user.company != null;
+            if(showJobsHub)
+            {
+                appShellVM.JobsMenuText = appShellVM.JobsHubText;
+            }
+            else
+            {
+                appShellVM.JobsMenuText = appShellVM.JobSearchText;
+            }
         }
 
         private async void ShowSettingsView(object sender, EventArgs e)

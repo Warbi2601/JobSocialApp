@@ -201,10 +201,22 @@ namespace JobSocialApp.ViewModels
                         return toClient;
                     }
 
-                    toClient.IsSuccessful = true;
+                    UserActions crud = new UserActions();
+                    var loggedInUser = await crud.GetUser(user);
 
+                    // alert the app shell to update navbar.
+                    if(loggedInUser.company != null)
+                    {
+                        MessagingCenter.Send<object, bool>(this, "IsCompany", true);
+                    } 
+                    else
+                    {
+                        MessagingCenter.Send<object, bool>(this, "IsCompany", false);
+                    }
+
+                    toClient.IsSuccessful = true;
                     Routing.RegisterRoute("/main", typeof(AppShell));
-                    await Shell.Current.GoToAsync("////home");
+                    await Shell.Current.GoToAsync("////profile");
                 }
             }
             catch (Exception ex)
