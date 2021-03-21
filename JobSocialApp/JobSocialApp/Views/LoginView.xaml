@@ -22,7 +22,7 @@
                     <Label Text="{Binding PasswordLbl}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
                     <app:RoundedEntry Text="{Binding LoginPassword}" IsPassword="true" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
 
-                    <Button BackgroundColor="{DynamicResource DynamicPrimaryBtnNeutralBackColour}" TextColor="{DynamicResource DynamicPrimaryBtnTextColor}" Text="{Binding SingInBtn}" Clicked="SignInClicked" Margin="0,20,0,0" CornerRadius="20"/>
+                    <Button BackgroundColor="{DynamicResource DynamicPrimaryBtnNeutralBackColour}" TextColor="{DynamicResource DynamicPrimaryBtnTextColor}" Text="{Binding SignInBtn}" Clicked="SignInClicked" Margin="0,20,0,0" CornerRadius="20"/>
 
                     <Label HorizontalTextAlignment="Center" Padding="0, 10">
                         <Label.FormattedText>

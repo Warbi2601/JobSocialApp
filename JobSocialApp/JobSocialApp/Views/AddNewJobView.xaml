@@ -26,8 +26,10 @@
                         <app:RoundedEntry TextColor="{DynamicResource DynamicPrimaryTextColor}" Text="{Binding Postcode}"/>
                         <Label Text="{Binding DescriptionPlaceHolder}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
                         <app:RoundedEntry TextColor="{DynamicResource DynamicPrimaryTextColor}" HeightRequest="150" Text="{Binding Description}"/>
-                        <Label Text="{Binding postToFacebookPlaceHolder}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
-                        <CheckBox HeightRequest="150" IsChecked="{Binding PostToFB}"/>
+                        <StackLayout Orientation="Horizontal">
+                            <CheckBox IsChecked="{Binding PostToFB}"/>
+                            <Label Text="{Binding PostToFBPlaceHolder}" TextColor="{DynamicResource DynamicPrimaryTextColor}" VerticalOptions="CenterAndExpand"/>
+                        </StackLayout>
                     </StackLayout>
                 </Frame>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">

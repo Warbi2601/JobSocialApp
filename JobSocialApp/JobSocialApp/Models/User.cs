@@ -1,4 +1,5 @@
 ﻿using Plugin.CloudFirestore.Attributes;
+using Xamarin.Forms;
 
 namespace JobSocialApp.Models
 {
@@ -18,7 +19,8 @@ namespace JobSocialApp.Models
         public Company company { get; set; }
 
         public bool hasProfilePic { get; set; }
-        //string profilePicture { get; set; }
+        
+        public ImageSource profilePicture { get; set; }
 
     }
 }

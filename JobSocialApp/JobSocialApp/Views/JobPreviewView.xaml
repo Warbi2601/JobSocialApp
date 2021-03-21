@@ -33,9 +33,8 @@
                     <!--<Label StyleClass="GridDescriptionLabel" Text="{Binding Description}" LineBreakMode="WordWrap" MaxLines="8"/>-->
 
 
-
                     <Button StyleClass="ButtonStyle" TextColor="{DynamicResource DynamicPrimaryBtnTextColor}" BackgroundColor="{DynamicResource DynamicPrimaryBtnNeutralBackColour}" IsVisible="false" x:Name="ApplyBtn" Text="Apply"/>
-                    
+                    <Button StyleClass="ButtonStyle" TextColor="{DynamicResource DynamicPrimaryBtnTextColor}" BackgroundColor="{DynamicResource DynamicPrimaryBtnNeutralBackColour}" IsVisible="false" x:Name="MessageBtn" Text="Send Message" Clicked="StartChatClicked"/>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                         <Button StyleClass="ButtonStyle" TextColor="{DynamicResource DynamicPrimaryBtnTextColor}" BackgroundColor="{DynamicResource DynamicPrimaryBtnNeutralBackColour}" IsVisible="false" x:Name="EditBtn" Text="{Binding EditButtonText}" Clicked="EditCurentJob"/>
                         <Button StyleClass="ButtonStyle" TextColor="{DynamicResource DynamicPrimaryBtnTextColor}" BackgroundColor="{DynamicResource DynamicPrimaryBtnNegativeBackColour}" IsVisible="false" x:Name="DeleteBtn" Text="{Binding DeleteButtonText}" Clicked="DeleteCurentJob"/>

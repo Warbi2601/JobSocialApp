@@ -142,7 +142,7 @@
     <value>First Name</value>
   </data>
   <data name="JobDescriptionPlaceHolder" xml:space="preserve">
-    <value>Job Descritpion</value>
+    <value>Job Description</value>
   </data>
   <data name="JobTitlePlaceHolder" xml:space="preserve">
     <value>Job Title</value>
