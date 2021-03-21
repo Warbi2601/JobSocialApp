@@ -28,8 +28,8 @@ namespace JobSocialApp.Views
 
             if (profileVM != null)
             {
-                await profileVM.PopulateJobs();
                 await profileVM.PopulateUser();
+                await profileVM.PopulateJobs();
                 await profileVM.GetProfilePicture();
             }
         }

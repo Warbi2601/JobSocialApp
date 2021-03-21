@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Firebase.Storage;
@@ -42,6 +43,8 @@ namespace JobSocialApp.ViewModels
         private String emailPlaceHolder = "Email Address";
         private String positionPlaceHolder = "Current Position";
         private String passwordPlaceHolder = "Password";
+        private String profileTitleLabel = "";
+
 
         private ObservableCollection<Job> jobs = new ObservableCollection<Job>();
         private User user = new User();
@@ -214,6 +217,16 @@ namespace JobSocialApp.ViewModels
             }
         }
 
+        public String ProfileTitleLabel
+        {
+            get => profileTitleLabel;
+            set
+            {
+                profileTitleLabel = value;
+                OnPropertyChange();
+            }
+        }
+
         #endregion
 
         #endregion
@@ -228,7 +241,21 @@ namespace JobSocialApp.ViewModels
         public async Task PopulateJobs()
         {
             JobActions crud = new JobActions();
-            Jobs = await crud.GetAllJobs();
+
+            var allJobs = await crud.GetAllJobs();
+
+            bool isCompany = User.company != null;
+
+            if (isCompany)
+            {
+                ProfileTitleLabel = TranslationManager.Instance.getTranslation("ProfileTitleLabelCompany");
+                Jobs = new ObservableCollection<Job>(allJobs.Where(x => x.userID == User._id));
+            }
+            else
+            {
+                ProfileTitleLabel = TranslationManager.Instance.getTranslation("ProfileTitleLabelUser");
+                Jobs = new ObservableCollection<Job>(allJobs.Where(x => User.jobsAppliedFor != null && User.jobsAppliedFor.Any(y => y == x._id)));
+            }
         }
         
         public async Task PopulateUser()

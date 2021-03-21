@@ -165,6 +165,12 @@
   <data name="PostToFBPlaceHolder" xml:space="preserve">
     <value>Post to Facebook?</value>
   </data>
+  <data name="ProfileTitleLabelCompany" xml:space="preserve">
+    <value>Jobs You've Posted</value>
+  </data>
+  <data name="ProfileTitleLabelUser" xml:space="preserve">
+    <value>Jobs You've Applied For</value>
+  </data>
   <data name="SalaryPlaceHolder" xml:space="preserve">
     <value>Salary</value>
   </data>

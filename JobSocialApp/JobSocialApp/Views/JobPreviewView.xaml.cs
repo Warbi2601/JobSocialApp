@@ -71,42 +71,6 @@ namespace JobSocialApp.Views
         {
             if (jobPreviewVM != null)
             {
-                if (string.IsNullOrEmpty(jobPreviewVM.Id))
-                {
-                    await DisplayAlert("Error", "No ID for Job", "Ok");
-                    return;
-                }
-
-                if (string.IsNullOrEmpty(jobPreviewVM.JobTitle))
-                {
-                    await DisplayAlert("Error", "Job Title is empty, please add one and try again", "ok");
-                    return;
-                }
-
-                if (string.IsNullOrEmpty(jobPreviewVM.Salary))
-                {
-                    await DisplayAlert("Error", "Salary is empty, please add one and try again", "ok");
-                    return;
-                }
-
-                if (string.IsNullOrEmpty(jobPreviewVM.Location))
-                {
-                    await DisplayAlert("Error", "Location is empty, please add one and try again", "ok");
-                    return;
-                }
-
-                if (string.IsNullOrEmpty(jobPreviewVM.Description))
-                {
-                    await DisplayAlert("Error", "Description is empty, please add one and try again", "ok");
-                    return;
-                }
-
-                if (string.IsNullOrEmpty(jobPreviewVM.PostCode))
-                {
-                    await DisplayAlert("Error", "Postcode is empty, please add one and try again", "ok");
-                    return;
-                }
-
                 Job jobData = new Job()
                 {
                     _id = jobPreviewVM.Id,

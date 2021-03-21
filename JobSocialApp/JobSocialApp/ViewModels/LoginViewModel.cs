@@ -176,9 +176,17 @@ namespace JobSocialApp.ViewModels
                 }
                 else
                 {
-                    var a = await DependencyService.Get<IFirebaseAuthenticator>().LoginWithEmailAndPassword(email, password);
+                    var user = await DependencyService.Get<IFirebaseAuthenticator>().LoginWithEmailAndPassword(email, password);
 
                     //check isCompany
+                    if(user == null)
+                    {
+                        toClient.IsSuccessful = false;
+                        toClient.MessageHeader = "Login Failed";
+                        toClient.MessageBody = "Error logging in";
+                        toClient.ButtonText = "Ok";
+                        return toClient;
+                    }
 
                     toClient.IsSuccessful = true;
 
@@ -188,14 +196,14 @@ namespace JobSocialApp.ViewModels
             }
             catch (Exception ex)
             {
-                if (ex.GetType().ToString() == "Firebase.Auth.FirebaseAuthInvalidUserException")
-                {
-                    //await DisplayAlert("Login Failed", "Email or Password incorrect", "Ok");
+                //if (ex.GetType().ToString() == "Firebase.Auth.FirebaseAuthInvalidUserException" || ex.GetType().ToString() == "Firebase.Auth.FirebaseAuthInvalidCredentialsException")
+                //{
                     toClient.IsSuccessful = false;
                     toClient.MessageHeader = "Login Failed";
                     toClient.MessageBody = "Email or Password incorrect";
                     toClient.ButtonText = "Ok";
-                }
+                //}
+
                 Console.WriteLine(ex);
             }
 
