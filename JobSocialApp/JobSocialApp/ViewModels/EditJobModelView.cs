@@ -200,7 +200,7 @@ namespace JobSocialApp.ViewModels
             notificationManager = DependencyService.Get<INotificationManager>();
         }
 
-        public async Task UpdateJobAsync()
+        public async Task<bool> UpdateJobAsync()
         {
             try
             {
@@ -212,7 +212,8 @@ namespace JobSocialApp.ViewModels
                 if (res == null)
                 {
                     // alert that postcode isnt valid
-                    //await DisplayAlert
+                    await Application.Current.MainPage.DisplayAlert("Error", "Postcode isn't valid", "Ok");
+                    return false;
                 }
 
                 var latitude = res.Latitude;
@@ -237,6 +238,7 @@ namespace JobSocialApp.ViewModels
 
                 notificationManager.SendNotification("Job Successfully updated", string.Format("{0} - {1} ({2}) - {3}", job.jobTitle, job.location, job.postCode, job.salary));
 
+                return true;
                 //needs some routing here
                 //Routing.RegisterRoute("/main", typeof(AppShell));
                 //await Shell.Current.GoToAsync("////home");
@@ -244,6 +246,7 @@ namespace JobSocialApp.ViewModels
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
+                return false;
             }
         }
 

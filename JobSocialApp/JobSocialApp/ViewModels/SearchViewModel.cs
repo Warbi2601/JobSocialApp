@@ -153,13 +153,15 @@ namespace JobSocialApp.ViewModels
             {
                 if (!double.TryParse(MilesAway, out milesAway))
                 {
-                    //@todo an alert here to say miles away not a valid number?
+                    await Application.Current.MainPage.DisplayAlert("Error", "Miles away field is not a valid number", "Ok");
+                    return;
                 }
             }
 
             if (location == null)
             {
-                //@todo an alert here to say couldnt get location?
+                await Application.Current.MainPage.DisplayAlert("Error", "Failed getting your current location, please try again", "Ok");
+                return;
             }
 
             JobActions crud = new JobActions();

@@ -35,7 +35,6 @@ namespace JobSocialApp.Views
             }
         }
 
-
         private async void SignInClicked(object sender, EventArgs e)
         {
             // need to add validation and exception catches // crashes under certain circumstances (password less than 6)
