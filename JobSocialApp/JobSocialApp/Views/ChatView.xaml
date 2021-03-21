@@ -1,7 +1,12 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:JobSocialApp.Helpers.ChatUIXForms.Helpers"
              x:Class="JobSocialApp.Views.ChatView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ChatTemplateSelector x:Key="MessageTemplateSelector"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <Grid RowSpacing="0" ColumnSpacing="0">
             <Grid.RowDefinitions>
@@ -9,20 +14,14 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <!--Messages in Row 0 -->
             <ListView 
 			x:Name="MessagesListView" 
+            ItemTemplate="{StaticResource MessageTemplateSelector}" 
 			ItemsSource="{Binding Messages}" 
 			HasUnevenRows="True" 
 			SeparatorVisibility="None">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextCell Text="{Binding message}" />
-                    </DataTemplate>
-                </ListView.ItemTemplate>
             </ListView>
 
-            <!-- Entry and Send button in Row 1 -->
             <StackLayout Orientation="Horizontal" Grid.Row="1" Padding="10" BackgroundColor="#EFEFEF">
                 <Entry 
                 Text="{ Binding SendMessageText }"
@@ -34,16 +33,5 @@
 				Text="Send" Clicked="SendClicked"/>
             </StackLayout>
         </Grid>
-        <!--<ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical">
-            <ListView x:Name="messageView" ItemsSource="{Binding Messages}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextCell Text="{Binding by}  {Binding message}" />
-                        
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            
-        </ScrollView>-->
     </ContentPage.Content>
 </ContentPage>

@@ -1,4 +1,5 @@
 ﻿using JobSocialApp.Models;
+using JobSocialApp.Services;
 using JobSocialApp.Services.FirebaseActions;
 using System;
 using System.Collections.Generic;
@@ -14,26 +15,54 @@ namespace JobSocialApp.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
         ChatActions crud = new ChatActions();
-
+        User currentUser = null;
+        User selectedContact = null;
+        Chat chat = null;
         private void OnPropertyChange([CallerMemberName] String propertyName = "")
         {
             // Check if not null
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public ChatViewModel() {
+        public ChatViewModel(User currentUser, User selectedContact) 
+        {
+            this.currentUser = currentUser;
+            this.selectedContact = selectedContact;
             loadChat();
         }    
 
         private async void loadChat()
-        {            
-            var messages = await crud.GetMessages("ZlHXyJeYpqEfbFW9bnuu");
-
-            foreach(var item in messages)
+        {
+            var firstId = currentUser._id + "qwqw";
+            var secondId = currentUser._id + selectedContact._id;
+            var chatExists1 = await crud.ChatExists(firstId);
+            var chatExists2 = await crud.ChatExists(secondId);
+            if (chatExists1)
             {
-                Messages.Add(item);
+                chat = await crud.GetChat(firstId);
+                loadMessages();
+            } else if(chatExists2)
+            {
+                chat = await crud.GetChat(secondId);
+                loadMessages();
+            }
+             else
+            {
+                chat = await crud.CreateChat(currentUser._id, selectedContact._id);
             }
 
+        }
+
+        private async void loadMessages()
+        {
+            var messages = await crud.GetMessages(chat._id);
+            if (messages != null)
+            {
+                foreach (var item in messages)
+                {
+                    Messages.Add(item);
+                }
+            }
         }
 
         #region Public variables
@@ -68,11 +97,13 @@ namespace JobSocialApp.ViewModels
         {
             if (!String.IsNullOrEmpty(SendMessageText)) 
             {
+                var authService = DependencyService.Resolve<IFirebaseAuthenticator>();
+
                 var newMessage = new Message();
-                newMessage.by = "user1"; // should be the current user id
+                newMessage.by = authService.GetCurrentUserUID();
                 newMessage.message = SendMessageText;
                 Messages.Add(newMessage);
-                await crud.UpdateChatNewMessage("ZlHXyJeYpqEfbFW9bnuu", newMessage);
+                await crud.UpdateChatNewMessage(chat._id, newMessage);
             }
         }
 

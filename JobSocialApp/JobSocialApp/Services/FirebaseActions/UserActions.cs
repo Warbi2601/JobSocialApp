@@ -2,6 +2,7 @@
 using Plugin.CloudFirestore;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,7 +10,7 @@ namespace JobSocialApp.Services.FirebaseActions
 {
     public class UserActions
     {
-        private readonly string collectionName = "chats";
+        private readonly string collectionName = "users";
 
         public async Task<User> AddUser(User user)
         {
@@ -42,6 +43,19 @@ namespace JobSocialApp.Services.FirebaseActions
                 .Collection(collectionName)
                 .Document(user._id)
                 .UpdateAsync(user);
+        }
+
+        public async Task<ObservableCollection<User>> GetAllUsers()
+        {
+            var document = await CrossCloudFirestore.Current
+                .Instance
+                .Collection(collectionName)
+                .GetAsync();
+
+            var users = document.ToObjects<User>();
+            var userCollection = new ObservableCollection<User>(users);
+
+            return userCollection;
         }
     }
 }

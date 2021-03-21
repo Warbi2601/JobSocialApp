@@ -15,7 +15,7 @@ namespace JobSocialApp.Services.FirebaseActions
     class ChatActions : INotifyPropertyChanged
     {
         private readonly string collectionName = "chats";
-        private Chat chat;
+        private Chat chat = new Chat();
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -36,7 +36,7 @@ namespace JobSocialApp.Services.FirebaseActions
                        var document = documentChange.Document;
                        chat = document.ToObject<Chat>();
                        Messages.Clear();
-                       foreach(var message in chat.messages)
+                       foreach (var message in chat.messages)
                        {
                            Messages.Add(message);
                        }
@@ -54,30 +54,61 @@ namespace JobSocialApp.Services.FirebaseActions
             }
         }
 
-        public async Task<List<Message>> GetMessages(string uid)
+        public async Task<Chat> CreateChat(string currentUserId, string contactId)
+        {
+            chat = new Chat();
+            chat.user1 = currentUserId;
+            chat.user2 = contactId;
+            chat._id = currentUserId + contactId;
+
+            await CrossCloudFirestore.Current.Instance.Collection(collectionName).Document(chat._id).SetAsync(chat);
+            this.chat = await GetChat(chat._id);
+            return this.chat;
+        }
+
+        public async Task<Chat> GetChat(string uid)
+        {
+            var document = await CrossCloudFirestore.Current
+                .Instance
+                .Collection(collectionName)
+                .Document(uid)
+                .GetAsync();
+
+            chat = document.ToObject<Chat>();
+            return chat;
+        }
+
+
+        public async Task<List<Message>> GetMessages(string chatId)
         {
             // dispose?     
             var document = await CrossCloudFirestore.Current
                  .Instance
                  .Collection(collectionName)
-                 .Document(uid)
+                 .Document(chat._id)
+                 .GetAsync();         
+
+            return chat.messages;
+        }
+
+        public async Task<bool> ChatExists(string uid)
+        {
+            var document = await CrossCloudFirestore.Current
+                 .Instance
+                 .Collection(collectionName).Document(uid)
                  .GetAsync();
 
-            chat = document.ToObject<Chat>();
-            return chat.messages;
-
-
+            return document.Data != null;
         }
 
         public async Task UpdateChatNewMessage(string uid, Message message)
         {
             chat.messages.Add(message);
             await CrossCloudFirestore.Current
-                .Instance
-                .Collection(collectionName)
-                .Document(uid)
-                .UpdateAsync(chat);
+                    .Instance
+                    .Collection(collectionName)
+                    .Document(uid)
+                    .UpdateAsync(chat);
         }
-
     }
 }

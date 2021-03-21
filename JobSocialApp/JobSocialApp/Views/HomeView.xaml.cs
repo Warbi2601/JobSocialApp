@@ -55,7 +55,7 @@ namespace JobSocialApp.Views
         async void OnTestClick(object sender, EventArgs e)
         {
             Shell.Current.FlyoutIsPresented = false;
-            await Navigation.PushAsync(new ChatView());
+            await Navigation.PushAsync(new ContactView());
         }
 
         public async Task<Position> Test()

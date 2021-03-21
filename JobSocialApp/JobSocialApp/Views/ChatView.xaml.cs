@@ -17,11 +17,11 @@ namespace JobSocialApp.Views
     {
         private ChatViewModel chatVM = null;
 
-        public ChatView()
+        public ChatView(User currentUser, User selectedContact)
         {
             InitializeComponent();
 
-            BindingContext = new ChatViewModel();
+            BindingContext = new ChatViewModel(currentUser, selectedContact);
             chatVM = BindingContext as ChatViewModel;
         }
 
