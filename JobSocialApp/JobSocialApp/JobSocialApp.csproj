@@ -34,6 +34,11 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
+    <Compile Update="AppResources\English.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>English.resx</DependentUpon>
+    </Compile>
     <Compile Update="AppResources\Polish.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

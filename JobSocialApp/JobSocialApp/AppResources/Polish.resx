@@ -118,25 +118,25 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AddJobButton" xml:space="preserve">
-    <value>Add new job</value>
+    <value>Dodaj nowe ogłoszenie</value>
   </data>
   <data name="ApplyButtonText" xml:space="preserve">
-    <value>Apply</value>
+    <value>Zaaplikój</value>
   </data>
   <data name="ChooseLanguage" xml:space="preserve">
-    <value>Choose your language</value>
+    <value>Wybierz język</value>
   </data>
   <data name="ChooseTheme" xml:space="preserve">
-    <value>Choose your theme</value>
+    <value>Wybierz motyw</value>
   </data>
   <data name="CommentsPlaceholder" xml:space="preserve">
-    <value>Add a comment</value>
+    <value>Dodaj komentarz</value>
   </data>
   <data name="CreateNewOpp" xml:space="preserve">
     <value>Utwórz nowe miejsca pracy</value>
   </data>
   <data name="DarkTitle" xml:space="preserve">
-    <value>Dark</value>
+    <value>Ciemny</value>
   </data>
   <data name="DeleteButtonText" xml:space="preserve">
     <value>Usuń</value>
@@ -145,13 +145,13 @@
     <value>Edytuj</value>
   </data>
   <data name="EditDetailsMenuItem" xml:space="preserve">
-    <value>Edit Details</value>
+    <value>Edytuj detale</value>
   </data>
   <data name="EditJob" xml:space="preserve">
-    <value>Edit job post</value>
+    <value>Edytuje ogłoszenie</value>
   </data>
   <data name="EditPersonalDetails" xml:space="preserve">
-    <value>Edit personal details</value>
+    <value>Edytuj informacje prywatne</value>
   </data>
   <data name="EditProfileTitle" xml:space="preserve">
     <value>Edytuj informacje prywatne</value>
@@ -160,7 +160,7 @@
     <value>Adres e-mail</value>
   </data>
   <data name="EnglishTitle" xml:space="preserve">
-    <value>English</value>
+    <value>Angielski</value>
   </data>
   <data name="FirstNamePlaceholder" xml:space="preserve">
     <value>Pierwsze imię</value>
@@ -172,52 +172,55 @@
     <value>Opis stanowiska</value>
   </data>
   <data name="JobsCreatedTitle" xml:space="preserve">
-    <value>Jobs created by you</value>
+    <value>Towje ogłoszenia</value>
   </data>
   <data name="JobsHubMenuItem" xml:space="preserve">
-    <value>Jobs Hub</value>
+    <value>Panel ogłoszeń</value>
   </data>
   <data name="JobsMenuItem" xml:space="preserve">
-    <value>Jobs</value>
+    <value>Ogłoszenia</value>
   </data>
   <data name="JobTitlePlaceHolder" xml:space="preserve">
     <value>Tytuł stanowiska</value>
   </data>
   <data name="KeywordPlaceholder" xml:space="preserve">
-    <value>Keyword</value>
+    <value>Słowo klucz</value>
   </data>
   <data name="LanguageOptions" xml:space="preserve">
-    <value>Language Options </value>
+    <value>Opcje językowe</value>
   </data>
   <data name="LastNamePlaceholder" xml:space="preserve">
     <value>Nazwisko</value>
   </data>
   <data name="LightTitle" xml:space="preserve">
-    <value>Light</value>
+    <value>Jasny</value>
   </data>
   <data name="LocationPlaceHolder" xml:space="preserve">
     <value>Lokacja</value>
   </data>
   <data name="LoginAccountInfo" xml:space="preserve">
-    <value>Already have an account? Login</value>
+    <value>Masz już konto? Zaloguj się</value>
   </data>
   <data name="LoginInstruction" xml:space="preserve">
-    <value>Please provide your email and password to login into the application.</value>
+    <value>Proszę podać adres e-mail oraz hasło aby zalogować się do aplikacji</value>
   </data>
   <data name="LoginTitle" xml:space="preserve">
-    <value>Find new job opportunities</value>
+    <value>Znajdź nową karierę</value>
+  </data>
+  <data name="MessagesMenuItem" xml:space="preserve">
+    <value>Wiadomości</value>
   </data>
   <data name="MessagesMenuItem" xml:space="preserve">
     <value>Messages</value>
   </data>
   <data name="MilesAwayPlaceholder" xml:space="preserve">
-    <value>Miles Away</value>
+    <value>Odległość w milach</value>
   </data>
   <data name="PasswordPlaceholder" xml:space="preserve">
-    <value>Chasło</value>
+    <value>Hasło</value>
   </data>
   <data name="PolishTitle" xml:space="preserve">
-    <value>Polish</value>
+    <value>Polski</value>
   </data>
   <data name="PositionPlaceholder" xml:space="preserve">
     <value>Obecna pozycja</value>
@@ -232,49 +235,49 @@
     <value>Profile</value>
   </data>
   <data name="ProfileTitleLabelCompany" xml:space="preserve">
-    <value>Jobs You've Posted</value>
+    <value>Twoje ogłoszenia</value>
   </data>
   <data name="ProfileTitleLabelUser" xml:space="preserve">
-    <value>Jobs You've Applied For</value>
+    <value>Twoje aplikacje</value>
   </data>
   <data name="RegisterAccountInfo" xml:space="preserve">
-    <value>Alternatively Register a new account.</value>
+    <value>Alternatywnie utwórz nowe konto</value>
   </data>
   <data name="RegisterButton" xml:space="preserve">
-    <value>Register</value>
+    <value>Rejestracja</value>
   </data>
   <data name="RegisterTitle" xml:space="preserve">
-    <value>Launch your new career now!</value>
+    <value>Rozpocznij swoją nową karierę</value>
   </data>
   <data name="RePasswordPlaceholder" xml:space="preserve">
-    <value>Repeat Password</value>
+    <value>Powtórz hasło</value>
   </data>
   <data name="SalaryPlaceHolder" xml:space="preserve">
     <value>Wynagrodzenie</value>
   </data>
   <data name="SearchButtonText" xml:space="preserve">
-    <value>Search</value>
+    <value>Wyszukaj</value>
   </data>
   <data name="SearchJobsTitle" xml:space="preserve">
-    <value>Search Jobs</value>
+    <value>Wyszukaj ogłoszenia</value>
   </data>
   <data name="SendButton" xml:space="preserve">
-    <value>Send</value>
+    <value>Wyślij</value>
   </data>
   <data name="SettingsMenuItem" xml:space="preserve">
-    <value>Settings</value>
+    <value>Ustawienia</value>
   </data>
   <data name="SignInButton" xml:space="preserve">
-    <value>Sign In</value>
+    <value>Zaloguj</value>
   </data>
   <data name="SignOutMenuItem" xml:space="preserve">
-    <value>Sign Out</value>
+    <value>Wyloguj</value>
   </data>
   <data name="SubmitButtonText" xml:space="preserve">
     <value>Wyślij</value>
   </data>
   <data name="ThemeOptionsTitle" xml:space="preserve">
-    <value>Theme options</value>
+    <value>Opcje motywu</value>
   </data>
   <data name="Title" xml:space="preserve">
     <value>Tytuł</value>

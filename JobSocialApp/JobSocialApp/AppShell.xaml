@@ -19,16 +19,16 @@
         </ResourceDictionary>
     </Shell.Resources>
 
-    <MenuItem x:Name="JobsHub" Icon="job" Clicked="VisitJobsHubClicked" />
+    <MenuItem Text="Jobs" x:Name="JobsHub" Icon="job" Clicked="VisitJobsHubClicked" />
     <MenuItem Text="{Binding EditDetailsText}" Icon="edit" Clicked="EditProfileClicked" />
     <MenuItem Text="{Binding SettingsText}" Icon="settings" Clicked="ShowSettingsView"/>
     <MenuItem Text="{Binding SignOutText}" Icon="exit" Clicked="SignOutClicked" />
 
     <FlyoutItem Route="main">
-        <Tab Route="home" Title="{Binding HomeText}" Icon="home">
+        <!--<Tab Route="home" Title="{Binding HomeText}" Icon="home">
             <ShellContent ContentTemplate="{DataTemplate views:HomeView}"/>
-        </Tab>
-        <Tab Route="messages" Title="{Binding MessageText}" Icon="chat">
+        </Tab>-->
+        <Tab Route="messages" Title="{Binding Messages}" Icon="chat">
             <ShellContent ContentTemplate="{DataTemplate views:ContactView}"/>
         </Tab>
         <Tab Route="jobs" Title="{Binding JobsText}" Icon="search">

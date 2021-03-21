@@ -49,9 +49,11 @@ namespace JobSocialApp.ViewModels
         private string jobSearchText = TranslationManager.Instance.getTranslation("JobsSearchText");
 
 
+
         #endregion
 
         #region Public members
+
         public string JobsHubText
         {
             get => jobsHubText;
