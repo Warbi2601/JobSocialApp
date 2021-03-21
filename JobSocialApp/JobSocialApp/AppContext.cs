@@ -14,9 +14,17 @@ namespace JobSocialApp
     {
         public async Task<User> GetCurrentUser()
         {
-            var uid = DependencyService.Get<IFirebaseAuthenticator>().GetCurrentUserUID();
-            UserActions crud = new UserActions();
-            return await crud.GetUser(uid);
+            try
+            {
+                var uid = DependencyService.Get<IFirebaseAuthenticator>().GetCurrentUserUID();
+                UserActions crud = new UserActions();
+                return await crud.GetUser(uid);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error getting user");
+                return null;
+            }
         }
     }
 }

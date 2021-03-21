@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using JobSocialApp.Models;
@@ -82,8 +83,12 @@ namespace JobSocialApp.ViewModels
 
         public async Task PopulateJobs()
         {
+            AppContext context = new AppContext();
+            var user = await context.GetCurrentUser();
+
             JobActions crud = new JobActions();
             Jobs = await crud.GetAllJobs();
+            Jobs = new ObservableCollection<Job>(Jobs.Where(x => x.userID == user._id));
         }
         
         #endregion
