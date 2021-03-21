@@ -250,6 +250,15 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Aktualna pozycja pracy.
+        /// </summary>
+        public static string JobTitleLbl {
+            get {
+                return ResourceManager.GetString("JobTitleLbl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tytuł stanowiska.
         /// </summary>
         public static string JobTitlePlaceHolder {
@@ -331,7 +340,7 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wiadomości.
+        ///   Looks up a localized string similar to Messages.
         /// </summary>
         public static string MessagesMenuItem {
             get {

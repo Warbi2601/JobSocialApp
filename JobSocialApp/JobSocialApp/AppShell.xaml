@@ -19,7 +19,7 @@
         </ResourceDictionary>
     </Shell.Resources>
 
-    <MenuItem Text="Jobs" x:Name="JobsHub" Icon="job" Clicked="VisitJobsHubClicked" />
+    <MenuItem Text="{Binding JobsMenuText}" x:Name="JobsHub" Icon="job" Clicked="VisitJobsHubClicked" />
     <MenuItem Text="{Binding EditDetailsText}" Icon="edit" Clicked="EditProfileClicked" />
     <MenuItem Text="{Binding SettingsText}" Icon="settings" Clicked="ShowSettingsView"/>
     <MenuItem Text="{Binding SignOutText}" Icon="exit" Clicked="SignOutClicked" />
@@ -28,7 +28,7 @@
         <!--<Tab Route="home" Title="{Binding HomeText}" Icon="home">
             <ShellContent ContentTemplate="{DataTemplate views:HomeView}"/>
         </Tab>-->
-        <Tab Route="messages" Title="{Binding Messages}" Icon="chat">
+        <Tab Route="messages" Title="{Binding MessageText}" Icon="chat">
             <ShellContent ContentTemplate="{DataTemplate views:ContactView}"/>
         </Tab>
         <Tab Route="jobs" Title="{Binding JobsText}" Icon="search">
