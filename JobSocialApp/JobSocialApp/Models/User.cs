@@ -1,4 +1,5 @@
 ﻿using Plugin.CloudFirestore.Attributes;
+using System.Collections.Generic;
 
 namespace JobSocialApp.Models
 {
@@ -19,6 +20,8 @@ namespace JobSocialApp.Models
 
         public bool hasProfilePic { get; set; }
         //string profilePicture { get; set; }
+
+        public List<string> jobsAppliedFor { get; set; }
 
     }
 }

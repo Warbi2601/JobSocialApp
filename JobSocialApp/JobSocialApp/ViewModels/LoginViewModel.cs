@@ -193,7 +193,7 @@ namespace JobSocialApp.ViewModels
                     //await DisplayAlert("Login Failed", "Email or Password incorrect", "Ok");
                     toClient.IsSuccessful = false;
                     toClient.MessageHeader = "Login Failed";
-                    toClient.MessageBody = "Password does not meet requirements";
+                    toClient.MessageBody = "Email or Password incorrect";
                     toClient.ButtonText = "Ok";
                 }
                 Console.WriteLine(ex);

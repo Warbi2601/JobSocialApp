@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using JobSocialApp.Models;
 using JobSocialApp.Services.FirebaseActions;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace JobSocialApp.ViewModels
@@ -30,7 +31,7 @@ namespace JobSocialApp.ViewModels
             // Check if not null
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        
+
 
         #region Local variables
 
@@ -39,6 +40,7 @@ namespace JobSocialApp.ViewModels
         private String location = "";
         private String description = "";
         private String id = "";
+        private String userID = "";
         private String postCode = "";
         private String editButtonText = TranslationManager.Instance.getTranslation("EditButtonText");
         private String deleteButtonText = TranslationManager.Instance.getTranslation("DeleteButtonText");
@@ -46,7 +48,8 @@ namespace JobSocialApp.ViewModels
         private List<Comment> comments { get; set; }
 
         private String newComment = "";
-        private String addCommentBtn = "Add Comment";
+        private bool btnApplyEnabled = true;
+        private String btnApplyText = "Apply";
         private String commentsPlaceHolder = "Add a comment";
 
         #endregion
@@ -74,7 +77,7 @@ namespace JobSocialApp.ViewModels
                 OnPropertyChange();
             }
         }
-        
+
         public String Salary
         {
             get => salary;
@@ -84,7 +87,7 @@ namespace JobSocialApp.ViewModels
                 OnPropertyChange();
             }
         }
-        
+
         public String Location
         {
             get => location;
@@ -94,7 +97,7 @@ namespace JobSocialApp.ViewModels
                 OnPropertyChange();
             }
         }
-        
+
         public String Description
         {
             get => description;
@@ -104,13 +107,23 @@ namespace JobSocialApp.ViewModels
                 OnPropertyChange();
             }
         }
-        
+
         public String Id
         {
             get => id;
             set
             {
                 id = value;
+                OnPropertyChange();
+            }
+        }
+
+        public String UserID
+        {
+            get => userID;
+            set
+            {
+                userID = value;
                 OnPropertyChange();
             }
         }
@@ -123,7 +136,7 @@ namespace JobSocialApp.ViewModels
                 editButtonText = value;
                 OnPropertyChange();
             }
-        } 
+        }
 
         public String NewComment
         {
@@ -141,16 +154,6 @@ namespace JobSocialApp.ViewModels
             set
             {
                 deleteButtonText = value;
-                                OnPropertyChange();
-            }
-        }
-        
-        public String AddCommentBtn
-        {
-            get => addCommentBtn;
-            set
-            {
-                addCommentBtn = value;
                 OnPropertyChange();
             }
         }
@@ -165,6 +168,26 @@ namespace JobSocialApp.ViewModels
             }
         }
 
+        public bool BtnApplyEnabled
+        {
+            get => btnApplyEnabled;
+            set
+            {
+                btnApplyEnabled = value;
+                OnPropertyChange();
+            }
+        }
+
+        public string BtnApplyText
+        {
+            get => btnApplyText;
+            set
+            {
+                btnApplyText = value;
+                OnPropertyChange();
+            }
+        }
+
         public String PostCode
         {
             get => postCode;
@@ -174,19 +197,25 @@ namespace JobSocialApp.ViewModels
                 OnPropertyChange();
             }
         }
-        
+
         #endregion
 
         #endregion
 
         #region Functions
 
-        public void PopulateJobVMData(Job jobObj)
+        public async void PopulateJobVMData(Job jobObj)
         {
+            AppContext context = new AppContext();
+            var currentUser = await context.GetCurrentUser();
+
+            //order comments by newest
             if (jobObj.comments != null)
             {
                 Comments = jobObj.comments.OrderByDescending(x => x.time).ToList();
             }
+
+            bool alreadyApplied = currentUser.jobsAppliedFor == null ? false : currentUser.jobsAppliedFor.Any(x => x == Id);
 
             JobTitle = jobObj.jobTitle;
             Salary = jobObj.salary;
@@ -194,15 +223,13 @@ namespace JobSocialApp.ViewModels
             Description = jobObj.description;
             Id = jobObj._id;
             PostCode = jobObj.postCode;
+            userID = jobObj.userID;
+            BtnApplyEnabled = !alreadyApplied;
+            BtnApplyText = !alreadyApplied ? "Apply" : "Already Applied";
         }
 
         public async Task AddComment()
         {
-            if (string.IsNullOrEmpty(NewComment))
-            {
-                //return alert here
-            }
-
             AppContext context = new AppContext();
             var currentUser = await context.GetCurrentUser();
 
@@ -211,6 +238,8 @@ namespace JobSocialApp.ViewModels
             var job = await crud.GetJob(Id);
 
             if (job.comments == null) job.comments = new List<Comment>();
+
+            //Add a comment
             job.comments.Add(new Comment
             {
                 content = NewComment,
@@ -232,12 +261,52 @@ namespace JobSocialApp.ViewModels
                 JobActions crud = new JobActions();
                 await crud.DeleteJob(Id);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
                 throw;
             }
+        }
 
+        public async Task<Tuple<bool, string>> ApplyForJob()
+        {
+            AppContext context = new AppContext();
+            var user = await context.GetCurrentUser();
+
+            UserActions crud = new UserActions();
+
+            //in case of old data
+            if (user.jobsAppliedFor == null) user.jobsAppliedFor = new List<string>();
+
+            //check the user hasnt already applied
+            if (user.jobsAppliedFor.Any(x => x == Id))
+            {
+                return new Tuple<bool, string>(false, "You have already applied for this job");
+            }
+
+            //get employer user object
+            var employer = await crud.GetUser(userID);
+
+            var recipients = new List<string>();
+            recipients.Add(employer.company.email);
+
+            var message = new EmailMessage
+            {
+                Subject = string.Format("JobSocialApp Application - {0} - {1} - {2}", JobTitle, Location, Salary),
+                Body = "Hello, I would like to apply for the advertised job.",
+                To = recipients,
+            };
+
+            await Email.ComposeAsync(message);
+
+            user.jobsAppliedFor.Add(Id);
+
+            //save the application
+            await crud.UpdateUser(user);
+
+            // disable the button so they can't apply again
+            BtnApplyEnabled = false;
+
+            return new Tuple<bool, string>(true, "");
         }
 
         #endregion

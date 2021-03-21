@@ -281,6 +281,7 @@ namespace JobSocialApp.ViewModels
             try
             {
                 var fileStream = await MediaManager.Instance.uploadImage();
+                if (fileStream == null) return;
                 await new FirebaseStorage("jobsocialapp-12b52.appspot.com").Child(User._id + ".jpg").PutAsync(fileStream);
                 User.hasProfilePic = true;
                 UserActions crud = new UserActions();

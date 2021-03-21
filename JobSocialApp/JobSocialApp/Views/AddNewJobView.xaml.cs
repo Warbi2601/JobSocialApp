@@ -33,6 +33,36 @@ namespace JobSocialApp.Views
             {
                 try
                 {
+                    if (string.IsNullOrEmpty(newJobVM.JobTitle))
+                    {
+                        await DisplayAlert("Error", "Job Title is empty, please add one and try again", "ok");
+                        return;
+                    }
+
+                    if (string.IsNullOrEmpty(newJobVM.Salary))
+                    {
+                        await DisplayAlert("Error", "Salary is empty, please add one and try again", "ok");
+                        return;
+                    }
+
+                    if (string.IsNullOrEmpty(newJobVM.Location))
+                    {
+                        await DisplayAlert("Error", "Location is empty, please add one and try again", "ok");
+                        return;
+                    }
+
+                    if (string.IsNullOrEmpty(newJobVM.Description))
+                    {
+                        await DisplayAlert("Error", "Description is empty, please add one and try again", "ok");
+                        return;
+                    }
+
+                    if (string.IsNullOrEmpty(newJobVM.Postcode))
+                    {
+                        await DisplayAlert("Error", "Postcode is empty, please add one and try again", "ok");
+                        return;
+                    }
+
                     var newJob = await newJobVM.CreateNewJobAsync();
 
                     if (newJob != null)

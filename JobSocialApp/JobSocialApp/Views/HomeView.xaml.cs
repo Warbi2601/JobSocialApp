@@ -64,9 +64,26 @@ namespace JobSocialApp.Views
 
         public async Task<string> Test()
         {
+            //var recipients = new List<string>();
+
+            //recipients.Add("joshwarbi@hotmail.com");
+
             try
             {
+                        //var message = new EmailMessage
+                        //{
+                        //    Subject = "New Emaily boi",
+                        //    Body = "Hi",
+                        //    To = recipients,
+                        //    //Cc = ccRecipients,
+                        //    //Bcc = bccRecipients
+                        //};
+                        //await Email.ComposeAsync(message);
 
+                    //catch (FeatureNotSupportedException fbsEx)
+                    //{
+                    //    // Email is not supported on this device
+                    //}
 
 
                 //var aa = ImageSource.FromFile("profile.jpg");

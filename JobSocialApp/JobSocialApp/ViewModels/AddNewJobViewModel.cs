@@ -225,7 +225,8 @@ namespace JobSocialApp.ViewModels
                 if (res == null)
                 {
                     // alert that postcode isnt valid
-                    //await DisplayAlert
+                    await Application.Current.MainPage.DisplayAlert("Error", "Postcode isn't valid", "Ok");
+                    return null;
                 }
 
                 var latitude = res.Latitude;
