@@ -117,11 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Another" xml:space="preserve">
-    <value>Another</value>
+  <data name="AddJobButton" xml:space="preserve">
+    <value>Add new job</value>
+  </data>
+  <data name="ApplyButtonText" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="ChooseLanguage" xml:space="preserve">
+    <value>Choose your language</value>
+  </data>
+  <data name="ChooseTheme" xml:space="preserve">
+    <value>Choose your theme</value>
+  </data>
+  <data name="CommentsPlaceholder" xml:space="preserve">
+    <value>Add a comment</value>
   </data>
   <data name="CreateNewOpp" xml:space="preserve">
     <value>Create a new opportunity</value>
+  </data>
+  <data name="DarkTitle" xml:space="preserve">
+    <value>Dark</value>
   </data>
   <data name="DeleteButtonText" xml:space="preserve">
     <value>Delete</value>
@@ -129,8 +144,14 @@
   <data name="EditButtonText" xml:space="preserve">
     <value>Edit</value>
   </data>
+  <data name="EditDetailsMenuItem" xml:space="preserve">
+    <value>Edit Details</value>
+  </data>
   <data name="EditJob" xml:space="preserve">
     <value>Edit job post</value>
+  </data>
+  <data name="EditPersonalDetails" xml:space="preserve">
+    <value>Edit personal details</value>
   </data>
   <data name="EditProfileTitle" xml:space="preserve">
     <value>Edit personal details</value>
@@ -138,23 +159,62 @@
   <data name="EmailPlaceholder" xml:space="preserve">
     <value>Email Address</value>
   </data>
+  <data name="EnglishTitle" xml:space="preserve">
+    <value>English</value>
+  </data>
   <data name="FirstNamePlaceholder" xml:space="preserve">
     <value>First Name</value>
+  </data>
+  <data name="HomeMenuItem" xml:space="preserve">
+    <value>Home</value>
   </data>
   <data name="JobDescriptionPlaceHolder" xml:space="preserve">
     <value>Job Description</value>
   </data>
+  <data name="JobsCreatedTitle" xml:space="preserve">
+    <value>Jobs created by you</value>
+  </data>
+  <data name="JobsHubMenuItem" xml:space="preserve">
+    <value>Jobs Hub</value>
+  </data>
+  <data name="JobsMenuItem" xml:space="preserve">
+    <value>Jobs</value>
+  </data>
   <data name="JobTitlePlaceHolder" xml:space="preserve">
     <value>Job Title</value>
+  </data>
+  <data name="KeywordPlaceholder" xml:space="preserve">
+    <value>Keyword</value>
+  </data>
+  <data name="LanguageOptions" xml:space="preserve">
+    <value>Language Options</value>
   </data>
   <data name="LastNamePlaceholder" xml:space="preserve">
     <value>Last Name</value>
   </data>
+  <data name="LightTitle" xml:space="preserve">
+    <value>Light</value>
+  </data>
   <data name="LocationPlaceHolder" xml:space="preserve">
     <value>Location</value>
   </data>
+  <data name="LoginAccountInfo" xml:space="preserve">
+    <value>Already have an account? Login</value>
+  </data>
+  <data name="LoginInstruction" xml:space="preserve">
+    <value>Please provide your email and password to login into the application.</value>
+  </data>
+  <data name="LoginTitle" xml:space="preserve">
+    <value>Find new job opportunities</value>
+  </data>
+  <data name="MilesAwayPlaceholder" xml:space="preserve">
+    <value>Miles Away</value>
+  </data>
   <data name="PasswordPlaceholder" xml:space="preserve">
     <value>Password</value>
+  </data>
+  <data name="PolishTitle" xml:space="preserve">
+    <value>Polish</value>
   </data>
   <data name="PositionPlaceholder" xml:space="preserve">
     <value>Current Position</value>
@@ -165,17 +225,53 @@
   <data name="PostToFBPlaceHolder" xml:space="preserve">
     <value>Post to Facebook?</value>
   </data>
+  <data name="ProfileMenuItem" xml:space="preserve">
+    <value>Profile</value>
+  </data>
   <data name="ProfileTitleLabelCompany" xml:space="preserve">
     <value>Jobs You've Posted</value>
   </data>
   <data name="ProfileTitleLabelUser" xml:space="preserve">
     <value>Jobs You've Applied For</value>
   </data>
+  <data name="RegisterAccountInfo" xml:space="preserve">
+    <value>Alternatively Register a new account.</value>
+  </data>
+  <data name="RegisterButton" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="RegisterTitle" xml:space="preserve">
+    <value>Launch your new career now!</value>
+  </data>
+  <data name="RePasswordPlaceholder" xml:space="preserve">
+    <value>Repeat Password</value>
+  </data>
   <data name="SalaryPlaceHolder" xml:space="preserve">
     <value>Salary</value>
   </data>
+  <data name="SearchButtonText" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SearchJobsTitle" xml:space="preserve">
+    <value>Search Jobs</value>
+  </data>
+  <data name="SendButton" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="SettingsMenuItem" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="SignInButton" xml:space="preserve">
+    <value>Sign In</value>
+  </data>
+  <data name="SignOutMenuItem" xml:space="preserve">
+    <value>Sign Out</value>
+  </data>
   <data name="SubmitButtonText" xml:space="preserve">
     <value>Submit</value>
+  </data>
+  <data name="ThemeOptionsTitle" xml:space="preserve">
+    <value>Theme options</value>
   </data>
   <data name="Title" xml:space="preserve">
     <value>Welcome</value>

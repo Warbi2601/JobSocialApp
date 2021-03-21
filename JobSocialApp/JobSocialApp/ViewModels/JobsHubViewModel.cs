@@ -24,8 +24,8 @@ namespace JobSocialApp.ViewModels
         private String updateDetailsBtnText = "Update details";
 
         // Elements - for language
-        private String listTitleLbl = "Jobs created by you";
-        private String addNewJobBtn = "Add new job";
+        private String listTitleLbl = TranslationManager.Instance.getTranslation("JobsCreatedTitle");
+        private String addNewJobBtn = TranslationManager.Instance.getTranslation("AddJobButton");
 
         private ObservableCollection<Job> jobs = new ObservableCollection<Job>();
 

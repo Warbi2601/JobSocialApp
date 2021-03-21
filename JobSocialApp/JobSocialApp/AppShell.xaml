@@ -19,22 +19,22 @@
         </ResourceDictionary>
     </Shell.Resources>
 
-    <MenuItem x:Name="JobsHub" Text="Jobs Hub" Icon="job" Clicked="VisitJobsHubClicked" />
-    <MenuItem Text="Edit details" Icon="edit" Clicked="EditProfileClicked" />
-    <MenuItem Text="Settings" Icon="settings" Clicked="ShowSettingsView"/>
-    <MenuItem Text="Sign Out" Icon="exit" Clicked="SignOutClicked" />
+    <MenuItem Text="{Binding JobsHubText}" x:Name="LinkJobsHub" Icon="job" Clicked="VisitJobsHubClicked" />
+    <MenuItem Text="{Binding EditDetailsText}" Icon="edit" Clicked="EditProfileClicked" />
+    <MenuItem Text="{Binding SettingsText}" Icon="settings" Clicked="ShowSettingsView"/>
+    <MenuItem Text="{Binding SignOutText}" Icon="exit" Clicked="SignOutClicked" />
 
     <FlyoutItem Route="main">
-        <Tab Route="home" Title="Home" Icon="home">
+        <Tab Route="home" Title="{Binding HomeText}" Icon="home">
             <ShellContent ContentTemplate="{DataTemplate views:HomeView}"/>
         </Tab>
         <Tab Route="messages" Title="Messages" Icon="chat">
             <ShellContent ContentTemplate="{DataTemplate views:ContactView}"/>
         </Tab>
-        <Tab Route="jobs" Title="Jobs" Icon="search">
+        <Tab Route="jobs" Title="{Binding JobsText}" Icon="search">
             <ShellContent ContentTemplate="{DataTemplate views:SearchView}" />
         </Tab>
-        <Tab Route="profile" Title="Profile" Icon="profile">
+        <Tab Route="profile" Title="{Binding ProfileText}" Icon="profile">
             <ShellContent ContentTemplate="{DataTemplate views:ProfileView}"/>
         </Tab>
         <!--<Tab Route="settings" Title="Settings" Icon="settings" IsVisible="False">

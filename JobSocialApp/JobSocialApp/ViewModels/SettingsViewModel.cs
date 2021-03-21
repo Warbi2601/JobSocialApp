@@ -2,12 +2,28 @@
 using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Xamarin.Forms;
 
 namespace JobSocialApp.ViewModels
 {
     class SettingsViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public SettingsViewModel()
+        {
+            MessagingCenter.Subscribe<TranslationManager>(this, "langChanged", (w) =>
+            {
+                LanguageOptionsLbl = TranslationManager.Instance.getTranslation("LanguageOptions");
+                ChooseLanguageLbl = TranslationManager.Instance.getTranslation("ChooseLanguage");
+                EnglishRadio = TranslationManager.Instance.getTranslation("EnglishTitle");
+                PolishRadio = TranslationManager.Instance.getTranslation("PolishTitle");
+                ThemeOptionsLbl = TranslationManager.Instance.getTranslation("ThemeOptionsTitle");
+                ChooseThemeLbl = TranslationManager.Instance.getTranslation("ChooseTheme");
+                LightRadio = TranslationManager.Instance.getTranslation("LightTitle");
+                DarkRadio = TranslationManager.Instance.getTranslation("DarkTitle");
+            });
+        }
 
         private void OnPropertyChange([CallerMemberName] String propertyName = "")
         {
@@ -17,19 +33,19 @@ namespace JobSocialApp.ViewModels
 
         #region Local variables
 
-        private String selectedLanguage = "en"; // default language selected
+        private String selectedLanguage = TranslationManager.Instance.isEnglishSelected() ? "en" : "pl"; // default language selected
         private String selectedTheme;
 
         // Populate those with resex
-        private String languageOptionsLlb = "Language options"; 
-        private String chooseLanguageLbl = "Choose your language"; 
-        private String englishRadio = "English"; 
-        private String polishRadio = "Polish";
+        private String languageOptionsLlb = TranslationManager.Instance.getTranslation("LanguageOptions"); 
+        private String chooseLanguageLbl = TranslationManager.Instance.getTranslation("ChooseLanguage"); 
+        private String englishRadio = TranslationManager.Instance.getTranslation("EnglishTitle");
+        private String polishRadio = TranslationManager.Instance.getTranslation("PolishTitle");
 
-        private String themeOptionsLlb = "Theme options";
-        private String chooseThemeLbl = "Choose your theme";
-        private String lightRadio = "Light";
-        private String darkRadio = "Dark";
+        private String themeOptionsLlb = TranslationManager.Instance.getTranslation("ThemeOptionsTitle");
+        private String chooseThemeLbl = TranslationManager.Instance.getTranslation("ChooseTheme");
+        private String lightRadio = TranslationManager.Instance.getTranslation("LightTitle");
+        private String darkRadio = TranslationManager.Instance.getTranslation("DarkTitle");
 
         #endregion
 
@@ -152,6 +168,7 @@ namespace JobSocialApp.ViewModels
         public void ChangeLanguage(String selectedLanguage)
         {
             SelectedLanguage = selectedLanguage;
+            TranslationManager.Instance.changeLang();
         }
 
         public String ChangeTheme(String selectedLanguage)

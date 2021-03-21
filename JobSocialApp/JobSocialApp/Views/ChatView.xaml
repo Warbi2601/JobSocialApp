@@ -34,7 +34,7 @@
 				HeightRequest="25" 
 				Placeholder="Message" 
 				/>
-                <Button BackgroundColor="{DynamicResource DynamicPrimaryBtnNeutralBackColour}" StyleClass="SendMsgButton" ImageSource="send2" Clicked="SendClicked" />
+                <Button Text="{Binding SendBtnText}" BackgroundColor="{DynamicResource DynamicPrimaryBtnNeutralBackColour}" StyleClass="SendMsgButton" ImageSource="send2" Clicked="SendClicked" />
             </StackLayout>
         </Grid>
     </ContentPage.Content>

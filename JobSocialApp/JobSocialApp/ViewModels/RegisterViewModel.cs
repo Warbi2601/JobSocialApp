@@ -9,12 +9,28 @@ using JobSocialApp.Views;
 using JobSocialApp;
 using Xamarin.Forms;
 using static JobSocialApp.Models.GlobalModels;
+using JobSocialApp.Models;
 
 namespace JobSocialApp.ViewModels
 {
     class RegisterViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public RegisterViewModel()
+        {
+            MessagingCenter.Subscribe<TranslationManager>(this, "langChanged", (w) =>
+            {
+                PageTitleLbl = TranslationManager.Instance.getTranslation("RegisterTitle");
+                FNameLbl = TranslationManager.Instance.getTranslation("FirstNamePlaceholder");
+                SNameLbl = TranslationManager.Instance.getTranslation("LastNamePlaceholder");
+                EmailLbl = TranslationManager.Instance.getTranslation("EmailPlaceholder");
+                PasswordLbl = TranslationManager.Instance.getTranslation("PasswordPlaceholder");
+                RePasswordLbl = TranslationManager.Instance.getTranslation("RePasswordPlaceholder");
+                RegisterBtn = TranslationManager.Instance.getTranslation("RegisterButton");
+                LoginLbl = TranslationManager.Instance.getTranslation("LoginAccountInfo");
+            });
+        }
 
         private void OnPropertyChange([CallerMemberName] String propertyName = "")
         {
@@ -34,14 +50,14 @@ namespace JobSocialApp.ViewModels
         private DateTime registerdateOfBirth = DateTime.Now;
 
         // Elements - for language
-        private String pageTitleLbl = "Lunch your new career now!";
-        private String fNameLbl = "First Name";
-        private String sNameLbl = "Last Name";
-        private String emailLbl = "Email address";
-        private String passwordLbl = "Password";
-        private String rePasswordLbl = "Re-Password";
-        private String registerBtn = "Register";
-        private String loginLbl = "Already have an account? Login";
+        private String pageTitleLbl = TranslationManager.Instance.getTranslation("RegisterTitle");
+        private String fNameLbl = TranslationManager.Instance.getTranslation("FirstNamePlaceholder");
+        private String sNameLbl = TranslationManager.Instance.getTranslation("LastNamePlaceholder");
+        private String emailLbl = TranslationManager.Instance.getTranslation("EmailPlaceholder");
+        private String passwordLbl = TranslationManager.Instance.getTranslation("PasswordPlaceholder");
+        private String rePasswordLbl = TranslationManager.Instance.getTranslation("RePasswordPlaceholder");
+        private String registerBtn = TranslationManager.Instance.getTranslation("RegisterButton");
+        private String loginLbl = TranslationManager.Instance.getTranslation("LoginAccountInfo");
 
         #endregion
 

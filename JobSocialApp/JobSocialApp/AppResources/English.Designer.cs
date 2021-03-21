@@ -61,11 +61,47 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Another.
+        ///   Looks up a localized string similar to Add new job.
         /// </summary>
-        public static string Another {
+        public static string AddJobButton {
             get {
-                return ResourceManager.GetString("Another", resourceCulture);
+                return ResourceManager.GetString("AddJobButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Apply.
+        /// </summary>
+        public static string ApplyButtonText {
+            get {
+                return ResourceManager.GetString("ApplyButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose your language.
+        /// </summary>
+        public static string ChooseLanguage {
+            get {
+                return ResourceManager.GetString("ChooseLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose your theme.
+        /// </summary>
+        public static string ChooseTheme {
+            get {
+                return ResourceManager.GetString("ChooseTheme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add a comment.
+        /// </summary>
+        public static string CommentsPlaceholder {
+            get {
+                return ResourceManager.GetString("CommentsPlaceholder", resourceCulture);
             }
         }
         
@@ -75,6 +111,15 @@ namespace JobSocialApp.AppResources {
         public static string CreateNewOpp {
             get {
                 return ResourceManager.GetString("CreateNewOpp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dark.
+        /// </summary>
+        public static string DarkTitle {
+            get {
+                return ResourceManager.GetString("DarkTitle", resourceCulture);
             }
         }
         
@@ -97,11 +142,29 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit Details.
+        /// </summary>
+        public static string EditDetailsMenuItem {
+            get {
+                return ResourceManager.GetString("EditDetailsMenuItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit job post.
         /// </summary>
         public static string EditJob {
             get {
                 return ResourceManager.GetString("EditJob", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit personal details.
+        /// </summary>
+        public static string EditPersonalDetails {
+            get {
+                return ResourceManager.GetString("EditPersonalDetails", resourceCulture);
             }
         }
         
@@ -124,11 +187,29 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to English.
+        /// </summary>
+        public static string EnglishTitle {
+            get {
+                return ResourceManager.GetString("EnglishTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to First Name.
         /// </summary>
         public static string FirstNamePlaceholder {
             get {
                 return ResourceManager.GetString("FirstNamePlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home.
+        /// </summary>
+        public static string HomeMenuItem {
+            get {
+                return ResourceManager.GetString("HomeMenuItem", resourceCulture);
             }
         }
         
@@ -142,11 +223,56 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Jobs created by you.
+        /// </summary>
+        public static string JobsCreatedTitle {
+            get {
+                return ResourceManager.GetString("JobsCreatedTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jobs Hub.
+        /// </summary>
+        public static string JobsHubMenuItem {
+            get {
+                return ResourceManager.GetString("JobsHubMenuItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jobs.
+        /// </summary>
+        public static string JobsMenuItem {
+            get {
+                return ResourceManager.GetString("JobsMenuItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Job Title.
         /// </summary>
         public static string JobTitlePlaceHolder {
             get {
                 return ResourceManager.GetString("JobTitlePlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keyword.
+        /// </summary>
+        public static string KeywordPlaceholder {
+            get {
+                return ResourceManager.GetString("KeywordPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language Options.
+        /// </summary>
+        public static string LanguageOptions {
+            get {
+                return ResourceManager.GetString("LanguageOptions", resourceCulture);
             }
         }
         
@@ -160,6 +286,15 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Light.
+        /// </summary>
+        public static string LightTitle {
+            get {
+                return ResourceManager.GetString("LightTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Location.
         /// </summary>
         public static string LocationPlaceHolder {
@@ -169,11 +304,56 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Already have an account? Login.
+        /// </summary>
+        public static string LoginAccountInfo {
+            get {
+                return ResourceManager.GetString("LoginAccountInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please provide your email and password to login into the application..
+        /// </summary>
+        public static string LoginInstruction {
+            get {
+                return ResourceManager.GetString("LoginInstruction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Find new job opportunities.
+        /// </summary>
+        public static string LoginTitle {
+            get {
+                return ResourceManager.GetString("LoginTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Miles Away.
+        /// </summary>
+        public static string MilesAwayPlaceholder {
+            get {
+                return ResourceManager.GetString("MilesAwayPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string PasswordPlaceholder {
             get {
                 return ResourceManager.GetString("PasswordPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Polish.
+        /// </summary>
+        public static string PolishTitle {
+            get {
+                return ResourceManager.GetString("PolishTitle", resourceCulture);
             }
         }
         
@@ -205,6 +385,15 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Profile.
+        /// </summary>
+        public static string ProfileMenuItem {
+            get {
+                return ResourceManager.GetString("ProfileMenuItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Jobs You&apos;ve Posted.
         /// </summary>
         public static string ProfileTitleLabelCompany {
@@ -223,6 +412,42 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Alternatively Register a new account..
+        /// </summary>
+        public static string RegisterAccountInfo {
+            get {
+                return ResourceManager.GetString("RegisterAccountInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Register.
+        /// </summary>
+        public static string RegisterButton {
+            get {
+                return ResourceManager.GetString("RegisterButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Launch your new career now!.
+        /// </summary>
+        public static string RegisterTitle {
+            get {
+                return ResourceManager.GetString("RegisterTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Repeat Password.
+        /// </summary>
+        public static string RePasswordPlaceholder {
+            get {
+                return ResourceManager.GetString("RePasswordPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Salary.
         /// </summary>
         public static string SalaryPlaceHolder {
@@ -232,11 +457,74 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Search.
+        /// </summary>
+        public static string SearchButtonText {
+            get {
+                return ResourceManager.GetString("SearchButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search Jobs.
+        /// </summary>
+        public static string SearchJobsTitle {
+            get {
+                return ResourceManager.GetString("SearchJobsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Send.
+        /// </summary>
+        public static string SendButton {
+            get {
+                return ResourceManager.GetString("SendButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string SettingsMenuItem {
+            get {
+                return ResourceManager.GetString("SettingsMenuItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sign In.
+        /// </summary>
+        public static string SignInButton {
+            get {
+                return ResourceManager.GetString("SignInButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sign Out.
+        /// </summary>
+        public static string SignOutMenuItem {
+            get {
+                return ResourceManager.GetString("SignOutMenuItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Submit.
         /// </summary>
         public static string SubmitButtonText {
             get {
                 return ResourceManager.GetString("SubmitButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Theme options.
+        /// </summary>
+        public static string ThemeOptionsTitle {
+            get {
+                return ResourceManager.GetString("ThemeOptionsTitle", resourceCulture);
             }
         }
         

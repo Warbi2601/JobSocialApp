@@ -16,6 +16,19 @@ namespace JobSocialApp.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public LoginViewModel()
+        {
+            MessagingCenter.Subscribe<TranslationManager>(this, "langChanged", (w) =>
+            {
+                PageTitleLbl = TranslationManager.Instance.getTranslation("LoginTitle");
+                LoginInstructionsLbl = TranslationManager.Instance.getTranslation("LoginInstruction");
+                EmailLbl = TranslationManager.Instance.getTranslation("EmailPlaceholder");
+                PasswordLbl = TranslationManager.Instance.getTranslation("PasswordPlaceholder");
+                SignInBtn = TranslationManager.Instance.getTranslation("SignInButton");
+                CreateNewAccountLbl = TranslationManager.Instance.getTranslation("RegisterAccountInfo");
+            });
+        }
+
         private void OnPropertyChange([CallerMemberName] String propertyName = "")
         {
             // Check if not null
@@ -30,12 +43,12 @@ namespace JobSocialApp.ViewModels
         private String title = "";
 
         // Elements - for language
-        private String pageTitleLbl = "Find new job opportunities!";
-        private String loginInstructionsLbl = "Please provide your email and password to login into the application.";
-        private String emailLbl = "Email";
-        private String passwordLbl = "Password";
-        private String signInBtn = "Sign In";
-        private String createNewAccountLbl = "Alternatively Register a new account.";
+        private String pageTitleLbl = TranslationManager.Instance.getTranslation("LoginTitle");
+        private String loginInstructionsLbl = TranslationManager.Instance.getTranslation("LoginInstruction");
+        private String emailLbl = TranslationManager.Instance.getTranslation("EmailPlaceholder");
+        private String passwordLbl = TranslationManager.Instance.getTranslation("PasswordPlaceholder");
+        private String signInBtn = TranslationManager.Instance.getTranslation("SignInButton");
+        private String createNewAccountLbl = TranslationManager.Instance.getTranslation("RegisterAccountInfo");
 
         #endregion
 
