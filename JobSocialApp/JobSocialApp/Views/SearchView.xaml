@@ -20,9 +20,9 @@
             <Frame BackgroundColor="{DynamicResource DynamicPrimaryBackColour}" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="300" BorderColor="Transparent" >
                 <StackLayout>
                     <Label Text="{Binding KeywordPlaceHolder}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
-                    <Entry TextColor="{DynamicResource DynamicInputTextColour}" Text="{Binding Keyword}"/>
+                    <app:RoundedEntry TextColor="{DynamicResource DynamicInputTextColour}" Text="{Binding Keyword}"/>
                     <Label Text="{Binding MilesAwayPlaceHolder}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
-                    <Entry TextColor="{DynamicResource DynamicInputTextColour}" Text="{Binding MilesAway}" Keyboard="Numeric"/>
+                    <app:RoundedEntry TextColor="{DynamicResource DynamicInputTextColour}" Text="{Binding MilesAway}" Keyboard="Numeric"/>
                 </StackLayout>
             </Frame>
             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">

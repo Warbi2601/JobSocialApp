@@ -1,13 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:app="clr-namespace:JobSocialApp"
              x:Class="JobSocialApp.MainPage">
 
     <StackLayout>
         <Label Text="Register Page"
                 HorizontalOptions="CenterAndExpand" />
-        <Entry Placeholder="username" x:Name="registerEmail" />
-        <Entry Placeholder="password" x:Name="registerPassword" IsPassword="True" />
+        <app:RoundedEntry Placeholder="username" x:Name="registerEmail" />
+        <app:RoundedEntry Placeholder="password" x:Name="registerPassword" IsPassword="True" />
         <Button Text="Register" Clicked="SignUpClicked" />
     </StackLayout>
 

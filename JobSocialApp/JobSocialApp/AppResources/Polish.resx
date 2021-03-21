@@ -118,54 +118,57 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CreateNewOpp" xml:space="preserve">
-    <value>Create a new opportunity</value>
+    <value>Utwórz nowe miejsca pracy</value>
   </data>
   <data name="DeleteButtonText" xml:space="preserve">
-    <value>Delete</value>
+    <value>Usuń</value>
   </data>
   <data name="EditButtonText" xml:space="preserve">
-    <value>Edit</value>
+    <value>Edytuj</value>
   </data>
   <data name="EditProfileTitle" xml:space="preserve">
-    <value>Edit personal details</value>
+    <value>Edytuj informacje prywatne</value>
   </data>
   <data name="EmailPlaceholder" xml:space="preserve">
-    <value>Email Address</value>
+    <value>Adres e-mail</value>
   </data>
   <data name="FirstNamePlaceholder" xml:space="preserve">
-    <value>First Name</value>
+    <value>Pierwsze imię</value>
   </data>
   <data name="JobDescriptionPlaceHolder" xml:space="preserve">
-    <value>Job Descritpion</value>
+    <value>Opis stanowiska</value>
   </data>
   <data name="JobTitlePlaceHolder" xml:space="preserve">
-    <value>Job Title</value>
+    <value>Tytuł stanowiska</value>
   </data>
   <data name="LastNamePlaceholder" xml:space="preserve">
-    <value>Last Name</value>
+    <value>Nazwisko</value>
   </data>
   <data name="LocationPlaceHolder" xml:space="preserve">
-    <value>Location</value>
+    <value>Lokacja</value>
   </data>
   <data name="PasswordPlaceholder" xml:space="preserve">
-    <value>Password</value>
+    <value>Chasło</value>
   </data>
   <data name="PositionPlaceholder" xml:space="preserve">
-    <value>Current Position</value>
+    <value>Obecna pozycja</value>
   </data>
   <data name="PostcodePlaceHolder" xml:space="preserve">
-    <value>Postcode</value>
+    <value>Kod pocztowy</value>
+  </data>
+  <data name="PostToFBPlaceHolder" xml:space="preserve">
+    <value>Wyślij na Facebook'a</value>
   </data>
   <data name="SalaryPlaceHolder" xml:space="preserve">
-    <value>Salary</value>
+    <value>Wynagrodzenie</value>
   </data>
   <data name="SubmitButtonText" xml:space="preserve">
-    <value>Submit</value>
+    <value>Wyślij</value>
   </data>
   <data name="Title" xml:space="preserve">
-    <value>KURWA</value>
+    <value>Tytuł</value>
   </data>
   <data name="UpdateDetailsButton" xml:space="preserve">
-    <value>Update Details</value>
+    <value>Uaktualnij informację</value>
   </data>
 </root>

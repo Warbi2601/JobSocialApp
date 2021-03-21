@@ -101,8 +101,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
+    <AndroidResource Include="Resources\layout\rounded_shape.xml" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoundedEntryRenderAndroid.cs" />
     <Compile Include="Services\Notifications\AndroidNotificationManager.cs" />
     <Compile Include="Services\FirebaseAuthenticator.cs" />
     <Compile Include="Services\Notifications\AlarmHandler.cs" />

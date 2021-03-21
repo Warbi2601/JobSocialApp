@@ -61,7 +61,7 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Create a new opportunity.
+        ///   Looks up a localized string similar to Utwórz nowe miejsca pracy.
         /// </summary>
         public static string CreateNewOpp {
             get {
@@ -70,7 +70,7 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete.
+        ///   Looks up a localized string similar to Usuń.
         /// </summary>
         public static string DeleteButtonText {
             get {
@@ -79,7 +79,7 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit.
+        ///   Looks up a localized string similar to Edytuj.
         /// </summary>
         public static string EditButtonText {
             get {
@@ -88,7 +88,7 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Edit personal details.
+        ///   Looks up a localized string similar to Edytuj informacje prywatne.
         /// </summary>
         public static string EditProfileTitle {
             get {
@@ -97,7 +97,7 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Email Address.
+        ///   Looks up a localized string similar to Adres e-mail.
         /// </summary>
         public static string EmailPlaceholder {
             get {
@@ -106,7 +106,7 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to First Name.
+        ///   Looks up a localized string similar to Pierwsze imię.
         /// </summary>
         public static string FirstNamePlaceholder {
             get {
@@ -115,7 +115,7 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Job Descritpion.
+        ///   Looks up a localized string similar to Opis stanowiska.
         /// </summary>
         public static string JobDescriptionPlaceHolder {
             get {
@@ -124,7 +124,7 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Job Title.
+        ///   Looks up a localized string similar to Tytuł stanowiska.
         /// </summary>
         public static string JobTitlePlaceHolder {
             get {
@@ -133,7 +133,7 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Last Name.
+        ///   Looks up a localized string similar to Nazwisko.
         /// </summary>
         public static string LastNamePlaceholder {
             get {
@@ -142,7 +142,7 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Location.
+        ///   Looks up a localized string similar to Lokacja.
         /// </summary>
         public static string LocationPlaceHolder {
             get {
@@ -151,7 +151,7 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Password.
+        ///   Looks up a localized string similar to Chasło.
         /// </summary>
         public static string PasswordPlaceholder {
             get {
@@ -160,7 +160,7 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Current Position.
+        ///   Looks up a localized string similar to Obecna pozycja.
         /// </summary>
         public static string PositionPlaceholder {
             get {
@@ -169,7 +169,7 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Postcode.
+        ///   Looks up a localized string similar to Kod pocztowy.
         /// </summary>
         public static string PostcodePlaceHolder {
             get {
@@ -178,7 +178,16 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Salary.
+        ///   Looks up a localized string similar to Wyślij na Facebook&apos;a.
+        /// </summary>
+        public static string PostToFBPlaceHolder {
+            get {
+                return ResourceManager.GetString("PostToFBPlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wynagrodzenie.
         /// </summary>
         public static string SalaryPlaceHolder {
             get {
@@ -187,7 +196,7 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Submit.
+        ///   Looks up a localized string similar to Wyślij.
         /// </summary>
         public static string SubmitButtonText {
             get {
@@ -196,7 +205,7 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to KURWA.
+        ///   Looks up a localized string similar to Tytuł.
         /// </summary>
         public static string Title {
             get {
@@ -205,7 +214,7 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Update Details.
+        ///   Looks up a localized string similar to Uaktualnij informację.
         /// </summary>
         public static string UpdateDetailsButton {
             get {

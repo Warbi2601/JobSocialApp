@@ -51,6 +51,8 @@
             HorizontalOptions="Center"
             VerticalOptions="Start"
             Clicked="OnScheduleClick" />
+
+                <app:RoundedEntry></app:RoundedEntry>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
