@@ -32,10 +32,10 @@ namespace JobSocialApp.ViewModels
         private String milesAway = "";
 
         // Elements - for language
-        private String pageTitleLbl = "Search Jobs";
-        private String keywordPlaceHolder = "Keyword";
-        private String milesAwayPlaceHolder = "Miles Away";
-        private String searchText = "Search";
+        private String pageTitleLbl = TranslationManager.Instance.getTranslation("SearchJobsTitle");
+        private String keywordPlaceHolder = TranslationManager.Instance.getTranslation("KeywordPlaceholder");
+        private String milesAwayPlaceHolder = TranslationManager.Instance.getTranslation("MilesAwayPlaceholder");
+        private String searchText = TranslationManager.Instance.getTranslation("SearchButtonText");
 
         private ObservableCollection<Job> jobs = new ObservableCollection<Job>();
         //private User user = new User();

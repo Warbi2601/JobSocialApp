@@ -58,6 +58,10 @@ namespace JobSocialApp.Models
             MessagingCenter.Send(this, "langChanged");
         }
 
+        public bool isEnglishSelected()
+        {
+            return lang == Languages.English;
+        }
 
     }
 }

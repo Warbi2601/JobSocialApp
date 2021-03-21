@@ -33,7 +33,7 @@ namespace JobSocialApp.ViewModels
 
         #region Local variables
 
-        private String selectedLanguage = "en"; // default language selected
+        private String selectedLanguage = TranslationManager.Instance.isEnglishSelected() ? "en" : "pl"; // default language selected
         private String selectedTheme;
 
         // Populate those with resex

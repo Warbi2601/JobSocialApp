@@ -51,8 +51,8 @@ namespace JobSocialApp.ViewModels
 
         private String newComment = "";
         private bool btnApplyEnabled = true;
-        private String btnApplyText = "Apply";
-        private String commentsPlaceHolder = "Add a comment";
+        private String btnApplyText = TranslationManager.Instance.getTranslation("ApplyButtonText");
+        private String commentsPlaceHolder = TranslationManager.Instance.getTranslation("CommentsPlaceholder");
 
         #endregion
 

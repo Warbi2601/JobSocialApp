@@ -17,6 +17,20 @@ namespace JobSocialApp.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
 
 
+        public ProfileViewModel()
+        {
+            Jobs = new ObservableCollection<Job>();
+            MessagingCenter.Subscribe<TranslationManager>(this, "langChanged", (w) =>
+            {
+                PageTitleLbl = TranslationManager.Instance.getTranslation("EditPersonalDetails");
+                FNamePlaceHolder = TranslationManager.Instance.getTranslation("FirstNamePlaceholder");
+                SNamePlaceHolder = TranslationManager.Instance.getTranslation("LastNamePlaceholder");
+                EmailPlaceHolder = TranslationManager.Instance.getTranslation("EmailPlaceholder");
+                PositionPlaceHolder = TranslationManager.Instance.getTranslation("PositionPlaceholder");
+                PasswordPlaceHolder = TranslationManager.Instance.getTranslation("PasswordPlaceholder");
+            });
+        }
+
         private void OnPropertyChange([CallerMemberName] String propertyName = "")
         {
             // Check if not null
@@ -37,12 +51,12 @@ namespace JobSocialApp.ViewModels
         private String updateDetailsBtnText = "Update details";
 
         // Elements - for language
-        private String pageTitleLbl = "Edit personal details";
-        private String fNamePlaceHolder = "First Name";
-        private String sNamePlaceHolder = "Last Name";
-        private String emailPlaceHolder = "Email Address";
-        private String positionPlaceHolder = "Current Position";
-        private String passwordPlaceHolder = "Password";
+        private String pageTitleLbl = TranslationManager.Instance.getTranslation("EditPersonalDetails");
+        private String fNamePlaceHolder = TranslationManager.Instance.getTranslation("FirstNamePlaceholder");
+        private String sNamePlaceHolder = TranslationManager.Instance.getTranslation("LastNamePlaceholder");
+        private String emailPlaceHolder = TranslationManager.Instance.getTranslation("EmailPlaceholder");
+        private String positionPlaceHolder = TranslationManager.Instance.getTranslation("PositionPlaceholder");
+        private String passwordPlaceHolder = TranslationManager.Instance.getTranslation("PasswordPlaceholder");
         private String profileTitleLabel = "";
 
 
@@ -233,10 +247,6 @@ namespace JobSocialApp.ViewModels
 
         #region Functions
 
-        public ProfileViewModel()
-        {
-            Jobs = new ObservableCollection<Job>();
-        }
 
         public async Task PopulateJobs()
         {

@@ -120,11 +120,17 @@
   <data name="AddJobButton" xml:space="preserve">
     <value>Add new job</value>
   </data>
+  <data name="ApplyButtonText" xml:space="preserve">
+    <value>Apply</value>
+  </data>
   <data name="ChooseLanguage" xml:space="preserve">
     <value>Choose your language</value>
   </data>
   <data name="ChooseTheme" xml:space="preserve">
     <value>Choose your theme</value>
+  </data>
+  <data name="CommentsPlaceholder" xml:space="preserve">
+    <value>Add a comment</value>
   </data>
   <data name="CreateNewOpp" xml:space="preserve">
     <value>Utwórz nowe miejsca pracy</value>
@@ -138,8 +144,14 @@
   <data name="EditButtonText" xml:space="preserve">
     <value>Edytuj</value>
   </data>
+  <data name="EditDetailsMenuItem" xml:space="preserve">
+    <value>Edit Details</value>
+  </data>
   <data name="EditJob" xml:space="preserve">
     <value>Edit job post</value>
+  </data>
+  <data name="EditPersonalDetails" xml:space="preserve">
+    <value>Edit personal details</value>
   </data>
   <data name="EditProfileTitle" xml:space="preserve">
     <value>Edytuj informacje prywatne</value>
@@ -153,14 +165,26 @@
   <data name="FirstNamePlaceholder" xml:space="preserve">
     <value>Pierwsze imię</value>
   </data>
+  <data name="HomeMenuItem" xml:space="preserve">
+    <value>Home</value>
+  </data>
   <data name="JobDescriptionPlaceHolder" xml:space="preserve">
     <value>Opis stanowiska</value>
   </data>
   <data name="JobsCreatedTitle" xml:space="preserve">
     <value>Jobs created by you</value>
   </data>
+  <data name="JobsHubMenuItem" xml:space="preserve">
+    <value>Jobs Hub</value>
+  </data>
+  <data name="JobsMenuItem" xml:space="preserve">
+    <value>Jobs</value>
+  </data>
   <data name="JobTitlePlaceHolder" xml:space="preserve">
     <value>Tytuł stanowiska</value>
+  </data>
+  <data name="KeywordPlaceholder" xml:space="preserve">
+    <value>Keyword</value>
   </data>
   <data name="LanguageOptions" xml:space="preserve">
     <value>Language Options </value>
@@ -183,6 +207,9 @@
   <data name="LoginTitle" xml:space="preserve">
     <value>Find new job opportunities</value>
   </data>
+  <data name="MilesAwayPlaceholder" xml:space="preserve">
+    <value>Miles Away</value>
+  </data>
   <data name="PasswordPlaceholder" xml:space="preserve">
     <value>Chasło</value>
   </data>
@@ -197,6 +224,9 @@
   </data>
   <data name="PostToFBPlaceHolder" xml:space="preserve">
     <value>Wyślij na Facebook'a</value>
+  </data>
+  <data name="ProfileMenuItem" xml:space="preserve">
+    <value>Profile</value>
   </data>
   <data name="ProfileTitleLabelCompany" xml:space="preserve">
     <value>Jobs You've Posted</value>
@@ -219,11 +249,23 @@
   <data name="SalaryPlaceHolder" xml:space="preserve">
     <value>Wynagrodzenie</value>
   </data>
+  <data name="SearchButtonText" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SearchJobsTitle" xml:space="preserve">
+    <value>Search Jobs</value>
+  </data>
   <data name="SendButton" xml:space="preserve">
     <value>Send</value>
   </data>
+  <data name="SettingsMenuItem" xml:space="preserve">
+    <value>Settings</value>
+  </data>
   <data name="SignInButton" xml:space="preserve">
     <value>Sign In</value>
+  </data>
+  <data name="SignOutMenuItem" xml:space="preserve">
+    <value>Sign Out</value>
   </data>
   <data name="SubmitButtonText" xml:space="preserve">
     <value>Wyślij</value>
