@@ -22,13 +22,31 @@
                     <app:RoundedEntry Text="{Binding RegisterLastName}" Keyboard="Text" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
                     <Label Text="{Binding EmailLbl}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
                     <app:RoundedEntry Text="{Binding RegisterEmail}" Keyboard="Email" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
+                    <Label Text="{Binding JobTitleLbl}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
+                    <app:RoundedEntry Text="{Binding RegisterJobTitle}" Keyboard="Text" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
                     <Label Text="{Binding PasswordLbl}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
                     <app:RoundedEntry Text="{Binding RegisterPassword1}" IsPassword="true" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
                     <Label Text="{Binding RePasswordLbl}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
                     <app:RoundedEntry Text="{Binding RegisterPassword2}" IsPassword="true" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
 
+                    <Label Text="{Binding IsCompanyLbl}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
+                    <CheckBox IsChecked="{Binding IsCompany}" CheckedChanged="IsCompany_CheckedChanged" />
+
+                    <StackLayout x:Name="CompanyRegisterSection" IsVisible="false">
+                        <Label Text="{Binding CompanyNameLbl}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
+                        <app:RoundedEntry Text="{Binding CompanyName}" Keyboard="Text" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
+                        <Label Text="{Binding CompanyEmailLbl}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
+                        <app:RoundedEntry Text="{Binding CompanyEmail}" Keyboard="Email" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
+                        <Label Text="{Binding CompanyWebsiteLbl}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
+                        <app:RoundedEntry Text="{Binding CompanyWebsite}" Keyboard="Text" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
+                        <Label Text="{Binding CompanyPhoneLbl}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
+                        <app:RoundedEntry Text="{Binding CompanyPhone}" Keyboard="Text" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
+                    </StackLayout>
+
+
+
                     <Button BackgroundColor="{DynamicResource DynamicPrimaryBtnNeutralBackColour}" TextColor="{DynamicResource DynamicPrimaryBtnTextColor}" Text="{Binding RegisterBtn}" Clicked="SignUpClicked" Margin="0,20,0,0" CornerRadius="20"/>
-                
+
                     <Label HorizontalTextAlignment="Center" Padding="0, 10">
                         <Label.FormattedText>
                             <FormattedString>

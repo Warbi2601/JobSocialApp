@@ -266,7 +266,7 @@ namespace JobSocialApp.ViewModels
             FirstName = User.firstName;
             LastName = User.lastName;
             Email = User.email;
-            JobTitle = User.jobTitle == null ? User.jobTitle : "";
+            JobTitle = User.jobTitle != null ? User.jobTitle : "";
         }
 
         public async Task GetProfilePicture()
