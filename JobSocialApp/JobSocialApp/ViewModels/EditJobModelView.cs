@@ -206,6 +206,7 @@ namespace JobSocialApp.ViewModels
             {
                 AppContext context = new AppContext();
                 User user = await context.GetCurrentUser();
+                JobActions crud = new JobActions();
 
                 var res = GeoLocationManager.QueryPostcode(PostCode);
 
@@ -220,20 +221,17 @@ namespace JobSocialApp.ViewModels
                 var longitude = res.Longitude;
                 var formattedPostcode = res.Postcode; //get nicely formatted postcode
 
-                Job job = new Job
-                {
-                    jobTitle = JobTitle,
-                    salary = Salary,
-                    location = Location,
-                    postCode = formattedPostcode,
-                    longitude = longitude,
-                    latitude = latitude,
-                    description = Description,
-                    userID = user._id
-                };
+                Job job = await crud.GetJob(JobId);
 
+                job.jobTitle = JobTitle;
+                job.salary = Salary;
+                job.location = Location;
+                job.postCode = formattedPostcode;
+                job.longitude = longitude;
+                job.latitude = latitude;
+                job.description = Description;
+                job.userID = user._id;
 
-                JobActions crud = new JobActions();
                 await crud.UpdateJob(job);
 
                 notificationManager.SendNotification("Job Successfully updated", string.Format("{0} - {1} ({2}) - {3}", job.jobTitle, job.location, job.postCode, job.salary));
