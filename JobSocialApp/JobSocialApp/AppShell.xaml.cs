@@ -15,6 +15,8 @@ namespace JobSocialApp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AppShell : Shell
     {
+        private Boolean showJobsHub = false;
+
         public AppShell()
         {
             InitializeComponent();
@@ -34,7 +36,21 @@ namespace JobSocialApp
                 var uid = authService.GetCurrentUserUID();
                 Task.Run(async () => await Shell.Current.GoToAsync("///home"));
             }
+
+            MessagingCenter.Subscribe<object, bool>(this, "HideJobsHub", (sender, isCompany) => {
+                showJobsHub = isCompany;
+
+                //if (showJobsHub)
+                //{
+                //    JobsHub.SetBinding(MenuItem.TextProperty, appShellVM.JobsHubText);
+                //}
+                //else
+                //{
+                //    JobsHub.SetBinding(MenuItem.TextProperty, appShellVM.JobSearchText);
+                //}
+            });
         }
+
         private async void ShowSettingsView(object sender, EventArgs e)
         {
             Shell.Current.FlyoutIsPresented = false;
@@ -56,8 +72,17 @@ namespace JobSocialApp
 
         private async void VisitJobsHubClicked(object sender, EventArgs e)
         {
-            Shell.Current.FlyoutIsPresented = false;
-            await Navigation.PushAsync(new JobsHubView());
+            if (showJobsHub)
+            {
+                Shell.Current.FlyoutIsPresented = false;
+                await Navigation.PushAsync(new JobsHubView());
+            }
+            else
+            {
+                Shell.Current.FlyoutIsPresented = false;
+                Routing.RegisterRoute("/main", typeof(AppShell));
+                await Shell.Current.GoToAsync("///jobs");
+            }
         }
     }
 }

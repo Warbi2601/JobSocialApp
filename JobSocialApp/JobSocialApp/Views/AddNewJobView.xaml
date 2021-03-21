@@ -14,7 +14,7 @@
             <StackLayout BackgroundColor="{DynamicResource DynamicPrimaryBackColour}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                 <Frame BackgroundColor="{DynamicResource DynamicPrimaryBackColour}" StyleClass="DefaultFrame">
                     <StackLayout>
-                        <Label StyleClass="LargeTitleLabel" Text="{Binding ViewHeading}" TextColor="{DynamicResource DynamicMediumHeaderTextColour}"/>
+                        <Label StyleClass="LargeTitleLabel" Text="{Binding ViewHeading}" TextColor="{DynamicResource DynamicBigHeaderTextColour}"/>
 
                         <Label Text="{Binding JobTitlePlaceHolder}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
                         <app:RoundedEntry TextColor="{DynamicResource DynamicPrimaryTextColor}" Text="{Binding JobTitle}"/>

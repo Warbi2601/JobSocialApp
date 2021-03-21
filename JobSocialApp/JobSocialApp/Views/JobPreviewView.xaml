@@ -15,19 +15,83 @@
                 <StackLayout>
                     <Grid Padding="10" RowSpacing="2" ColumnSpacing="2">
                         <Grid.RowDefinitions>
+                            <RowDefinition Height="35" />
+                            <RowDefinition Height="25" />
                             <RowDefinition Height="25" />
                             <RowDefinition Height="25" />
                             <RowDefinition Height="25" />
                             <RowDefinition Height="*" />
+                            <RowDefinition Height="25" />
+                            <RowDefinition Height="25" />
+                            <RowDefinition Height="25" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="85*" />
                             <ColumnDefinition Width="15*" />
                         </Grid.ColumnDefinitions>
                         <Label TextColor="{DynamicResource DynamicThemeDarkPinkColour}" Grid.Column="0" Grid.Row="0" StyleClass="GridLabelTitle" Text="{Binding JobTitle}"/>
-                        <Label TextColor="{DynamicResource DynamicPrimaryTextColor}" Grid.Column="0" Grid.Row="1" StyleClass="GridLabelSalary" Text="{Binding Salary, StringFormat='Salary: £{0:F0}'}"/>
+                        <!--<Label TextColor="{DynamicResource DynamicPrimaryTextColor}" Grid.Column="0" Grid.Row="1" StyleClass="GridLabelSalary" Text="{Binding Salary, StringFormat='Salary: £{0:F0}'}"/>
                         <Label TextColor="{DynamicResource DynamicPrimaryTextColor}" Grid.Column="0" Grid.Row="2" StyleClass="GridLabelLocation" Text="{Binding Location, StringFormat='Location: {0:F0}'}"/>
-                        <Label TextColor="{DynamicResource DynamicPrimaryTextColor}" Grid.Column="0" Grid.Row="3" StyleClass="GridLabelDescription" Text="{Binding Description}"/>
+                        <Label TextColor="{DynamicResource DynamicPrimaryTextColor}" Grid.Column="0" Grid.Row="3" StyleClass="GridLabelDescription" Text="{Binding Description}"/>-->
+
+                        <Label TextColor="{DynamicResource DynamicThemeTextColour}" Grid.Column="0" Grid.Row="1" StyleClass="LargeLabel" VerticalOptions="CenterAndExpand">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding CompanyNameLabel}"/>
+                                    <Span Text=" "/>
+                                    <Span TextColor="{DynamicResource DynamicPrimaryTextColor}" Text="{Binding CompanyName}" FontSize="14"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label TextColor="{DynamicResource DynamicThemeTextColour}" Grid.Column="0" Grid.Row="2" StyleClass="LargeLabel" VerticalOptions="CenterAndExpand">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding SalaryLabel}"/>
+                                    <Span TextColor="{DynamicResource DynamicPrimaryTextColor}" Text=" £" FontSize="14"/>
+                                    <Span TextColor="{DynamicResource DynamicPrimaryTextColor}" Text="{Binding Salary}" FontSize="14"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label TextColor="{DynamicResource DynamicThemeTextColour}" Grid.Column="0" Grid.Row="3" StyleClass="LargeLabel" VerticalOptions="CenterAndExpand">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding LocationLabel}"/>
+                                    <Span Text=" "/>
+                                    <Span TextColor="{DynamicResource DynamicPrimaryTextColor}" Text="{Binding Location}" FontSize="14"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+                        <Label TextColor="{DynamicResource DynamicThemeTextColour}" Grid.Column="0" Grid.Row="4" StyleClass="LargeLabel" Text="{Binding DescriptionLabel}"/>
+                        <Label TextColor="{DynamicResource DynamicPrimaryTextColor}" Grid.Column="0" Grid.Row="5" StyleClass="GridLabelDescription" Text="{Binding Description}"/>
+
+                        <Label TextColor="{DynamicResource DynamicThemeTextColour}" Grid.Column="0" Grid.Row="6" StyleClass="LargeLabel" VerticalOptions="CenterAndExpand">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding CompanyPhoneLabel}"/>
+                                    <Span Text=" "/>
+                                    <Span TextColor="{DynamicResource DynamicPrimaryTextColor}" Text="{Binding CompanyPhone}" FontSize="14"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label TextColor="{DynamicResource DynamicThemeTextColour}" Grid.Column="0" Grid.Row="7" StyleClass="LargeLabel" VerticalOptions="CenterAndExpand">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding CompanyEmailLabel}"/>
+                                    <Span Text=" "/>
+                                    <Span TextColor="{DynamicResource DynamicPrimaryTextColor}" Text="{Binding CompanyEmail}" FontSize="14"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label TextColor="{DynamicResource DynamicThemeTextColour}" Grid.Column="0" Grid.Row="8" StyleClass="LargeLabel" VerticalOptions="CenterAndExpand">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding CompanyWebsiteLabel}"/>
+                                    <Span Text=" "/>
+                                    <Span TextColor="{DynamicResource DynamicPrimaryTextColor}" Text="{Binding CompanyWebsite}" FontSize="14"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
                     </Grid>
 
                     <!--<Label StyleClass="GridDescriptionLabel" Text="{Binding Description}" LineBreakMode="WordWrap" MaxLines="8"/>-->

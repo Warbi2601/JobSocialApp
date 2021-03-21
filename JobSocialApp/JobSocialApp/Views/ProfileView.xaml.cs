@@ -20,6 +20,10 @@ namespace JobSocialApp.Views
 
             //profileVM.PopulateViewWithJobs();
             //profileVM.PopulateJobs();
+            if (true)
+            {
+                MessagingCenter.Send<object, bool>(this, "HideJobsHub", false);
+            }
         }
 
         protected override async void OnAppearing()

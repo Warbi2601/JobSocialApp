@@ -1,14 +1,17 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:JobSocialApp.Helpers.ChatUIXForms.Helpers"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:JobSocialApp.Helpers.ChatUIXForms.Helpers"
+             xmlns:app="clr-namespace:JobSocialApp"
              x:Class="JobSocialApp.Views.ChatView">
+    
     <ContentPage.Resources>
         <ResourceDictionary>
             <local:ChatTemplateSelector x:Key="MessageTemplateSelector"/>
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <Grid RowSpacing="0" ColumnSpacing="0">
+        <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="{DynamicResource DynamicPrimaryBackColour}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
@@ -22,15 +25,16 @@
 			SeparatorVisibility="None">
             </ListView>
 
-            <StackLayout Orientation="Horizontal" Grid.Row="1" Padding="10" BackgroundColor="#EFEFEF">
-                <Entry 
-                Text="{ Binding SendMessageText }"
+            <StackLayout Orientation="Horizontal" Grid.Row="1" Padding="10" BackgroundColor="{DynamicResource DynamicPrimaryBackColour}">
+                <app:RoundedEntry 
+                Text="{ Binding SendMessageText }" 
+                TextColor="{DynamicResource DynamicPrimaryBtnTextColor}" 
+                PlaceholderColor="{DynamicResource DynamicPrimaryBtnTextColor}"
 			    HorizontalOptions="FillAndExpand" 
 				HeightRequest="25" 
 				Placeholder="Message" 
 				/>
-                <Button 
-				Text="{Binding SendBtnText}" Clicked="SendClicked"/>
+                <Button Text="{Binding SendBtnText}" BackgroundColor="{DynamicResource DynamicPrimaryBtnNeutralBackColour}" StyleClass="SendMsgButton" ImageSource="send2" Clicked="SendClicked" />
             </StackLayout>
         </Grid>
     </ContentPage.Content>
