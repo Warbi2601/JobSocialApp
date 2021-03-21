@@ -10,30 +10,30 @@
     </ContentPage.Resources>
     
     <ContentPage.Content>
-        <ScrollView Background="White">
-            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-                <Frame StyleClass="DefaultFrame">
+        <ScrollView BackgroundColor="{DynamicResource DynamicPrimaryBackColour}">
+            <StackLayout BackgroundColor="{DynamicResource DynamicPrimaryBackColour}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Frame BackgroundColor="{DynamicResource DynamicPrimaryBackColour}" StyleClass="DefaultFrame">
                     <StackLayout>
-                        <Label StyleClass="LargeTitleLabel" Text="{Binding ViewHeading}"/>
+                        <Label StyleClass="LargeTitleLabel" Text="{Binding ViewHeading}" TextColor="{DynamicResource DynamicMediumHeaderTextColour}"/>
 
-                        <Label Text="{Binding JobTitlePlaceHolder}"/>
-                        <Entry TextColor="{StaticResource BlackColour}" Text="{Binding JobTitle}"/>
-                        <Label Text="{Binding SalaryPlaceHolder}" />
-                        <Entry TextColor="{StaticResource BlackColour}" Text="{Binding Salary}" Keyboard="Numeric"/>
-                        <Label Text="{Binding LocationPlaceHolder}"/>
-                        <Entry TextColor="{StaticResource BlackColour}" Text="{Binding Location}"/>
-                        <Label Text="{Binding PostcodePlaceholder}"/>
-                        <Entry TextColor="{StaticResource BlackColour}" Text="{Binding Postcode}"/>
-                        <Label Text="{Binding DescriptionPlaceHolder}"/>
-                        <Editor TextColor="{StaticResource BlackColour}" HeightRequest="150" Text="{Binding Description}"/>
+                        <Label Text="{Binding JobTitlePlaceHolder}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
+                        <Entry TextColor="{DynamicResource DynamicPrimaryTextColor}" Text="{Binding JobTitle}"/>
+                        <Label Text="{Binding SalaryPlaceHolder}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
+                        <Entry TextColor="{DynamicResource DynamicPrimaryTextColor}" Text="{Binding Salary}" Keyboard="Numeric"/>
+                        <Label Text="{Binding LocationPlaceHolder}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
+                        <Entry TextColor="{DynamicResource DynamicPrimaryTextColor}" Text="{Binding Location}"/>
+                        <Label Text="{Binding PostcodePlaceholder}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
+                        <Entry TextColor="{DynamicResource DynamicPrimaryTextColor}" Text="{Binding Postcode}"/>
+                        <Label Text="{Binding DescriptionPlaceHolder}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
+                        <Editor TextColor="{DynamicResource DynamicPrimaryTextColor}" HeightRequest="150" Text="{Binding Description}"/>
                         <StackLayout Orientation="Horizontal">
                             <CheckBox IsChecked="{Binding PostToFB}"/>
-                            <Label Text="{Binding PostToFBPlaceHolder}" VerticalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding PostToFBPlaceHolder}" TextColor="{DynamicResource DynamicPrimaryTextColor}" VerticalOptions="CenterAndExpand"/>
                         </StackLayout>
                     </StackLayout>
                 </Frame>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                    <Button StyleClass="PositiveButtonStyles" Text="{Binding SendBtn}" Clicked="CreateNewJob" />
+                    <Button StyleClass="ButtonStyle" Text="{Binding SendBtn}" Clicked="CreateNewJob" TextColor="{DynamicResource DynamicPrimaryBtnTextColor}" BackgroundColor="{DynamicResource DynamicPrimaryBtnNeutralBackColour}" />
                 </StackLayout>
             </StackLayout>
         </ScrollView>

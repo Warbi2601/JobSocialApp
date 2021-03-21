@@ -1,6 +1,7 @@
 ﻿using Firebase.Auth;
 using JobSocialApp.Droid.Services;
 using JobSocialApp.Services;
+using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -11,8 +12,16 @@ namespace JobSocialApp.Droid.Services
     {
         public async Task<string> LoginWithEmailAndPassword(string email, string password)
         {
-            var user = await FirebaseAuth.Instance.SignInWithEmailAndPasswordAsync(email, password);
-            return user.User.Uid;
+            try
+            {
+                var user = await FirebaseAuth.Instance.SignInWithEmailAndPasswordAsync(email, password);
+                return user.User.Uid;
+            }
+            catch (Exception)
+            {
+
+            }
+            return null;
         }
 
         public async Task<string> SignUpWithEmailAndPassword(string email, string password)

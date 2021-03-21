@@ -8,19 +8,19 @@
         <ResourceDictionary MergedWith="app:StylingResourceDictionary" />
     </ContentPage.Resources>
 
-    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical" x:Name="ProfileLayout">
-        <Grid Margin="10">
+    <StackLayout BackgroundColor="{DynamicResource DynamicPrimaryBackColour}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical">
+        <Grid Margin="10" BackgroundColor="{DynamicResource DynamicPrimaryBackColour}" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="90" />
                 <RowDefinition Height="30" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <StackLayout Grid.Row="0">
-                <Button StyleClass="PositiveButtonStyles" Text="{Binding AddNewJobBtn}" Clicked="CreateNewJob" />
+                <Button StyleClass="ButtonStyle" TextColor="{DynamicResource DynamicPrimaryBtnTextColor}" BackgroundColor="{DynamicResource DynamicPrimaryBtnPositiveBackColour}" Text="{Binding AddNewJobBtn}" Clicked="CreateNewJob" />
             </StackLayout>
 
             <StackLayout Grid.Row="1">
-                <Label StyleClass="MediumTitleLabel" Text="{Binding ListTitleLbl}"/>
+                <Label StyleClass="MediumTitleLabel" TextColor="{DynamicResource DynamicMediumHeaderTextColour}" Text="{Binding ListTitleLbl}"/>
             </StackLayout>
 
             <ListView Grid.Row="2" ItemsSource="{Binding Jobs}" ItemTapped="ViewSelectedJobClicked" HasUnevenRows="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
@@ -38,10 +38,10 @@
                                     <ColumnDefinition Width="85*" />
                                     <ColumnDefinition Width="15*" />
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" Grid.Row="0" StyleClass="GridLabelTitle" Text="{Binding jobTitle}"/>
-                                <Label Grid.Column="0" Grid.Row="1" StyleClass="GridLabelSalary" Text="{Binding salary, StringFormat='Salary: £{0:F0}'}"/>
-                                <Label Grid.Column="0" Grid.Row="2" StyleClass="GridLabelLocation" Text="{Binding location, StringFormat='Location: {0:F0}'}"/>
-                                <Label Grid.Column="0" Grid.Row="3" StyleClass="GridLabelDescription" MaxLines="4" Text="{Binding description}"/>
+                                <Label TextColor="{DynamicResource DynamicThemeDarkPinkColour}" Grid.Column="0" Grid.Row="0" StyleClass="GridLabelTitle" Text="{Binding jobTitle}"/>
+                                <Label TextColor="{DynamicResource DynamicPrimaryTextColor}" Grid.Column="0" Grid.Row="1" StyleClass="GridLabelSalary" Text="{Binding salary, StringFormat='Salary: £{0:F0}'}"/>
+                                <Label TextColor="{DynamicResource DynamicPrimaryTextColor}" Grid.Column="0" Grid.Row="2" StyleClass="GridLabelLocation" Text="{Binding location, StringFormat='Location: {0:F0}'}"/>
+                                <Label TextColor="{DynamicResource DynamicPrimaryTextColor}" Grid.Column="0" Grid.Row="3" StyleClass="GridLabelDescription" MaxLines="4" Text="{Binding description}"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

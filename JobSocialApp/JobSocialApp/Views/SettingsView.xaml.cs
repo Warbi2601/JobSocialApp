@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using JobSocialApp.ViewModels;
+using Xamarin.Essentials;
 
 namespace JobSocialApp.Views
 {
@@ -17,6 +18,12 @@ namespace JobSocialApp.Views
             BindingContext = new SettingsViewModel();
             settingsVM = BindingContext as SettingsViewModel;
 
+            if (settingsVM != null)
+            {
+                String themeName = Preferences.Get("Theme", "light");
+                settingsVM.SelectedTheme = themeName;
+            }
+
             Shell.SetTabBarIsVisible(this, false);
         }
 
@@ -27,6 +34,17 @@ namespace JobSocialApp.Views
             if (settingsVM != null)
             {
                 settingsVM.ChangeLanguage(val.Value.ToString());
+            }
+        }
+        private void RadioThemeButton_Clicked(object sender, EventArgs e)
+        {
+            var val = sender as Plugin.InputKit.Shared.Controls.RadioButton;
+
+            if (settingsVM != null)
+            {
+                String newPreference = settingsVM.ChangeTheme(val.Value.ToString());
+
+                Preferences.Set("Theme", newPreference);
             }
         }
     }
