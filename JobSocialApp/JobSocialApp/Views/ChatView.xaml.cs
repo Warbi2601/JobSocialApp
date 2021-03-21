@@ -25,11 +25,14 @@ namespace JobSocialApp.Views
             chatVM = BindingContext as ChatViewModel;
         }
 
-        private void SendClicked(object sender, EventArgs e)
+        private async void SendClicked(object sender, EventArgs e)
         {
             if(chatVM != null)
             {
-                chatVM.sendMessage();
+                await chatVM.sendMessage();
+
+                // reset the chatbox
+                chatBox.Text = "";
             }
                 
         }

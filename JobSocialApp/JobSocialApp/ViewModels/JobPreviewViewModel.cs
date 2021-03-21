@@ -372,7 +372,7 @@ namespace JobSocialApp.ViewModels
                 CompanyWebsite = companyData.website;
             }
 
-            bool alreadyApplied = currentUser.jobsAppliedFor == null ? false : currentUser.jobsAppliedFor.Any(x => x == Id);
+            bool alreadyApplied = currentUser.jobsAppliedFor == null ? false : currentUser.jobsAppliedFor.Any(x => x == jobObj._id);
 
             JobTitle = jobObj.jobTitle;
             Salary = jobObj.salary;
