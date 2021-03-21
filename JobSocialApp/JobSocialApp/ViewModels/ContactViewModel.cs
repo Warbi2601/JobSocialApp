@@ -31,11 +31,15 @@ namespace JobSocialApp.ViewModels
 
         private async void loadContacts()
         {
+            AppContext context = new AppContext();
+            var currentUser = await context.GetCurrentUser();
+
             var dbContacts = await userCrud.GetAllUsers();
             List<User> userList = new List<User>();
             foreach(var user in dbContacts)
             {              
-                userList.Add(await getUserProfilePictures(user));
+                //ensure you cant message yourself
+                if(user._id != currentUser._id) userList.Add(await getUserProfilePictures(user));
             }
 
             Contacts = new ObservableCollection<User>(userList);

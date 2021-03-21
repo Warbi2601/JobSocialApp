@@ -23,6 +23,7 @@
                             <Grid Padding="10" RowSpacing="2" ColumnSpacing="2">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="65" />
+                                    <RowDefinition Height="*" />
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="25*" />
@@ -54,6 +55,20 @@
                                         </FormattedString>
                                     </Label.FormattedText>
                                 </Label>
+
+                                <Label TextColor="{DynamicResource DynamicThemeTextColour}" Grid.Column="1" Grid.Row="1" VerticalOptions="CenterAndExpand" LineBreakMode="TailTruncation">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Last Online:"/>
+                                            <Span Text=" "/>
+                                            <Span Text="{Binding lastActive}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+
+                                <!--<Label TextColor="{DynamicResource DynamicThemeTextColour}" Grid.Column="1" Grid.Row="1" VerticalOptions="CenterAndExpand" LineBreakMode="TailTruncation" Text="{Binding lastActive}"/>-->
+                                <!--StyleClass="LargeLabel"-->
+
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
