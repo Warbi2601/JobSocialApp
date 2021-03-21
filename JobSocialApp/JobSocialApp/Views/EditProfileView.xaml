@@ -16,13 +16,13 @@
         <Frame StyleClass="DefaultFrame" BackgroundColor="{DynamicResource DynamicPrimaryBackColour}">
                 <StackLayout>
                     <Label StyleClass="MediumTitleLabel" Text="{Binding PageTitleLbl}" TextColor="{DynamicResource DynamicMediumHeaderTextColour}"/>
-                    <Label Text="{Binding FNamePlaceHolder}"/>
+                    <Label Text="{Binding FNamePlaceHolder}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
                     <Entry Text="{Binding FirstName}" Keyboard="Text" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
-                    <Label Text="{Binding SNamePlaceHolder}"/>
+                    <Label Text="{Binding SNamePlaceHolder}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
                     <Entry Text="{Binding LastName}" Keyboard="Text" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
-                    <Label Text="{Binding EmailPlaceHolder}"/>
+                    <Label Text="{Binding EmailPlaceHolder}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
                     <Entry Text="{Binding Email}" Keyboard="Email" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
-                    <Label Text="{Binding PositionPlaceHolder}"/>
+                    <Label Text="{Binding PositionPlaceHolder}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
                     <Entry Text="{Binding Position}" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
                     <!--<Entry Text="{Binding ProfilePicture}" Placeholder="{Binding PasswordPlaceHolder}" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>-->
 

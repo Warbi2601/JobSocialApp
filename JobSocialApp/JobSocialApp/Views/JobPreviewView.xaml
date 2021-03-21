@@ -13,7 +13,7 @@
         <StackLayout Orientation="Vertical" >
             <Frame StyleClass="NarrowFrame" BackgroundColor="{DynamicResource DynamicPrimaryBackColour}">
                 <StackLayout>
-                    <Grid VerticalOptions="StartAndExpand" Padding="10" RowSpacing="2" ColumnSpacing="2">
+                    <Grid Padding="10" RowSpacing="2" ColumnSpacing="2">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="25" />
                             <RowDefinition Height="25" />
@@ -21,15 +21,13 @@
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="25*" />
-                            <ColumnDefinition Width="75*" />
+                            <ColumnDefinition Width="85*" />
+                            <ColumnDefinition Width="15*" />
                         </Grid.ColumnDefinitions>
-
-                        <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Source="document.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-                        <Label TextColor="{DynamicResource DynamicThemeDarkPinkColour}" Grid.Column="1" Grid.Row="0" StyleClass="GridLabelTitle" Text="{Binding JobTitle}"/>
-                        <Label TextColor="{DynamicResource DynamicPrimaryTextColor}" Grid.Column="1" Grid.Row="1" StyleClass="GridLabelSalary" Text="{Binding Salary, StringFormat='Salary: £{0:F0}'}"/>
-                        <Label TextColor="{DynamicResource DynamicPrimaryTextColor}" Grid.Column="1" Grid.Row="2" StyleClass="GridLabelLocation" Text="{Binding Location, StringFormat='Location: {0:F0}'}"/>
-                        <Label TextColor="{DynamicResource DynamicPrimaryTextColor}" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" StyleClass="GridDescriptionLabel" Text="{Binding Description}"/>
+                        <Label TextColor="{DynamicResource DynamicThemeDarkPinkColour}" Grid.Column="0" Grid.Row="0" StyleClass="GridLabelTitle" Text="{Binding JobTitle}"/>
+                        <Label TextColor="{DynamicResource DynamicPrimaryTextColor}" Grid.Column="0" Grid.Row="1" StyleClass="GridLabelSalary" Text="{Binding Salary, StringFormat='Salary: £{0:F0}'}"/>
+                        <Label TextColor="{DynamicResource DynamicPrimaryTextColor}" Grid.Column="0" Grid.Row="2" StyleClass="GridLabelLocation" Text="{Binding Location, StringFormat='Location: {0:F0}'}"/>
+                        <Label TextColor="{DynamicResource DynamicPrimaryTextColor}" Grid.Column="0" Grid.Row="3" StyleClass="GridLabelDescription" Text="{Binding Description}"/>
                     </Grid>
 
                     <!--<Label StyleClass="GridDescriptionLabel" Text="{Binding Description}" LineBreakMode="WordWrap" MaxLines="8"/>-->

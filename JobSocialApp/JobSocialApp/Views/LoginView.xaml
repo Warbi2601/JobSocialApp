@@ -13,30 +13,30 @@
 
     <StackLayout BackgroundColor="{DynamicResource DynamicPrimaryBackColour}">
         <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" BackgroundColor="{DynamicResource DynamicPrimaryBackColour}">
-        <Frame HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="300" CornerRadius="10" BorderColor="Transparent" >
-            <StackLayout>
+            <Frame BackgroundColor="{DynamicResource DynamicPrimaryBackColour}" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="300" CornerRadius="10" BorderColor="Transparent" >
+                <StackLayout>
                     <Label StyleClass="LargeTitleLabel" Text="{Binding PageTitleLbl}" TextColor="{DynamicResource DynamicBigHeaderTextColour}"/>
-                    <Label StyleClass="DarkTextColour" Text="{Binding LoginInstructionsLbl}" HorizontalTextAlignment="Center" Padding="20"/>
-                    <Label Text="{Binding EmailLbl}"/>
+                    <Label StyleClass="DarkTextColour" Text="{Binding LoginInstructionsLbl}" TextColor="{DynamicResource DynamicPrimaryTextColor}" HorizontalTextAlignment="Center" Padding="20"/>
+                    <Label Text="{Binding EmailLbl}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
                     <Entry Text="{Binding LoginEmail}" Keyboard="Email" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
-                    <Label Text="{Binding PasswordLbl}"/>
+                    <Label Text="{Binding PasswordLbl}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
                     <Entry Text="{Binding LoginPassword}" IsPassword="true" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
 
                     <Button BackgroundColor="{DynamicResource DynamicPrimaryBtnNeutralBackColour}" TextColor="{DynamicResource DynamicPrimaryBtnTextColor}" Text="{Binding SingInBtn}" Clicked="SignInClicked" Margin="0,20,0,0" CornerRadius="20"/>
-                
-                <Label HorizontalTextAlignment="Center" Padding="0, 10">
-                    <Label.FormattedText>
-                        <FormattedString>
-                                <Span Text="{Binding CreateNewAccountLbl}" TextColor="{DynamicResource DynamicThemeTextColour}">
-                                <Span.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="RegisterClicked"/>
-                                </Span.GestureRecognizers>
-                            </Span>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
 
-            </StackLayout>
+                    <Label HorizontalTextAlignment="Center" Padding="0, 10">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{Binding CreateNewAccountLbl}" TextColor="{DynamicResource DynamicThemeTextColour}">
+                                    <Span.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="RegisterClicked"/>
+                                    </Span.GestureRecognizers>
+                                </Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                </StackLayout>
             </Frame>
         </StackLayout>
     </StackLayout>

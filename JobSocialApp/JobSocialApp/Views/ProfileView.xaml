@@ -54,18 +54,14 @@
                                     <RowDefinition Height="*" />
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="25*" />
-                                    <ColumnDefinition Width="75*" />
+                                    <ColumnDefinition Width="85*" />
+                                    <ColumnDefinition Width="15*" />
                                 </Grid.ColumnDefinitions>
-
-                                    <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="4" Source="document.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-                                    <Label Grid.Column="1" Grid.Row="0" StyleClass="GridLabelTitle" Text="{Binding jobTitle}" TextColor="{DynamicResource DynamicThemeDarkPinkColour}"/>
-                                    <Label Grid.Column="1" Grid.Row="1" StyleClass="GridLabelSalary" Text="{Binding salary, StringFormat='Salary: £{0:F0}'}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
-                                    <Label Grid.Column="1" Grid.Row="2" StyleClass="GridLabelLocation" Text="{Binding location, StringFormat='Location: {0:F0}'}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
-                                    <Label Grid.Column="1" Grid.Row="3" StyleClass="GridLabelDescription" MaxLines="4" Text="{Binding description}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
-                                    <!--<Label Grid.Column="1" Grid.Row="2" FontAttributes="Bold" HorizontalOptions="Start" Text="{Binding ClosingDate}" VerticalOptions="Center"/>-->
-                                    <!--<Button Grid.Column="1" Grid.Row="1" Text="Visit"></Button>-->
-                                </Grid>
+                                <Label TextColor="{DynamicResource DynamicThemeDarkPinkColour}" Grid.Column="0" Grid.Row="0" StyleClass="GridLabelTitle" Text="{Binding jobTitle}"/>
+                                <Label TextColor="{DynamicResource DynamicPrimaryTextColor}" Grid.Column="0" Grid.Row="1" StyleClass="GridLabelSalary" Text="{Binding salary, StringFormat='Salary: £{0:F0}'}"/>
+                                <Label TextColor="{DynamicResource DynamicPrimaryTextColor}" Grid.Column="0" Grid.Row="2" StyleClass="GridLabelLocation" Text="{Binding location, StringFormat='Location: {0:F0}'}"/>
+                                <Label TextColor="{DynamicResource DynamicPrimaryTextColor}" Grid.Column="0" Grid.Row="3" StyleClass="GridLabelDescription" MaxLines="4" Text="{Binding description}"/>
+                            </Grid>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>

@@ -13,18 +13,18 @@
 
     <ScrollView BackgroundColor="{DynamicResource DynamicPrimaryBackColour}">
         <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" BackgroundColor="{DynamicResource DynamicPrimaryBackColour}">
-            <Frame HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="300" CornerRadius="10" BorderColor="Transparent">
+            <Frame BackgroundColor="{DynamicResource DynamicPrimaryBackColour}" HorizontalOptions="Center" VerticalOptions="Center" WidthRequest="300" CornerRadius="10" BorderColor="Transparent">
                 <StackLayout>
                     <Label StyleClass="LargeTitleLabel" Text="{Binding PageTitleLbl}" TextColor="{DynamicResource DynamicBigHeaderTextColour}"/>
-                    <Label Text="{Binding FNameLbl}"/>
+                    <Label Text="{Binding FNameLbl}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
                     <Entry Text="{Binding RegisterFirstName}" Keyboard="Text" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
-                    <Label Text="{Binding SNameLbl}"/>
+                    <Label Text="{Binding SNameLbl}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
                     <Entry Text="{Binding RegisterLastName}" Keyboard="Text" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
-                    <Label Text="{Binding EmailLbl}"/>
+                    <Label Text="{Binding EmailLbl}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
                     <Entry Text="{Binding RegisterEmail}" Keyboard="Email" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
-                    <Label Text="{Binding PasswordLbl}"/>
+                    <Label Text="{Binding PasswordLbl}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
                     <Entry Text="{Binding RegisterPassword1}" IsPassword="true" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
-                    <Label Text="{Binding RePasswordLbl}"/>
+                    <Label Text="{Binding RePasswordLbl}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
                     <Entry Text="{Binding RegisterPassword2}" IsPassword="true" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
 
                     <Button BackgroundColor="{DynamicResource DynamicPrimaryBtnNeutralBackColour}" TextColor="{DynamicResource DynamicPrimaryBtnTextColor}" Text="{Binding RegisterBtn}" Clicked="SignUpClicked" Margin="0,20,0,0" CornerRadius="20"/>

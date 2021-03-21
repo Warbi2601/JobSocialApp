@@ -11,15 +11,15 @@
 
     <ScrollView BackgroundColor="{DynamicResource DynamicPrimaryBackColour}">
         <StackLayout Orientation="Vertical" BackgroundColor="{DynamicResource DynamicPrimaryBackColour}" Padding="20,30">
-            <Label StyleClass="MediumTitleLabel" Text="{Binding LanguageOptionsLbl}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
-            <Label Text="{Binding ChooseLanguageLbl}"/>
+            <Label StyleClass="MediumTitleLabel" Text="{Binding LanguageOptionsLbl}" TextColor="{DynamicResource DynamicMediumHeaderTextColour}"/>
+            <Label Text="{Binding ChooseLanguageLbl}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
             <input:RadioButtonGroupView SelectedItem="{Binding SelectedLanguage}">
                 <input:RadioButton Value="en" Clicked="RadioLanguageButton_Clicked" Text="{Binding EnglishRadio}" TextColor="{DynamicResource DynamicPrimaryTextColor}" />
                 <input:RadioButton Value="pl" Clicked="RadioLanguageButton_Clicked" Text="{Binding PolishRadio}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
             </input:RadioButtonGroupView>
 
-            <Label StyleClass="MediumTitleLabel" Text="{Binding ThemeOptionsLbl}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
-            <Label Text="{Binding ChooseThemeLbl}"/>
+            <Label StyleClass="MediumTitleLabel" Text="{Binding ThemeOptionsLbl}" TextColor="{DynamicResource DynamicMediumHeaderTextColour}"/>
+            <Label Text="{Binding ChooseThemeLbl}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
             <input:RadioButtonGroupView SelectedItem="{Binding SelectedTheme}">
                 <input:RadioButton Value="light" Clicked="RadioThemeButton_Clicked" Text="{Binding LightRadio}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
                 <input:RadioButton Value="dark" Clicked="RadioThemeButton_Clicked" Text="{Binding DarkRadio}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
