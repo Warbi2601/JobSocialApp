@@ -15,7 +15,6 @@
     <PackageReference Include="MarkEmbling.PostcodesIO" Version="0.0.8" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="Plugin.CloudFirestore" Version="4.1.0" />
-    <PackageReference Include="Plugin.FacebookClient" Version="2.2.1" />
     <PackageReference Include="Xam.Plugin.Geolocator" Version="4.5.0.6" />
     <PackageReference Include="Xamarin.Forms" Version="4.8.0.1451" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
@@ -55,9 +54,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>pl.resx</DependentUpon>
     </Compile>
-    <Compile Update="StylingResourceDictionary.xaml.cs">
-      <DependentUpon>StylingResourceDictionary.xaml</DependentUpon>
-    </Compile>
     <Compile Update="Views\ProfileView.xaml.cs">
       <DependentUpon>ProfileView.xaml</DependentUpon>
     </Compile>
@@ -93,7 +89,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\AddNewJobView.xaml"></EmbeddedResource>
-    <EmbeddedResource Update="Views\EditJobView.xaml">
     <EmbeddedResource Update="Views\Cells\IncomingViewCell.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

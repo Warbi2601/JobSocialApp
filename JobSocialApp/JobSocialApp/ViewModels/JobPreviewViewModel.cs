@@ -240,6 +240,7 @@ namespace JobSocialApp.ViewModels
 
                 throw;
             }
+        }
 
         public async void MessageEmployer(INavigation navigation)
         {
