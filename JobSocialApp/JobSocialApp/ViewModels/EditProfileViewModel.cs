@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using JobSocialApp.Models;
 using JobSocialApp.Services;
+using JobSocialApp.Services.FirebaseActions;
 using JobSocialApp.Views;
 using Xamarin.Forms;
 using static JobSocialApp.Models.GlobalModels;
@@ -206,7 +207,37 @@ namespace JobSocialApp.ViewModels
 
         public async void UpdateUserDetails()
         {
-            // update observables with new values
+            try
+            {
+                AppContext context = new AppContext();
+                User user = await context.GetCurrentUser();
+
+                if (user != null)
+                {
+                    User updateUser = new User
+                    {
+                        _id = user._id,
+                        firstName = FirstName,
+                        lastName = LastName,
+                        email = Email,
+                        jobTitle = Position
+                    };
+
+                    UserActions crud = new UserActions();
+                    await crud.UpdateUser(updateUser);
+
+                    Routing.RegisterRoute("/main", typeof(AppShell));
+                    await Shell.Current.GoToAsync("////profile");
+
+
+                    //Application.Current.MainPage = new HomeView();
+                    //await Navigation.PopAsync();
+                } // else something went wrong
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
         public async Task LoadUserDetails()
