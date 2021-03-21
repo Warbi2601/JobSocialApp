@@ -1,4 +1,5 @@
-﻿using JobSocialApp.Models;
+﻿using Firebase.Storage;
+using JobSocialApp.Models;
 using JobSocialApp.Services.FirebaseActions;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,8 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace JobSocialApp.ViewModels
 {
@@ -28,7 +31,37 @@ namespace JobSocialApp.ViewModels
 
         private async void loadContacts()
         {
-            Contacts = await userCrud.GetAllUsers();
+            var dbContacts = await userCrud.GetAllUsers();
+            List<User> userList = new List<User>();
+            foreach(var user in dbContacts)
+            {              
+                userList.Add(await getUserProfilePictures(user));
+            }
+
+            Contacts = new ObservableCollection<User>(userList);
+
+        }
+
+        private async Task<User> getUserProfilePictures(User user)
+        {
+            if (user.hasProfilePic)
+            {
+                try
+                {
+                    var uri = await new FirebaseStorage("jobsocialapp-12b52.appspot.com").Child(user._id + ".jpg").GetDownloadUrlAsync();
+                    user.profilePicture = ImageSource.FromUri(new Uri(uri));
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Error retreving profile picture from Firebase Storage: " + e);
+                }
+            }
+            else
+            {
+                user.profilePicture = ImageSource.FromFile("profile.png");
+            }
+
+            return user;
         }
 
         // this should be a  list of users
@@ -43,6 +76,5 @@ namespace JobSocialApp.ViewModels
                 OnPropertyChange();
             }
         }
-       
     }
 }

@@ -33,7 +33,7 @@ namespace JobSocialApp.ViewModels
 
         private async void loadChat()
         {
-            var firstId = currentUser._id + "qwqw";
+            var firstId = selectedContact._id + currentUser._id;
             var secondId = currentUser._id + selectedContact._id;
             var chatExists1 = await crud.ChatExists(firstId);
             var chatExists2 = await crud.ChatExists(secondId);
