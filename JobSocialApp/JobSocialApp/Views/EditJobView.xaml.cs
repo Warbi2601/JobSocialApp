@@ -42,9 +42,42 @@ namespace JobSocialApp.Views
             {
                 try
                 {
-                    await editJobVM.UpdateJobAsync();
-                    await DisplayAlert("Success", "Job successfully updated", "Ok");
-                    await Navigation.PopAsync();
+                    if (string.IsNullOrEmpty(editJobVM.JobTitle))
+                    {
+                        await DisplayAlert("Error", "Job Title is empty, please add one and try again", "ok");
+                        return;
+                    }
+
+                    if (string.IsNullOrEmpty(editJobVM.Salary))
+                    {
+                        await DisplayAlert("Error", "Salary is empty, please add one and try again", "ok");
+                        return;
+                    }
+
+                    if (string.IsNullOrEmpty(editJobVM.Location))
+                    {
+                        await DisplayAlert("Error", "Location is empty, please add one and try again", "ok");
+                        return;
+                    }
+
+                    if (string.IsNullOrEmpty(editJobVM.Description))
+                    {
+                        await DisplayAlert("Error", "Description is empty, please add one and try again", "ok");
+                        return;
+                    }
+
+                    if (string.IsNullOrEmpty(editJobVM.PostCode))
+                    {
+                        await DisplayAlert("Error", "Postcode is empty, please add one and try again", "ok");
+                        return;
+                    }
+
+                    bool wasSuccessful = await editJobVM.UpdateJobAsync();
+                    if(wasSuccessful)
+                    {
+                        await DisplayAlert("Success", "Job successfully updated", "Ok");
+                        await Navigation.PopAsync();
+                    }
                 }
                 catch (Exception ex)
                 {

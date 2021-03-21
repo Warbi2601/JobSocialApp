@@ -12,16 +12,8 @@ namespace JobSocialApp.Droid.Services
     {
         public async Task<string> LoginWithEmailAndPassword(string email, string password)
         {
-            try
-            {
-                var user = await FirebaseAuth.Instance.SignInWithEmailAndPasswordAsync(email, password);
-                return user.User.Uid;
-            }
-            catch (Exception)
-            {
-
-            }
-            return null;
+            var user = await FirebaseAuth.Instance.SignInWithEmailAndPasswordAsync(email, password);
+            return user.User.Uid;
         }
 
         public async Task<string> SignUpWithEmailAndPassword(string email, string password)

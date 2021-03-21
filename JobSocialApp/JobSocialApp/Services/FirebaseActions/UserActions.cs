@@ -14,12 +14,13 @@ namespace JobSocialApp.Services.FirebaseActions
 
         public async Task<User> AddUser(User user)
         {
-            var newUser = await CrossCloudFirestore.Current
+            await CrossCloudFirestore.Current
                          .Instance
                          .Collection(collectionName)
-                         .AddAsync(user);
+                         .Document(user._id)
+                         .SetAsync(user);
 
-            var userObj = await GetUser(newUser.Id);
+            var userObj = await GetUser(user._id);
 
             return userObj;
         }

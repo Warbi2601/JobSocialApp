@@ -205,6 +205,24 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Jobs You&apos;ve Posted.
+        /// </summary>
+        public static string ProfileTitleLabelCompany {
+            get {
+                return ResourceManager.GetString("ProfileTitleLabelCompany", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Jobs You&apos;ve Applied For.
+        /// </summary>
+        public static string ProfileTitleLabelUser {
+            get {
+                return ResourceManager.GetString("ProfileTitleLabelUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Salary.
         /// </summary>
         public static string SalaryPlaceHolder {

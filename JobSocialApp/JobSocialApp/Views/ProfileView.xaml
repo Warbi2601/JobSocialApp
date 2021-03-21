@@ -47,6 +47,8 @@
                 <Label StyleClass="HeaderText" Text="TOTAL POINTS" Margin="12,-10,0,0" TextColor="{StaticResource ThemeColourDarkBlue}" FontSize="16"/>
             </StackLayout>-->
 
+                <Label StyleClass="DarkTextColour" Text="{Binding ProfileTitleLabel}" TextColor="{DynamicResource DynamicThemeTextColour}" Padding="20,0,0,0" FontSize="13" HorizontalOptions="Center"/>
+
             <ListView Grid.Row="1" ItemsSource="{Binding Jobs}" ItemTapped="ViewSelectedJobClicked" HasUnevenRows="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                 <ListView.ItemTemplate>
                     <DataTemplate>

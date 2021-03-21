@@ -1,5 +1,6 @@
 ﻿using Plugin.CloudFirestore.Attributes;
 using Xamarin.Forms;
+using System.Collections.Generic;
 
 namespace JobSocialApp.Models
 {
@@ -21,6 +22,8 @@ namespace JobSocialApp.Models
         public bool hasProfilePic { get; set; }
         
         public ImageSource profilePicture { get; set; }
+
+        public List<string> jobsAppliedFor { get; set; }
 
     }
 }

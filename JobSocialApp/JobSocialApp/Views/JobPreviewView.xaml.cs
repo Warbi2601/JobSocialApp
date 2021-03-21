@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using JobSocialApp.ViewModels;
 using JobSocialApp.Models;
+using Xamarin.Essentials;
 
 namespace JobSocialApp.Views
 {
@@ -26,7 +27,7 @@ namespace JobSocialApp.Views
             Shell.SetTabBarIsVisible(this, false);
         }
 
-        protected override void OnAppearing()
+        protected async override void OnAppearing()
         {
             jobPreviewVM = BindingContext as JobPreviewViewModel;
 
@@ -56,13 +57,19 @@ namespace JobSocialApp.Views
 
             if (jobPreviewVM != null)
             {
-                //await jobPreviewVM.AddComment();
+                if (string.IsNullOrEmpty(jobPreviewVM.NewComment))
+                {
+                    await DisplayAlert("Error", "The comment box was empty", "Ok");
+                    return;
+                }
+
+                await jobPreviewVM.AddComment();
             }
         }
 
         private async void EditCurentJob(object sender, EventArgs e)
         {
-            if(jobPreviewVM != null)
+            if (jobPreviewVM != null)
             {
                 Job jobData = new Job()
                 {
@@ -94,6 +101,12 @@ namespace JobSocialApp.Views
             {
                 try
                 {
+                    if (string.IsNullOrEmpty(jobPreviewVM.Id))
+                    {
+                        await DisplayAlert("Error", "No ID for Job", "Ok");
+                        return;
+                    }
+
                     var result = await DisplayAlert("Alert", "Do you realy want to delete the post.", "Yes", "No");
 
                     if (result)
@@ -105,9 +118,8 @@ namespace JobSocialApp.Views
                     }
 
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-
                     throw;
                 }
             }
@@ -120,6 +132,39 @@ namespace JobSocialApp.Views
             if (jobPreviewVM != null)
             {
                 jobPreviewVM.MessageEmployer(Navigation);
+            }
+        }
+
+        private async void ApplyForJob_Clicked(object sender, EventArgs e)
+        {
+            jobPreviewVM = BindingContext as JobPreviewViewModel;
+
+            if (jobPreviewVM != null)
+            {
+                try
+                {
+                    var result = await jobPreviewVM.ApplyForJob();
+
+                    if (result.Item1)
+                    {
+                        await DisplayAlert("Success", "Job successfully applied for.", "Ok");
+                    }
+                    else
+                    {
+                        await DisplayAlert("Error", result.Item2, "Ok");
+                    }
+
+                    //await Navigation.PopAsync();
+                    //await Navigation.PushAsync(new JobsHubView());
+                }
+                catch (FeatureNotSupportedException fbsEx)
+                {
+                    await DisplayAlert("Error", "Email is not supported on this device", "Ok");
+                }
+                catch (Exception ex)
+                {
+                    await DisplayAlert("Error", "An error ocured when trying to apply for the job, please try again", "Ok");
+                }
             }
         }
     }
