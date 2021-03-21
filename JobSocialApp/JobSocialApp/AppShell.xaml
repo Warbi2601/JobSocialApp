@@ -28,7 +28,7 @@
         <Tab Route="home" Title="{Binding HomeText}" Icon="home">
             <ShellContent ContentTemplate="{DataTemplate views:HomeView}"/>
         </Tab>
-        <Tab Route="messages" Title="Messages" Icon="chat">
+        <Tab Route="{Binding MessagesText}" Title="Messages" Icon="chat">
             <ShellContent ContentTemplate="{DataTemplate views:ContactView}"/>
         </Tab>
         <Tab Route="jobs" Title="{Binding JobsText}" Icon="search">

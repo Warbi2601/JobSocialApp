@@ -26,6 +26,7 @@ namespace JobSocialApp.ViewModels
                 HomeText = TranslationManager.Instance.getTranslation("HomeMenuItem");
                 JobsText = TranslationManager.Instance.getTranslation("JobsMenuItem");
                 ProfileText = TranslationManager.Instance.getTranslation("ProfileMenuItem");
+                MessagesText = TranslationManager.Instance.getTranslation("MessagesMenuItem");
             });
         }
 
@@ -44,7 +45,7 @@ namespace JobSocialApp.ViewModels
         private string homeText = TranslationManager.Instance.getTranslation("HomeMenuItem");
         private string jobsText = TranslationManager.Instance.getTranslation("JobsMenuItem");
         private string profileText = TranslationManager.Instance.getTranslation("ProfileMenuItem");
-
+        private string messagesText = TranslationManager.Instance.getTranslation("MessagesMenuItem");
         private string jobSearchText = TranslationManager.Instance.getTranslation("JobsSearchText");
 
 
@@ -126,6 +127,16 @@ namespace JobSocialApp.ViewModels
             set
             {
                 profileText = value;
+                OnPropertyChange();
+            }
+        }
+
+        public string MessageText
+        {
+            get => messagesText;
+            set
+            {
+                messagesText = value;
                 OnPropertyChange();
             }
         }
