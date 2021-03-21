@@ -28,13 +28,13 @@
             <StackLayout Orientation="Horizontal" Grid.Row="1" Padding="10" BackgroundColor="{DynamicResource DynamicPrimaryBackColour}">
                 <app:RoundedEntry 
                 Text="{ Binding SendMessageText }" 
-                TextColor="{DynamicResource DynamicPrimaryBtnTextColor}" 
-                PlaceholderColor="{DynamicResource DynamicPrimaryBtnTextColor}"
+                TextColor="{DynamicResource DynamicPrimaryTextColor}" 
+                PlaceholderColor="{DynamicResource DynamicPrimaryTextColor}"
 			    HorizontalOptions="FillAndExpand" 
 				HeightRequest="25" 
 				Placeholder="Message" 
 				/>
-                <Button Text="{Binding SendBtnText}" BackgroundColor="{DynamicResource DynamicPrimaryBtnNeutralBackColour}" StyleClass="SendMsgButton" ImageSource="send2" Clicked="SendClicked" />
+                <Button BackgroundColor="{DynamicResource DynamicPrimaryBtnNeutralBackColour}" StyleClass="SendMsgButton" ImageSource="send2" Clicked="SendClicked" />
             </StackLayout>
         </Grid>
     </ContentPage.Content>

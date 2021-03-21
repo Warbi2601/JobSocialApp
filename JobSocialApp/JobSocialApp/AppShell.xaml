@@ -19,7 +19,7 @@
         </ResourceDictionary>
     </Shell.Resources>
 
-    <MenuItem Text="{Binding JobsHubText}" x:Name="LinkJobsHub" Icon="job" Clicked="VisitJobsHubClicked" />
+    <MenuItem x:Name="JobsHub" Icon="job" Clicked="VisitJobsHubClicked" />
     <MenuItem Text="{Binding EditDetailsText}" Icon="edit" Clicked="EditProfileClicked" />
     <MenuItem Text="{Binding SettingsText}" Icon="settings" Clicked="ShowSettingsView"/>
     <MenuItem Text="{Binding SignOutText}" Icon="exit" Clicked="SignOutClicked" />

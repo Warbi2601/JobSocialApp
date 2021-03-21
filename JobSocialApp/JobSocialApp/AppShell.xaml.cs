@@ -16,12 +16,14 @@ namespace JobSocialApp
     public partial class AppShell : Shell
     {
         private Boolean showJobsHub = false;
+        private AppShellViewModel appShellVM = null;
 
         public AppShell()
         {
             InitializeComponent();
 
             BindingContext = new AppShellViewModel();
+            appShellVM = BindingContext as AppShellViewModel;
 
             var authService = DependencyService.Resolve<IFirebaseAuthenticator>();
 
@@ -37,17 +39,17 @@ namespace JobSocialApp
                 Task.Run(async () => await Shell.Current.GoToAsync("///home"));
             }
 
-            MessagingCenter.Subscribe<object, bool>(this, "HideJobsHub", (sender, isCompany) => {
+            MessagingCenter.Subscribe<object, bool>(this, "IsCompany", (sender, isCompany) => {
                 showJobsHub = isCompany;
 
-                //if (showJobsHub)
-                //{
-                //    JobsHub.SetBinding(MenuItem.TextProperty, appShellVM.JobsHubText);
-                //}
-                //else
-                //{
-                //    JobsHub.SetBinding(MenuItem.TextProperty, appShellVM.JobSearchText);
-                //}
+                if (showJobsHub)
+                {
+                    JobsHub.Text = appShellVM.JobsHubText;
+                }
+                else
+                {
+                    JobsHub.Text = appShellVM.JobSearchText;
+                }
             });
         }
 

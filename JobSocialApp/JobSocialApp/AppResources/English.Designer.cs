@@ -250,6 +250,15 @@ namespace JobSocialApp.AppResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Jobs Search.
+        /// </summary>
+        public static string JobsSearchText {
+            get {
+                return ResourceManager.GetString("JobsSearchText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Job Title.
         /// </summary>
         public static string JobTitlePlaceHolder {

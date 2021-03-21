@@ -19,6 +19,7 @@ namespace JobSocialApp.ViewModels
             {
 
                 JobsHubText = TranslationManager.Instance.getTranslation("JobsHubMenuItem");
+                JobSearchText = TranslationManager.Instance.getTranslation("JobsSearchText");
                 EditDetailsText = TranslationManager.Instance.getTranslation("EditDetailsMenuItem");
                 SettingsText = TranslationManager.Instance.getTranslation("SettingsMenuItem");
                 SignOutText = TranslationManager.Instance.getTranslation("SignOutMenuItem");
@@ -44,6 +45,8 @@ namespace JobSocialApp.ViewModels
         private string jobsText = TranslationManager.Instance.getTranslation("JobsMenuItem");
         private string profileText = TranslationManager.Instance.getTranslation("ProfileMenuItem");
 
+        private string jobSearchText = TranslationManager.Instance.getTranslation("JobsSearchText");
+
 
         #endregion
 
@@ -54,6 +57,16 @@ namespace JobSocialApp.ViewModels
             set
             {
                 jobsHubText = value;
+                OnPropertyChange();
+            }
+        }
+
+        public string JobSearchText
+        {
+            get => jobSearchText;
+            set
+            {
+                jobSearchText = value;
                 OnPropertyChange();
             }
         }
