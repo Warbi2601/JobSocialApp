@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using JobSocialApp.Services.FirebaseActions;
 using JobSocialApp.Services;
 using JobSocialApp.Views;
+using JobSocialApp.Models;
 using JobSocialApp;
 using Xamarin.Forms;
 using static JobSocialApp.Models.GlobalModels;
@@ -47,6 +48,15 @@ namespace JobSocialApp.ViewModels
         private String registerPassword1 = "";
         private String registerPassword2 = "";
 
+        private String registerJobTitle = "";
+
+        private bool isCompany = false;
+        private String companyName = "";
+        private String companyEmail = "";
+        private String companyWebsite = "";
+        private String companyPhone = "";
+
+
         private DateTime registerdateOfBirth = DateTime.Now;
 
         // Elements - for language
@@ -58,6 +68,12 @@ namespace JobSocialApp.ViewModels
         private String rePasswordLbl = TranslationManager.Instance.getTranslation("RePasswordPlaceholder");
         private String registerBtn = TranslationManager.Instance.getTranslation("RegisterButton");
         private String loginLbl = TranslationManager.Instance.getTranslation("LoginAccountInfo");
+
+        private String isCompanyLbl = "Company?";
+        private String companyNameLbl = "Company Name";
+        private String companyEmailLbl = "Company Email";
+        private String companyWebsiteLbl = "Company Website";
+        private String companyPhoneLbl = "Company Phone Number";
 
         #endregion
 
@@ -115,6 +131,66 @@ namespace JobSocialApp.ViewModels
             }
         }
 
+        public String RegisterJobTitle
+        {
+            get => registerJobTitle;
+            set
+            {
+                registerJobTitle = value;
+                OnPropertyChange();
+            }
+        }
+
+        public bool IsCompany
+        {
+            get => isCompany;
+            set
+            {
+                isCompany = value;
+                OnPropertyChange();
+            }
+        }
+
+        public String CompanyName
+        {
+            get => companyName;
+            set
+            {
+                companyName = value;
+                OnPropertyChange();
+            }
+        }
+
+        public String CompanyEmail
+        {
+            get => companyEmail;
+            set
+            {
+                companyEmail = value;
+                OnPropertyChange();
+            }
+        }
+
+        public String CompanyWebsite
+        {
+            get => companyWebsite;
+            set
+            {
+                companyWebsite = value;
+                OnPropertyChange();
+            }
+        }
+
+        public String CompanyPhone
+        {
+            get => companyPhone;
+            set
+            {
+                companyPhone = value;
+                OnPropertyChange();
+            }
+        }
+
         #endregion
 
         #region Public elements - for language
@@ -168,13 +244,73 @@ namespace JobSocialApp.ViewModels
                 OnPropertyChange();
             }
         }
-        
+
         public String RePasswordLbl
         {
             get => rePasswordLbl;
             set
             {
                 rePasswordLbl = value;
+                OnPropertyChange();
+            }
+        }
+
+        public String JobTitleLbl
+        {
+            get => jobTitleLbl;
+            set
+            {
+                jobTitleLbl = value;
+                OnPropertyChange();
+            }
+        }
+
+        public String IsCompanyLbl
+        {
+            get => isCompanyLbl;
+            set
+            {
+                isCompanyLbl = value;
+                OnPropertyChange();
+            }
+        }
+
+        public String CompanyNameLbl
+        {
+            get => companyNameLbl;
+            set
+            {
+                companyNameLbl = value;
+                OnPropertyChange();
+            }
+        }
+
+        public String CompanyEmailLbl
+        {
+            get => companyEmailLbl;
+            set
+            {
+                companyEmailLbl = value;
+                OnPropertyChange();
+            }
+        }
+
+        public String CompanyWebsiteLbl
+        {
+            get => companyWebsiteLbl;
+            set
+            {
+                companyWebsiteLbl = value;
+                OnPropertyChange();
+            }
+        }
+
+        public String CompanyPhoneLbl
+        {
+            get => companyPhoneLbl;
+            set
+            {
+                companyPhoneLbl = value;
                 OnPropertyChange();
             }
         }
@@ -199,6 +335,7 @@ namespace JobSocialApp.ViewModels
             }
         }
 
+
         #endregion
 
         #endregion
@@ -207,32 +344,55 @@ namespace JobSocialApp.ViewModels
 
         public async Task<ToClientRegisterObject> SignInProcedure()
         {
-            //ToClientRegisterObject toClient = new ToClientRegisterObject();
+            //check email is valid
+            if (!IsValidEmail(RegisterEmail))
+            {
+                return new ToClientRegisterObject
+                {
+                    ButtonText = "Ok",
+                    IsSuccessful = false,
+                    MessageBody = "Email isn't a valid email",
+                    MessageHeader = "Error"
+                };
+            }
 
-            // need to add validation and exception catches // crashes under certain circumstances (password less than 6)
-            // need to check if password 1 matches password 2
             try
             {
                 var email = RegisterEmail;
                 var password = RegisterPassword1;
+
+                //Sign them up on firebase
                 var uid = await DependencyService.Get<IFirebaseAuthenticator>().SignUpWithEmailAndPassword(email, password);
 
                 if (uid != string.Empty)
                 {
-                    Models.User user = new Models.User
+                    //if the user is signing up as a company, create that object
+                    Company company = IsCompany ? company = new Company
+                    {
+                        email = CompanyEmail,
+                        name = CompanyName,
+                        phone = CompanyPhone,
+                        website = CompanyWebsite
+                    } : null;
+
+                    User user = new User
                     {
                         _id = uid,
                         firstName = RegisterFirstName,
                         lastName = RegisterLastName,
                         email = RegisterEmail,
+                        jobTitle = RegisterJobTitle,
+                        company = company
                     };
 
+                    //add them to our users collection
                     UserActions crud = new UserActions();
                     var newUser = await crud.AddUser(user);
 
+                    //redirect to main app
                     Routing.RegisterRoute("/main", typeof(AppShell));
                     await Shell.Current.GoToAsync("////home");
-                    
+
                     //Application.Current.MainPage = new HomeView();
                     //await Navigation.PopAsync();
                 } // else something went wrong
@@ -246,7 +406,6 @@ namespace JobSocialApp.ViewModels
             return null;
             //return toClient;
         }
-
 
         private bool IsValidEmail(string email)
         {
