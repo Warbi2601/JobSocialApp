@@ -22,8 +22,8 @@
                         <ViewCell>
                             <Grid Padding="10" RowSpacing="2" ColumnSpacing="2">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="65" />
-                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="30" />
+                                    <RowDefinition Height="30" />
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="25*" />
@@ -39,14 +39,15 @@
                                     Grid.Column="0" Grid.Row="0">
                                     <Image Source="{Binding profilePicture}" WidthRequest="50" HeightRequest="50"/>
                                     </Frame>-->
-
-                                <Frame x:Name="Picture" CornerRadius="50" HorizontalOptions="Center" WidthRequest="55" HeightRequest="55" VerticalOptions="Center" BorderColor="{DynamicResource DynamicThemeBorderColour}" BackgroundColor="{DynamicResource DynamicMediumHeaderTextColour}" Padding="4">
+                                <StackLayout Grid.Row="0" Grid.Column="0" Grid.RowSpan="2">
+                                    <Frame x:Name="Picture" CornerRadius="50" HorizontalOptions="Center" WidthRequest="55" HeightRequest="55" VerticalOptions="Center" BorderColor="{DynamicResource DynamicThemeBorderColour}" BackgroundColor="{DynamicResource DynamicMediumHeaderTextColour}" Padding="4">
                                     <Frame x:Name="Border" CornerRadius="50" HorizontalOptions="Center" Padding="-3" WidthRequest="60" HeightRequest="60" >
                                         <Image x:Name="profileImage" Source="{Binding profilePicture}" Aspect="AspectFill" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1"/>
                                     </Frame>
                                 </Frame>
-
-                                <Label TextColor="{DynamicResource DynamicThemeTextColour}" Grid.Column="1" StyleClass="LargeLabel" VerticalOptions="CenterAndExpand" LineBreakMode="TailTruncation">
+                                </StackLayout>
+                                
+                                <Label TextColor="{DynamicResource DynamicThemeTextColour}" Grid.Column="1" Grid.Row="0" StyleClass="LargeLabel" VerticalOptions="CenterAndExpand" LineBreakMode="TailTruncation">
                                     <Label.FormattedText>
                                         <FormattedString>
                                             <Span Text="{Binding firstName}"/>
