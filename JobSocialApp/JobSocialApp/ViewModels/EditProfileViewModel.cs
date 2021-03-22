@@ -218,7 +218,6 @@ namespace JobSocialApp.ViewModels
             User = await context.GetCurrentUser();
             FirstName = User.firstName;
             LastName = User.lastName;
-            Email = User.email;
             Position = User.jobTitle;
         }
 

@@ -43,21 +43,8 @@
                         <app:RoundedEntry Text="{Binding CompanyPhone}" Keyboard="Text" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
                     </StackLayout>
 
-
-
                     <Button BackgroundColor="{DynamicResource DynamicPrimaryBtnNeutralBackColour}" TextColor="{DynamicResource DynamicPrimaryBtnTextColor}" Text="{Binding RegisterBtn}" Clicked="SignUpClicked" Margin="0,20,0,0" CornerRadius="20"/>
-
-                    <Label HorizontalTextAlignment="Center" Padding="20, 20">
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <Span Text="{Binding LoginLbl}" TextColor="{DynamicResource DynamicThemeTextColour}">
-                                    <Span.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="LoginClicked"/>
-                                    </Span.GestureRecognizers>
-                                </Span>
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
+                    <Button BackgroundColor="{DynamicResource DynamicPrimaryBtnNeutralBackColour}" TextColor="{DynamicResource DynamicPrimaryBtnTextColor}" Text="{Binding LoginLbl}" Clicked="LoginClicked" Margin="0,20,0,0" CornerRadius="20"/>
 
                 </StackLayout>
             </Frame>

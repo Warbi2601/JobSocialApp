@@ -29,7 +29,7 @@ namespace JobSocialApp.ViewModels
                 PasswordLbl = TranslationManager.Instance.getTranslation("PasswordPlaceholder");
                 RePasswordLbl = TranslationManager.Instance.getTranslation("RePasswordPlaceholder");
                 RegisterBtn = TranslationManager.Instance.getTranslation("RegisterButton");
-                LoginLbl = TranslationManager.Instance.getTranslation("LoginAccountInfo");
+                LoginLbl = TranslationManager.Instance.getTranslation("SignInButton");
             });
         }
 
@@ -68,7 +68,7 @@ namespace JobSocialApp.ViewModels
         private String rePasswordLbl = TranslationManager.Instance.getTranslation("RePasswordPlaceholder");
         private String jobTitleLbl = TranslationManager.Instance.getTranslation("JobTitlePlaceholder");
         private String registerBtn = TranslationManager.Instance.getTranslation("RegisterButton");
-        private String loginLbl = TranslationManager.Instance.getTranslation("LoginAccountInfo");
+        private String loginLbl = TranslationManager.Instance.getTranslation("SignInButton");
 
         private String isCompanyLbl = "Company?";
         private String companyNameLbl = "Company Name";

@@ -25,7 +25,7 @@ namespace JobSocialApp.ViewModels
                 EmailLbl = TranslationManager.Instance.getTranslation("EmailPlaceholder");
                 PasswordLbl = TranslationManager.Instance.getTranslation("PasswordPlaceholder");
                 SignInBtn = TranslationManager.Instance.getTranslation("SignInButton");
-                CreateNewAccountLbl = TranslationManager.Instance.getTranslation("RegisterAccountInfo");
+                CreateNewAccountLbl = TranslationManager.Instance.getTranslation("RegisterButton");
             });
         }
 
@@ -48,7 +48,7 @@ namespace JobSocialApp.ViewModels
         private String emailLbl = TranslationManager.Instance.getTranslation("EmailPlaceholder");
         private String passwordLbl = TranslationManager.Instance.getTranslation("PasswordPlaceholder");
         private String signInBtn = TranslationManager.Instance.getTranslation("SignInButton");
-        private String createNewAccountLbl = TranslationManager.Instance.getTranslation("RegisterAccountInfo");
+        private String createNewAccountLbl = TranslationManager.Instance.getTranslation("RegisterButton");
 
         #endregion
 
