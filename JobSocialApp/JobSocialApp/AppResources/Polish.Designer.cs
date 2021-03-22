@@ -261,9 +261,9 @@ namespace JobSocialApp.AppResources {
         /// <summary>
         ///   Looks up a localized string similar to Tytuł stanowiska.
         /// </summary>
-        public static string JobTitlePlaceHolder {
+        public static string JobTitlePlaceholder {
             get {
-                return ResourceManager.GetString("JobTitlePlaceHolder", resourceCulture);
+                return ResourceManager.GetString("JobTitlePlaceholder", resourceCulture);
             }
         }
         

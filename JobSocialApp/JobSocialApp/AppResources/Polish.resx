@@ -183,7 +183,7 @@
   <data name="JobsSearchText" xml:space="preserve">
     <value>Wyszukiwarka pracy</value>
   </data>
-  <data name="JobTitlePlaceHolder" xml:space="preserve">
+  <data name="JobTitlePlaceholder" xml:space="preserve">
     <value>Tytuł stanowiska</value>
   </data>
   <data name="KeywordPlaceholder" xml:space="preserve">
