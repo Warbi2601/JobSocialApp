@@ -15,18 +15,6 @@ namespace JobSocialApp.ViewModels
  
         public AppShellViewModel()
         {
-            MessagingCenter.Subscribe<TranslationManager>(this, "langChanged", (w) =>
-            {
-                JobsHubText = TranslationManager.Instance.getTranslation("JobsHubMenuItem");
-                JobSearchText = TranslationManager.Instance.getTranslation("JobsSearchText");
-                EditDetailsText = TranslationManager.Instance.getTranslation("EditDetailsMenuItem");
-                SettingsText = TranslationManager.Instance.getTranslation("SettingsMenuItem");
-                SignOutText = TranslationManager.Instance.getTranslation("SignOutMenuItem");
-                HomeText = TranslationManager.Instance.getTranslation("HomeMenuItem");
-                JobsText = TranslationManager.Instance.getTranslation("JobsMenuItem");
-                ProfileText = TranslationManager.Instance.getTranslation("ProfileMenuItem");
-                MessageText = TranslationManager.Instance.getTranslation("MessagesMenuItem");
-            });
         }
 
         private void OnPropertyChange([CallerMemberName] String propertyName = "")
