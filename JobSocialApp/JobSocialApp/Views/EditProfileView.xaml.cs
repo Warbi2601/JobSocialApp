@@ -30,12 +30,30 @@ namespace JobSocialApp.Views
         }
 
 
-        private void UpdateDetails(object sender, EventArgs e)
+        private async void UpdateDetails(object sender, EventArgs e)
         {
             editProfileVM = BindingContext as EditProfileViewModel;
 
             if (editProfileVM != null)
             {
+                if(string.IsNullOrEmpty(editProfileVM.FirstName))
+                {
+                    await DisplayAlert("Error", "First Name is required", "Ok");
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(editProfileVM.LastName))
+                {
+                    await DisplayAlert("Error", "Last Name is required", "Ok");
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(editProfileVM.Position))
+                {
+                    await DisplayAlert("Error", "Job Title is required", "Ok");
+                    return;
+                }
+
                 editProfileVM.UpdateUserDetails();
             }
         }
