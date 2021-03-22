@@ -47,7 +47,7 @@
 
                     <Button BackgroundColor="{DynamicResource DynamicPrimaryBtnNeutralBackColour}" TextColor="{DynamicResource DynamicPrimaryBtnTextColor}" Text="{Binding RegisterBtn}" Clicked="SignUpClicked" Margin="0,20,0,0" CornerRadius="20"/>
 
-                    <Label HorizontalTextAlignment="Center" Padding="0, 10">
+                    <Label HorizontalTextAlignment="Center" Padding="20, 20">
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Text="{Binding LoginLbl}" TextColor="{DynamicResource DynamicThemeTextColour}">

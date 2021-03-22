@@ -28,7 +28,6 @@ namespace JobSocialApp.ViewModels
 
         private String firstName = "";
         private String lastName = "";
-        private String email = "";
         private String position = "";
         private String profilePicture = "";
         private User user = null;
@@ -39,7 +38,6 @@ namespace JobSocialApp.ViewModels
         private String pageTitleLbl = TranslationManager.Instance.getTranslation("EditProfileTitle");
         private String fNamePlaceHolder = TranslationManager.Instance.getTranslation("FirstNamePlaceholder");
         private String sNamePlaceHolder = TranslationManager.Instance.getTranslation("LastNamePlaceholder");
-        private String emailPlaceHolder = TranslationManager.Instance.getTranslation("EmailPlaceholder");
         private String positionPlaceHolder = TranslationManager.Instance.getTranslation("PositionPlaceholder");
         private String passwordPlaceHolder = TranslationManager.Instance.getTranslation("PasswordPlaceholder");
 
@@ -64,16 +62,6 @@ namespace JobSocialApp.ViewModels
             set
             {
                 lastName = value;
-                OnPropertyChange();
-            }
-        }
-        
-        public String Email
-        {
-            get => email;
-            set
-            {
-                email = value;
                 OnPropertyChange();
             }
         }
@@ -152,16 +140,6 @@ namespace JobSocialApp.ViewModels
             }
         }
 
-        public String EmailPlaceHolder
-        {
-            get => emailPlaceHolder;
-            set
-            {
-                emailPlaceHolder = value;
-                OnPropertyChange();
-            }
-        }
-
         public String PositionPlaceHolder
         {
             get => positionPlaceHolder;
@@ -197,7 +175,6 @@ namespace JobSocialApp.ViewModels
                 pageTitleLbl = TranslationManager.Instance.getTranslation("EditProfileTitle");
                 fNamePlaceHolder = TranslationManager.Instance.getTranslation("FirstNamePlaceholder");
                 sNamePlaceHolder = TranslationManager.Instance.getTranslation("LastNamePlaceholder");
-                emailPlaceHolder = TranslationManager.Instance.getTranslation("EmailPlaceholder");
                 positionPlaceHolder = TranslationManager.Instance.getTranslation("PositionPlaceholder");
                 passwordPlaceHolder = TranslationManager.Instance.getTranslation("PasswordPlaceholder");
             });
@@ -216,7 +193,6 @@ namespace JobSocialApp.ViewModels
                 {
                     user.firstName = FirstName;
                     user.lastName = LastName;
-                    user.email = Email;
                     user.jobTitle = Position;
 
                     UserActions crud = new UserActions();

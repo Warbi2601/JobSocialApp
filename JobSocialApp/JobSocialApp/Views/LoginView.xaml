@@ -24,7 +24,7 @@
 
                     <Button BackgroundColor="{DynamicResource DynamicPrimaryBtnNeutralBackColour}" TextColor="{DynamicResource DynamicPrimaryBtnTextColor}" Text="{Binding SignInBtn}" Clicked="SignInClicked" Margin="0,20,0,0" CornerRadius="20"/>
 
-                    <Label HorizontalTextAlignment="Center" Padding="0, 10">
+                    <Label HorizontalTextAlignment="Center" Padding="20, 20">
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Text="{Binding CreateNewAccountLbl}" TextColor="{DynamicResource DynamicThemeTextColour}">

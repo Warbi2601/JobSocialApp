@@ -20,8 +20,8 @@
                     <app:RoundedEntry Text="{Binding FirstName}" Keyboard="Text" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
                     <Label Text="{Binding SNamePlaceHolder}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
                     <app:RoundedEntry Text="{Binding LastName}" Keyboard="Text" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
-                    <Label Text="{Binding EmailPlaceHolder}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
-                    <app:RoundedEntry Text="{Binding Email}" Keyboard="Email" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
+                    <!--<Label Text="{Binding EmailPlaceHolder}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
+                    <app:RoundedEntry Text="{Binding Email}" Keyboard="Email" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>-->
                     <Label Text="{Binding PositionPlaceHolder}" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
                     <app:RoundedEntry Text="{Binding Position}" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>
                     <!--<app:RoundedEntry Text="{Binding ProfilePicture}" Placeholder="{Binding PasswordPlaceHolder}" HorizontalTextAlignment="Center" TextColor="{DynamicResource DynamicPrimaryTextColor}"/>-->
