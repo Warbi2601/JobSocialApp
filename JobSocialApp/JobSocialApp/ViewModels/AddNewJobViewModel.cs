@@ -34,7 +34,7 @@ namespace JobSocialApp.ViewModels
 
         // Elements - for language
         private String viewHeading = TranslationManager.Instance.getTranslation("CreateNewOpp");
-        private String jobTitlePlaceHolder = TranslationManager.Instance.getTranslation("JobTitlePlaceHolder");
+        private String jobTitlePlaceHolder = TranslationManager.Instance.getTranslation("JobTitlePlaceholder");
         private String salaryPlaceHolder = TranslationManager.Instance.getTranslation("SalaryPlaceHolder");
         private String locationPlaceHolder = TranslationManager.Instance.getTranslation("LocationPlaceHolder");
         private String descriptionPlaceHolder = TranslationManager.Instance.getTranslation("JobDescriptionPlaceHolder");
