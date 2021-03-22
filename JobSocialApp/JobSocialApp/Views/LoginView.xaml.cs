@@ -45,11 +45,13 @@ namespace JobSocialApp.Views
                 if(string.IsNullOrEmpty(loginVM.LoginEmail))
                 {
                     await DisplayAlert("Error", "Email required", "Ok");
+                    return;
                 }
 
                 if (string.IsNullOrEmpty(loginVM.LoginPassword))
                 {
                     await DisplayAlert("Error", "Password required", "Ok");
+                    return;
                 }
 
                 ToClientLoginObject message = await loginVM.SignInProcedure();
