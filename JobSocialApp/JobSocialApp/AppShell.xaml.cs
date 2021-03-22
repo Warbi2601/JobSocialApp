@@ -36,13 +36,12 @@ namespace JobSocialApp
             }
             else
             {
-                var uid = authService.GetCurrentUserUID();
+                CheckUserIsCompany();
                 Task.Run(async () => await Shell.Current.GoToAsync("///profile"));
             }
 
-            //CheckUserIsCompany();           
-
-            MessagingCenter.Subscribe<object, bool>(this, "IsCompany", (sender, isCompany) => {
+            MessagingCenter.Subscribe<object, bool>(this, "IsCompany", (sender, isCompany) =>
+            {
                 showJobsHub = isCompany;
 
                 if (showJobsHub)
@@ -60,14 +59,17 @@ namespace JobSocialApp
         {
             AppContext context = new AppContext();
             User user = await context.GetCurrentUser();
-            showJobsHub = user.company != null;
-            if(showJobsHub)
+            if (user != null)
             {
-                appShellVM.JobsMenuText = appShellVM.JobsHubText;
-            }
-            else
-            {
-                appShellVM.JobsMenuText = appShellVM.JobSearchText;
+                showJobsHub = user.company != null;
+                if (showJobsHub)
+                {
+                    appShellVM.JobsMenuText = appShellVM.JobsHubText;
+                }
+                else
+                {
+                    appShellVM.JobsMenuText = appShellVM.JobSearchText;
+                }
             }
         }
 
