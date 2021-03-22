@@ -17,7 +17,6 @@ namespace JobSocialApp.ViewModels
         {
             MessagingCenter.Subscribe<TranslationManager>(this, "langChanged", (w) =>
             {
-
                 JobsHubText = TranslationManager.Instance.getTranslation("JobsHubMenuItem");
                 JobSearchText = TranslationManager.Instance.getTranslation("JobsSearchText");
                 EditDetailsText = TranslationManager.Instance.getTranslation("EditDetailsMenuItem");

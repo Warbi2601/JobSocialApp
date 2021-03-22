@@ -26,10 +26,10 @@ namespace JobSocialApp.ViewModels
 
         public ContactViewModel()
         {
-            loadContacts();
+            //loadContacts();
         }
 
-        private async void loadContacts()
+        public async void loadContacts()
         {
             AppContext context = new AppContext();
             var currentUser = await context.GetCurrentUser();

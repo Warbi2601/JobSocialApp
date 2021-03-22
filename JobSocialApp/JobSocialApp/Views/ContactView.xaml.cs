@@ -24,6 +24,17 @@ namespace JobSocialApp.Views
             contactVM = BindingContext as ContactViewModel;
         }
 
+        protected async override void OnAppearing()
+        {
+            contactVM = BindingContext as ContactViewModel;
+
+            if (contactVM != null)
+            {
+                contactVM.loadContacts();
+                //contactVM.PopulateJobVMData(jobObj);
+            }
+        }
+
         private async void StartChatClicked(object sender, ItemTappedEventArgs e)
         {
             var selectedUser = e.Item as User;
