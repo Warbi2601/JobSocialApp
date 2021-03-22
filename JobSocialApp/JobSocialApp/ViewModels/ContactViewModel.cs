@@ -26,7 +26,6 @@ namespace JobSocialApp.ViewModels
 
         public ContactViewModel()
         {
-            //loadContacts();
         }
 
         public async void loadContacts()

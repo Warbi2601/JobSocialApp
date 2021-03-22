@@ -33,7 +33,15 @@ namespace JobSocialApp.Views
 
             if (jobPreviewVM != null)
             {
-                jobPreviewVM.PopulateJobVMData(jobObj);
+                try
+                {
+                    jobObj = await jobPreviewVM.GetJobFromDb(jobObj);
+                    jobPreviewVM.PopulateJobVMData(jobObj);
+                }
+                catch(Exception ex)
+                {
+
+                }
             }
         }
 

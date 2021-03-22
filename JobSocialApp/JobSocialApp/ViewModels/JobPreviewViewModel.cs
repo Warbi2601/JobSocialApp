@@ -440,6 +440,11 @@ namespace JobSocialApp.ViewModels
             }
         }
 
+        public async Task<Job> GetJobFromDb(Job jobObj)
+        {
+            JobActions crud = new JobActions();
+            return await crud.GetJob(jobObj._id);
+        }
         public async Task<Tuple<bool, string>> ApplyForJob()
         {
             AppContext context = new AppContext();
