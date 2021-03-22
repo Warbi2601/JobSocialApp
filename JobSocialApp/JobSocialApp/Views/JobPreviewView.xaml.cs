@@ -127,7 +127,7 @@ namespace JobSocialApp.Views
                         return;
                     }
 
-                    var result = await DisplayAlert("Alert", "Do you realy want to delete the post.", "Yes", "No");
+                    var result = await DisplayAlert("Alert", "Do you really want to delete the post.", "Yes", "No");
 
                     if (result)
                     {
